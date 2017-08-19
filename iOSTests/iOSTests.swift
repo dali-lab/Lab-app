@@ -1,15 +1,15 @@
 //
-//  DALI_LabTests.swift
-//  DALI LabTests
+//  iOSTests.swift
+//  iOSTests
 //
 //  Created by John Kotz on 8/18/17.
 //  Copyright © 2017 BrunchLabs. All rights reserved.
 //
 
 import XCTest
-@testable import DALI_Lab
+@testable import iOS
 
-class DALI_LabTests: XCTestCase {
+class iOSTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

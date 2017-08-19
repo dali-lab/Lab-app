@@ -1,6 +1,6 @@
 //
-//  DALI_LabUITests.swift
-//  DALI LabUITests
+//  tvOSUITests.swift
+//  tvOSUITests
 //
 //  Created by John Kotz on 8/18/17.
 //  Copyright © 2017 BrunchLabs. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class DALI_LabUITests: XCTestCase {
+class tvOSUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

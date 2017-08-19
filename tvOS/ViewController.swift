@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  DALI Lab
+//  tvOS
 //
 //  Created by John Kotz on 8/18/17.
 //  Copyright © 2017 BrunchLabs. All rights reserved.
