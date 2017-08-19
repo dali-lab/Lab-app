@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>tim</key>
+	<string>tim@dali.dartmouth.edu</string>
+	<key>admins</key>
+	<array>
+		<string>john.kotz@dali.dartmouth.edu</string>
+		<string>tim@dali.dartmouth.edu</string>
+		<string>theo@dali.dartmouth.edu</string>
+		<string>erica@dali.dartmouth.edu</string>
+	</array>
+	<key>secure-keys</key>
+	<dict>
+		<key>dali-app-server</key>
+		<string>072f0b9771d0bd26cf8345bdcaddb82dcb936485c8231dde3568039512d0f16bf364145ee48b5254</string>
+		<key>dali-api</key>
+		<string>e1b2b67e364a7f00b75705964a0eb01504faff5a5f9cc32e8545eec06639a2209bcae1b930b0ea7af3e65910faaf48f503fc</string>
+	</dict>
+</dict>
+</plist>

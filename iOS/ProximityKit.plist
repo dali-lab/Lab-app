@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<!--
+	Download this file to 'ProximityKit.plist' in your project folder, then drag it into Xcode to configure the library.
+-->
+<dict>
+	<key>PKKitName</key>
+	<string>DALI Lab</string>
+	<key>PKUserIdentifier</key>
+	<string>9252</string>
+	<key>PKUserEmail</key>
+	<string>john.kotz@dali.dartmouth.edu</string>
+	<key>PKGlobalUserIdentifier</key>
+	<string>13660</string>
+	<key>PKAPIToken</key>
+	<string>753b54a6bf172823b68c10c9966c4d6da40ff85f57ef65ad0e155fcb40d0ccb2</string>
+	<key>PKKitURL</key>
+	<string>https://proximitykit.radiusnetworks.com/api/kits/9339</string>
+</dict>
+</plist>

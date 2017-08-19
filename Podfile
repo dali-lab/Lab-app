@@ -7,6 +7,7 @@ target 'iOS' do
   pod 'Google/SignIn'
   pod 'ProximityKit', '~> 1.2'
   pod 'SCLAlertView'
+  pod 'Crashlytics'
   pod 'DALI'
 
   # Pods for DALI Lab

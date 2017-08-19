@@ -1,4 +1,39 @@
 {
+  "stickers" : [
+    {
+      "filename" : "DALI_drawn.sticker"
+    },
+    {
+      "filename" : "DALI_D's.sticker"
+    },
+    {
+      "filename" : "Llama Birthday.sticker"
+    },
+    {
+      "filename" : "70s Llama.sticker"
+    },
+    {
+      "filename" : "Baby llama.sticker"
+    },
+    {
+      "filename" : "Baby llama background.sticker"
+    },
+    {
+      "filename" : "Mustache Orange.sticker"
+    },
+    {
+      "filename" : "Purple Llama Gray.sticker"
+    },
+    {
+      "filename" : "Dali Hoodie Llama.sticker"
+    },
+    {
+      "filename" : "DALI_orange.sticker"
+    },
+    {
+      "filename" : "DALI_blue.sticker"
+    }
+  ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
