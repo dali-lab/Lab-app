@@ -15,7 +15,7 @@ import DALI
 import OneSignal
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubscriptionObserver {
 	static var shared: AppDelegate!
 	
 	var window: UIWindow?
@@ -29,9 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
-		let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
 		OneSignal.initWithLaunchOptions(launchOptions, appId: "6799d21a-debe-4ec8-b6f0-99c72cac170d")
 		OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
+		OneSignal.add(self as OSSubscriptionObserver)
 		
 		
 		UIApplication.shared.statusBarStyle = .lightContent
@@ -56,6 +56,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 		GIDSignIn.sharedInstance().signInSilently()
 		
 		return true
+	}
+	
+	func onOSSubscriptionChanged(_ stateChanges: OSSubscriptionStateChanges!) {
+		if !stateChanges.from.subscribed && stateChanges.to.subscribed {
+			print("Subscribed for OneSignal push notifications!")
+		}
+		print("SubscriptionStateChange: \n\(stateChanges)")
+		
+		//The player id is inside stateChanges. But be careful, this value can be nil if the user has not granted you permission to send notifications.
+		if let playerId = stateChanges.to.userId {
+			DALIMember
+		}
 	}
 	
 	func askForNotifications(callback: @escaping (_ success: Bool) -> Void) {
@@ -144,6 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				
 				OneSignal.promptForPushNotifications(userResponse: { accepted in
 					print("User accepted notifications: \(accepted)")
+					OneSignal.
 				})
 			}
 		}
