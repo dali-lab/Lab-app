@@ -1,7 +1,7 @@
 PODS:
   - Crashlytics (3.8.5):
     - Fabric (~> 1.6.3)
-  - DALI (0.2.965):
+  - DALI (0.2.966):
     - SwiftyJSON
   - Fabric (1.6.12)
   - FirebaseAnalytics (3.9.0):
@@ -54,7 +54,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Crashlytics: dfbae35ef22ca189240d230ad501feea4ee85d2d
-  DALI: e2df384b234c1840d747a4cc1526e69864f8a7eb
+  DALI: c8b5af0889b45cdde3355eaff90839cddd58a072
   Fabric: f050464eac45a2ce5a8e6e6a07e977c0df32fe28
   FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
