@@ -17,6 +17,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	@IBOutlet weak var internalView: UIView!
 	@IBOutlet weak var locationLabel: UILabel!
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var votingButton: UIButton!
 	
 	var viewShown = false
 	var loginTransformAnimationDone: Bool!
@@ -33,9 +34,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		self.updateData()
 		(UIApplication.shared.delegate as! AppDelegate).mainViewController = self
 		
-		CalendarController()
+		let _ = CalendarController()
 		
 		tableView.estimatedRowHeight = 140
+		
+		votingButton.isEnabled = true
 	}
 	
 	
@@ -227,6 +230,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		}
 	}
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let nav = segue.destination as? UINavigationController, let dest = nav.topViewController as? CheckinViewController {
+			dest.event = sender as! DALIEvent
+		}
+	}
+	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let event = events[indexPath.section][indexPath.row]
 		
@@ -238,12 +247,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		alert.addButton("Add to your calendar") {
 			tableView.deselectRow(at: indexPath, animated: true)
 			
+			CalendarController.current.event = event
 			CalendarController.current.showCalendarChooser(on: self)
 		}
-		alert.addButton("Set up checkin") {
-			tableView.deselectRow(at: indexPath, animated: true)
-			
-		}
+//		if event.isNow {
+			alert.addButton("Enable Checkin") {
+				tableView.deselectRow(at: indexPath, animated: true)
+				
+				// TODO: work on check in system
+				self.performSegue(withIdentifier: "showCheckin", sender: event)
+			}
+//		}
 		alert.addButton("Cancel") {
 			tableView.deselectRow(at: indexPath, animated: true)
 			
@@ -268,7 +282,6 @@ class EventCell: UITableViewCell {
 			self.eventVal = newValue
 			if let newValue = newValue {
 				self.titleLabel.text = newValue.name
-//				self.timeLabel.text = newValue.name
 				self.locationLabel.text = newValue.location
 				
 				let startComponents = Calendar.current.dateComponents([.weekday, .hour, .minute], from: newValue.start)

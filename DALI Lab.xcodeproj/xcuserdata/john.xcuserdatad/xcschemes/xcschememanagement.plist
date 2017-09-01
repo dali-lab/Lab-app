@@ -4,24 +4,44 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>OneSignalNotificationServiceExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
+		</dict>
 		<key>Stickers.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>2</integer>
 		</dict>
 		<key>iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>0</integer>
 		</dict>
 		<key>tvOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>526F00471F59195500879715</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>526F00561F591BD700879715</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>526F00651F5922D900879715</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>52B1384E1F47D39B0021D7AE</key>
 		<dict>
 			<key>primary</key>
@@ -83,6 +103,21 @@
 			<true/>
 		</dict>
 		<key>52B139141F47D47C0021D7AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>52CC92CE1F59247E00B7C9AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>52CC92DD1F59257A00B7C9AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>52F6D8F41F591850005E36C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

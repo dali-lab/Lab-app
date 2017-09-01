@@ -10,13 +10,26 @@ import Foundation
 import EventKit
 import EventKitUI
 import SCLAlertView
+import DALI
 
 class CalendarController: NSObject, EKCalendarChooserDelegate {
 	static var current: CalendarController!
 	let eventStore = EKEventStore()
+	var event : DALIEvent!
+	
+	let eventView: EKCalendarChooser
+	let navControl: UINavigationController
 	
 	override init() {
+		eventView = EKCalendarChooser(selectionStyle: EKCalendarChooserSelectionStyle.single, displayStyle: EKCalendarChooserDisplayStyle.writableCalendarsOnly, entityType: EKEntityType.event, eventStore: self.eventStore)
+		navControl = UINavigationController(rootViewController: self.eventView)
+		
+		
 		super.init()
+		
+		
+		eventView.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.calendarChooserDidFinish))
+		eventView.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.calendarChooserDidCancel))
 		
 		CalendarController.current = self
 	}
@@ -52,32 +65,47 @@ class CalendarController: NSObject, EKCalendarChooserDelegate {
 		}
 	}
 	
-	func calendarChooserDidCancel(_ calendarChooser: EKCalendarChooser) {
-		
+	func calendarChooserDidCancel() {
+		self.navControl.dismiss(animated: true) {}
 	}
 	
-	func calendarChooserSelectionDidChange(_ calendarChooser: EKCalendarChooser) {
+	func calendarChooserDidFinish() {
+		if (eventView.selectedCalendars.count == 0) {
+			SCLAlertView().showError("Please select one", subTitle: "")
+			return;
+		}
 		
-	}
-	
-	func calendarChooserDidFinish(_ calendarChooser: EKCalendarChooser) {
+		let event = EKEvent(eventStore: self.eventStore)
 		
+		event.title = self.event.name
+		event.startDate = self.event.start
+		event.endDate = self.event.end
+		event.location = self.event.location
+		event.notes = "\(self.event.description == nil ? "Description: \(self.event.description!)\n\n" : "")ID: \(self.event.id)"
+		
+		event.calendar = eventView.selectedCalendars.first!
+		
+		do {
+			try eventStore.save(event, span: .thisEvent)
+			
+			self.navControl.dismiss(animated: true) {}
+		} catch let error as NSError {
+			print("failed to save event with error : \(error)")
+			SCLAlertView().showError("Encountered error!", subTitle: error.localizedDescription)
+		}
 	}
 	
 	func showCalendarChooser(on vc: UIViewController) {
 		self.checkPermissions { (success) in
 			if success {
-				let eventView = EKCalendarChooser(selectionStyle: EKCalendarChooserSelectionStyle.single, displayStyle: EKCalendarChooserDisplayStyle.writableCalendarsOnly, entityType: EKEntityType.event, eventStore: self.eventStore)
 				
-				eventView.modalPresentationStyle = .popover
+				self.navControl.modalPresentationStyle = .popover
 				
 				DispatchQueue.main.async {
-					vc.present(eventView, animated: true, completion: {
-						
-					})
+					vc.present(self.navControl, animated: true, completion: {})
 				}
 			}else{
-				SCLAlertView().showError("Cant access calendar!", subTitle: "")
+				SCLAlertView().showError("Cant access calendar!", subTitle: "You may have not allowed access to your calendar. Change this in your phone settings to put events on your calendar")
 			}
 		}
 	}

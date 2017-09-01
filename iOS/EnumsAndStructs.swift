@@ -53,14 +53,14 @@ func userIsAdmin(user: GIDGoogleUser) -> Bool {
 	return (env["admins"] as! [String]).contains(user.profile.email)
 }
 
-var apiPrivateKey: String {
-	return (env["secure-keys"] as! [String:String])["dali-api"]!
-}
-
-var serverPrivateKey: String {
-	return (env["secure-keys"] as! [String:String])["dali-app-server"]!
+var checkInRangeID: String {
+	return env["checkInRangeID"] as! String
 }
 
 protocol AlertShower {
 	func showAlert(alert: SCLAlertView, title: String, subTitle: String, color: UIColor, image: UIImage)
+}
+
+protocol ErrorAlertShower {
+	func showError(alert: SCLAlertView, title: String, subTitle: String)
 }

@@ -42,7 +42,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>7</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -59,12 +59,20 @@
 	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Bluetooth is used to identify when you are in DALI or at a DALI event</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Access to your calendar is needed if you would like to be able to add events to your calendar</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Location is used only to determine if you are within the DALI Lab or at one of its events</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Location is used only to determine if you are within the DALI Lab or at one of its events</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location is used only to determine if you are within the DALI Lab or at one of its events'</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -76,8 +84,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

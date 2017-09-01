@@ -29,6 +29,15 @@
 		522F31CF1F47D8FA00B4BEB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522F31CD1F47D8FA00B4BEB4 /* Main.storyboard */; };
 		522F31F81F47DAC800B4BEB4 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522F31F71F47DAC800B4BEB4 /* CoreBluetooth.framework */; };
 		522F31FC1F47DAF800B4BEB4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 522F31FB1F47DAF800B4BEB4 /* libsqlite3.tbd */; };
+		524D86F51F5796D200479C0A /* TopLevelVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86F41F5796D200479C0A /* TopLevelVotingViewController.swift */; };
+		524D86F71F57A08E00479C0A /* HasVotedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86F61F57A08E00479C0A /* HasVotedViewController.swift */; };
+		524D86F91F57A0D700479C0A /* UnorderedVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86F81F57A0D700479C0A /* UnorderedVotingViewController.swift */; };
+		524D86FB1F57A0E100479C0A /* OrderedVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86FA1F57A0E100479C0A /* OrderedVotingViewController.swift */; };
+		524D86FD1F57A3F400479C0A /* ResultsVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86FC1F57A3F400479C0A /* ResultsVotingViewController.swift */; };
+		5251D9E31F4BD7C80020D958 /* CheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */; };
+		529A63271F4E90DF00BFBFE9 /* NewVotingEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A63261F4E90DF00BFBFE9 /* NewVotingEventViewController.swift */; };
+		529A632A1F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A63291F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift */; };
+		529A632C1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A632B1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift */; };
 		52B138C01F47D4590021D7AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B138BF1F47D4590021D7AE /* Assets.xcassets */; };
 		52B138CE1F47D4590021D7AE /* iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B138CD1F47D4590021D7AE /* iOSTests.swift */; };
 		52B138D91F47D4590021D7AE /* iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B138D81F47D4590021D7AE /* iOSUITests.swift */; };
@@ -102,10 +111,15 @@
 		11466E12F037B61AFB6FA61B /* Pods-DALI LabUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DALI LabUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DALI LabUITests/Pods-DALI LabUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1724FD7F6BF865C0E99A15E0 /* Pods-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSUITests/Pods-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		18558C014FD8296488A99C79 /* Pods_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23CCDACC30809C8CE1059B58 /* Pods_iOS_OneSignal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_OneSignal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		297400A6371AC3E5F048C1CD /* Pods-DALI Lab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DALI Lab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DALI Lab/Pods-DALI Lab.debug.xcconfig"; sourceTree = "<group>"; };
 		2D680826E06D0CB05826D88E /* Pods-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS/Pods-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		30E4FF739BA2E6ADB3C63F39 /* Pods-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS/Pods-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		37998E5B10D03EC1B50E5BF9 /* Pods-iOS-OneSignal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-OneSignal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-OneSignal/Pods-iOS-OneSignal.debug.xcconfig"; sourceTree = "<group>"; };
+		386617CA772BB0E3522B106B /* Pods-OneSignalNotification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotification.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotification/Pods-OneSignalNotification.release.xcconfig"; sourceTree = "<group>"; };
 		38F9423ACD748D9DBDD7C198 /* Pods-tvOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tvOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tvOSUITests/Pods-tvOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		40CC816FA24F8E106E9DDD55 /* Pods-iOS-OneSignalNotification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-OneSignalNotification.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-OneSignalNotification/Pods-iOS-OneSignalNotification.debug.xcconfig"; sourceTree = "<group>"; };
+		439D3A8726F67BB493B1A183 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		522F31AA1F47D83C00B4BEB4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		522F31AC1F47D85500B4BEB4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		522F31AE1F47D86100B4BEB4 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
@@ -130,6 +144,15 @@
 		522F31F71F47DAC800B4BEB4 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		522F31F91F47DAE100B4BEB4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		522F31FB1F47DAF800B4BEB4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		524D86F41F5796D200479C0A /* TopLevelVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopLevelVotingViewController.swift; sourceTree = "<group>"; };
+		524D86F61F57A08E00479C0A /* HasVotedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasVotedViewController.swift; sourceTree = "<group>"; };
+		524D86F81F57A0D700479C0A /* UnorderedVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnorderedVotingViewController.swift; sourceTree = "<group>"; };
+		524D86FA1F57A0E100479C0A /* OrderedVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedVotingViewController.swift; sourceTree = "<group>"; };
+		524D86FC1F57A3F400479C0A /* ResultsVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsVotingViewController.swift; sourceTree = "<group>"; };
+		5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinViewController.swift; sourceTree = "<group>"; };
+		529A63261F4E90DF00BFBFE9 /* NewVotingEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVotingEventViewController.swift; sourceTree = "<group>"; };
+		529A63291F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVotingEventConfigViewController.swift; sourceTree = "<group>"; };
+		529A632B1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingEventOptionsViewController.swift; sourceTree = "<group>"; };
 		52B138B61F47D4590021D7AE /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B138BF1F47D4590021D7AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52B138C41F47D4590021D7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,12 +179,19 @@
 		66536EEAC6727C445E15D525 /* Pods_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7045FE4735BC436C030988C8 /* Pods_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A3C22C1514E5D6CF30A660 /* Pods-DALI Lab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DALI Lab.release.xcconfig"; path = "Pods/Target Support Files/Pods-DALI Lab/Pods-DALI Lab.release.xcconfig"; sourceTree = "<group>"; };
+		8F63F2AF5680FA8FC9FF3DB0 /* Pods-OneSignalNotification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotification.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotification/Pods-OneSignalNotification.debug.xcconfig"; sourceTree = "<group>"; };
+		95FE48EA10795AD59F609D75 /* Pods-iOS-OneSignal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-OneSignal.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-OneSignal/Pods-iOS-OneSignal.release.xcconfig"; sourceTree = "<group>"; };
 		9EF6EBD298D8B94EB26B9374 /* Pods-DALI LabTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DALI LabTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DALI LabTests/Pods-DALI LabTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9EFBC5F89C445633AFBD4EAD /* Pods_tvOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tvOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0DE7839B2B540836211C153 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		ADDDEEAEEB8AA0C96CB83316 /* Pods-iOS-OneSignalNotification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-OneSignalNotification.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-OneSignalNotification/Pods-iOS-OneSignalNotification.release.xcconfig"; sourceTree = "<group>"; };
 		B0EAE7ACC6ACF8EC525C0FA3 /* Pods-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSTests/Pods-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		B1C60E501F17CBB15316462B /* Pods_DALI_LabUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DALI_LabUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7F67E5E32109F90D3E6195C /* Pods-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tvOS/Pods-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		BA9F8302BFC20DEF4586CCA0 /* Pods-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-tvOS/Pods-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		C00FE410BA8D344671095445 /* Pods_iOS_OneSignalNotification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_OneSignalNotification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9FC597F114057EA4EE9A174 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		CB9FDAF188DC4EA7D736FA36 /* Pods_OneSignalNotification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00C5112CC26BAB183C8C065 /* Pods_DALI_Lab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DALI_Lab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE1A7D4065D04C74C7776213 /* Pods-DALI LabUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DALI LabUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DALI LabUITests/Pods-DALI LabUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E06F4B7AF9FBEC4DC8DCC919 /* Pods_tvOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tvOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +262,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		524D86F31F57965100479C0A /* Voting */ = {
+			isa = PBXGroup;
+			children = (
+				524D86F41F5796D200479C0A /* TopLevelVotingViewController.swift */,
+				524D86F61F57A08E00479C0A /* HasVotedViewController.swift */,
+				524D86F81F57A0D700479C0A /* UnorderedVotingViewController.swift */,
+				524D86FA1F57A0E100479C0A /* OrderedVotingViewController.swift */,
+				524D86FC1F57A3F400479C0A /* ResultsVotingViewController.swift */,
+			);
+			name = Voting;
+			sourceTree = "<group>";
+		};
+		529A63281F4E983900BFBFE9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				522F31BB1F47D8DA00B4BEB4 /* SettingsViewController.swift */,
+				522F31BC1F47D8DA00B4BEB4 /* VotingEventMangerViewController.swift */,
+				529A632B1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift */,
+				529A63261F4E90DF00BFBFE9 /* NewVotingEventViewController.swift */,
+				529A63291F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		52B138461F47D39B0021D7AE = {
 			isa = PBXGroup;
 			children = (
@@ -274,8 +328,9 @@
 				522F31B81F47D8DA00B4BEB4 /* MainViewController.swift */,
 				522F31B91F47D8DA00B4BEB4 /* PeopleInLabViewController.swift */,
 				522F31BA1F47D8DA00B4BEB4 /* ServerCommunicator.swift */,
-				522F31BB1F47D8DA00B4BEB4 /* SettingsViewController.swift */,
-				522F31BC1F47D8DA00B4BEB4 /* VotingEventMangerViewController.swift */,
+				5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */,
+				524D86F31F57965100479C0A /* Voting */,
+				529A63281F4E983900BFBFE9 /* Settings */,
 				522F31CD1F47D8FA00B4BEB4 /* Main.storyboard */,
 				52B138BF1F47D4590021D7AE /* Assets.xcassets */,
 				522F31CC1F47D8FA00B4BEB4 /* LaunchScreen.storyboard */,
@@ -361,6 +416,10 @@
 				18558C014FD8296488A99C79 /* Pods_tvOS.framework */,
 				9EFBC5F89C445633AFBD4EAD /* Pods_tvOSTests.framework */,
 				E06F4B7AF9FBEC4DC8DCC919 /* Pods_tvOSUITests.framework */,
+				23CCDACC30809C8CE1059B58 /* Pods_iOS_OneSignal.framework */,
+				C00FE410BA8D344671095445 /* Pods_iOS_OneSignalNotification.framework */,
+				CB9FDAF188DC4EA7D736FA36 /* Pods_OneSignalNotification.framework */,
+				439D3A8726F67BB493B1A183 /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -386,6 +445,14 @@
 				59017CB0E83CAB6C45FDF9AF /* Pods-tvOSTests.release.xcconfig */,
 				F97CC101812D5D576CFD8384 /* Pods-tvOSUITests.debug.xcconfig */,
 				38F9423ACD748D9DBDD7C198 /* Pods-tvOSUITests.release.xcconfig */,
+				37998E5B10D03EC1B50E5BF9 /* Pods-iOS-OneSignal.debug.xcconfig */,
+				95FE48EA10795AD59F609D75 /* Pods-iOS-OneSignal.release.xcconfig */,
+				40CC816FA24F8E106E9DDD55 /* Pods-iOS-OneSignalNotification.debug.xcconfig */,
+				ADDDEEAEEB8AA0C96CB83316 /* Pods-iOS-OneSignalNotification.release.xcconfig */,
+				8F63F2AF5680FA8FC9FF3DB0 /* Pods-OneSignalNotification.debug.xcconfig */,
+				386617CA772BB0E3522B106B /* Pods-OneSignalNotification.release.xcconfig */,
+				A0DE7839B2B540836211C153 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				C9FC597F114057EA4EE9A174 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -552,6 +619,9 @@
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -1010,15 +1080,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				522F31C71F47D8DA00B4BEB4 /* VotingEventMangerViewController.swift in Sources */,
+				529A63271F4E90DF00BFBFE9 /* NewVotingEventViewController.swift in Sources */,
 				522F31BD1F47D8DA00B4BEB4 /* AppDelegate.swift in Sources */,
+				524D86FB1F57A0E100479C0A /* OrderedVotingViewController.swift in Sources */,
+				524D86F51F5796D200479C0A /* TopLevelVotingViewController.swift in Sources */,
+				524D86F91F57A0D700479C0A /* UnorderedVotingViewController.swift in Sources */,
+				524D86F71F57A08E00479C0A /* HasVotedViewController.swift in Sources */,
 				522F31BF1F47D8DA00B4BEB4 /* CalendarController.swift in Sources */,
 				522F31BE1F47D8DA00B4BEB4 /* BeaconController.swift in Sources */,
+				529A632A1F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift in Sources */,
 				522F31C51F47D8DA00B4BEB4 /* ServerCommunicator.swift in Sources */,
 				522F31C31F47D8DA00B4BEB4 /* MainViewController.swift in Sources */,
+				524D86FD1F57A3F400479C0A /* ResultsVotingViewController.swift in Sources */,
 				522F31C21F47D8DA00B4BEB4 /* LoginViewController.swift in Sources */,
 				522F31C41F47D8DA00B4BEB4 /* PeopleInLabViewController.swift in Sources */,
+				5251D9E31F4BD7C80020D958 /* CheckinViewController.swift in Sources */,
 				522F31C01F47D8DA00B4BEB4 /* EnumsAndStructs.swift in Sources */,
 				522F31C61F47D8DA00B4BEB4 /* SettingsViewController.swift in Sources */,
+				529A632C1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
