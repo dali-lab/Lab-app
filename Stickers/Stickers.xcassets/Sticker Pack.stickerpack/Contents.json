@@ -32,6 +32,15 @@
     },
     {
       "filename" : "DALI_blue.sticker"
+    },
+    {
+      "filename" : "Graficity pin.sticker"
+    },
+    {
+      "filename" : "DALI.sticker"
+    },
+    {
+      "filename" : "Treasure Hunt.sticker"
     }
   ],
   "info" : {
@@ -39,6 +48,6 @@
     "author" : "xcode"
   },
   "properties" : {
-    "grid-size" : "regular"
+    "grid-size" : "small"
   }
 }

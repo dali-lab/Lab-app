@@ -9,14 +9,40 @@
 import Foundation
 import UIKit
 import DALI
+import SwiftyJSON
 
 class VotingEventManagerViewController: UITableViewController {
 	
 	var createEventCell: UITableViewCell!
 	var events = [DALIEvent]()
+	var options: [[DALIEvent.Voting.Option]] = []
 	
 	override func viewDidLoad() {
-		
+		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		self.updateData()
+	}
+	
+	func updateData() {
+		DALIEvent.Voting.get { (events, error) in
+			if let events = events {
+				self.events = events
+				
+				for event in events {
+					event.getResults(callback: { (options, error) in
+						if let options = options {
+							self.options.append(options)
+						}
+					})
+				}
+				
+				DispatchQueue.main.async {
+					self.tableView.reloadData()
+				}
+			}
+		}
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,14 +94,23 @@ class VotingEventManagerViewController: UITableViewController {
 		return 50
 	}
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let dest = segue.destination as? VotingEventOptionsViewController {
+			dest.event = events[sender as! Int]
+			dest.options = options[sender as! Int]
+		}
+	}
+	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+		
+		if indexPath.section != 0 {
+			self.performSegue(withIdentifier: "optionsEditor", sender: indexPath.row)
+		}
 	}
 }
 
 class VotingEventCell: UITableViewCell {
-	@IBOutlet weak var titleLabel: UILabel!
-	@IBOutlet weak var subTitleLabel: UILabel!
 	
 	private var eventObj: DALIEvent?
 	var event: DALIEvent? {
@@ -85,8 +120,31 @@ class VotingEventCell: UITableViewCell {
 		set {
 			self.eventObj = newValue
 			
-			self.titleLabel.text = newValue?.name
-			self.subTitleLabel.text = newValue?.description
+			self.textLabel?.text = newValue?.name
+			
+			if let newValue = newValue {
+				let startComponents = Calendar.current.dateComponents([.weekday, .hour, .minute], from: newValue.start)
+				let endComponents = Calendar.current.dateComponents([.weekday, .hour, .minute], from: newValue.end)
+				
+				let weekdayStart = abvWeekDays[startComponents.weekday! - 1]
+				let weekdayEnd = startComponents.weekday! != endComponents.weekday! ? abvWeekDays[endComponents.weekday! - 1] : nil
+				
+				let startHour = startComponents.hour! > 12 ? startComponents.hour! - 12 : startComponents.hour!
+				let endHour = endComponents.hour! > 12 ? endComponents.hour! - 12 : endComponents.hour!
+				
+				let startMinute = startComponents.minute!
+				let endMinute = endComponents.minute!
+				
+				let startDaytime = startHour >= 12
+				let endDaytime = endHour >= 12
+				
+				let daytimeDifferent = startDaytime != endDaytime
+				
+				let startString = "\(startHour):\(startMinute  < 10 ? "0" : "")\(startMinute)\(daytimeDifferent ? " \(startDaytime ? "AM" : "PM")" : "")"
+				let endString = "\(endHour):\(endMinute < 10 ? "0" : "")\(endMinute) \(endDaytime ? "AM" : "PM")"
+				
+				self.detailTextLabel?.text = "\(weekdayStart) \(startString) - \(weekdayEnd == nil ? "" : weekdayEnd! + " ")\(endString)"
+			}
 		}
 	}
 }

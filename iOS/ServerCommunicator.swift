@@ -73,11 +73,13 @@ class ServerCommunicator {
 	*/
 	@objc func enterExitCheckIn(notification: Notification) {
 		let entered = (notification.userInfo?["entered"] as? Bool) ?? false
+		let major = (notification.userInfo?["major"] as! Int)
+		let minor = (notification.userInfo?["minor"] as! Int)
 		if !entered {
 			return
 		}
 		
-		DALIEvent.checkIn { (success, error) in
+		DALIEvent.checkIn(major: major, minor: minor) { (success, error) in
 			if let error = error {
 				print("Encountered error checking in: \(error)")
 			}
@@ -100,8 +102,6 @@ class ServerCommunicator {
 				}
 			}
 		}else {
-			DALILocation.sharing = true
-			
 			DALILocation.Shared.submit(inDALI: entered, entering: entered, callback: { (success, error) in
 				if let error = error {
 					print("Encountered error submitting inDALI: \(error)")

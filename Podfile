@@ -9,6 +9,7 @@ target 'iOS' do
   pod 'SCLAlertView'
   pod 'Crashlytics'
   pod 'DALI'
+  pod 'OneSignal', '>= 2.5.2', '< 3.0'
 
   # Pods for DALI Lab
 

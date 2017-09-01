@@ -16,12 +16,18 @@ class PeopleInLabViewController : UITableViewController {
 	var timLocationLabel: UILabel?
 	var members: [DALIMember]?
 	var refreshTimer: Timer!
+	var indicator = UIActivityIndicatorView()
 	
 	override func viewDidLoad() {
-		
+		indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+		indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+		indicator.center = self.view.center
+		self.view.addSubview(indicator)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
+		indicator.startAnimating()
+		indicator.backgroundColor = UIColor.white
 		self.refreshTimer = Timer(timeInterval: 5, repeats: true, block: { (timer) in
 			self.reloadData()
 		})
@@ -68,6 +74,8 @@ class PeopleInLabViewController : UITableViewController {
 			
 			self.members = members
 			DispatchQueue.main.async {
+				self.indicator.stopAnimating()
+				self.indicator.hidesWhenStopped = true
 				self.tableView.reloadData()
 			}
 		}

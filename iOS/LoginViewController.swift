@@ -8,19 +8,25 @@
 
 import UIKit
 import GoogleSignIn
+import SCLAlertView
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
+class LoginViewController: UIViewController, GIDSignInUIDelegate, ErrorAlertShower {
 	@IBOutlet weak var image: UIImageView!
 	@IBOutlet weak var imageHorizontalContraint: NSLayoutConstraint!
 	@IBOutlet weak var subView: UIView!
 	@IBOutlet weak var googleButton: GIDSignInButton!
 	@IBOutlet weak var skipSignInButton: UIButton!
+	@IBOutlet weak var loadingOverlay: UIVisualEffectView!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
 	var googleSignInView: UIViewController!
 	var transformAnimationDone = false
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		loadingOverlay.isHidden = true;
+		activityIndicator.isHidden = true;
+		activityIndicator.stopAnimating()
 		
 		UIApplication.shared.statusBarStyle = .lightContent
 		self.setNeedsStatusBarAppearanceUpdate()
@@ -42,6 +48,32 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 				self.subView.alpha = 1
 			})
 			self.transformAnimationDone = true
+		}
+	}
+	
+	func showError(alert: SCLAlertView, title: String, subTitle: String) {
+		let _ = alert.showError(title, subTitle: subTitle)
+	}
+	
+	func beginLoading() {
+		loadingOverlay.isHidden = false;
+		loadingOverlay.alpha = 0.0
+		activityIndicator.isHidden = false;
+		activityIndicator.startAnimating()
+		
+		UIView.animate(withDuration: 0.3, delay: 0.5, options: [], animations: {
+			self.loadingOverlay.alpha = 1.0
+		}) { (success) in
+			
+		}
+	}
+	
+	func endLoading() {
+		activityIndicator.isHidden = true;
+		activityIndicator.stopAnimating()
+		
+		UIView.animate(withDuration: 0.5) {
+			self.loadingOverlay.alpha = 0.0
 		}
 	}
 	

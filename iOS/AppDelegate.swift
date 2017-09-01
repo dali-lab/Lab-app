@@ -12,6 +12,7 @@ import Crashlytics
 import UserNotifications
 import SCLAlertView
 import DALI
+import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -28,6 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+		OneSignal.initWithLaunchOptions(launchOptions, appId: "6799d21a-debe-4ec8-b6f0-99c72cac170d")
+		OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
+		
+		
 		UIApplication.shared.statusBarStyle = .lightContent
 		
 		#if !DEBUG
@@ -135,6 +141,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				if SettingsController.getVotingNotif() {
 					NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.votingEventEnteredOrExited), name: Notification.Name.Custom.EventVoteEnteredOrExited, object: nil)
 				}
+				
+				OneSignal.promptForPushNotifications(userResponse: { accepted in
+					print("User accepted notifications: \(accepted)")
+				})
 			}
 		}
 	}
@@ -178,21 +188,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			return
 		}
 		
-		//		ServerCommunicator.current?.getEventNow { (event) in
-		//			guard let event = event else {
-		//				return
-		//			}
-		//
-		//			let content = UNMutableNotificationContent()
-		//			content.title = "Welcome to " + event.name
-		//			content.subtitle = "Voting 🗳 is available for this event"
-		//			content.sound = UNNotificationSound(named: "coins")
-		//
-		//			let notification = UNNotificationRequest(identifier: "votingNotification", content: content, trigger: nil)
-		//			UNUserNotificationCenter.current().add(notification) { (error) in
-		//
-		//			}
-		//		}
+//		ServerCommunicator.current?.getEventNow { (event) in
+//			guard let event = event else {
+//				return
+//			}
+//
+//			let content = UNMutableNotificationContent()
+//			content.title = "Welcome to " + event.name
+//			content.subtitle = "Voting 🗳 is available for this event"
+//			content.sound = UNNotificationSound(named: "coins")
+//
+//			let notification = UNNotificationRequest(identifier: "votingNotification", content: content, trigger: nil)
+//			UNUserNotificationCenter.current().add(notification) { (error) in
+//
+//			}
+//		}
 	}
 	
 	func breakDownNotificationListeners() {
@@ -203,7 +213,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 		if let error = error {
 			print(error)
 		}else{
+			OneSignal.syncHashedEmail(user.profile.email)
+			
 			self.user = user
+			self.loginViewController?.beginLoading()
 			DALIapi.signin(accessToken: user.authentication.accessToken, refreshToken: user.authentication.refreshToken, forced: true, done: { (sucess, error) in
 				if sucess {
 					DispatchQueue.main.async {
@@ -227,7 +240,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 						}else{
 							self.window?.rootViewController = mainViewController
 						}
+						
+						self.loginViewController?.endLoading()
 					}
+				}else{
+					DispatchQueue.main.async {
+						self.loginViewController?.showError(alert: SCLAlertView(), title: "Error Logging In", subTitle: "Encountered an error when logging in!")
+					}
+					print(error!)
+					
+					self.signOut()
+					
+					self.loginViewController?.endLoading()
 				}
 			})
 		}
@@ -255,6 +279,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 	func signOut() {
 		self.beaconController = nil
 		GIDSignIn.sharedInstance().signOut()
+		DALIapi.signOut()
 		
 		// I'm gonna need a better way than this:
 		self.window?.rootViewController?.dismiss(animated: true, completion: {
