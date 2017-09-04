@@ -44,6 +44,9 @@ struct VotingOption {
 }
 
 let abvWeekDays = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
+var signedIn: Bool {
+	return GIDSignIn.sharedInstance().currentUser != nil
+}
 
 func userIsTim(user: GIDGoogleUser) -> Bool {
 	return (env["tim"] as! String) == user.profile.email

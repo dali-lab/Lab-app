@@ -79,7 +79,7 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 					})
 						
 					alert.showError("Encountered error", subTitle: "\(error?.localizedDescription ?? "")")
-					print(error)
+					print(error ?? "")
 				}
 			}
 		}

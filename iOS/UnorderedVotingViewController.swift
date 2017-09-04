@@ -21,11 +21,7 @@ class UnorderedVotingViewController: UITableViewController {
 			if let options = options {
 				self.options.removeAll()
 				
-				options.sorted(by: { (option1, option2) -> Bool in
-					return option1.name < option2.name
-				})
-				
-				for option in options {
+				for option in options.sorted(by: { (option1, option2) -> Bool in return option1.name < option2.name }) {
 					self.options.append((option, false))
 				}
 				

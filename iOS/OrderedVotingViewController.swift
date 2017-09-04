@@ -52,13 +52,13 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 			showCloseButton: false
 		)).showWait("Submitting...", subTitle: "")
 		
-		event.submitVotes(options: Array(options.prefix(upTo: event.votingConfig!.numSelected - 1))) { (success, error) in
+		event.submitVotes(options: Array(options.prefix(upTo: event.votingConfig!.numSelected))) { (success, error) in
 			DispatchQueue.main.async {
 				wait.close()
 				if success {
 					self.performSegue(withIdentifier: "done", sender: nil)
 				}else{
-					SCLAlertView().showError("Encountered an error", subTitle: "")
+					SCLAlertView().showError("You already voted", subTitle: "")
 				}
 			}
 		}

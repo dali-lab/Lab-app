@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	var loginViewController: LoginViewController?
 	var mainViewController: MainViewController?
 	var inBackground = false
+	var playerID: String?
 	
 	var beaconController: BeaconController?
 	var serverCommunicator = ServerCommunicator()
@@ -48,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		assert(error == nil)
 		
 		let config = DALIConfig(dict: NSDictionary(dictionary: [
-			"server_url": "https://dalilab-api.herokuapp.com"
+			"server_url": "http://10.0.1.20:3000"
 			]))
 		DALIapi.configure(config: config)
 		
@@ -66,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		
 		//The player id is inside stateChanges. But be careful, this value can be nil if the user has not granted you permission to send notifications.
 		if let playerId = stateChanges.to.userId {
-			DALIMember
+			UserDefaults.standard.set(playerId, forKey: "playerID")
 		}
 	}
 	
@@ -156,7 +157,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 				
 				OneSignal.promptForPushNotifications(userResponse: { accepted in
 					print("User accepted notifications: \(accepted)")
-					OneSignal.
 				})
 			}
 		}
@@ -226,11 +226,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		if let error = error {
 			print(error)
 		}else{
-			OneSignal.syncHashedEmail(user.profile.email)
 			
 			self.user = user
 			self.loginViewController?.beginLoading()
 			DALIapi.signin(accessToken: user.authentication.accessToken, refreshToken: user.authentication.refreshToken, forced: true, done: { (sucess, error) in
+				
+				OneSignal.syncHashedEmail(user.profile.email)
+				OneSignal.sendTag("signedIn", value: "\(sucess)")
+				
 				if sucess {
 					DispatchQueue.main.async {
 						if self.beaconController == nil && BeaconController.current == nil {

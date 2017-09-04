@@ -11,6 +11,7 @@ import UIKit
 import SCLAlertView
 import UserNotifications
 import DALI
+import OneSignal
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AlertShower {
 	@IBOutlet weak var daliImage: UIImageView!
@@ -18,6 +19,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	@IBOutlet weak var locationLabel: UILabel!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var votingButton: UIButton!
+	@IBOutlet weak var peopleButton: UIButton!
 	
 	var viewShown = false
 	var loginTransformAnimationDone: Bool!
@@ -29,9 +31,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	override func viewDidLoad() {
 		UIApplication.shared.statusBarStyle = .lightContent
 		self.setNeedsStatusBarAppearanceUpdate()
-		self.setUpListeners()
-		self.locationUpdated()
-		self.updateData()
+		
+		if signedIn {
+			self.setUpListeners()
+			self.locationUpdated()
+			self.updateData()
+		}else{
+			self.locationLabel.text = "Not signed in"
+			peopleButton.isHidden = true
+			peopleButton.isEnabled = false
+		}
+		
 		(UIApplication.shared.delegate as! AppDelegate).mainViewController = self
 		
 		let _ = CalendarController()
@@ -43,7 +53,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	
 	
 	func updateData() {
-		DALIEvent.getUpcoming { (events, error) in
+		func gotEvents(events: [DALIEvent]?, error: DALIError.General?) {
 			if let error = error {
 				print("Failed to get events! Reason:")
 				switch error {
@@ -89,7 +99,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 			
 			for event in events {
 				print(event)
-				if calendar.isDateInToday(event.start) {
+				if calendar.isDateInToday(event.start) || event.isNow {
 					today.append(event)
 				}else if event.start < getWeekEnd() {
 					week.append(event)
@@ -111,6 +121,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 			DispatchQueue.main.async {
 				self.tableView.reloadData()
 			}
+		}
+		
+		if signedIn {
+			DALIEvent.getUpcoming { (events, error) in
+				gotEvents(events: events, error: error)
+			}
+		}else{
+			DALIEvent.getPublicUpcoming(callback: { (events, error) in
+				gotEvents(events: events, error: error)
+			})
 		}
 	}
 	
@@ -250,20 +270,56 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 			CalendarController.current.event = event
 			CalendarController.current.showCalendarChooser(on: self)
 		}
-//		if event.isNow {
+		if signedIn && event.isNow {
 			alert.addButton("Enable Checkin") {
 				tableView.deselectRow(at: indexPath, animated: true)
 				
 				// TODO: work on check in system
 				self.performSegue(withIdentifier: "showCheckin", sender: event)
 			}
-//		}
+		}
+		if signedIn && userIsAdmin(user: GIDSignIn.sharedInstance().currentUser) {
+			alert.addButton("Notify members", action: {
+				let alert = SCLAlertView(appearance: appearance)
+				alert.addButton("Yes!", action: {
+					var time: Int = Calendar.current.dateComponents([.minute], from: Date(), to: event.start).minute ?? 0
+					var units = "minutes"
+					
+					if time >= 60 {
+						units = "hours"
+						time = Calendar.current.dateComponents([.hour], from: Date(), to: event.start).minute ?? 0
+					}
+					
+					DALIapi.sendSimpleNotification(with: "\(event.name) starts soon!", and: "The event \(event.name) is starting in \(time) \(units)", to: "signedIn", callback: { (success, error) in
+						
+					})
+				})
+				
+				alert.addButton("Actually no...", action: {
+					
+				})
+				
+				alert.showNotice("Really notify?", subTitle: "This will notify all DALI member devices that are signed in about the time (in hours, or mintues if <1 hour) until event starts. Are you sure you want to this?")
+			})
+		}
 		alert.addButton("Cancel") {
 			tableView.deselectRow(at: indexPath, animated: true)
-			
 		}
 		
 		alert.showInfo("Whats up?", subTitle: "What do you want to do with \(event.name)?")
+	}
+	
+	@IBAction func settingsButtonPressed(_ sender: UIButton) {
+		if signedIn {
+			self.performSegue(withIdentifier: "showSettings", sender: nil)
+		}else{
+			let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+			alert.addButton("Sign In", action: {
+				(UIApplication.shared.delegate as! AppDelegate).signOut()
+			})
+			
+			alert.showInfo("Sign In?", subTitle: "")
+		}
 	}
 }
 

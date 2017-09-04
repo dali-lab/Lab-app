@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import DALI
+import OneSignal
 
 class HasVotedViewController: UIViewController {
 	@IBOutlet weak var notificationSwitch: UISwitch!
@@ -22,14 +23,14 @@ class HasVotedViewController: UIViewController {
 		notificationSwitch.isOn = UserDefaults.standard.value(forKey: "notifyFor:\(event.id)") as? Bool ?? true
 		
 		self.title = event.name
+		
+		OneSignal.sendTag("resultsReleased:\(event.id)", value: "\(notificationSwitch.isOn)")
 	}
 	
 	@IBAction func switchChanged(_ sender: UISwitch) {
 		UserDefaults.standard.set(sender.isOn, forKey: "notifyFor:\(event.id)")
 		
-		event.updateNotificationPreference(notify: sender.isOn) { (success, error) in
-			
-		}
+		OneSignal.sendTag("resultsReleased:\(event.id)", value: "\(sender.isOn)")
 	}
 	
 	func pop() {

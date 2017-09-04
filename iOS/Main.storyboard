@@ -155,7 +155,7 @@
                                         </constraints>
                                         <state key="normal" image="whiteGear"/>
                                         <connections>
-                                            <segue destination="hF8-7D-bQB" kind="show" id="XmQ-tG-ylX"/>
+                                            <action selector="settingsButtonPressed:" destination="ELf-kA-nte" eventType="touchUpInside" id="KN7-QN-N8b"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXd-xF-1zI">
@@ -234,8 +234,8 @@
                                             <segue destination="B8g-Hg-By4" kind="show" id="bgg-gr-qef"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4wA-9M-hJZ">
-                                        <rect key="frame" x="29" y="192" width="316" height="425"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4wA-9M-hJZ">
+                                        <rect key="frame" x="29" y="187" width="316" height="424.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="separatorColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -346,9 +346,11 @@
                         <outlet property="daliImage" destination="MtM-fv-ipP" id="f6x-7k-pY1"/>
                         <outlet property="internalView" destination="kIM-eC-D4F" id="Mgi-N5-zx7"/>
                         <outlet property="locationLabel" destination="EXY-ff-5kM" id="Psc-pK-SOf"/>
+                        <outlet property="peopleButton" destination="evJ-TR-YuG" id="WaD-3i-lO7"/>
                         <outlet property="tableView" destination="4wA-9M-hJZ" id="X2d-Tg-9SP"/>
                         <outlet property="votingButton" destination="AXd-xF-1zI" id="7hV-WW-QzE"/>
                         <segue destination="65l-id-DWh" kind="showDetail" identifier="showCheckin" id="XPw-bx-Jfe"/>
+                        <segue destination="hF8-7D-bQB" kind="show" identifier="showSettings" id="u4h-dM-Ppz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tzt-ru-lhh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -379,7 +381,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Voting Events" id="ZUV-mt-rNG">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="done" id="HX8-C1-1lf">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="HX8-C1-1lf">
                             <connections>
                                 <action selector="cancel:" destination="trN-g8-05J" id="kdo-MS-kDI"/>
                             </connections>
@@ -422,7 +424,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCH-Yd-JZG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-103" y="-1406"/>
+            <point key="canvasLocation" x="219" y="-1407"/>
         </scene>
         <!--Has Voted View Controller-->
         <scene sceneID="i3i-Ie-l1y">
@@ -543,7 +545,7 @@ for voting</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2w-lG-0Ph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1694" y="-1869"/>
+            <point key="canvasLocation" x="1254" y="-1788"/>
         </scene>
         <!--Ordered Voting View Controller-->
         <scene sceneID="6rI-W8-bd0">
@@ -565,7 +567,7 @@ for voting</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oDn-G8-ncW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="oDn-G8-ncW">
                                         <rect key="frame" x="0.0" y="28" width="325" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oDn-G8-ncW" id="HYn-5F-s8Y">
@@ -573,7 +575,7 @@ for voting</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9oe-Pw-QCA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" id="9oe-Pw-QCA">
                                         <rect key="frame" x="0.0" y="96" width="325" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9oe-Pw-QCA" id="UZ9-yK-uVZ">
@@ -581,7 +583,7 @@ for voting</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Nso-7g-Sww">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell3" id="Nso-7g-Sww">
                                         <rect key="frame" x="0.0" y="164" width="325" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nso-7g-Sww" id="gaC-TB-asw">
@@ -589,7 +591,7 @@ for voting</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="HMp-Gr-lQS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell4" id="HMp-Gr-lQS">
                                         <rect key="frame" x="0.0" y="232" width="325" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HMp-Gr-lQS" id="iyp-OX-K7u">
@@ -646,7 +648,7 @@ for voting</string>
                                             <outlet property="orderLabel" destination="eEO-b6-b6x" id="uSI-rl-hiS"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="xyC-Zq-95T">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="afsdafs" rowHeight="68" id="xyC-Zq-95T">
                                         <rect key="frame" x="0.0" y="96" width="50" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xyC-Zq-95T" id="TGf-BP-RiX">
@@ -682,7 +684,7 @@ for voting</string>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="I4o-1t-PK5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sdafasdf" rowHeight="68" id="I4o-1t-PK5">
                                         <rect key="frame" x="0.0" y="164" width="50" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I4o-1t-PK5" id="9AO-Cm-2Gg">
@@ -718,7 +720,7 @@ for voting</string>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="Eg1-uj-bAb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gdsg" rowHeight="68" id="Eg1-uj-bAb">
                                         <rect key="frame" x="0.0" y="232" width="50" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eg1-uj-bAb" id="9e3-Ie-XgL">
@@ -797,7 +799,7 @@ for voting</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQX-sI-l7m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1693.5999999999999" y="-998.05097451274366"/>
+            <point key="canvasLocation" x="1254" y="-986"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wk1-fI-6Ll">
@@ -1619,7 +1621,7 @@ for voting</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAD-za-DpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708" y="-647"/>
+            <point key="canvasLocation" x="742" y="-677"/>
         </scene>
     </scenes>
     <resources>
@@ -1636,6 +1638,6 @@ for voting</string>
         <image name="whiteGear" width="501" height="501"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tlf-y5-1wF"/>
+        <segue reference="kGF-TQ-Eex"/>
     </inferredMetricsTieBreakers>
 </document>
