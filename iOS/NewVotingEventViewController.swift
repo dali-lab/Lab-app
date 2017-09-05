@@ -21,9 +21,12 @@ class NewVotingEventViewController: UITableViewController {
 	func updateData() {
 		DALIEvent.getFuture { (events, error) in
 			if let events = events {
-				self.events = events.filter({ (event) -> Bool in
-					return !event.votingEnabled
-				})
+				self.events.removeAll()
+				for event in events {
+					if event as? DALIEvent.VotingEvent == nil {
+						self.events.append(event)
+					}
+				}
 				self.tableView.reloadData()
 			}
 		}

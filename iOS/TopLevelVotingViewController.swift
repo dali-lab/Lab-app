@@ -12,8 +12,8 @@ import DALI
 
 
 class TopLevelVotingViewController: UITableViewController {
-	var pastEvents: [DALIEvent] = []
-	var currentEvent: DALIEvent?
+	var pastEvents: [DALIEvent.VotingEvent] = []
+	var currentEvent: DALIEvent.VotingEvent?
 	
 	override func viewDidLoad() {
 		self.updateData()
@@ -22,7 +22,7 @@ class TopLevelVotingViewController: UITableViewController {
 	}
 	
 	func updateData() {
-		DALIEvent.Voting.getCurrent { (event, error) in
+		DALIEvent.VotingEvent.getCurrent { (event, error) in
 			self.currentEvent = event
 			
 			DispatchQueue.main.async {
@@ -30,7 +30,7 @@ class TopLevelVotingViewController: UITableViewController {
 			}
 		}
 		
-		DALIEvent.Voting.getReleasedEvents { (events, error) in
+		DALIEvent.VotingEvent.getReleasedEvents { (events, error) in
 			if let events = events {
 				self.pastEvents = events.sorted(by: { (event1, event2) -> Bool in
 					return event1.start > event2.start
@@ -97,13 +97,13 @@ class TopLevelVotingViewController: UITableViewController {
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let dest = segue.destination as? ResultsVotingViewController {
-			dest.event = sender as! DALIEvent
+			dest.event = sender as! DALIEvent.VotingEvent
 		}else if let dest = segue.destination as? OrderedVotingViewController {
-			dest.event = sender as! DALIEvent
+			dest.event = sender as! DALIEvent.VotingEvent
 		}else if let dest = segue.destination as? UnorderedVotingViewController {
-			dest.event = sender as! DALIEvent
+			dest.event = sender as! DALIEvent.VotingEvent
 		}else if let dest = segue.destination as? HasVotedViewController {
-			dest.event = sender as! DALIEvent
+			dest.event = sender as! DALIEvent.VotingEvent
 		}
 	}
 	
@@ -114,7 +114,7 @@ class TopLevelVotingViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if indexPath.section == 0 && currentEvent != nil {
 			let hasVoted = UserDefaults.standard.bool(forKey: "hasVoted:\(currentEvent!.id)")
-			let ordered = currentEvent!.votingConfig!.ordered
+			let ordered = currentEvent!.config.ordered
 			
 			if hasVoted {
 				self.performSegue(withIdentifier: "showHasVoted", sender: currentEvent!)

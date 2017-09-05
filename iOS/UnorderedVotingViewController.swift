@@ -12,8 +12,8 @@ import DALI
 import SCLAlertView
 
 class UnorderedVotingViewController: UITableViewController {
-	var event: DALIEvent!
-	var options: [(DALIEvent.Voting.Option, Bool)] = []
+	var event: DALIEvent.VotingEvent!
+	var options: [(DALIEvent.VotingEvent.Option, Bool)] = []
 	var numSelected = 0
 	
 	override func viewDidLoad() {
@@ -47,7 +47,7 @@ class UnorderedVotingViewController: UITableViewController {
 	}
 	
 	@IBAction func submit(_ sender: Any) {
-		var optionsToSubmit: [DALIEvent.Voting.Option] = []
+		var optionsToSubmit: [DALIEvent.VotingEvent.Option] = []
 		
 		for option in options {
 			if option.1 {
@@ -55,8 +55,8 @@ class UnorderedVotingViewController: UITableViewController {
 			}
 		}
 		
-		if optionsToSubmit.count < event.votingConfig!.numSelected {
-			SCLAlertView().showError("Please select \(event.votingConfig!.numSelected)", subTitle: "")
+		if optionsToSubmit.count < event.config.numSelected {
+			SCLAlertView().showError("Please select \(event.config.numSelected)", subTitle: "")
 			return
 		}
 		
@@ -64,7 +64,7 @@ class UnorderedVotingViewController: UITableViewController {
 			showCloseButton: false
 		)).showWait("Submitting...", subTitle: "")
 		
-		event.submitVotes(options: optionsToSubmit) { (success, error) in
+		event.submitVote(options: optionsToSubmit) { (success, error) in
 			DispatchQueue.main.async {
 				wait.close()
 				if success {
@@ -86,13 +86,13 @@ class UnorderedVotingViewController: UITableViewController {
 		cell.textLabel?.text = options[indexPath.row].0.name
 		cell.accessoryType = options[indexPath.row].1 ? .checkmark : .none
 		
-		cell.selectionStyle = numSelected >= event.votingConfig!.numSelected && !options[indexPath.row].1 ? .none : .gray
+		cell.selectionStyle = numSelected >= event.config.numSelected && !options[indexPath.row].1 ? .none : .gray
 		
 		return cell
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if numSelected >= event.votingConfig!.numSelected && !options[indexPath.row].1 {
+		if numSelected >= event.config.numSelected && !options[indexPath.row].1 {
 			tableView.deselectRow(at: indexPath, animated: false)
 			return
 		}

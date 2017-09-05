@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		assert(error == nil)
 		
 		let config = DALIConfig(dict: NSDictionary(dictionary: [
-			"server_url": "http://10.0.1.20:3000"
+			"server_url": "http://dalilab-api.herokuapp.com"
 			]))
 		DALIapi.configure(config: config)
 		
@@ -274,7 +274,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	}
 	
 	func skipSignIn() {
-		self.beaconController = BeaconController()
 		
 		let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
 		

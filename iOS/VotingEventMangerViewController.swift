@@ -14,8 +14,8 @@ import SwiftyJSON
 class VotingEventManagerViewController: UITableViewController {
 	
 	var createEventCell: UITableViewCell!
-	var events = [DALIEvent]()
-	var options: [[DALIEvent.Voting.Option]] = []
+	var events: [DALIEvent.VotingEvent] = []
+	var options: [[DALIEvent.VotingEvent.Option]] = []
 	
 	override func viewDidLoad() {
 		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
@@ -26,12 +26,12 @@ class VotingEventManagerViewController: UITableViewController {
 	}
 	
 	func updateData() {
-		DALIEvent.Voting.get { (events, error) in
+		DALIEvent.VotingEvent.get { (events, error) in
 			if let events = events {
 				self.events = events
 				
 				for event in events {
-					event.getResults(callback: { (options, error) in
+					event.getUnreleasedResults(callback: { (options, error) in
 						if let options = options {
 							self.options.append(options)
 						}

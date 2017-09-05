@@ -15,8 +15,8 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 	@IBOutlet weak var leftTableView: UITableView!
 	@IBOutlet weak var orderedTableView: UITableView!
 	
-	var event: DALIEvent!
-	var options: [DALIEvent.Voting.Option] = []
+	var event: DALIEvent.VotingEvent!
+	var options: [DALIEvent.VotingEvent.Option] = []
 	static let ordinals = ["1st", "2nd", "3rd"]
 	
 	override func viewDidLoad() {
@@ -52,7 +52,7 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 			showCloseButton: false
 		)).showWait("Submitting...", subTitle: "")
 		
-		event.submitVotes(options: Array(options.prefix(upTo: event.votingConfig!.numSelected))) { (success, error) in
+		event.submitVote(options: Array(options.prefix(upTo: event.config.numSelected))) { (success, error) in
 			DispatchQueue.main.async {
 				wait.close()
 				if success {
@@ -106,7 +106,7 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 			
 			cell.textLabel?.text = options[indexPath.row].name
 			
-			if indexPath.row < event.votingConfig!.numSelected {
+			if indexPath.row < event.config.numSelected {
 				cell.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
 			}
 			
@@ -126,7 +126,7 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if tableView == leftTableView {
-			return event.votingConfig!.numSelected
+			return event.config.numSelected
 		}else{
 			return options.count
 		}

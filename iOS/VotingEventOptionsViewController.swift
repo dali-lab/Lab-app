@@ -15,14 +15,14 @@ class VotingEventOptionsViewController: UITableViewController {
 	@IBOutlet weak var releaseButton: UIBarButtonItem!
 	
 	
-	var event: DALIEvent!
-	var options: [DALIEvent.Voting.Option] = []
+	var event: DALIEvent.VotingEvent!
+	var options: [DALIEvent.VotingEvent.Option] = []
 	
 	override func viewDidLoad() {
 		self.title = event.name
 		
-		releaseButton.isEnabled = !event.votingResultsReleased
-		releaseButton.title = event.votingResultsReleased ? "Released" : "Release"
+		releaseButton.isEnabled = !event.resultsReleased
+		releaseButton.title = event.resultsReleased ? "Released" : "Release"
 		
 		self.options = options.sorted(by: { (option1, option2) -> Bool in
 			return (option1.points ?? 0) > (option2.points ?? 0)
@@ -36,7 +36,7 @@ class VotingEventOptionsViewController: UITableViewController {
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		event.getResults { (options, error) in
+		event.getUnreleasedResults { (options, error) in
 			if let options = options {
 				self.options = options.sorted(by: { (option1, option2) -> Bool in
 					return (option1.points ?? 0) > (option2.points ?? 0)
@@ -95,7 +95,7 @@ class VotingEventOptionsViewController: UITableViewController {
 		return cell
 	}
 	
-	func addAward(option: inout DALIEvent.Voting.Option, textField: UITextField) {
+	func addAward(option: inout DALIEvent.VotingEvent.Option, textField: UITextField) {
 		if option.awards == nil {
 			option.awards = []
 		}
@@ -118,7 +118,7 @@ class VotingEventOptionsViewController: UITableViewController {
 		}
 	}
 	
-	func removeAward(option: inout DALIEvent.Voting.Option, award: String) {
+	func removeAward(option: inout DALIEvent.VotingEvent.Option, award: String) {
 		if let index = option.awards!.index(of: award) {
 			option.awards!.remove(at: index)
 			

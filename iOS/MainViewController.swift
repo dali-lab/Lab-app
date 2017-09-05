@@ -35,12 +35,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		if signedIn {
 			self.setUpListeners()
 			self.locationUpdated()
-			self.updateData()
 		}else{
 			self.locationLabel.text = "Not signed in"
 			peopleButton.isHidden = true
 			peopleButton.isEnabled = false
 		}
+		self.updateData()
 		
 		(UIApplication.shared.delegate as! AppDelegate).mainViewController = self
 		

@@ -11,12 +11,12 @@ import UIKit
 import DALI
 
 class ResultsVotingViewController: UITableViewController {
-	var event: DALIEvent!
-	var options: [DALIEvent.Voting.Option] = []
-	var awards: [(String, DALIEvent.Voting.Option)] = []
+	var event: DALIEvent.VotingEvent!
+	var options: [DALIEvent.VotingEvent.Option] = []
+	var awards: [(String, DALIEvent.VotingEvent.Option)] = []
 	
 	override func viewDidLoad() {
-		event.getPublicResults { (options, error) in
+		event.getResults { (options, error) in
 			if let options = options {
 				self.options = options
 				

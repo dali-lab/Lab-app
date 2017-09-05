@@ -42,7 +42,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -70,10 +70,12 @@
 	<string>Access to your calendar is needed if you would like to be able to add events to your calendar</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Location is used only to determine if you are within the DALI Lab or at one of its events</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Location is used only to determine if you are within the DALI Lab or at one of its events</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Location is used only to determine if you are within the DALI Lab or at one of its events'</string>
+	<string>Location is used only to determine if you are within the DALI Lab or at one of its events&apos;</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

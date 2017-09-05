@@ -31,7 +31,7 @@ class NewVotingEventConfigViewController: UITableViewController {
 	}
 	
 	func done() {
-		event.enableVoting(numSelected: Int(stepper.value), ordered: orderedSwitch.isOn) { (success, error) in
+		event.enableVoting(numSelected: Int(stepper.value), ordered: orderedSwitch.isOn) { (success, event, error) in
 			DispatchQueue.main.async {
 				if success {
 					let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
