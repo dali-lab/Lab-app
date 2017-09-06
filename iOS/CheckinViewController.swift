@@ -36,8 +36,7 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 	var region: CLBeaconRegion?
 	var peripheral: CBPeripheralManager!
 	var event: DALIEvent!
-	
-	var timer: Timer?
+	var observer: Observation?
 	
 	override func viewDidLoad() {
 		beacon1.image = #imageLiteral(resourceName: "BeaconDisabled")
@@ -64,9 +63,6 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 					self.beacon2.image = #imageLiteral(resourceName: "Beacon2")
 					self.animate()
 					
-					self.timer = Timer(timeInterval: 5.0, target: self, selector: #selector(self.updateMembers), userInfo: nil, repeats: true)
-					RunLoop.main.add(self.timer!, forMode: RunLoopMode.commonModes)
-					
 					self.region = self.createBeaconRegion(major, minor)
 					self.peripheral = CBPeripheralManager(delegate: self, queue: nil)
 				}else{
@@ -91,17 +87,6 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 		})
 	}
 	
-	func updateMembers() {
-		event.getMembersCheckedIn { (members, error) in
-			self.members = members.sorted(by: { (member1, member2) -> Bool in
-				return member1.name < member2.name
-			})
-			DispatchQueue.main.async {
-				self.tableView.reloadData()
-			}
-		}
-	}
-	
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
@@ -120,12 +105,20 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 	
 	override func viewWillAppear(_ animated: Bool) {
 		UIApplication.shared.isIdleTimerDisabled = true
+		observer = event.observeMembersCheckedIn { (members) in
+			self.members = members.sorted(by: { (member1, member2) -> Bool in
+				return member1.name < member2.name
+			})
+			DispatchQueue.main.async {
+				self.tableView.reloadData()
+			}
+		}
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		timer?.invalidate()
 		UIApplication.shared.isIdleTimerDisabled = false
 		peripheral.stopAdvertising()
+		observer?.stop()
 	}
 	
 	func createBeaconRegion(_ major: Int, _ minor: Int) -> CLBeaconRegion? {
