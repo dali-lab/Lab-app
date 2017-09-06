@@ -22,27 +22,6 @@ extension Notification.Name {
 	}
 }
 
-struct SharedUser {
-	let email: String
-	let name: String
-}
-
-struct Recurrence {
-	enum Frequency: String {
-		case weekly
-		case daily
-	}
-	let frequency: Frequency
-	let interval: Int?
-	let periodData: [Int]?
-	let rrule: String
-	let until: Date?
-}
-
-struct VotingOption {
-	
-}
-
 let abvWeekDays = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
 var signedIn: Bool {
 	return GIDSignIn.sharedInstance().currentUser != nil
