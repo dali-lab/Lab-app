@@ -52,7 +52,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, ErrorAlertShow
 	}
 	
 	func showError(alert: SCLAlertView, title: String, subTitle: String) {
-		let _ = alert.showError(title, subTitle: subTitle)
+		DispatchQueue.main.async {
+			let _ = alert.showError(title, subTitle: subTitle)
+		}
 	}
 	
 	func beginLoading() {

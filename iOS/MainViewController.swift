@@ -299,7 +299,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 					
 				})
 				
-				alert.showNotice("Really notify?", subTitle: "This will notify all DALI member devices that are signed in about the time (in hours, or mintues if <1 hour) until event starts. Are you sure you want to this?")
+				alert.showNotice("Really notify?", subTitle: "This will notify all DALI member devices that are signed in about the time (in hours, or mintues if < 1 hour) until event starts. Are you sure you want to this?")
 			})
 		}
 		alert.addButton("Cancel") {
