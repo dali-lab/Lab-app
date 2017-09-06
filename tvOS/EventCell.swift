@@ -21,7 +21,7 @@ class EventCell: UITableViewCell {
 		set {
 			if let newValue = newValue {
 				nameLabel.text = newValue.name
-				descriptionLabel.text = newValue.desc == newValue.name && newValue.location != nil ? newValue.location : newValue.desc
+				descriptionLabel.text = newValue.description == newValue.name && newValue.location != nil ? newValue.location : newValue.description
 				
 				let calendar = Calendar.current
 				

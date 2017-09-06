@@ -20,13 +20,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	let nonFaded = #imageLiteral(resourceName: "nonFaded")
 	
 	var events = [DALIEvent]()
+	var sharedObserver: Observation?
+	var upcomingObsererver: Observation?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		
 		self.peopleInLabLabel.text = "People in the lab: Loading..."
-		DALILocation.Shared.get { (people, error) in
+		sharedObserver = DALILocation.Shared.observe { (people, error) in
 			DispatchQueue.main.async {
 				if let people = people, people.count > 0 {
 					var text = ""
@@ -47,7 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			}
 		}
 		
-		DALIEvent.getUpcoming { (events, error) in
+		upcomingObsererver = DALIEvent.observeUpcoming { (events, error) in
 			DispatchQueue.main.async {
 				if let error = error {
 					print("Encountered error: \(error)")
@@ -64,6 +70,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				self.tableView.reloadData()
 			}
 		}
+	}
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		upcomingObsererver?.stop()
+		sharedObserver?.stop()
 	}
 	
 	override func didReceiveMemoryWarning() {
