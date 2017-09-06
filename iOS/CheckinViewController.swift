@@ -65,6 +65,8 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 					
 					self.region = self.createBeaconRegion(major, minor)
 					self.peripheral = CBPeripheralManager(delegate: self, queue: nil)
+					
+					DALIEvent.checkIn(major: major, minor: minor, callback: { (_, _) in })
 				}else{
 					let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
 					
