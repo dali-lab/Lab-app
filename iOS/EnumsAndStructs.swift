@@ -52,10 +52,6 @@ func userIsTim(user: GIDGoogleUser) -> Bool {
 	return (env["tim"] as! String) == user.profile.email
 }
 
-func userIsAdmin(user: GIDGoogleUser) -> Bool {
-	return (env["admins"] as! [String]).contains(user.profile.email)
-}
-
 var checkInRangeID: String {
 	return env["checkInRangeID"] as! String
 }

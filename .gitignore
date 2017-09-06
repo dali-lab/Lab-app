@@ -68,3 +68,4 @@ fastlane/test_output
 
 iOS/GoogleService-Info.plist
 iOS/ProximityKit.plist
+iOS/PrivateInformation.plist

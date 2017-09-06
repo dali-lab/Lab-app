@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40DB98AC0FE4CC2E74756E47 /* Pods_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66536EEAC6727C445E15D525 /* Pods_iOSUITests.framework */; };
+		5225AE081F606DB400718D12 /* PrivateInformation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5225AE071F606DB400718D12 /* PrivateInformation.plist */; };
 		522F31AB1F47D83C00B4BEB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522F31AA1F47D83C00B4BEB4 /* Main.storyboard */; };
 		522F31AD1F47D85500B4BEB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F31AC1F47D85500B4BEB4 /* AppDelegate.swift */; };
 		522F31AF1F47D86100B4BEB4 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F31AE1F47D86100B4BEB4 /* EventCell.swift */; };
@@ -23,7 +24,6 @@
 		522F31C51F47D8DA00B4BEB4 /* ServerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F31BA1F47D8DA00B4BEB4 /* ServerCommunicator.swift */; };
 		522F31C61F47D8DA00B4BEB4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F31BB1F47D8DA00B4BEB4 /* SettingsViewController.swift */; };
 		522F31C71F47D8DA00B4BEB4 /* VotingEventMangerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F31BC1F47D8DA00B4BEB4 /* VotingEventMangerViewController.swift */; };
-		522F31C91F47D8EA00B4BEB4 /* PrivateInformation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 522F31C81F47D8EA00B4BEB4 /* PrivateInformation.plist */; };
 		522F31CB1F47D8F100B4BEB4 /* ProximityKit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 522F31CA1F47D8F100B4BEB4 /* ProximityKit.plist */; };
 		522F31CE1F47D8FA00B4BEB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522F31CC1F47D8FA00B4BEB4 /* LaunchScreen.storyboard */; };
 		522F31CF1F47D8FA00B4BEB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522F31CD1F47D8FA00B4BEB4 /* Main.storyboard */; };
@@ -120,6 +120,7 @@
 		38F9423ACD748D9DBDD7C198 /* Pods-tvOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tvOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tvOSUITests/Pods-tvOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		40CC816FA24F8E106E9DDD55 /* Pods-iOS-OneSignalNotification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-OneSignalNotification.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-OneSignalNotification/Pods-iOS-OneSignalNotification.debug.xcconfig"; sourceTree = "<group>"; };
 		439D3A8726F67BB493B1A183 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5225AE071F606DB400718D12 /* PrivateInformation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrivateInformation.plist; sourceTree = "<group>"; };
 		522F31AA1F47D83C00B4BEB4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		522F31AC1F47D85500B4BEB4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		522F31AE1F47D86100B4BEB4 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
@@ -135,7 +136,6 @@
 		522F31BA1F47D8DA00B4BEB4 /* ServerCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCommunicator.swift; sourceTree = "<group>"; };
 		522F31BB1F47D8DA00B4BEB4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		522F31BC1F47D8DA00B4BEB4 /* VotingEventMangerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingEventMangerViewController.swift; sourceTree = "<group>"; };
-		522F31C81F47D8EA00B4BEB4 /* PrivateInformation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrivateInformation.plist; sourceTree = "<group>"; };
 		522F31CA1F47D8F100B4BEB4 /* ProximityKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProximityKit.plist; sourceTree = "<group>"; };
 		522F31CC1F47D8FA00B4BEB4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		522F31CD1F47D8FA00B4BEB4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -335,7 +335,7 @@
 				52B138BF1F47D4590021D7AE /* Assets.xcassets */,
 				522F31CC1F47D8FA00B4BEB4 /* LaunchScreen.storyboard */,
 				522F31B61F47D8DA00B4BEB4 /* GoogleService-Info.plist */,
-				522F31C81F47D8EA00B4BEB4 /* PrivateInformation.plist */,
+				5225AE071F606DB400718D12 /* PrivateInformation.plist */,
 				522F31CA1F47D8F100B4BEB4 /* ProximityKit.plist */,
 				52B138C41F47D4590021D7AE /* Info.plist */,
 				522F31E11F47D9D000B4BEB4 /* iOS-Bridging-Header.h */,
@@ -693,10 +693,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				522F31C91F47D8EA00B4BEB4 /* PrivateInformation.plist in Resources */,
 				522F31CB1F47D8F100B4BEB4 /* ProximityKit.plist in Resources */,
 				52B138C01F47D4590021D7AE /* Assets.xcassets in Resources */,
 				522F31CF1F47D8FA00B4BEB4 /* Main.storyboard in Resources */,
+				5225AE081F606DB400718D12 /* PrivateInformation.plist in Resources */,
 				522F31CE1F47D8FA00B4BEB4 /* LaunchScreen.storyboard in Resources */,
 				522F31C11F47D8DA00B4BEB4 /* GoogleService-Info.plist in Resources */,
 			);

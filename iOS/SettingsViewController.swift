@@ -49,7 +49,7 @@ class SettingsViewController: UITableViewController, AlertShower {
 	override func numberOfSections(in tableView: UITableView) -> Int {
 		let user = GIDSignIn.sharedInstance().currentUser
 		if let user = user {
-			return userIsAdmin(user: user) ? 4 : 3
+			return DALIMember.current!.isAdmin ? 4 : 3
 		}else{
 			return 1
 		}

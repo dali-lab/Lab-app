@@ -278,7 +278,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 				self.performSegue(withIdentifier: "showCheckin", sender: event)
 			}
 		}
-		if signedIn && userIsAdmin(user: GIDSignIn.sharedInstance().currentUser) {
+		if signedIn && DALIMember.current!.isAdmin {
 			alert.addButton("Notify members", action: {
 				let alert = SCLAlertView(appearance: appearance)
 				alert.addButton("Yes!", action: {
