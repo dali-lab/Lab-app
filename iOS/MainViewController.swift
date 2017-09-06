@@ -270,7 +270,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 			CalendarController.current.event = event
 			CalendarController.current.showCalendarChooser(on: self)
 		}
-		if signedIn && event.isNow {
+		if signedIn /*&& event.isNow*/ {
 			alert.addButton("Enable Checkin") {
 				tableView.deselectRow(at: indexPath, animated: true)
 				

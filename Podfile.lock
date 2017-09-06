@@ -1,7 +1,8 @@
 PODS:
   - Crashlytics (3.8.5):
     - Fabric (~> 1.6.3)
-  - DALI (0.3):
+  - DALI (0.3.17):
+    - Socket.IO-Client-Swift
     - SwiftyJSON
   - Fabric (1.6.12)
   - FirebaseAnalytics (3.9.0):
@@ -42,6 +43,9 @@ PODS:
   - OneSignal (2.5.4)
   - ProximityKit (1.2.9)
   - SCLAlertView (0.7.0)
+  - Socket.IO-Client-Swift (11.1.2):
+    - StarscreamSocketIO (~> 8.0.5)
+  - StarscreamSocketIO (8.0.5)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -54,7 +58,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Crashlytics: dfbae35ef22ca189240d230ad501feea4ee85d2d
-  DALI: 7a76d3462c75aa2d1a93e03d1a36a7a3db0eb243
+  DALI: 41dad083cb2b522f0757cb41e002be2823eeba16
   Fabric: f050464eac45a2ce5a8e6e6a07e977c0df32fe28
   FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
@@ -67,6 +71,8 @@ SPEC CHECKSUMS:
   OneSignal: da994bcf6a2efbdceaf71e389e1d05245c562899
   ProximityKit: e763235e2fca64711ed7a5bae08cea1508f80919
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  Socket.IO-Client-Swift: 2283d3d333cc6b24c4e7ba191a8a7907d35ac42b
+  StarscreamSocketIO: b56993332d3cd74885a7486e183ff0cd9541b3f3
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
 PODFILE CHECKSUM: 185256015cb31043de187bd3a26b9ed185bd17f9
