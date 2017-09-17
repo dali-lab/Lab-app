@@ -85,11 +85,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	}
 	
 	func onOSSubscriptionChanged(_ stateChanges: OSSubscriptionStateChanges!) {
-		if !stateChanges.from.subscribed && stateChanges.to.subscribed {
-			print("Subscribed for OneSignal push notifications!")
-		}
-		print("SubscriptionStateChange: \n\(stateChanges)")
-		
 		//The player id is inside stateChanges. But be careful, this value can be nil if the user has not granted you permission to send notifications.
 		if let playerId = stateChanges.to.userId {
 			UserDefaults.standard.set(playerId, forKey: "playerID")
