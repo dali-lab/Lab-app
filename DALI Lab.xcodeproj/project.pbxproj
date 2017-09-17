@@ -35,6 +35,7 @@
 		524D86FB1F57A0E100479C0A /* OrderedVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86FA1F57A0E100479C0A /* OrderedVotingViewController.swift */; };
 		524D86FD1F57A3F400479C0A /* ResultsVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86FC1F57A3F400479C0A /* ResultsVotingViewController.swift */; };
 		5251D9E31F4BD7C80020D958 /* CheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */; };
+		528DDACF1F69795100ED1F4E /* coins.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 528DDACE1F69790600ED1F4E /* coins.m4a */; };
 		529A63271F4E90DF00BFBFE9 /* NewVotingEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A63261F4E90DF00BFBFE9 /* NewVotingEventViewController.swift */; };
 		529A632A1F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A63291F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift */; };
 		529A632C1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A632B1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift */; };
@@ -150,6 +151,7 @@
 		524D86FA1F57A0E100479C0A /* OrderedVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedVotingViewController.swift; sourceTree = "<group>"; };
 		524D86FC1F57A3F400479C0A /* ResultsVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsVotingViewController.swift; sourceTree = "<group>"; };
 		5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinViewController.swift; sourceTree = "<group>"; };
+		528DDACE1F69790600ED1F4E /* coins.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = coins.m4a; sourceTree = "<group>"; };
 		529A63261F4E90DF00BFBFE9 /* NewVotingEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVotingEventViewController.swift; sourceTree = "<group>"; };
 		529A63291F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVotingEventConfigViewController.swift; sourceTree = "<group>"; };
 		529A632B1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingEventOptionsViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 		52B138461F47D39B0021D7AE = {
 			isa = PBXGroup;
 			children = (
+				528DDACE1F69790600ED1F4E /* coins.m4a */,
 				52B138B71F47D4590021D7AE /* iOS */,
 				52B138CC1F47D4590021D7AE /* iOSTests */,
 				52B138D71F47D4590021D7AE /* iOSUITests */,
@@ -695,6 +698,7 @@
 			files = (
 				522F31CB1F47D8F100B4BEB4 /* ProximityKit.plist in Resources */,
 				52B138C01F47D4590021D7AE /* Assets.xcassets in Resources */,
+				528DDACF1F69795100ED1F4E /* coins.m4a in Resources */,
 				522F31CF1F47D8FA00B4BEB4 /* Main.storyboard in Resources */,
 				5225AE081F606DB400718D12 /* PrivateInformation.plist in Resources */,
 				522F31CE1F47D8FA00B4BEB4 /* LaunchScreen.storyboard in Resources */,

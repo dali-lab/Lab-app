@@ -27,7 +27,7 @@
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="130" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="LKp-kj-bhX">
-                                <rect key="frame" x="20" y="62" width="1006" height="921"/>
+                                <rect key="frame" x="20" y="62" width="1006" height="919"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1006" id="ulm-fo-Aua"/>
@@ -87,26 +87,10 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXd-EG-flY">
-                                <rect key="frame" x="0.0" y="998" width="1920" height="1"/>
+                                <rect key="frame" x="0.0" y="996" width="1920" height="3"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="hVb-fh-Z8D"/>
-                                </constraints>
-                            </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGw-zc-s5M">
-                                <rect key="frame" x="61" y="1012" width="1818" height="54"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People in the lab: John Kotz, Tim Tregubov, Andrew Beaubien, Jenny Seong" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Li6-Ve-CAk">
-                                        <rect key="frame" x="0.0" y="4" width="1818" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="ILE-y1-4Uk"/>
+                                    <constraint firstAttribute="height" constant="3" id="hVb-fh-Z8D"/>
                                 </constraints>
                             </view>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="DALI_whiteLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fc9-Yb-ubJ">
@@ -127,6 +111,12 @@
                                 <color key="textColor" white="1" alpha="0.7961872799295775" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People in the lab: John Kotz, Tim Tregubov, Andrew Beaubien, Jenny Seong" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Li6-Ve-CAk">
+                                <rect key="frame" x="51" y="1014" width="1818" height="46"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -141,24 +131,24 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="90t-vt-BAP" secondAttribute="bottom" id="F63-uF-Q0m"/>
                             <constraint firstItem="90t-vt-BAP" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="20" id="KnI-oI-uus"/>
                             <constraint firstItem="fc9-Yb-ubJ" firstAttribute="leading" secondItem="LKp-kj-bhX" secondAttribute="trailing" constant="36" id="Mbg-ra-J4A"/>
+                            <constraint firstItem="Li6-Ve-CAk" firstAttribute="top" secondItem="vXd-EG-flY" secondAttribute="bottom" constant="15" id="NME-mh-MqJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Li6-Ve-CAk" secondAttribute="bottom" constant="20" id="SbE-Lx-Lka"/>
                             <constraint firstItem="LKp-kj-bhX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Yjj-bh-SDH"/>
                             <constraint firstItem="CIh-pY-fxA" firstAttribute="top" secondItem="IoS-59-xYp" secondAttribute="bottom" constant="2" id="awP-Wg-SDH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Li6-Ve-CAk" secondAttribute="trailing" constant="31" id="c66-oh-73o"/>
+                            <constraint firstItem="Li6-Ve-CAk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="31" id="dm5-JX-1Tn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IoS-59-xYp" secondAttribute="trailing" constant="21" id="gTn-5H-u5R"/>
                             <constraint firstItem="IoS-59-xYp" firstAttribute="top" secondItem="fc9-Yb-ubJ" secondAttribute="bottom" constant="35" id="h5C-aO-jaf"/>
                             <constraint firstAttribute="trailing" secondItem="fc9-Yb-ubJ" secondAttribute="trailing" constant="41" id="h8K-wV-jXT"/>
                             <constraint firstItem="vXd-EG-flY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h8g-Dj-Cgg"/>
-                            <constraint firstItem="YGw-zc-s5M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="61" id="i1D-9N-g8y"/>
-                            <constraint firstItem="YGw-zc-s5M" firstAttribute="top" secondItem="vXd-EG-flY" secondAttribute="bottom" constant="13" id="iR1-fk-Fbk"/>
-                            <constraint firstAttribute="trailing" secondItem="YGw-zc-s5M" secondAttribute="trailing" constant="41" id="juG-oz-GPU"/>
                             <constraint firstItem="CIh-pY-fxA" firstAttribute="leading" secondItem="LKp-kj-bhX" secondAttribute="trailing" constant="36" id="lue-rk-UZv"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YGw-zc-s5M" secondAttribute="bottom" constant="14" id="lvG-Wi-7nx"/>
                             <constraint firstItem="LKp-kj-bhX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="62" id="qqe-gW-fd7"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="foodLabel" destination="CIh-pY-fxA" id="xld-3Y-h93"/>
                         <outlet property="image" destination="fc9-Yb-ubJ" id="Wak-cC-zcx"/>
                         <outlet property="peopleInLabLabel" destination="Li6-Ve-CAk" id="IIb-1b-jCi"/>
-                        <outlet property="peopleInLabView" destination="YGw-zc-s5M" id="1Q2-jk-ew2"/>
                         <outlet property="tableView" destination="LKp-kj-bhX" id="2s0-U3-4O5"/>
                     </connections>
                 </viewController>
@@ -177,18 +167,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="eOg-vG-IAJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="eOg-vG-IAJ">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1v-pe-NZ3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1v-pe-NZ3">
                                 <rect key="frame" x="704" y="60" width="513" height="107"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UzX-nX-jXc">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UzX-nX-jXc">
                                 <rect key="frame" x="912" y="209" width="97" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -204,7 +194,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="1920" height="1080"/>
+        <image name="Background" width="376" height="667"/>
         <image name="DALI_whiteLogo" width="2569" height="970"/>
     </resources>
 </document>

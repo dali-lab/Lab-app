@@ -50,10 +50,11 @@ class ServerCommunicator {
 		- notification: Notification - The notification that triggered the call
 	*/
 	@objc func timsOfficeEnterExit(notification: Notification) {
-		let entered = (notification.userInfo?["entered"] as? Bool) ?? false
 		guard let user = GIDSignIn.sharedInstance().currentUser else {
 			return
 		}
+		
+		let entered = (notification.userInfo?["entered"] as? Bool) ?? false
 		if !userIsTim(user: user) {
 			return
 		}
@@ -72,6 +73,10 @@ class ServerCommunicator {
 		- notification: Notification - The notification that triggered the call
 	*/
 	@objc func enterExitCheckIn(notification: Notification) {
+		guard GIDSignIn.sharedInstance().currentUser != nil else {
+			return
+		}
+		
 		let entered = (notification.userInfo?["entered"] as? Bool) ?? false
 		let major = (notification.userInfo?["major"] as! Int)
 		let minor = (notification.userInfo?["minor"] as! Int)
@@ -93,18 +98,42 @@ class ServerCommunicator {
 		- notification: Notification - The notification that triggered the call
 	*/
 	@objc func enterExitDALI(notification: Notification) {
+		guard let user = GIDSignIn.sharedInstance().currentUser else {
+			return
+		}
+		
 		let entered = (notification.userInfo?["entered"] as? Bool) ?? false
 		
-		if userIsTim(user: GIDSignIn.sharedInstance().currentUser) {
+		if userIsTim(user: user) {
 			DALILocation.Tim.submit(inDALI: entered, inOffice: BeaconController.current!.inOffice) { (success, error) in
 				if let error = error {
 					print("Encountered error submitting inDALI for tim: \(error)")
+					UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
 				}
 			}
 		}else {
 			DALILocation.Shared.submit(inDALI: entered, entering: entered, callback: { (success, error) in
 				if let error = error {
 					print("Encountered error submitting inDALI: \(error)")
+					UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+				}
+			})
+		}
+	}
+	
+	func enterExitDALIFunc(inDALI: Bool, callback: @escaping (_ successs: Bool) -> Void) {
+		if userIsTim(user: GIDSignIn.sharedInstance().currentUser) {
+			DALILocation.Tim.submit(inDALI: inDALI, inOffice: BeaconController.current!.inOffice) { (success, error) in
+				if let error = error {
+					print("Encountered error submitting inDALI for tim: \(error)")
+					callback(success)
+				}
+			}
+		}else {
+			DALILocation.Shared.submit(inDALI: inDALI, entering: inDALI, callback: { (success, error) in
+				if let error = error {
+					print("Encountered error submitting inDALI: \(error)")
+					callback(success)
 				}
 			})
 		}

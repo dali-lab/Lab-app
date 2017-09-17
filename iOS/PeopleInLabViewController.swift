@@ -15,8 +15,10 @@ class PeopleInLabViewController : UITableViewController {
 	var timLocation = "Loading..."
 	var timLocationLabel: UILabel?
 	var members: [DALIMember]?
-	var refreshTimer: Timer!
 	var indicator = UIActivityIndicatorView()
+	
+	var sharedObserver: Observation?
+	var timObserver: Observation?
 	
 	override func viewDidLoad() {
 		indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
@@ -28,19 +30,17 @@ class PeopleInLabViewController : UITableViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		indicator.startAnimating()
 		indicator.backgroundColor = UIColor.white
-		self.refreshTimer = Timer(timeInterval: 5, repeats: true, block: { (timer) in
-			self.reloadData()
-		})
-		self.refreshTimer.fire()
-		RunLoop.current.add(self.refreshTimer, forMode: .commonModes)
+		
+		reloadData()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		self.refreshTimer.invalidate()
+		sharedObserver?.stop()
+		timObserver?.stop()
 	}
 	
 	func reloadData() {
-		DALILocation.Tim.get { (tim, error) in
+		timObserver = DALILocation.Tim.observe { (tim, error) in
 			if let error = error {
 				print("Error: \(error)")
 				return
@@ -62,7 +62,7 @@ class PeopleInLabViewController : UITableViewController {
 			}
 		}
 		
-		DALILocation.Shared.get { (members, error) in
+		sharedObserver = DALILocation.Shared.observe { (members, error) in
 			if let error = error {
 				print("Error: \(error)")
 				return

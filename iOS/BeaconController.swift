@@ -20,7 +20,7 @@ Properties:
 - currentLocation: String?
 	Generated property
  */
-class BeaconController: NSObject, RPKManagerDelegate {
+class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate {
 	
 	static let notificationNames: [String: Notification.Name] = [
 		"DALI Lab Region": Notification.Name.Custom.EnteredOrExitedDALI,
@@ -31,6 +31,7 @@ class BeaconController: NSObject, RPKManagerDelegate {
 	static var current: BeaconController?
 	var user: GIDGoogleUser?
 	var beaconManager: RPKManager = RPKManager()
+	var locationManager = CLLocationManager()
 	var numToRange = 0
 	
 	private var rangeDone: (() -> Void)?
@@ -57,6 +58,11 @@ class BeaconController: NSObject, RPKManagerDelegate {
 			return region.name == "Tims Office Region"
 		}).count >= 1
 	}
+	var inVotingEvent: Bool {
+		return regions.filter({ (region) -> Bool in
+			return region.name == "Event Vote Region"
+		}).count >= 1
+	}
 	
 	private var regions = Set<RPKRegion>()
 	
@@ -68,7 +74,7 @@ class BeaconController: NSObject, RPKManagerDelegate {
 		do {
 			try self.staticSetup()
 		}catch {
-			fatalError()
+			fatalError("Already have one!")
 		}
 		
 		self.beaconManager = RPKManager(delegate: self, andConfig: [
@@ -76,10 +82,35 @@ class BeaconController: NSObject, RPKManagerDelegate {
 			"api_token": "753b54a6bf172823b68c10c9966c4d6da40ff85f57ef65ad0e155fcb40d0ccb2",
 			"allow_cellular_data": true
 			])
+		
+		updateLocation()
+	}
+	
+	func breakdown() {
+		BeaconController.current = nil
+		
+		self.beaconManager.stopRangingIBeacons()
+		self.beaconManager.stopAdvertising()
+		self.beaconManager.stop()
+		
+		NotificationCenter.default.post(name: Notification.Name.Custom.EnteredOrExitedDALI, object: nil, userInfo: ["entered" : false])
+		NotificationCenter.default.post(name: Notification.Name.Custom.EventVoteEnteredOrExited, object: nil, userInfo: ["entered" : false])
+		NotificationCenter.default.post(name: Notification.Name.Custom.TimsOfficeEnteredOrExited, object: nil, userInfo: ["entered" : false])
+	}
+	
+	func updateLocation() {
 		self.beaconManager.start()
 		// A good buffer to find all the beacons possible
 		numToRange = 20
 		self.beaconManager.startRangingBeacons()
+	}
+	
+	func updateLocation(with callback: @escaping (BeaconController) -> Void) {
+		updateLocation()
+		rangeDone = { _ in
+			callback(self)
+			self.rangeDone = nil
+		}
 	}
 	
 	func proximityKit(_ manager: RPKManager!, didDetermineState state: RPKRegionState, for region: RPKRegion!) {

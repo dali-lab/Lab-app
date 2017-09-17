@@ -28,9 +28,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, ErrorAlertShow
 		activityIndicator.isHidden = true;
 		activityIndicator.stopAnimating()
 		
-		UIApplication.shared.statusBarStyle = .lightContent
-		self.setNeedsStatusBarAppearanceUpdate()
-		
 		GIDSignIn.sharedInstance().uiDelegate = self
 		
 		if let delegate = UIApplication.shared.delegate as? AppDelegate {

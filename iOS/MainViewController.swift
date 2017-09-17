@@ -20,31 +20,44 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var votingButton: UIButton!
 	@IBOutlet weak var peopleButton: UIButton!
+	@IBOutlet weak var foodLabel: UILabel!
 	
 	var viewShown = false
 	var loginTransformAnimationDone: Bool!
 	var animationDone: (() -> Void)?
 	
+	var eventsObserver: Observation?
+	var foodObserver: Observation?
+	
 	var events = [[DALIEvent]]()
 	var sections = [String]()
 	
 	override func viewDidLoad() {
-		UIApplication.shared.statusBarStyle = .lightContent
-		self.setNeedsStatusBarAppearanceUpdate()
 		
 		if signedIn {
 			self.setUpListeners()
 			self.locationUpdated()
+			
+			foodObserver = DALIFood.observeFood(callback: { (food) in
+				DispatchQueue.main.async {
+					self.foodLabel.text = food == nil ? "No Food Tonight" : "Food Tonight: \(food!)"
+				}
+			})
 		}else{
 			self.locationLabel.text = "Not signed in"
 			peopleButton.isHidden = true
 			peopleButton.isEnabled = false
+			
+			foodLabel.isHidden = true
+			foodLabel.text = ""
 		}
 		self.updateData()
 		
 		(UIApplication.shared.delegate as! AppDelegate).mainViewController = self
 		
 		let _ = CalendarController()
+		
+		BeaconController.current?.updateLocation()
 		
 		tableView.estimatedRowHeight = 140
 		
@@ -124,11 +137,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		}
 		
 		if signedIn {
-			DALIEvent.getUpcoming { (events, error) in
+			eventsObserver = DALIEvent.observeUpcoming { (events, error) in
 				gotEvents(events: events, error: error)
 			}
 		}else{
-			DALIEvent.getPublicUpcoming(callback: { (events, error) in
+			eventsObserver = DALIEvent.observePublicUpcoming(callback: { (events, error) in
 				gotEvents(events: events, error: error)
 			})
 		}
@@ -140,6 +153,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	
 	deinit {
 		NotificationCenter.default.removeObserver(self)
+		eventsObserver?.stop()
+		foodObserver?.stop()
 	}
 	
 	func locationUpdated() {
@@ -287,7 +302,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 					
 					if time >= 60 {
 						units = "hours"
-						time = Calendar.current.dateComponents([.hour], from: Date(), to: event.start).minute ?? 0
+						time = Calendar.current.dateComponents([.hour], from: Date(), to: event.start).hour ?? 0
+						
+						if time == 1 {
+							units = "hour"
+						}
 					}
 					
 					DALIapi.sendSimpleNotification(with: "\(event.name) starts soon!", and: "The event \(event.name) is starting in \(time) \(units)", to: "signedIn", callback: { (success, error) in
@@ -307,6 +326,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		}
 		
 		alert.showInfo("Whats up?", subTitle: "What do you want to do with \(event.name)?")
+		tableView.deselectRow(at: indexPath, animated: true)
 	}
 	
 	@IBAction func settingsButtonPressed(_ sender: UIButton) {
@@ -316,6 +336,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 			let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
 			alert.addButton("Sign In", action: {
 				(UIApplication.shared.delegate as! AppDelegate).signOut()
+			})
+			alert.addButton("Nah...", action: { 
+				
 			})
 			
 			alert.showInfo("Sign In?", subTitle: "")

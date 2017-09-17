@@ -16,16 +16,40 @@ class TopLevelVotingViewController: UITableViewController {
 	var currentEvent: DALIEvent.VotingEvent?
 	
 	override func viewDidLoad() {
-		self.updateData()
-		
 		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Events", style: .plain, target: nil, action: nil)
+		self.updateData()
+	}
+	
+	deinit {
+		BeaconController.current?.breakdown()
 	}
 	
 	func updateData() {
-		DALIEvent.VotingEvent.getCurrent { (event, error) in
-			self.currentEvent = event
-			
-			DispatchQueue.main.async {
+		var beaconControl = BeaconController.current
+		if beaconControl == nil {
+			beaconControl = BeaconController()
+		}
+		
+//		(UIApplication.shared.delegate as! AppDelegate)
+		
+		if beaconControl!.inVotingEvent {
+			DALIEvent.VotingEvent.getCurrent { (event, error) in
+				self.currentEvent = event
+				
+				DispatchQueue.main.async {
+					self.tableView.reloadData()
+				}
+			}
+		}
+		
+		NotificationCenter.default.addObserver(forName: Notification.Name.Custom.EventVoteEnteredOrExited, object: nil, queue: nil) { (notification) in
+			if notification.userInfo?["entering"] as? Bool ?? false {
+				DALIEvent.VotingEvent.getCurrent { (event, error) in
+					self.currentEvent = event
+					self.tableView.reloadData()
+				}
+			}else{
+				self.currentEvent = nil
 				self.tableView.reloadData()
 			}
 		}
@@ -35,10 +59,7 @@ class TopLevelVotingViewController: UITableViewController {
 				self.pastEvents = events.sorted(by: { (event1, event2) -> Bool in
 					return event1.start > event2.start
 				})
-				
-				DispatchQueue.main.async {
-					self.tableView.reloadData()
-				}
+				self.tableView.reloadData()
 			}
 		}
 	}

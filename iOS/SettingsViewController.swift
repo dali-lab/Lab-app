@@ -17,6 +17,7 @@ class SettingsViewController: UITableViewController, AlertShower {
 	@IBOutlet weak var checkInSwitch: UISwitch!
 	@IBOutlet weak var votingSwitch: UISwitch!
 	@IBOutlet weak var shareSwitch: UISwitch!
+	@IBOutlet weak var foodLabel: UILabel!
 	
 	override func viewDidLoad() {
 		let user = GIDSignIn.sharedInstance().currentUser
@@ -26,6 +27,12 @@ class SettingsViewController: UITableViewController, AlertShower {
 		checkInSwitch.isOn = SettingsController.getCheckInNotif()
 		votingSwitch.isOn = SettingsController.getVotingNotif()
 		shareSwitch.isOn = DALILocation.sharing
+		
+		DALIFood.getFood { (food) in
+			DispatchQueue.main.async {
+				self.foodLabel.text = food ?? "No Food Tonight"
+			}
+		}
 	}
 	
 	@IBAction func switchChanged(_ sender: UISwitch) {
@@ -48,8 +55,8 @@ class SettingsViewController: UITableViewController, AlertShower {
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {
 		let user = GIDSignIn.sharedInstance().currentUser
-		if let user = user {
-			return DALIMember.current!.isAdmin ? 4 : 3
+		if user != nil {
+			return DALIMember.current!.isAdmin ? 5 : 3
 		}else{
 			return 1
 		}
@@ -65,6 +72,45 @@ class SettingsViewController: UITableViewController, AlertShower {
 		if indexPath.section == 0 {
 			// Sign out
 			AppDelegate.shared?.signOut()
+		}else if indexPath.section == 3 {
+			let alert = SCLAlertView()
+			
+			let textFeild = alert.addTextField()
+			textFeild.text = foodLabel.text
+			
+			alert.addButton("Save", action: { 
+				let text = textFeild.text!
+				
+				DALIFood.setFood(food: text) { (success) in
+					if !success {
+						DispatchQueue.main.async {
+							SCLAlertView().showError("Encountered Error", subTitle: "")
+						}
+					}else{
+						DispatchQueue.main.async {
+							self.foodLabel.text = text
+						}
+					}
+				}
+			})
+			
+			alert.addButton("Cancel Food", action: { 
+				DALIFood.cancelFood { (success) in
+					if !success {
+						DispatchQueue.main.async {
+							SCLAlertView().showError("Encountered Error", subTitle: "")
+						}
+					}else{
+						DispatchQueue.main.async {
+							self.foodLabel.text = "No Food Tonight"
+						}
+					}
+				}
+			})
+			
+			alert.showEdit("Set food tonight", subTitle: "")
+			
+			tableView.deselectRow(at: indexPath, animated: true)
 		}
 	}
 }
@@ -86,9 +132,5 @@ class SettingsController {
 	
 	static func getVotingNotif() -> Bool {
 		return defaults.value(forKey: "votingNotification") != nil ? defaults.bool(forKey: "votingNotification") : true
-	}
-	
-	static func getSharePref() -> Bool {
-		return defaults.value(forKey: "sharePreference") != nil ? defaults.bool(forKey: "sharePreference") : true
 	}
 }
