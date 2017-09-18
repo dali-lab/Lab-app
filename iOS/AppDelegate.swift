@@ -54,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		
 		GIDSignIn.sharedInstance().delegate = self
 		GIDSignIn.sharedInstance().signInSilently()
+		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
 		
 		return true
 	}
@@ -76,10 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		
 		beaconController.updateLocation { (controller) in
 			serverController.enterExitDALIFunc(inDALI: controller.inDALI, callback: { (success) in
-				if success {
-					application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalNever)
-				}
-				completionHandler(success ? .noData : .failed)
+				completionHandler(success ? controller.inDALI ? .noData : .newData : .failed)
 			})
 		}
 	}

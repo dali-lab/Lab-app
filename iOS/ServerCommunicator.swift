@@ -108,14 +108,12 @@ class ServerCommunicator {
 			DALILocation.Tim.submit(inDALI: entered, inOffice: BeaconController.current!.inOffice) { (success, error) in
 				if let error = error {
 					print("Encountered error submitting inDALI for tim: \(error)")
-					UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
 				}
 			}
 		}else {
 			DALILocation.Shared.submit(inDALI: entered, entering: entered, callback: { (success, error) in
 				if let error = error {
 					print("Encountered error submitting inDALI: \(error)")
-					UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
 				}
 			})
 		}
