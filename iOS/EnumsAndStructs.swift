@@ -8,6 +8,7 @@
 
 import Foundation
 import SCLAlertView
+import DALI
 
 let env = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "PrivateInformation", ofType: "plist")!)! as! [String: Any]
 
@@ -29,6 +30,13 @@ var signedIn: Bool {
 
 func userIsTim(user: GIDGoogleUser) -> Bool {
 	return (env["tim"] as! String) == user.profile.email
+}
+
+func userIsTim(user: DALIMember? = DALIMember.current) -> Bool {
+	if user == nil {
+		return false
+	}
+	return (env["tim"] as! String) == user!.email
 }
 
 var checkInRangeID: String {

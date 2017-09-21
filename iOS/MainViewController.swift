@@ -285,14 +285,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 			CalendarController.current.event = event
 			CalendarController.current.showCalendarChooser(on: self)
 		}
-		if signedIn && event.isNow {
+//		if signedIn && event.isNow {
 			alert.addButton("Enable Checkin") {
 				tableView.deselectRow(at: indexPath, animated: true)
 				
 				// TODO: work on check in system
 				self.performSegue(withIdentifier: "showCheckin", sender: event)
 			}
-		}
+//		}
 		if signedIn && DALIMember.current!.isAdmin {
 			alert.addButton("Notify members", action: {
 				let alert = SCLAlertView(appearance: appearance)

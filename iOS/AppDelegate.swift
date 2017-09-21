@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	var notificationsAuthorized = false
 	
 	var beaconController: BeaconController?
-	var serverCommunicator = ServerCommunicator()
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
@@ -54,7 +53,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		
 		GIDSignIn.sharedInstance().delegate = self
 		GIDSignIn.sharedInstance().signInSilently()
-		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+		UIApplication.shared.setMinimumBackgroundFetchInterval(1.0)
+		
+		print("fskljfak; sdjflk asjkl;dfjasdk;f:", UIApplicationBackgroundFetchIntervalMinimum)
 		
 		return true
 	}
@@ -65,20 +66,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		if beaconContHolder == nil {
 			beaconContHolder = BeaconController()
 		}
-		var serverContHolder = ServerCommunicator.current
-		if serverContHolder == nil {
-			serverContHolder = ServerCommunicator()
-		}
 		
-		guard let beaconController = beaconContHolder, let serverController = serverContHolder else {
+		guard let beaconController = beaconContHolder else {
 			completionHandler(.failed)
 			return
 		}
 		
 		beaconController.updateLocation { (controller) in
-			serverController.enterExitDALIFunc(inDALI: controller.inDALI, callback: { (success) in
-				completionHandler(success ? controller.inDALI ? .noData : .newData : .failed)
-			})
+			if userIsTim() {
+				DALILocation.Tim.submit(inDALI: controller.inDALI, inOffice: controller.inOffice, callback: { (_, error) in
+					if error != nil {
+						completionHandler(.failed)
+					}else{
+						completionHandler(.newData)
+					}
+				})
+			}else{
+				DALILocation.Shared.submit(inDALI: controller.inDALI, entering: false, callback: { (_, error) in
+					if error != nil {
+						completionHandler(.failed)
+					}else{
+						completionHandler(.newData)
+					}
+				})
+			}
 		}
 	}
 	
@@ -168,10 +179,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 				}
 				OneSignal.sendTag("signedIn", value: "\(GIDSignIn.sharedInstance().currentUser != nil)")
 				
-				NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.enterExitHappened), name: Notification.Name.Custom.EnteredOrExitedDALI, object: nil)
-				NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.checkInHappened), name: Notification.Name.Custom.CheckInComeplte, object: nil)
-				NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.votingEventEnteredOrExited), name: Notification.Name.Custom.EventVoteEnteredOrExited, object: nil)
-				
 				OneSignal.promptForPushNotifications(userResponse: { accepted in
 					print("User accepted notifications: \(accepted)")
 				})
@@ -179,13 +186,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		}
 	}
 	
-	@objc private func enterExitHappened(notification: Notification) {
+	func enterExitHappened(entered: Bool) {
 		if UIApplication.shared.applicationState != .background {
 			return
 		}
 		
 		if SettingsController.getEnterExitNotif() {
-			let entered = (notification.userInfo as! [String: Any])["entered"] as! Bool
 			let content = UNMutableNotificationContent()
 			content.title = entered ? "Welcome Back" : "See you next time"
 			let emojies = ["💡", "😄", "🚀", "💻", "🌈", "✨", "🌯", "⚙️"]
@@ -201,7 +207,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		}
 	}
 	
-	@objc private func checkInHappened() {
+	func checkInHappened() {
 		if UIApplication.shared.applicationState != .background {
 			return
 		}
@@ -220,7 +226,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		}
 	}
 	
-	@objc private func votingEventEnteredOrExited() {
+	func votingEventEnteredOrExited(_ callback: @escaping () -> Void) {
 		if UIApplication.shared.applicationState != .background {
 			return
 		}
@@ -239,7 +245,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 				
 				let notification = UNNotificationRequest(identifier: "votingNotification", content: content, trigger: nil)
 				UNUserNotificationCenter.current().add(notification) { (error) in
-					
+					callback()
 				}
 			}
 		}
