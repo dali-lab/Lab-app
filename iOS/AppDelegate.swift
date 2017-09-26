@@ -52,10 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		DALIapi.configure(config: config)
 		
 		GIDSignIn.sharedInstance().delegate = self
+		
+		if DALIapi.isSignedIn {
+			self.didSignIn(member: DALIMember.current!)
+		}
 		GIDSignIn.sharedInstance().signInSilently()
 		UIApplication.shared.setMinimumBackgroundFetchInterval(1.0)
-		
-		print("fskljfak; sdjflk asjkl;dfjasdk;f:", UIApplicationBackgroundFetchIntervalMinimum)
 		
 		return true
 	}
@@ -180,7 +182,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 				OneSignal.sendTag("signedIn", value: "\(GIDSignIn.sharedInstance().currentUser != nil)")
 				
 				OneSignal.promptForPushNotifications(userResponse: { accepted in
-					print("User accepted notifications: \(accepted)")
+					
 				})
 			}
 		}
@@ -255,55 +257,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		NotificationCenter.default.removeObserver(self)
 	}
 	
+	func didSignIn(member: DALIMember) {
+		if self.notificationsAuthorized {
+			OneSignal.syncHashedEmail(member.email)
+			OneSignal.sendTag("signedIn", value: "\(true)")
+		}
+		
+		if self.beaconController == nil && BeaconController.current == nil {
+			self.beaconController = BeaconController()
+		}else{
+			self.beaconController = BeaconController.current
+		}
+		
+		let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+		if let loginViewController = self.loginViewController {
+			mainViewController.modalTransitionStyle = .crossDissolve
+			mainViewController.modalPresentationStyle = .fullScreen
+			mainViewController.loginTransformAnimationDone = loginViewController.transformAnimationDone
+			
+			loginViewController.present(mainViewController, animated: true, completion: {
+				self.setUpNotificationListeners()
+			})
+		}else{
+			self.window?.rootViewController = mainViewController
+		}
+		
+		self.loginViewController?.endLoading()
+	}
+	
 	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
 		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
 		
 		if let error = error {
 			print(error)
 		}else{
-			
 			self.user = user
 			self.loginViewController?.beginLoading()
 			DALIapi.signin(accessToken: user.authentication.accessToken, refreshToken: user.authentication.refreshToken, forced: true, done: { (sucess, error) in
-				
-				if self.notificationsAuthorized {
-					OneSignal.syncHashedEmail(user.profile.email)
-					OneSignal.sendTag("signedIn", value: "\(sucess)")
-				}
-				
-				if sucess {
+				if let member = DALIMember.current, sucess {
 					DispatchQueue.main.async {
-						if self.beaconController == nil && BeaconController.current == nil {
-							self.beaconController = BeaconController()
-						}else{
-							self.beaconController = BeaconController.current
-						}
-						
-						let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-						
-						if let loginViewController = self.loginViewController {
-							
-							mainViewController.modalTransitionStyle = .crossDissolve
-							mainViewController.modalPresentationStyle = .fullScreen
-							mainViewController.loginTransformAnimationDone = loginViewController.transformAnimationDone
-							
-							loginViewController.present(mainViewController, animated: true, completion: {
-								self.setUpNotificationListeners()
-							})
-						}else{
-							self.window?.rootViewController = mainViewController
-						}
-						
-						self.loginViewController?.endLoading()
+						self.didSignIn(member: member)
 					}
 				}else{
 					DispatchQueue.main.async {
 						self.loginViewController?.showError(alert: SCLAlertView(), title: "Error Logging In", subTitle: "Encountered an error when logging in!")
 					}
 					print(error!)
-					
 					self.signOut()
-					
 					self.loginViewController?.endLoading()
 				}
 			})
@@ -318,6 +318,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		mainViewController.modalTransitionStyle = .crossDissolve
 		mainViewController.modalPresentationStyle = .fullScreen
 		mainViewController.loginTransformAnimationDone = loginViewController?.transformAnimationDone
+		OneSignal.sendTag("signedIn", value: "\(false)")
 		
 		loginViewController?.present(mainViewController, animated: true, completion: {
 			
@@ -337,6 +338,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		
 		GIDSignIn.sharedInstance().signOut()
 		DALIapi.signOut()
+		OneSignal.sendTag("signedIn", value: "\(false)")
 		
 		// I'm gonna need a better way than this:
 		self.window?.rootViewController?.dismiss(animated: true, completion: {

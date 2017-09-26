@@ -473,10 +473,10 @@
 				75AE8FF427D5B14F77913FE0 /* [CP] Check Pods Manifest.lock */,
 				52B138B21F47D4590021D7AE /* Sources */,
 				52B138B31F47D4590021D7AE /* Frameworks */,
-				52B138B41F47D4590021D7AE /* Resources */,
 				52B139201F47D47C0021D7AE /* Embed App Extensions */,
 				BCCA48D37DCDC3452BA81177 /* [CP] Embed Pods Frameworks */,
 				7C703579EE1E1BE24D32A596 /* [CP] Copy Pods Resources */,
+				52B138B41F47D4590021D7AE /* Resources */,
 				522F31E51F47DA4900B4BEB4 /* ShellScript */,
 			);
 			buildRules = (
@@ -1290,12 +1290,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JQ28K6Y7JE;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JohnKotz.DALI.DaliLabApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iOS/iOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1309,12 +1312,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JQ28K6Y7JE;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JohnKotz.DALI.DaliLabApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iOS/iOS-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

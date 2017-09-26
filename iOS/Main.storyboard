@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -14,6 +14,7 @@
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
             <string>AvenirNext-DemiBold</string>
+            <string>AvenirNext-Heavy</string>
             <string>AvenirNext-Italic</string>
             <string>AvenirNext-Medium</string>
             <string>AvenirNext-Regular</string>
@@ -33,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundGradient" translatesAutoresizingMaskIntoConstraints="NO" id="aMb-mK-JjW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DALI_whiteLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ute-8w-BC8">
                                 <rect key="frame" x="67" y="269" width="240" height="128"/>
@@ -90,21 +91,25 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.94509798288345337" green="0.67450994253158569" blue="0.4784313440322876" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="boM-lX-AvV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7qw-zy-EN4"/>
                             <constraint firstAttribute="trailing" secondItem="boM-lX-AvV" secondAttribute="trailing" id="7yL-mh-nBb"/>
                             <constraint firstAttribute="trailing" secondItem="aMb-mK-JjW" secondAttribute="trailing" id="AgO-gf-A2j"/>
+                            <constraint firstItem="aMb-mK-JjW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="FT7-Y8-dlg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cfe-Gu-Hfz" secondAttribute="bottom" id="JfS-LX-NQb"/>
                             <constraint firstItem="cfe-Gu-Hfz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QN6-aN-ht9"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aMb-mK-JjW" secondAttribute="bottom" id="SWe-ea-F0J"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aMb-mK-JjW" secondAttribute="bottom" constant="-33" id="SWe-ea-F0J"/>
                             <constraint firstItem="cfe-Gu-Hfz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Tpm-hd-oiN"/>
                             <constraint firstItem="ute-8w-BC8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="aOE-tp-U00"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aMb-mK-JjW" secondAttribute="bottom" constant="-33" id="aqx-ml-ylp"/>
                             <constraint firstItem="ute-8w-BC8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="azq-ar-7Ag"/>
+                            <constraint firstItem="aMb-mK-JjW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iJk-sB-1ZK"/>
                             <constraint firstAttribute="trailing" secondItem="cfe-Gu-Hfz" secondAttribute="trailing" id="jMm-hp-g2b"/>
                             <constraint firstItem="aMb-mK-JjW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qSS-H3-Gcp"/>
                             <constraint firstItem="aMb-mK-JjW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ty4-zc-YXN"/>
                             <constraint firstItem="boM-lX-AvV" firstAttribute="top" secondItem="ute-8w-BC8" secondAttribute="bottom" constant="8" id="wfk-3x-bFS"/>
+                            <constraint firstAttribute="trailing" secondItem="aMb-mK-JjW" secondAttribute="trailing" id="zMd-ua-6zp"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -136,7 +141,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="0e3-4p-LqD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="696"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DALI_whiteLogo" translatesAutoresizingMaskIntoConstraints="NO" id="MtM-fv-ipP">
                                 <rect key="frame" x="107" y="35" width="160" height="60"/>
@@ -330,9 +335,10 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.69019609689712524" green="0.81176477670669556" blue="0.83137261867523193" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kIM-eC-D4F" secondAttribute="trailing" id="862-1j-5Gq"/>
+                            <constraint firstItem="4Ob-aa-kWW" firstAttribute="top" secondItem="0e3-4p-LqD" secondAttribute="bottom" constant="-29" id="Bdd-5u-7D1"/>
                             <constraint firstItem="kIM-eC-D4F" firstAttribute="leading" secondItem="E4i-fV-YKU" secondAttribute="leading" id="Hub-Sn-zTI"/>
                             <constraint firstAttribute="trailing" secondItem="kIM-eC-D4F" secondAttribute="trailing" id="Ltx-PY-lF1"/>
                             <constraint firstItem="4Ob-aa-kWW" firstAttribute="top" secondItem="kIM-eC-D4F" secondAttribute="bottom" id="Rlg-x0-7JT"/>
@@ -343,7 +349,6 @@
                             <constraint firstItem="MtM-fv-ipP" firstAttribute="centerX" secondItem="E4i-fV-YKU" secondAttribute="centerX" id="dab-oZ-dH3"/>
                             <constraint firstItem="EXY-ff-5kM" firstAttribute="top" secondItem="BGu-JY-Zum" secondAttribute="bottom" constant="84" id="dwB-S8-Y6Z"/>
                             <constraint firstItem="0e3-4p-LqD" firstAttribute="leading" secondItem="E4i-fV-YKU" secondAttribute="leading" id="jYJ-27-dZ0"/>
-                            <constraint firstItem="4Ob-aa-kWW" firstAttribute="top" secondItem="0e3-4p-LqD" secondAttribute="bottom" id="k6x-zP-Scd"/>
                             <constraint firstAttribute="trailing" secondItem="0e3-4p-LqD" secondAttribute="trailing" id="ovY-Uy-cvg"/>
                             <constraint firstItem="4Ob-aa-kWW" firstAttribute="top" secondItem="kIM-eC-D4F" secondAttribute="bottom" id="rlK-Lk-HaI"/>
                             <constraint firstItem="kIM-eC-D4F" firstAttribute="top" secondItem="E4i-fV-YKU" secondAttribute="top" id="w75-jB-zBw"/>
@@ -416,7 +421,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tXs-VD-zvk">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="tXs-VD-zvk">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tXs-VD-zvk" id="wey-CW-yqB">
@@ -433,7 +438,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCH-Yd-JZG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="219" y="-1407"/>
+            <point key="canvasLocation" x="-20" y="-1406"/>
         </scene>
         <!--Has Voted View Controller-->
         <scene sceneID="i3i-Ie-l1y">
@@ -523,7 +528,7 @@ for voting</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oQC-aH-61H">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="oQC-aH-61H">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oQC-aH-61H" id="XZN-Zv-GFp">
@@ -554,7 +559,7 @@ for voting</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2w-lG-0Ph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1254" y="-1788"/>
+            <point key="canvasLocation" x="1710" y="-1840"/>
         </scene>
         <!--Ordered Voting View Controller-->
         <scene sceneID="6rI-W8-bd0">
@@ -808,14 +813,14 @@ for voting</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQX-sI-l7m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1254" y="-986"/>
+            <point key="canvasLocation" x="1710" y="-1007"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wk1-fI-6Ll">
             <objects>
                 <navigationController id="65l-id-DWh" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="L0r-TB-XXN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -940,7 +945,7 @@ for voting</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sign Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qGL-3C-PJF">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="49.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="49.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -953,7 +958,7 @@ for voting</string>
                             </tableViewSection>
                             <tableViewSection headerTitle="Notifications" id="Tjc-3A-uSZ">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="86" id="D1l-fk-Je0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell1" rowHeight="86" id="D1l-fk-Je0">
                                         <rect key="frame" x="0.0" y="141" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D1l-fk-Je0" id="q6F-gL-gHv">
@@ -996,7 +1001,7 @@ for voting</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="86" id="62P-z9-l7Q">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell2" rowHeight="86" id="62P-z9-l7Q">
                                         <rect key="frame" x="0.0" y="227" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="62P-z9-l7Q" id="uc5-IA-qkK">
@@ -1039,7 +1044,7 @@ for voting</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="86" id="Q1V-Fn-MIh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell3" rowHeight="86" id="Q1V-Fn-MIh">
                                         <rect key="frame" x="0.0" y="313" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q1V-Fn-MIh" id="dIA-6o-niC">
@@ -1141,7 +1146,7 @@ for voting</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="No Food Tonight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vay-zn-EoB">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="53.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="53.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1162,7 +1167,7 @@ for voting</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Voting Event Manager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kla-Dn-pbr">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="53.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="53.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1185,7 +1190,7 @@ for voting</string>
                     <navigationItem key="navigationItem" title="Settings" id="icC-HI-IK5">
                         <barButtonItem key="rightBarButtonItem" style="done" id="Ym4-gf-bJ3">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nln-1k-grp">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <rect key="frame" x="276" y="6" width="83" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Done"/>
@@ -1225,7 +1230,7 @@ for voting</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Create New" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qbo-qz-BgL">
-                                            <rect key="frame" x="15" y="0.0" width="325" height="49.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="324" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -1245,14 +1250,14 @@ for voting</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hbP-20-dSb">
-                                            <rect key="frame" x="15" y="23" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="16" y="20" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xjD-pW-jfQ">
-                                            <rect key="frame" x="15" y="43.5" width="44" height="14.5"/>
+                                            <rect key="frame" x="16" y="43.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1293,14 +1298,14 @@ for voting</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open Lab Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1MV-Yu-9DW">
-                                            <rect key="frame" x="15" y="20" width="125" height="20.5"/>
+                                            <rect key="frame" x="16" y="17" width="125" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="6:00 - 9:00 PM, Monday, September 21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QXO-Tu-eMG">
-                                            <rect key="frame" x="15" y="40.5" width="223" height="14.5"/>
+                                            <rect key="frame" x="16" y="40.5" width="223" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1442,7 +1447,7 @@ for voting</string>
                         <sections>
                             <tableViewSection id="9yH-8A-R2b">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="63" id="gHp-ar-KDe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="orderCell" rowHeight="63" id="gHp-ar-KDe">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gHp-ar-KDe" id="TpF-aK-jhV">
@@ -1468,7 +1473,7 @@ for voting</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="WkD-0O-4eF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="selectedCell" id="WkD-0O-4eF">
                                         <rect key="frame" x="0.0" y="63" width="375" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WkD-0O-4eF" id="bAY-qb-grU">
@@ -1520,7 +1525,7 @@ for voting</string>
             <objects>
                 <navigationController id="hF8-7D-bQB" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3hg-cN-BmP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1553,7 +1558,7 @@ for voting</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Ph-If-EeX">
-                                            <rect key="frame" x="15" y="10" width="33.5" height="23.5"/>
+                                            <rect key="frame" x="16" y="10" width="33.5" height="23.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -1577,7 +1582,7 @@ for voting</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QXU-pq-79F">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="344" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -1595,7 +1600,7 @@ for voting</string>
                     <navigationItem key="navigationItem" title="People in the Lab" id="GRf-Uy-4XY">
                         <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="cR0-As-600">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oOR-QG-oWE">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <rect key="frame" x="276" y="6" width="83" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Done"/>
@@ -1616,7 +1621,7 @@ for voting</string>
             <objects>
                 <navigationController id="Mjy-nb-oGu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yoH-OU-yD2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1637,7 +1642,7 @@ for voting</string>
             <objects>
                 <navigationController id="B8g-Hg-By4" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Qz2-3j-LwH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.31372549019607843" green="0.8901960784313725" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1940,7 +1945,7 @@ for voting</string>
                     <navigationItem key="navigationItem" title="Lights" id="Mjw-hi-foZ">
                         <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="PMc-Of-AQ9">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jyc-k8-JCI">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <rect key="frame" x="276" y="6" width="83" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Done"/>
@@ -1987,7 +1992,7 @@ for voting</string>
             <objects>
                 <navigationController id="TyO-XQ-AgS" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="m8n-XI-bcm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2006,7 +2011,7 @@ for voting</string>
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="376" height="667"/>
+        <image name="Background" width="1920" height="1080"/>
         <image name="Beacon1" width="118" height="98"/>
         <image name="Beacon2" width="119" height="98"/>
         <image name="DALI Lights Interface" width="2185" height="2220"/>

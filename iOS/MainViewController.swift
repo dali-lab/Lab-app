@@ -108,10 +108,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 				return endWeek
 			}
 			
-			print(getWeekEnd())
-			
 			for event in events {
-				print(event)
 				if calendar.isDateInToday(event.start) || event.isNow {
 					today.append(event)
 				}else if event.start < getWeekEnd() {
