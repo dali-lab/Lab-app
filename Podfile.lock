@@ -1,7 +1,7 @@
 PODS:
   - Crashlytics (3.8.6):
     - Fabric (~> 1.6.3)
-  - DALI (0.3.28):
+  - DALI (0.3.30):
     - Socket.IO-Client-Swift
     - SwiftyJSON
   - Fabric (1.6.13)
@@ -33,32 +33,41 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
-  - GTMOAuth2 (1.1.4):
+  - GTMOAuth2 (1.1.5):
     - GTMSessionFetcher (~> 1.1)
-  - GTMSessionFetcher (1.1.11):
-    - GTMSessionFetcher/Full (= 1.1.11)
-  - GTMSessionFetcher/Core (1.1.11)
-  - GTMSessionFetcher/Full (1.1.11):
-    - GTMSessionFetcher/Core (= 1.1.11)
+  - GTMSessionFetcher (1.1.12):
+    - GTMSessionFetcher/Full (= 1.1.12)
+  - GTMSessionFetcher/Core (1.1.12)
+  - GTMSessionFetcher/Full (1.1.12):
+    - GTMSessionFetcher/Core (= 1.1.12)
   - OneSignal (2.5.4)
   - ProximityKit (1.2.9)
   - SCLAlertView (0.7.0)
-  - Socket.IO-Client-Swift (11.1.3):
-    - StarscreamSocketIO (~> 8.0.5)
-  - StarscreamSocketIO (8.0.5)
+  - Socket.IO-Client-Swift (12.1.0):
+    - Starscream (~> 2.1.1)
+  - Starscream (2.1.1)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Crashlytics
-  - DALI
+  - DALI (from `https://github.com/dali-lab/DALI-Framework.git`)
   - Google/SignIn
   - OneSignal (< 3.0, >= 2.5.2)
   - ProximityKit (~> 1.2)
   - SCLAlertView
 
+EXTERNAL SOURCES:
+  DALI:
+    :git: https://github.com/dali-lab/DALI-Framework.git
+
+CHECKOUT OPTIONS:
+  DALI:
+    :commit: 1dc9dc91546729aa00b389212dbea7d355fec4f4
+    :git: https://github.com/dali-lab/DALI-Framework.git
+
 SPEC CHECKSUMS:
   Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
-  DALI: a7fdda6b35941873d9040cffc315092cdc94c37e
+  DALI: 18304a987e84f0cabcf35cb91effaa39e46d9033
   Fabric: 2fb5676bc811af011a04513451f463dac6803206
   FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
@@ -66,15 +75,15 @@ SPEC CHECKSUMS:
   Google: 98da4b1a60ed0beb80a290387a28333406a1eb90
   GoogleSignIn: 8c599fc10d25b2af86a3f82fd9631e863f2b1400
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
-  GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
+  GTMOAuth2: be83fd28d63ae3087e7d351b1f39c1a7e24ab6e7
+  GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   OneSignal: da994bcf6a2efbdceaf71e389e1d05245c562899
   ProximityKit: e763235e2fca64711ed7a5bae08cea1508f80919
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
-  Socket.IO-Client-Swift: b8e59ddc16bc3609ca2f49a4b50253f095d535c8
-  StarscreamSocketIO: b56993332d3cd74885a7486e183ff0cd9541b3f3
+  Socket.IO-Client-Swift: a5cb7180915cc9dcd97a95aed320f546574cf871
+  Starscream: 142bd8ef24592d985daee9fa48c936070b85b15f
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: bd8e7a9fa3ce1d33f8283a5a93a9fffdf3ca7d09
+PODFILE CHECKSUM: 5d1677e87b34528fc4eb5b4afa4c357b4f0d3f07
 
 COCOAPODS: 1.3.1

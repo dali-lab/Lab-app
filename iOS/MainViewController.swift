@@ -21,7 +21,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	@IBOutlet weak var votingButton: UIButton!
 	@IBOutlet weak var peopleButton: UIButton!
 	@IBOutlet weak var foodLabel: UILabel!
-	
+    @IBOutlet weak var lightButton: UIButton!
+    @IBOutlet weak var tableViewBottomContraint: NSLayoutConstraint!
+    
 	var viewShown = false
 	var loginTransformAnimationDone: Bool!
 	var animationDone: (() -> Void)?
@@ -37,6 +39,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		if signedIn {
 			self.setUpListeners()
 			self.locationUpdated()
+            lightButton.isHidden = false
+            lightButton.isEnabled = true
 			
 			foodObserver = DALIFood.observeFood(callback: { (food) in
 				DispatchQueue.main.async {
@@ -47,9 +51,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 			self.locationLabel.text = "Not signed in"
 			peopleButton.isHidden = true
 			peopleButton.isEnabled = false
+            lightButton.isHidden = true
+            lightButton.isEnabled = false
 			
 			foodLabel.isHidden = true
 			foodLabel.text = ""
+            tableViewBottomContraint.constant = 0
 		}
 		self.updateData()
 		

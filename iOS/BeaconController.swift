@@ -113,17 +113,29 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 		self.beaconManager.stopAdvertising()
 		self.beaconManager.stop()
 		
-		registerBackgroundTask {
-			if userIsTim() {
-				DALILocation.Tim.submit(inDALI: false, inOffice: false, callback: { (_, _) in
-					self.endBackgroundTask()
-				})
-			}else{
-				DALILocation.Shared.submit(inDALI: false, entering: false, callback: { (_, _) in
-					self.endBackgroundTask()
-				})
-			}
-		}
+        if UIApplication.shared.applicationState == .background {
+            registerBackgroundTask {
+                if userIsTim() {
+                    DALILocation.Tim.submit(inDALI: false, inOffice: false, callback: { (_, _) in
+                        self.endBackgroundTask()
+                    })
+                }else if DALIapi.isSignedIn {
+                    DALILocation.Shared.submit(inDALI: false, entering: false, callback: { (_, _) in
+                        self.endBackgroundTask()
+                    })
+                }
+            }
+        }else{
+            if userIsTim() {
+                DALILocation.Tim.submit(inDALI: false, inOffice: false, callback: { (_, _) in
+                    self.endBackgroundTask()
+                })
+            }else if DALIapi.isSignedIn {
+                DALILocation.Shared.submit(inDALI: false, entering: false, callback: { (_, _) in
+                    self.endBackgroundTask()
+                })
+            }
+        }
 		
 		if UIApplication.shared.applicationState != .background {
 			NotificationCenter.default.post(name: Notification.Name.Custom.EnteredOrExitedDALI, object: nil, userInfo: ["entered" : false])
@@ -164,7 +176,7 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 							self.endBackgroundTask()
 						}
 					})
-				}else{
+				}else if DALIapi.isSignedIn {
 					DALILocation.Shared.submit(inDALI: entered, entering: entered, callback: { (_, _) in
 						if background {
 							self.endBackgroundTask()
@@ -175,11 +187,15 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 			
 			if UIApplication.shared.applicationState == .background {
 				registerBackgroundTask {
-					AppDelegate.shared.enterExitHappened(entered: entered)
+					if UserDefaults.standard.bool(forKey: "inDALI") != entered {
+						AppDelegate.shared.enterExitHappened(entered: entered)
+					}
+					UserDefaults.standard.set(entered, forKey: "inDALI")
 					go(background: true)
 				}
 			}else{
 				go(background: false)
+				UserDefaults.standard.set(entered, forKey: "inDALI")
 				NotificationCenter.default.post(name: Notification.Name.Custom.EnteredOrExitedDALI, object: nil, userInfo: ["entered": entered])
 			}
 		}else if region.name.replacingOccurrences(of: "'", with: "") == "Tims Office Region" && userIsTim() {
