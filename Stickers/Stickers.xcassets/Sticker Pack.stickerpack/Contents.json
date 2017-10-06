@@ -4,43 +4,25 @@
       "filename" : "DALI_drawn.sticker"
     },
     {
-      "filename" : "DALI_D's.sticker"
+      "filename" : "DALI.sticker"
     },
     {
-      "filename" : "Llama Birthday.sticker"
-    },
-    {
-      "filename" : "70s Llama.sticker"
-    },
-    {
-      "filename" : "Baby llama.sticker"
-    },
-    {
-      "filename" : "Baby llama background.sticker"
+      "filename" : "treasureHunt.sticker"
     },
     {
       "filename" : "Mustache Orange.sticker"
     },
     {
-      "filename" : "Purple Llama Gray.sticker"
+      "filename" : "graficity.sticker"
     },
     {
-      "filename" : "Dali Hoodie Llama.sticker"
+      "filename" : "pitchLightBulb.sticker"
     },
     {
-      "filename" : "DALI_orange.sticker"
+      "filename" : "dds_360.sticker"
     },
     {
-      "filename" : "DALI_blue.sticker"
-    },
-    {
-      "filename" : "Graficity pin.sticker"
-    },
-    {
-      "filename" : "DALI.sticker"
-    },
-    {
-      "filename" : "Treasure Hunt.sticker"
+      "filename" : "panda.sticker"
     }
   ],
   "info" : {
@@ -48,6 +30,6 @@
     "author" : "xcode"
   },
   "properties" : {
-    "grid-size" : "small"
+    "grid-size" : "regular"
   }
 }

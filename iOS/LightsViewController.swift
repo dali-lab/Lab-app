@@ -17,15 +17,13 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 	@IBOutlet weak var groupTitle: UILabel!
 	@IBOutlet weak var viewHeight: NSLayoutConstraint!
 	@IBOutlet weak var bottomView: UIView!
-	@IBOutlet weak var lightsMap: UIImageView!
-	@IBOutlet weak var selectionIndicator: UIView!
-	@IBOutlet weak var allButton: UIButton!
-	@IBOutlet weak var conferenceButton: UIButton!
-	@IBOutlet weak var tvspaceButton: UIButton!
-	@IBOutlet weak var workstationsButton: UIButton!
-	@IBOutlet weak var kitchenButton: UIButton!
-	@IBOutlet weak var podsButton: UIButton!
+    @IBOutlet weak var lightsMapView: UIView!
+    @IBOutlet weak var lightsMap: UIImageView!
 	@IBOutlet weak var onSwitch: UISwitch!
+    @IBOutlet weak var selectionIndicator: UIView!
+    @IBOutlet weak var allButton: UIButton!
+    @IBOutlet weak var podsButton: UIButton!
+	@IBOutlet var overlays: [UIImageView]!
 	
 	var observation: Observation?
 	var groups: [DALILights.Group] = []
@@ -36,12 +34,11 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 	var min: CGFloat = 0
 	
 	override func viewDidLoad() {
-		min = [self.view.frame.height - (self.selectionIndicator.frame.origin.y + self.selectionIndicator.frame.height + 10), 20].max()!
+		for overlay in overlays {
+			overlay.isHidden = true
+		}
+		min = [self.view.frame.height - (self.lightsMapView.frame.maxY + 20), 20].max()!
 		viewHeight.constant = min
-		
-		selectionIndicator.frame = CGRect(x: self.allButton.frame.origin.x, y: selectionIndicator.frame.origin.y, width: self.allButton.frame.width, height: 2)
-		
-		self.selectionIndicator.isHidden = true
 		self.onSwitch.isHidden = true
 	}
 	
@@ -123,9 +120,23 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 	}
 	
 	func updateGroups() {
+		var map: [String:UIImageView] = [:]
+		
+		for overlay in self.overlays {
+			map[overlay.accessibilityLabel!] = overlay
+		}
+		
 		for group in groups {
 			if group.name == selectedGroup?.name {
 				selectedGroup = group
+			}
+			
+			if let imageView = map[group.name] {
+				imageView.isHidden = !group.isOn
+				if let avgColor = group.avgColor?.replacingOccurrences(of: "#", with: "") {
+					imageView.image = (imageView.image?.withRenderingMode(.alwaysTemplate))!
+					imageView.tintColor = UIColor(hex: avgColor, alpha: 1.0)
+				}
 			}
 		}
 		
@@ -150,16 +161,17 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 		let prevGroup = selectedGroup
 		if sender.accessibilityLabel == "all" {
 			selectedGroup = DALILights.Group.all
-			groupTitle.text = DALILights.Group.all.formattedName
+			groupTitle.text = DALILights.Group.all.name.uppercased()
 			self.onSwitch.isHidden = false
+            self.tableView.reloadData()
 		}else if sender.accessibilityLabel == "pods" {
 			selectedGroup = DALILights.Group.pods
-			groupTitle.text = DALILights.Group.pods.formattedName
+			groupTitle.text = DALILights.Group.pods.name.uppercased()
 			self.onSwitch.isHidden = false
 			self.tableView.reloadData()
 		}else if let group = map[sender.accessibilityLabel!] {
 			selectedGroup = group
-			groupTitle.text = group.name.uppercased().replacingOccurrences(of: "POD:", with: "")
+			groupTitle.text = group.formattedName.uppercased().replacingOccurrences(of: "POD:", with: "")
 			self.tableView.reloadData()
 			self.onSwitch.isHidden = false
 		}else{
@@ -170,60 +182,73 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 		if selectedGroup?.name == prevGroup?.name {
 			selectedGroup = nil
 			self.onSwitch.isHidden = true
-			self.tableView.reloadData()
+            self.tableView.reloadData()
 			groupTitle.text = "NO GROUP SELECTED"
 			UIView.animate(withDuration: 0.3, animations: {
-				self.selectionIndicator.isHidden = true
 				self.overlayLightsMap?.alpha = 0.0
+                self.selectionIndicator.alpha = 0.0
 			}, completion: { (_) in
 				self.overlayLightsMap?.removeFromSuperview()
 				self.overlayLightsMap = nil
+                self.selectionIndicator.alpha = 1.0
+                self.selectionIndicator.isHidden = true
 			})
 			return
 		}
 		
-		var button: UIButton!
 		var image: UIImage!
+        var button: UIButton! = nil
 		switch sender.accessibilityLabel! {
-		case self.allButton.accessibilityLabel!:
-			button = self.allButton
+		case "all":
 			image = #imageLiteral(resourceName: "lights_all_overlay")
-		case self.conferenceButton.accessibilityLabel!:
-			button = self.conferenceButton
+            button = allButton
+		case "conference":
 			image = #imageLiteral(resourceName: "lights_conference_overlay")
-		case self.tvspaceButton.accessibilityLabel!:
-			button = self.tvspaceButton
+		case "tvspace":
 			image = #imageLiteral(resourceName: "lights_tvspace_overlay")
-		case self.workstationsButton.accessibilityLabel!:
-			button = self.workstationsButton
+		case "workstations":
 			image = #imageLiteral(resourceName: "lights_workstations_overlay")
-		case self.kitchenButton.accessibilityLabel!:
-			button = self.kitchenButton
+		case "kitchen":
 			image = #imageLiteral(resourceName: "lights_kitchen")
-		case podsButton.accessibilityLabel!:
-			button = podsButton
+		case "pods":
 			image = #imageLiteral(resourceName: "lights_pods_overlay")
+            button = podsButton
 		default:
-			button = nil
 			image = nil
 		}
-		
-		if let button = button {
-			if selectionIndicator.isHidden {
-				self.selectionIndicator.frame = CGRect(x: button.frame.origin.x, y: selectionIndicator.frame.origin.y, width: button.frame.width, height: 2)
-				UIView.animate(withDuration: 0.3, animations: {
-					self.selectionIndicator.isHidden = false
-				})
-			}else{
-				UIView.animate(withDuration: 0.3, animations: {
-					self.selectionIndicator.frame = CGRect(x: button.frame.origin.x, y: self.selectionIndicator.frame.origin.y, width: button.frame.width, height: 2)
-				})
-			}
-		}else{
-			UIView.animate(withDuration: 0.3, animations: {
-				self.selectionIndicator.isHidden = true
-			})
-		}
+        
+        if sender.accessibilityLabel!.range(of: "pod:") != nil {
+            if sender.accessibilityLabel == "pod:appa" {
+                image = #imageLiteral(resourceName: "lights_pod_appa_overlay")
+            }else if sender.accessibilityLabel == "pod:momo" {
+                image = #imageLiteral(resourceName: "lights_pod_momo_overlay")
+            }else if sender.accessibilityLabel == "pod:pabu" {
+                image = #imageLiteral(resourceName: "lights_pod_pabu_overlay")
+            }
+        }
+        
+        if let button = button {
+            if selectionIndicator.isHidden {
+                self.selectionIndicator.frame = CGRect(x: button.frame.origin.x + button.titleLabel!.frame.origin.x, y: button.frame.origin.y + button.frame.height, width: button.titleLabel!.frame.width, height: 2)
+                self.selectionIndicator.alpha = 0.0
+                self.selectionIndicator.isHidden = false
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.selectionIndicator.alpha = 1.0
+                })
+            }else{
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.selectionIndicator.frame = CGRect(x: button.frame.origin.x + button.titleLabel!.frame.origin.x, y: button.frame.origin.y + button.frame.height, width: button.titleLabel!.frame.width, height: 2)
+                })
+            }
+        }else if !self.selectionIndicator.isHidden {
+            self.selectionIndicator.alpha = 1.0
+            UIView.animate(withDuration: 0.3, animations: {
+                self.selectionIndicator.alpha = 0.0
+            }, completion: { (_) in
+                self.selectionIndicator.alpha = 1.0
+                self.selectionIndicator.isHidden = true
+            })
+        }
 		
 		if let image = image, let overlayLightsMap = overlayLightsMap {
 			let oldMap = UIImageView(frame: self.lightsMap.frame)
@@ -231,7 +256,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 			oldMap.alpha = overlayLightsMap.alpha
 			overlayLightsMap.image = image
 			overlayLightsMap.alpha = 0.0
-			self.view.addSubview(oldMap)
+			self.lightsMapView.addSubview(oldMap)
 			
 			UIView.animate(withDuration: 0.3, animations: {
 				oldMap.alpha = 0.0
@@ -243,7 +268,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 			self.overlayLightsMap = UIImageView(frame: self.lightsMap.frame)
 			self.overlayLightsMap!.image = image
 			self.overlayLightsMap!.alpha = 0.0
-			self.view.addSubview(self.overlayLightsMap!)
+			self.lightsMapView.addSubview(self.overlayLightsMap!)
 			UIView.animate(withDuration: 0.3, animations: {
 				self.overlayLightsMap!.alpha = 0.5
 			})

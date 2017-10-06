@@ -44,8 +44,8 @@
 		52B138F21F47D4650021D7AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B138F11F47D4650021D7AE /* Assets.xcassets */; };
 		52B138FD1F47D4660021D7AE /* tvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B138FC1F47D4660021D7AE /* tvOSTests.swift */; };
 		52B139081F47D4660021D7AE /* tvOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B139071F47D4660021D7AE /* tvOSUITests.swift */; };
-		52B139181F47D47C0021D7AE /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B139171F47D47C0021D7AE /* Stickers.xcassets */; };
-		52B1391C1F47D47C0021D7AE /* Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 52B139151F47D47C0021D7AE /* Stickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		52E2F4371F853FEE00CED245 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E2F4361F853FEE00CED245 /* Stickers.xcassets */; };
+		52E2F43B1F853FEE00CED245 /* Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 52E2F4341F853FEE00CED245 /* Stickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		52FA82E41F7350CA00CEC807 /* LightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA82E31F7350CA00CEC807 /* LightsViewController.swift */; };
 		52FA82E61F7350E900CEC807 /* SlideShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA82E51F7350E900CEC807 /* SlideShowViewController.swift */; };
 		60B9E4DD07D51BAB7BAB009E /* Pods_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFBC5F89C445633AFBD4EAD /* Pods_tvOSTests.framework */; };
@@ -84,11 +84,11 @@
 			remoteGlobalIDString = 52B138E71F47D4650021D7AE;
 			remoteInfo = tvOS;
 		};
-		52B1391A1F47D47C0021D7AE /* PBXContainerItemProxy */ = {
+		52E2F4391F853FEE00CED245 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 52B138471F47D39B0021D7AE /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 52B139141F47D47C0021D7AE;
+			remoteGlobalIDString = 52E2F4331F853FEE00CED245;
 			remoteInfo = Stickers;
 		};
 /* End PBXContainerItemProxy section */
@@ -100,7 +100,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				52B1391C1F47D47C0021D7AE /* Stickers.appex in Embed App Extensions */,
+				52E2F43B1F853FEE00CED245 /* Stickers.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,9 +173,9 @@
 		52B139031F47D4660021D7AE /* tvOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tvOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B139071F47D4660021D7AE /* tvOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSUITests.swift; sourceTree = "<group>"; };
 		52B139091F47D4660021D7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52B139151F47D47C0021D7AE /* Stickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Stickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		52B139171F47D47C0021D7AE /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
-		52B139191F47D47C0021D7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52E2F4341F853FEE00CED245 /* Stickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Stickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		52E2F4361F853FEE00CED245 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
+		52E2F4381F853FEE00CED245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52FA82E31F7350CA00CEC807 /* LightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsViewController.swift; sourceTree = "<group>"; };
 		52FA82E51F7350E900CEC807 /* SlideShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideShowViewController.swift; sourceTree = "<group>"; };
 		59017CB0E83CAB6C45FDF9AF /* Pods-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tvOSTests/Pods-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,13 +206,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		43742E2FC7B5E86511D1FA49 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		52B138B31F47D4590021D7AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -300,7 +293,7 @@
 				52B138E91F47D4650021D7AE /* tvOS */,
 				52B138FB1F47D4660021D7AE /* tvOSTests */,
 				52B139061F47D4660021D7AE /* tvOSUITests */,
-				52B139161F47D47C0021D7AE /* Stickers */,
+				52E2F4351F853FEE00CED245 /* Stickers */,
 				52B138501F47D39B0021D7AE /* Products */,
 				D9D686CBB542D45138040180 /* Pods */,
 				81A83CAE5D4CC45443AA4AAE /* Frameworks */,
@@ -316,7 +309,7 @@
 				52B138E81F47D4650021D7AE /* tvOS.app */,
 				52B138F81F47D4660021D7AE /* tvOSTests.xctest */,
 				52B139031F47D4660021D7AE /* tvOSUITests.xctest */,
-				52B139151F47D47C0021D7AE /* Stickers.appex */,
+				52E2F4341F853FEE00CED245 /* Stickers.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -398,11 +391,11 @@
 			path = tvOSUITests;
 			sourceTree = "<group>";
 		};
-		52B139161F47D47C0021D7AE /* Stickers */ = {
+		52E2F4351F853FEE00CED245 /* Stickers */ = {
 			isa = PBXGroup;
 			children = (
-				52B139171F47D47C0021D7AE /* Stickers.xcassets */,
-				52B139191F47D47C0021D7AE /* Info.plist */,
+				52E2F4361F853FEE00CED245 /* Stickers.xcassets */,
+				52E2F4381F853FEE00CED245 /* Info.plist */,
 			);
 			path = Stickers;
 			sourceTree = "<group>";
@@ -482,7 +475,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				52B1391B1F47D47C0021D7AE /* PBXTargetDependency */,
+				52E2F43A1F853FEE00CED245 /* PBXTargetDependency */,
 			);
 			name = iOS;
 			productName = iOS;
@@ -593,12 +586,11 @@
 			productReference = 52B139031F47D4660021D7AE /* tvOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		52B139141F47D47C0021D7AE /* Stickers */ = {
+		52E2F4331F853FEE00CED245 /* Stickers */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52B1391D1F47D47C0021D7AE /* Build configuration list for PBXNativeTarget "Stickers" */;
+			buildConfigurationList = 52E2F43C1F853FEE00CED245 /* Build configuration list for PBXNativeTarget "Stickers" */;
 			buildPhases = (
-				52B139131F47D47C0021D7AE /* Resources */,
-				43742E2FC7B5E86511D1FA49 /* Frameworks */,
+				52E2F4321F853FEE00CED245 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -606,7 +598,7 @@
 			);
 			name = Stickers;
 			productName = Stickers;
-			productReference = 52B139151F47D47C0021D7AE /* Stickers.appex */;
+			productReference = 52E2F4341F853FEE00CED245 /* Stickers.appex */;
 			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
 		};
 /* End PBXNativeTarget section */
@@ -663,8 +655,8 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 52B138E71F47D4650021D7AE;
 					};
-					52B139141F47D47C0021D7AE = {
-						CreatedOnToolsVersion = 8.3.3;
+					52E2F4331F853FEE00CED245 = {
+						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = JQ28K6Y7JE;
 						ProvisioningStyle = Automatic;
 					};
@@ -684,9 +676,9 @@
 			projectRoot = "";
 			targets = (
 				52B138B51F47D4590021D7AE /* iOS */,
+				52E2F4331F853FEE00CED245 /* Stickers */,
 				52B138C81F47D4590021D7AE /* iOSTests */,
 				52B138D31F47D4590021D7AE /* iOSUITests */,
-				52B139141F47D47C0021D7AE /* Stickers */,
 				52B138E71F47D4650021D7AE /* tvOS */,
 				52B138F71F47D4660021D7AE /* tvOSTests */,
 				52B139021F47D4660021D7AE /* tvOSUITests */,
@@ -746,11 +738,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		52B139131F47D47C0021D7AE /* Resources */ = {
+		52E2F4321F853FEE00CED245 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52B139181F47D47C0021D7AE /* Stickers.xcassets in Resources */,
+				52E2F4371F853FEE00CED245 /* Stickers.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1182,10 +1174,10 @@
 			target = 52B138E71F47D4650021D7AE /* tvOS */;
 			targetProxy = 52B139041F47D4660021D7AE /* PBXContainerItemProxy */;
 		};
-		52B1391B1F47D47C0021D7AE /* PBXTargetDependency */ = {
+		52E2F43A1F853FEE00CED245 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 52B139141F47D47C0021D7AE /* Stickers */;
-			targetProxy = 52B1391A1F47D47C0021D7AE /* PBXContainerItemProxy */;
+			target = 52E2F4331F853FEE00CED245 /* Stickers */;
+			targetProxy = 52E2F4391F853FEE00CED245 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1290,6 +1282,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JQ28K6Y7JE;
@@ -1312,6 +1305,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JQ28K6Y7JE;
@@ -1497,27 +1491,55 @@
 			};
 			name = Release;
 		};
-		52B1391E1F47D47C0021D7AE /* Debug */ = {
+		52E2F43D1F853FEE00CED245 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JQ28K6Y7JE;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Stickers/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JohnKotz.DALI.DaliLabApp.Stickers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		52B1391F1F47D47C0021D7AE /* Release */ = {
+		52E2F43E1F853FEE00CED245 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JQ28K6Y7JE;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Stickers/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JohnKotz.DALI.DaliLabApp.Stickers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1587,11 +1609,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52B1391D1F47D47C0021D7AE /* Build configuration list for PBXNativeTarget "Stickers" */ = {
+		52E2F43C1F853FEE00CED245 /* Build configuration list for PBXNativeTarget "Stickers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				52B1391E1F47D47C0021D7AE /* Debug */,
-				52B1391F1F47D47C0021D7AE /* Release */,
+				52E2F43D1F853FEE00CED245 /* Debug */,
+				52E2F43E1F853FEE00CED245 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
