@@ -162,16 +162,19 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 		if sender.accessibilityLabel == "all" {
 			selectedGroup = DALILights.Group.all
 			groupTitle.text = DALILights.Group.all.name.uppercased()
+			self.onSwitch.isOn = DALILights.Group.all.isOn
 			self.onSwitch.isHidden = false
             self.tableView.reloadData()
 		}else if sender.accessibilityLabel == "pods" {
 			selectedGroup = DALILights.Group.pods
 			groupTitle.text = DALILights.Group.pods.name.uppercased()
+			self.onSwitch.isOn = DALILights.Group.pods.isOn
 			self.onSwitch.isHidden = false
 			self.tableView.reloadData()
 		}else if let group = map[sender.accessibilityLabel!] {
 			selectedGroup = group
 			groupTitle.text = group.formattedName.uppercased().replacingOccurrences(of: "POD:", with: "")
+			self.onSwitch.isOn = group.isOn
 			self.tableView.reloadData()
 			self.onSwitch.isHidden = false
 		}else{

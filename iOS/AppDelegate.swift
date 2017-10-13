@@ -73,25 +73,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 			completionHandler(.failed)
 			return
 		}
-		
-		beaconController.updateLocation { (controller) in
-			if userIsTim() {
-				DALILocation.Tim.submit(inDALI: controller.inDALI, inOffice: controller.inOffice, callback: { (_, error) in
-					if error != nil {
-						completionHandler(.failed)
-					}else{
-						completionHandler(.newData)
-					}
-				})
-			}else{
-				DALILocation.Shared.submit(inDALI: controller.inDALI, entering: false, callback: { (_, error) in
-					if error != nil {
-						completionHandler(.failed)
-					}else{
-						completionHandler(.newData)
-					}
-				})
-			}
+		if userIsTim() {
+			DALILocation.Tim.submit(inDALI: beaconController.inDALI, inOffice: beaconController.inOffice, callback: { (_, error) in
+				if error != nil {
+					completionHandler(.failed)
+				}else{
+					completionHandler(.newData)
+				}
+			})
+		}else{
+			DALILocation.Shared.submit(inDALI: beaconController.inDALI, entering: false, callback: { (_, error) in
+				if error != nil {
+					completionHandler(.failed)
+				}else{
+					completionHandler(.newData)
+				}
+			})
 		}
 	}
 	
