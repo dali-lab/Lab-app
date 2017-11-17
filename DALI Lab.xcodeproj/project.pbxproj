@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40DB98AC0FE4CC2E74756E47 /* Pods_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66536EEAC6727C445E15D525 /* Pods_iOSUITests.framework */; };
+		521822DB1FA0CC5400F34E22 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521822DA1FA0CC5400F34E22 /* ViewProtocol.swift */; };
 		5225AE081F606DB400718D12 /* PrivateInformation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5225AE071F606DB400718D12 /* PrivateInformation.plist */; };
 		522F31AB1F47D83C00B4BEB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522F31AA1F47D83C00B4BEB4 /* Main.storyboard */; };
 		522F31AD1F47D85500B4BEB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F31AC1F47D85500B4BEB4 /* AppDelegate.swift */; };
@@ -122,6 +123,7 @@
 		38F9423ACD748D9DBDD7C198 /* Pods-tvOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tvOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tvOSUITests/Pods-tvOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		40CC816FA24F8E106E9DDD55 /* Pods-iOS-OneSignalNotification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-OneSignalNotification.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-OneSignalNotification/Pods-iOS-OneSignalNotification.debug.xcconfig"; sourceTree = "<group>"; };
 		439D3A8726F67BB493B1A183 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		521822DA1FA0CC5400F34E22 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
 		5225AE071F606DB400718D12 /* PrivateInformation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrivateInformation.plist; sourceTree = "<group>"; };
 		522F31AA1F47D83C00B4BEB4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		522F31AC1F47D85500B4BEB4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				522F31AC1F47D85500B4BEB4 /* AppDelegate.swift */,
+				521822DA1FA0CC5400F34E22 /* ViewProtocol.swift */,
 				522F31AE1F47D86100B4BEB4 /* EventCell.swift */,
 				522F31B01F47D86C00B4BEB4 /* ViewController.swift */,
 				52FA82E51F7350E900CEC807 /* SlideShowViewController.swift */,
@@ -1137,6 +1140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				522F31B11F47D86C00B4BEB4 /* ViewController.swift in Sources */,
+				521822DB1FA0CC5400F34E22 /* ViewProtocol.swift in Sources */,
 				52FA82E61F7350E900CEC807 /* SlideShowViewController.swift in Sources */,
 				522F31AF1F47D86100B4BEB4 /* EventCell.swift in Sources */,
 				522F31AD1F47D85500B4BEB4 /* AppDelegate.swift in Sources */,
@@ -1296,6 +1300,7 @@
 				DEVELOPMENT_TEAM = JQ28K6Y7JE;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JohnKotz.DALI.DaliLabApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1319,6 +1324,7 @@
 				DEVELOPMENT_TEAM = JQ28K6Y7JE;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JohnKotz.DALI.DaliLabApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1403,6 +1409,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JohnKotz.DALI.DaliLabApp.tvOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1423,6 +1430,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JohnKotz.DALI.DaliLabApp.tvOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.2;

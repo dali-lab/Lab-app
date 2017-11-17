@@ -55,6 +55,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		
 		if DALIapi.isSignedIn {
 			self.didSignIn(member: DALIMember.current!)
+			DALIapi.silentMemberUpdate(callback: { (_) in
+				
+			})
+		}else{
+			DALIapi.silentMemberUpdate(callback: { (member) in
+				if let member = member {
+					self.didSignIn(member: member)
+				}
+			})
 		}
 		GIDSignIn.sharedInstance().signInSilently()
 		UIApplication.shared.setMinimumBackgroundFetchInterval(1.0)
@@ -64,31 +73,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	
 	func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 		print("Background fetching...")
-		var beaconContHolder = BeaconController.current
-		if beaconContHolder == nil {
-			beaconContHolder = BeaconController()
-		}
-		
-		guard let beaconController = beaconContHolder else {
-			completionHandler(.failed)
-			return
-		}
-		if userIsTim() {
-			DALILocation.Tim.submit(inDALI: beaconController.inDALI, inOffice: beaconController.inOffice, callback: { (_, error) in
-				if error != nil {
-					completionHandler(.failed)
-				}else{
-					completionHandler(.newData)
-				}
-			})
-		}else{
-			DALILocation.Shared.submit(inDALI: beaconController.inDALI, entering: false, callback: { (_, error) in
-				if error != nil {
-					completionHandler(.failed)
-				}else{
-					completionHandler(.newData)
-				}
-			})
+		if let beaconController = BeaconController.current {
+			if userIsTim() {
+				DALILocation.Tim.submit(inDALI: beaconController.inDALI, inOffice: beaconController.inOffice, callback: { (_, error) in
+					if error != nil {
+						completionHandler(.failed)
+					}else{
+						completionHandler(.newData)
+					}
+				})
+			}else{
+				DALILocation.Shared.submit(inDALI: beaconController.inDALI, entering: false, callback: { (_, error) in
+					if error != nil {
+						completionHandler(.failed)
+					}else{
+						completionHandler(.newData)
+					}
+				})
+			}
 		}
 	}
 	
@@ -254,7 +256,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		NotificationCenter.default.removeObserver(self)
 	}
 	
-	func didSignIn(member: DALIMember) {
+	func didSignIn(member: DALIMember, noUIChange: Bool = false) {
 		if self.notificationsAuthorized {
 			OneSignal.syncHashedEmail(member.email)
 			OneSignal.sendTag("signedIn", value: "\(true)")
@@ -266,20 +268,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 			self.beaconController = BeaconController.current
 		}
 		
-		let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-		if let loginViewController = self.loginViewController {
-			mainViewController.modalTransitionStyle = .crossDissolve
-			mainViewController.modalPresentationStyle = .fullScreen
-			mainViewController.loginTransformAnimationDone = loginViewController.transformAnimationDone
+		if !noUIChange {
+			let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+			if let loginViewController = self.loginViewController {
+				mainViewController.modalTransitionStyle = .crossDissolve
+				mainViewController.modalPresentationStyle = .fullScreen
+				mainViewController.loginTransformAnimationDone = loginViewController.transformAnimationDone
+				
+				loginViewController.present(mainViewController, animated: true, completion: {
+					self.setUpNotificationListeners()
+				})
+			}else{
+				self.window?.rootViewController = mainViewController
+			}
 			
-			loginViewController.present(mainViewController, animated: true, completion: {
-				self.setUpNotificationListeners()
-			})
-		}else{
-			self.window?.rootViewController = mainViewController
+			self.loginViewController?.endLoading()
 		}
-		
-		self.loginViewController?.endLoading()
 	}
 	
 	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
@@ -288,20 +292,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		if let error = error {
 			print(error)
 		}else{
+			let alreadySignedIn = DALIapi.isSignedIn
 			self.user = user
-			self.loginViewController?.beginLoading()
+			if !alreadySignedIn {
+				self.loginViewController?.beginLoading()
+			}
 			DALIapi.signin(accessToken: user.authentication.accessToken, refreshToken: user.authentication.refreshToken, forced: true, done: { (sucess, error) in
 				if let member = DALIMember.current, sucess {
 					DispatchQueue.main.async {
-						self.didSignIn(member: member)
+						self.didSignIn(member: member, noUIChange: alreadySignedIn)
 					}
 				}else{
-					DispatchQueue.main.async {
-						self.loginViewController?.showError(alert: SCLAlertView(), title: "Error Logging In", subTitle: "Encountered an error when logging in!")
-					}
 					print(error!)
 					self.signOut()
-					self.loginViewController?.endLoading()
+					
+					if !alreadySignedIn {
+						DispatchQueue.main.async {
+							self.loginViewController?.showError(alert: SCLAlertView(), title: "Error Logging In", subTitle: "Encountered an error when logging in!")
+							self.loginViewController?.endLoading()
+						}
+					}
 				}
 			})
 		}
@@ -314,7 +324,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		
 		mainViewController.modalTransitionStyle = .crossDissolve
 		mainViewController.modalPresentationStyle = .fullScreen
-		mainViewController.loginTransformAnimationDone = loginViewController?.transformAnimationDone
+		mainViewController.loginTransformAnimationDone = loginViewController?.transformAnimationDone ?? false
 		OneSignal.sendTag("signedIn", value: "\(false)")
 		
 		loginViewController?.present(mainViewController, animated: true, completion: {
@@ -328,7 +338,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	}
 	
 	func signOut() {
-		sleep(UInt32(0.2))
 		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalNever)
 		BeaconController.current?.breakdown()
 		self.beaconController = nil

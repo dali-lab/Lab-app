@@ -55,7 +55,9 @@ class EventCell: UITableViewCell {
 extension Date {
 	func timeString() -> String {
 		let minutes = Calendar.current.component(.minute, from: self)
-		let hours = Calendar.current.component(.hour, from: self)
+		var hours = Calendar.current.component(.hour, from: self)
+		hours = hours != 0 ? hours : 12
+		
 		return "\(hours > 12 ? hours - 12 : hours)\(minutes != 0 ? ":\(minutes < 10 ? "0" : "")\(minutes)" : "") \(hours >= 12 && hours < 24 ? "PM" : "AM")"
 	}
 }

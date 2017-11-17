@@ -11,19 +11,28 @@ import DALI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+	static var shared: AppDelegate!
 	
 	var window: UIWindow?
-	
+	var timer: Timer?
+	var currentView: ViewProtocol!
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		AppDelegate.shared = self
 		let file = NSDictionary(dictionary: [
 			"server_url": "https://dalilab-api.herokuapp.com",
 			"api_key": "69222f5c9ea91af57b223e087bca601e7c151ef9c9848dcfbae4d08bb884"
 			])
 		let config = DALIConfig(dict: file)
 		DALIapi.configure(config: config)
+		self.createTimer()
 		return true
+	}
+	
+	func slideshowExitTriggered(view: ViewProtocol) {
+		createTimer()
+		view.endSlideshow()
 	}
 	
 	func applicationWillResignActive(_ application: UIApplication) {
@@ -34,10 +43,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationDidEnterBackground(_ application: UIApplication) {
 		// Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
 		// If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+		timer?.invalidate()
 	}
 	
 	func applicationWillEnterForeground(_ application: UIApplication) {
 		// Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+		self.createTimer()
+	}
+	
+	func createTimer() {
+		self.timer?.invalidate()
+		self.timer = Timer(timeInterval: 20*60, repeats: false, block: { (timer) in
+			self.currentView.startSlideshow()
+		})
+		RunLoop.current.add(self.timer!, forMode: .commonModes)
 	}
 	
 	func applicationDidBecomeActive(_ application: UIApplication) {

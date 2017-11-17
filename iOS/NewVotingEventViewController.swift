@@ -48,28 +48,16 @@ class NewVotingEventViewController: UITableViewController {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
 		cell.textLabel?.text = events[indexPath.row].name
 		
+		let event = events[indexPath.row]
+		let startFormatter = DateFormatter()
+		startFormatter.dateStyle = .short
+		startFormatter.timeStyle = .short
 		
-		let startComponents = Calendar.current.dateComponents([.weekday, .hour, .minute], from: events[indexPath.row].start)
-		let endComponents = Calendar.current.dateComponents([.weekday, .hour, .minute], from: events[indexPath.row].end)
+		let endFormatter = DateFormatter()
+		endFormatter.dateStyle = .none
+		endFormatter.timeStyle = .short
 		
-		let weekdayStart = abvWeekDays[startComponents.weekday! - 1]
-		let weekdayEnd = startComponents.weekday! != endComponents.weekday! ? abvWeekDays[endComponents.weekday! - 1] : nil
-		
-		let startHour = startComponents.hour! > 12 ? startComponents.hour! - 12 : startComponents.hour!
-		let endHour = endComponents.hour! > 12 ? endComponents.hour! - 12 : endComponents.hour!
-		
-		let startMinute = startComponents.minute!
-		let endMinute = endComponents.minute!
-		
-		let startDaytime = startHour >= 12
-		let endDaytime = endHour >= 12
-		
-		let daytimeDifferent = startDaytime != endDaytime
-		
-		let startString = "\(startHour):\(startMinute  < 10 ? "0" : "")\(startMinute)\(daytimeDifferent ? " \(startDaytime ? "AM" : "PM")" : "")"
-		let endString = "\(endHour):\(endMinute < 10 ? "0" : "")\(endMinute) \(endDaytime ? "AM" : "PM")"
-		
-		cell.detailTextLabel?.text = "\(weekdayStart) \(startString) - \(weekdayEnd == nil ? "" : weekdayEnd! + " ")\(endString)"
+		cell.detailTextLabel?.text = "\(startFormatter.string(from: event.start)) - \(endFormatter.string(from: event.end))"
 		
 		return cell
 	}

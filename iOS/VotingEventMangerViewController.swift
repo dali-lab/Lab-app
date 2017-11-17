@@ -21,7 +21,7 @@ class VotingEventManagerViewController: UITableViewController {
 		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		self.updateData()
 	}
 	

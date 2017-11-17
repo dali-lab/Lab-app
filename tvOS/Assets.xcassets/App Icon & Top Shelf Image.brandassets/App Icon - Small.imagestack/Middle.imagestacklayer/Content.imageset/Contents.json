@@ -4,6 +4,10 @@
       "idiom" : "tv",
       "filename" : "Small Icon Middle.png",
       "scale" : "1x"
+    },
+    {
+      "idiom" : "tv",
+      "scale" : "2x"
     }
   ],
   "info" : {

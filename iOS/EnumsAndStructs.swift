@@ -25,7 +25,7 @@ extension Notification.Name {
 
 let abvWeekDays = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
 var signedIn: Bool {
-	return GIDSignIn.sharedInstance().currentUser != nil
+	return DALIapi.isSignedIn
 }
 
 func userIsTim(user: GIDGoogleUser) -> Bool {

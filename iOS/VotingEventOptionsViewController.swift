@@ -49,6 +49,17 @@ class VotingEventOptionsViewController: UITableViewController {
 		}
 	}
 	
+	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+		return true
+	}
+	
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		if (editingStyle == UITableViewCellEditingStyle.delete) {
+			// handle delete (by removing the data from your array and updating the tableview)
+			self.options.remove(at: indexPath.row)
+			tableView.deleteRows(at: [indexPath], with: .automatic)
+		}
+	}
 	@IBAction func release(_ sender: UIBarButtonItem) {
 		var awards = 0
 		for option in options { awards += option.awards?.count ?? 0 }

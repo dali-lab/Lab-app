@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -824,7 +824,7 @@ for voting</string>
             <objects>
                 <navigationController id="65l-id-DWh" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="L0r-TB-XXN">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1194,7 +1194,7 @@ for voting</string>
                     <navigationItem key="navigationItem" title="Settings" id="icC-HI-IK5">
                         <barButtonItem key="rightBarButtonItem" style="done" id="Ym4-gf-bJ3">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nln-1k-grp">
-                                <rect key="frame" x="276" y="4" width="83" height="36"/>
+                                <rect key="frame" x="276" y="6" width="83" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Done"/>
@@ -1529,7 +1529,7 @@ for voting</string>
             <objects>
                 <navigationController id="hF8-7D-bQB" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3hg-cN-BmP">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1604,7 +1604,7 @@ for voting</string>
                     <navigationItem key="navigationItem" title="People in the Lab" id="GRf-Uy-4XY">
                         <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="cR0-As-600">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oOR-QG-oWE">
-                                <rect key="frame" x="276" y="4" width="83" height="36"/>
+                                <rect key="frame" x="276" y="6" width="83" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Done"/>
@@ -1625,7 +1625,7 @@ for voting</string>
             <objects>
                 <navigationController id="Mjy-nb-oGu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yoH-OU-yD2">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1646,7 +1646,7 @@ for voting</string>
             <objects>
                 <navigationController id="B8g-Hg-By4" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Qz2-3j-LwH">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.31372549019607843" green="0.8901960784313725" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2024,7 +2024,7 @@ for voting</string>
                     <navigationItem key="navigationItem" title="Lights" id="Mjw-hi-foZ">
                         <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="PMc-Of-AQ9">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jyc-k8-JCI">
-                                <rect key="frame" x="16" y="4" width="83" height="36"/>
+                                <rect key="frame" x="16" y="6" width="83" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Done"/>
@@ -2075,7 +2075,7 @@ for voting</string>
             <objects>
                 <navigationController id="TyO-XQ-AgS" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="m8n-XI-bcm">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

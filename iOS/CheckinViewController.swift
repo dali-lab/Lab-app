@@ -37,6 +37,7 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 	var peripheral: CBPeripheralManager!
 	var event: DALIEvent!
 	var observer: Observation?
+	var animating = true
 	
 	override func viewDidLoad() {
 		beacon1.image = #imageLiteral(resourceName: "BeaconDisabled")
@@ -120,6 +121,7 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 	override func viewWillDisappear(_ animated: Bool) {
 		UIApplication.shared.isIdleTimerDisabled = false
 		peripheral.stopAdvertising()
+		animating = false
 		observer?.stop()
 	}
 	
@@ -149,7 +151,7 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 			UIView.animate(withDuration: 1.0, animations: {
 				self.beacon2.alpha = 1.0
 			}, completion: { (success) in
-				self.animate()
+				if self.animating { self.animate() }
 			})
 		}
 	}

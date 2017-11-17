@@ -9,7 +9,15 @@
 import UIKit
 import DALI
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ViewProtocol {
+	func startSlideshow() {
+		self.performSegue(withIdentifier: "startSlideshow", sender: nil)
+	}
+	
+	func endSlideshow() {
+		
+	}
+	
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var image: UIImageView!
 	@IBOutlet weak var peopleInLabLabel: UILabel!
@@ -59,6 +67,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				}
 			}
 		})
+		AppDelegate.shared.currentView = self
 		
 		upcomingObserver = DALIEvent.observeUpcoming { (events, error) in
 			DispatchQueue.main.async {

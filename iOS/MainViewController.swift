@@ -25,7 +25,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableViewBottomContraint: NSLayoutConstraint!
     
 	var viewShown = false
-	var loginTransformAnimationDone: Bool!
+	var loginTransformAnimationDone = false
 	var animationDone: (() -> Void)?
 	
 	var eventsObserver: Observation?
@@ -257,13 +257,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		UIView.animate(withDuration: 1.3, delay: 0.5, options: [.curveEaseInOut], animations: {
 			self.daliImage.center = startingCenter
 			self.daliImage.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+		})
+		
+		UIView.animate(withDuration: 0.5, delay: 1.8, options: [], animations: {
+			self.internalView.alpha = 1.0
 		}) { (success) in
-			UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
-				self.internalView.alpha = 1.0
-			}) { (success) in
-				if let animationDone = self.animationDone {
-					animationDone()
-				}
+			if let animationDone = self.animationDone {
+				animationDone()
 			}
 			self.viewShown = true
 		}
@@ -289,14 +289,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 			CalendarController.current.event = event
 			CalendarController.current.showCalendarChooser(on: self)
 		}
-//		if signedIn && event.isNow {
+		if signedIn && event.isNow {
 			alert.addButton("Enable Checkin") {
 				tableView.deselectRow(at: indexPath, animated: true)
 				
 				// TODO: work on check in system
 				self.performSegue(withIdentifier: "showCheckin", sender: event)
 			}
-//		}
+		}
 		if signedIn && DALIMember.current!.isAdmin {
 			alert.addButton("Notify members", action: {
 				let alert = SCLAlertView(appearance: appearance)
@@ -373,8 +373,10 @@ class EventCell: UITableViewCell {
 				let weekdayStart = abvWeekDays[startComponents.weekday! - 1]
 				let weekdayEnd = startComponents.weekday! != endComponents.weekday! ? abvWeekDays[endComponents.weekday! - 1] : nil
 				
-				let startHour = startComponents.hour! > 12 ? startComponents.hour! - 12 : startComponents.hour!
-				let endHour = endComponents.hour! > 12 ? endComponents.hour! - 12 : endComponents.hour!
+				var startHour = startComponents.hour! > 12 ? startComponents.hour! - 12 : startComponents.hour!
+				startHour = startHour != 0 ? startHour : 12
+				var endHour = endComponents.hour! > 12 ? endComponents.hour! - 12 : endComponents.hour!
+				endHour = endHour != 0 ? endHour : 12
 				
 				let startMinute = startComponents.minute!
 				let endMinute = endComponents.minute!

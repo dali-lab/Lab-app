@@ -8,7 +8,7 @@ target 'iOS' do
   pod 'ProximityKit', '~> 1.2'
   pod 'SCLAlertView'
   pod 'Crashlytics'
-  pod 'DALI', :git => 'https://github.com/dali-lab/DALI-Framework.git'
+  pod 'DALI'
   pod 'OneSignal', '>= 2.5.2', '< 3.0'
 
   # Pods for DALI Lab
@@ -38,7 +38,7 @@ end
 target 'tvOS' do
 	# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 	use_frameworks!
-    pod 'DALI', :git => 'https://github.com/dali-lab/DALI-Framework.git'
+    pod 'DALI'
 	
 	# Pods for DALI Lab
 	
