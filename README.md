@@ -3,10 +3,9 @@ The DALI app is an app for DALI members and affiliates to provide features and i
 
 ## Screenshots
 
-<center>
-![](http://is4.mzstatic.com/image/thumb/Purple118/v4/55/ba/59/55ba59cf-0519-43f1-2851-9c9d91c6b1e4/source/392x696bb.jpg)
-![](http://is2.mzstatic.com/image/thumb/Purple118/v4/fe/e1/f2/fee1f274-91d4-8e3c-bb68-4cb081b1df75/source/392x696bb.jpg)
-</center>
+![image1](http://is4.mzstatic.com/image/thumb/Purple118/v4/55/ba/59/55ba59cf-0519-43f1-2851-9c9d91c6b1e4/source/392x696bb.jpg)
+
+![image2](http://is2.mzstatic.com/image/thumb/Purple118/v4/fe/e1/f2/fee1f274-91d4-8e3c-bb68-4cb081b1df75/source/392x696bb.jpg)
 
 ## Other documentation
 
