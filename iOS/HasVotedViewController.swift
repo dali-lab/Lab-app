@@ -33,7 +33,7 @@ class HasVotedViewController: UIViewController {
 		OneSignal.sendTag("resultsReleased:\(event.id)", value: "\(sender.isOn)")
 	}
 	
-	func pop() {
+	@objc func pop() {
 		self.navigationController?.popToRootViewController(animated: true)
 	}
 }

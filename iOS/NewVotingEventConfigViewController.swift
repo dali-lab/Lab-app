@@ -26,11 +26,11 @@ class NewVotingEventConfigViewController: UITableViewController {
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
 	}
 	
-	func cancel() {
+	@objc func cancel() {
 		self.navigationController?.popViewController(animated: true)
 	}
 	
-	func done() {
+	@objc func done() {
 		event.enableVoting(numSelected: Int(stepper.value), ordered: orderedSwitch.isOn) { (success, event, error) in
 			DispatchQueue.main.async {
 				if success {

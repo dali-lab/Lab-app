@@ -161,7 +161,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		foodObserver?.stop()
 	}
 	
-	func locationUpdated() {
+	@objc func locationUpdated() {
 		if let controller = (UIApplication.shared.delegate as! AppDelegate).beaconController, let location = controller.currentLocation {
 			self.locationLabel.text = "In \(location)"
 		}else{

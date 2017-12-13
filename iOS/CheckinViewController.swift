@@ -84,7 +84,7 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 		}
 	}
 	
-	func done() {
+	@objc func done() {
 		self.navigationController?.dismiss(animated: true, completion: { 
 			
 		})

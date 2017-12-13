@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0900"
+   LastUpgradeVersion = "0920"
    wasCreatedForAppExtension = "YES"
    version = "2.0">
    <BuildAction
@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52B139141F47D47C0021D7AE"
+               BlueprintIdentifier = "52E2F4331F853FEE00CED245"
                BuildableName = "Stickers.appex"
                BlueprintName = "Stickers"
                ReferencedContainer = "container:DALI Lab.xcodeproj">
@@ -48,7 +48,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52B139141F47D47C0021D7AE"
+            BlueprintIdentifier = "52E2F4331F853FEE00CED245"
             BuildableName = "Stickers.appex"
             BlueprintName = "Stickers"
             ReferencedContainer = "container:DALI Lab.xcodeproj">

@@ -71,7 +71,7 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 		}
 	}
 	
-	func pop() {
+	@objc func pop() {
 		self.navigationController?.popToRootViewController(animated: true)
 	}
 	

@@ -65,11 +65,11 @@ class CalendarController: NSObject, EKCalendarChooserDelegate {
 		}
 	}
 	
-	func calendarChooserDidCancel() {
+	@objc func calendarChooserDidCancel() {
 		self.navControl.dismiss(animated: true) {}
 	}
 	
-	func calendarChooserDidFinish() {
+	@objc func calendarChooserDidFinish() {
 		if (eventView.selectedCalendars.count == 0) {
 			SCLAlertView().showError("Please select one", subTitle: "")
 			return;
