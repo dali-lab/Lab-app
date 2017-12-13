@@ -46,9 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		
 		assert(error == nil)
 		
-		let config = DALIConfig(dict: NSDictionary(dictionary: [
-			"server_url": "http://dalilab-api.herokuapp.com"
-			]))
+		let config = DALIConfig(serverURL: "https://dalilab-api.herokuapp.com")
 		DALIapi.configure(config: config)
 		
 		GIDSignIn.sharedInstance().delegate = self

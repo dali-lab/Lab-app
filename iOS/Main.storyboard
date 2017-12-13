@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -239,13 +239,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kemeny 007" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTj-bc-QBd">
-                                                            <rect key="frame" x="146" y="44" width="129" height="29"/>
+                                                            <rect key="frame" x="146" y="47" width="129" height="26"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wed 5:30 - 7 PM" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bXb-Zo-2fy">
-                                                            <rect key="frame" x="146" y="8" width="129" height="36"/>
+                                                            <rect key="frame" x="146" y="11" width="129" height="36"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="36" id="q53-LV-u7Y"/>
                                                             </constraints>
@@ -824,7 +824,7 @@ for voting</string>
             <objects>
                 <navigationController id="65l-id-DWh" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="L0r-TB-XXN">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -945,7 +945,7 @@ for voting</string>
                                         <rect key="frame" x="0.0" y="35" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q6I-2V-56B" id="N2m-xs-xWS">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sign Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qGL-3C-PJF">
@@ -970,7 +970,7 @@ for voting</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Enter or Exit the Lab" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeZ-g8-SmC">
-                                                    <rect key="frame" x="16" y="11" width="288" height="24"/>
+                                                    <rect key="frame" x="24" y="14" width="272" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="ByR-pG-Gfg"/>
                                                     </constraints>
@@ -979,13 +979,13 @@ for voting</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Will notify you when you enter or exit the lab to welcome you back" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bX-V7-sVm">
-                                                    <rect key="frame" x="16" y="38" width="277" height="36"/>
+                                                    <rect key="frame" x="24" y="41" width="261" height="30.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                     <color key="textColor" red="0.55549708549999999" green="0.55549708549999999" blue="0.55549708549999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="R9r-Sl-PVw">
-                                                    <rect key="frame" x="312" y="27" width="51" height="31"/>
+                                                    <rect key="frame" x="304" y="27" width="51" height="31"/>
                                                     <accessibility key="accessibilityConfiguration" hint="Enables the app to notify you when you enter or exit the lab to welcome you back" label="enterExitNotification"/>
                                                     <connections>
                                                         <action selector="switchChanged:" destination="QVm-Qf-4OP" eventType="valueChanged" id="Urc-uR-wam"/>
@@ -1013,7 +1013,7 @@ for voting</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Check In To Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vjl-Tb-LfI">
-                                                    <rect key="frame" x="16" y="11" width="288" height="24"/>
+                                                    <rect key="frame" x="24" y="14" width="272" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="Iq0-TI-zGg"/>
                                                     </constraints>
@@ -1022,13 +1022,13 @@ for voting</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Will notify you when you are checked in to an event" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwE-UB-9dT">
-                                                    <rect key="frame" x="16" y="38" width="277" height="36"/>
+                                                    <rect key="frame" x="24" y="41" width="261" height="30.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                     <color key="textColor" red="0.55549708549999999" green="0.55549708549999999" blue="0.55549708549999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pK8-Rm-RgR">
-                                                    <rect key="frame" x="312" y="27" width="51" height="31"/>
+                                                    <rect key="frame" x="304" y="27" width="51" height="31"/>
                                                     <accessibility key="accessibilityConfiguration" label="checkInNotification"/>
                                                     <connections>
                                                         <action selector="switchChanged:" destination="QVm-Qf-4OP" eventType="valueChanged" id="tQ9-NS-PyE"/>
@@ -1056,7 +1056,7 @@ for voting</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Enter Voting Event " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lun-HY-jWw">
-                                                    <rect key="frame" x="16" y="11" width="288" height="24"/>
+                                                    <rect key="frame" x="24" y="14" width="272" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="a5k-Ps-BDq"/>
                                                     </constraints>
@@ -1065,13 +1065,13 @@ for voting</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Will notify you when voting is avialable for the event you are at" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMv-1g-A9O">
-                                                    <rect key="frame" x="16" y="38" width="277" height="36"/>
+                                                    <rect key="frame" x="24" y="41" width="261" height="30.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                     <color key="textColor" red="0.55549708549999999" green="0.55549708549999999" blue="0.55549708549999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gcG-V8-a42">
-                                                    <rect key="frame" x="312" y="27" width="51" height="31"/>
+                                                    <rect key="frame" x="304" y="27" width="51" height="31"/>
                                                     <accessibility key="accessibilityConfiguration" label="votingNotification"/>
                                                     <connections>
                                                         <action selector="switchChanged:" destination="QVm-Qf-4OP" eventType="valueChanged" id="oU9-6N-Mdb"/>
@@ -1103,7 +1103,7 @@ for voting</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Share when I'm in the Lab" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tT-mp-1f2">
-                                                    <rect key="frame" x="16" y="11" width="288" height="24"/>
+                                                    <rect key="frame" x="24" y="14" width="272" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="ZoS-9K-oXo"/>
                                                     </constraints>
@@ -1112,13 +1112,13 @@ for voting</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Will include your name on the list of people in the lab when you are at DALI" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXu-kz-Zs9">
-                                                    <rect key="frame" x="16" y="38" width="277" height="36"/>
+                                                    <rect key="frame" x="24" y="41" width="261" height="30.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                     <color key="textColor" red="0.55549708549999999" green="0.55549708549999999" blue="0.55549708549999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvz-r4-1QO">
-                                                    <rect key="frame" x="312" y="27" width="51" height="31"/>
+                                                    <rect key="frame" x="304" y="27" width="51" height="31"/>
                                                     <accessibility key="accessibilityConfiguration" label="sharePreference"/>
                                                     <connections>
                                                         <action selector="switchChanged:" destination="QVm-Qf-4OP" eventType="valueChanged" id="TYH-Ee-zQV"/>
@@ -1146,7 +1146,7 @@ for voting</string>
                                         <rect key="frame" x="0.0" y="597" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Yj-Ba-8FL" id="FiJ-8c-p8U">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="53.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="No Food Tonight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vay-zn-EoB">
@@ -1194,7 +1194,7 @@ for voting</string>
                     <navigationItem key="navigationItem" title="Settings" id="icC-HI-IK5">
                         <barButtonItem key="rightBarButtonItem" style="done" id="Ym4-gf-bJ3">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nln-1k-grp">
-                                <rect key="frame" x="276" y="6" width="83" height="36"/>
+                                <rect key="frame" x="276" y="4" width="83" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Done"/>
@@ -1230,7 +1230,7 @@ for voting</string>
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9mp-9E-HnP" id="Ads-mU-YZ4">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Create New" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qbo-qz-BgL">
@@ -1250,7 +1250,7 @@ for voting</string>
                                 <rect key="frame" x="0.0" y="105.5" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vBl-J8-oXw" id="Mg2-GI-hR2">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="79.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hbP-20-dSb">
@@ -1298,7 +1298,7 @@ for voting</string>
                                 <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ToP-2r-fPM" id="D6e-2W-Z1Z">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="73.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="73.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open Lab Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1MV-Yu-9DW">
@@ -1358,7 +1358,7 @@ for voting</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Option" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiR-5H-6pb">
-                                            <rect key="frame" x="46" y="18" width="321" height="21"/>
+                                            <rect key="frame" x="46" y="18" width="313" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1381,19 +1381,19 @@ for voting</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Award 1, Award 2, Award 3, Award 3, Award 3, Award 3, Award 3" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srG-th-owb">
-                                            <rect key="frame" x="19" y="31" width="337" height="46"/>
+                                            <rect key="frame" x="27" y="34" width="321" height="41"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azi-SC-m7t">
-                                            <rect key="frame" x="335" y="11" width="21" height="21"/>
+                                            <rect key="frame" x="327" y="14" width="21" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a great option" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17z-jD-bTZ">
-                                            <rect key="frame" x="19" y="11" width="160" height="21"/>
+                                            <rect key="frame" x="27" y="14" width="160" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1459,13 +1459,13 @@ for voting</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ordered" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeP-ec-UXi">
-                                                    <rect key="frame" x="16" y="21" width="286" height="21"/>
+                                                    <rect key="frame" x="24" y="21" width="270" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2rz-zm-7VW">
-                                                    <rect key="frame" x="310" y="16" width="51" height="31"/>
+                                                    <rect key="frame" x="302" y="16" width="51" height="31"/>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -1485,13 +1485,13 @@ for voting</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Selected: 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOr-8P-7PA">
-                                                    <rect key="frame" x="19" y="21" width="239" height="21"/>
+                                                    <rect key="frame" x="27" y="21" width="223" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="5TE-1j-eWM">
-                                                    <rect key="frame" x="266" y="17" width="94" height="29"/>
+                                                    <rect key="frame" x="258" y="17" width="94" height="29"/>
                                                     <connections>
                                                         <action selector="stepperChanged:" destination="BqC-rB-gZi" eventType="valueChanged" id="GgS-4d-LTV"/>
                                                     </connections>
@@ -1529,7 +1529,7 @@ for voting</string>
             <objects>
                 <navigationController id="hF8-7D-bQB" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3hg-cN-BmP">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1569,7 +1569,7 @@ for voting</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D5P-GL-5ye">
-                                            <rect key="frame" x="314.5" y="10" width="45.5" height="23.5"/>
+                                            <rect key="frame" x="313.5" y="10" width="45.5" height="23.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="17"/>
                                             <color key="textColor" red="0.55549708549999999" green="0.55549708549999999" blue="0.55549708549999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1586,7 +1586,7 @@ for voting</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QXU-pq-79F">
-                                            <rect key="frame" x="16" y="0.0" width="344" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -1604,7 +1604,7 @@ for voting</string>
                     <navigationItem key="navigationItem" title="People in the Lab" id="GRf-Uy-4XY">
                         <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="cR0-As-600">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oOR-QG-oWE">
-                                <rect key="frame" x="276" y="6" width="83" height="36"/>
+                                <rect key="frame" x="276" y="4" width="83" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Done"/>
@@ -1625,7 +1625,7 @@ for voting</string>
             <objects>
                 <navigationController id="Mjy-nb-oGu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yoH-OU-yD2">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1646,7 +1646,7 @@ for voting</string>
             <objects>
                 <navigationController id="B8g-Hg-By4" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Qz2-3j-LwH">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.31372549019607843" green="0.8901960784313725" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1716,8 +1716,8 @@ for voting</string>
                                             <constraint firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="height" multiplier="3979 : 5481" id="G7Z-a8-oKc"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJR-gN-JQo">
-                                        <rect key="frame" x="117" y="45" width="128" height="98"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJR-gN-JQo">
+                                        <rect key="frame" x="0.0" y="80" width="128" height="98"/>
                                         <accessibility key="accessibilityConfiguration" label="kitchen"/>
                                         <connections>
                                             <action selector="buttonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="K6Y-BV-oqI"/>
@@ -1759,32 +1759,20 @@ for voting</string>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pod_appa" translatesAutoresizingMaskIntoConstraints="NO" id="g3R-Ps-PYc">
-                                        <rect key="frame" x="100" y="14" width="75.5" height="79"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="284" height="392"/>
                                         <accessibility key="accessibilityConfiguration" label="pod:appa"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="g3R-Ps-PYc" secondAttribute="height" multiplier="527:551" id="5LU-D2-nPD"/>
-                                        </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pod_momo" translatesAutoresizingMaskIntoConstraints="NO" id="ZPE-Bl-knJ">
-                                        <rect key="frame" x="155.5" y="14" width="54.5" height="82.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="284" height="392"/>
                                         <accessibility key="accessibilityConfiguration" label="pod:momo"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="ZPE-Bl-knJ" secondAttribute="height" multiplier="380:576" id="H1E-pT-ugx"/>
-                                        </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pod_pabu" translatesAutoresizingMaskIntoConstraints="NO" id="97c-fx-nqq">
-                                        <rect key="frame" x="214" y="14" width="56.5" height="79"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="284" height="392"/>
                                         <accessibility key="accessibilityConfiguration" label="pod:pabu"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="97c-fx-nqq" secondAttribute="height" multiplier="393:555" id="O0B-77-Tq5"/>
-                                        </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitchen" translatesAutoresizingMaskIntoConstraints="NO" id="cxJ-et-SuD">
-                                        <rect key="frame" x="5" y="39" width="150.5" height="165"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="284" height="392"/>
                                         <accessibility key="accessibilityConfiguration" label="kitchen"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="cxJ-et-SuD" secondAttribute="height" multiplier="1050:1149" id="QK9-dT-e2d"/>
-                                        </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGF-PQ-SwT">
                                         <rect key="frame" x="142" y="80.5" width="142" height="129.5"/>
@@ -1794,81 +1782,80 @@ for voting</string>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workstations" translatesAutoresizingMaskIntoConstraints="NO" id="2H4-8T-sFk">
-                                        <rect key="frame" x="134.5" y="65" width="136.5" height="147.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="284" height="392"/>
                                         <accessibility key="accessibilityConfiguration" label="workstations"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="2H4-8T-sFk" secondAttribute="height" multiplier="950:1027" id="MDm-tr-aMh"/>
-                                        </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tvspace" translatesAutoresizingMaskIntoConstraints="NO" id="bNS-M4-xQT">
-                                        <rect key="frame" x="118.5" y="195.5" width="147.5" height="182.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="284" height="392"/>
                                         <accessibility key="accessibilityConfiguration" label="tvspace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="bNS-M4-xQT" secondAttribute="height" multiplier="1047:1293" id="ju1-ko-yhe"/>
-                                        </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="conference" translatesAutoresizingMaskIntoConstraints="NO" id="w5B-Qu-97D">
-                                        <rect key="frame" x="5" y="200" width="135" height="187"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="284" height="392"/>
                                         <accessibility key="accessibilityConfiguration" label="conference"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="w5B-Qu-97D" secondAttribute="height" multiplier="949:1317" id="wEC-Ap-hUo"/>
-                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="AGF-PQ-SwT" firstAttribute="top" secondItem="k5X-3B-Roi" secondAttribute="bottom" constant="10" id="0Cz-mY-jcq"/>
                                     <constraint firstItem="BCg-pJ-rb7" firstAttribute="top" secondItem="CEu-Oy-jy0" secondAttribute="top" id="1jZ-ke-YNw"/>
-                                    <constraint firstItem="g3R-Ps-PYc" firstAttribute="top" secondItem="BCg-pJ-rb7" secondAttribute="top" constant="14" id="3SZ-MZ-C0F"/>
+                                    <constraint firstItem="bNS-M4-xQT" firstAttribute="centerX" secondItem="BCg-pJ-rb7" secondAttribute="centerX" id="1xi-OC-wYv"/>
+                                    <constraint firstItem="w5B-Qu-97D" firstAttribute="centerY" secondItem="BCg-pJ-rb7" secondAttribute="centerY" id="2UZ-vV-R6f"/>
                                     <constraint firstItem="EYq-DE-jC2" firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="width" multiplier="0.45" id="3cN-rc-CMa"/>
                                     <constraint firstItem="uJR-gN-JQo" firstAttribute="top" secondItem="BCg-pJ-rb7" secondAttribute="top" constant="80" id="4Kg-4B-gVk"/>
                                     <constraint firstItem="JE4-5n-fz8" firstAttribute="top" secondItem="BCg-pJ-rb7" secondAttribute="top" id="4t6-KJ-mIY"/>
                                     <constraint firstItem="Vi5-3y-13O" firstAttribute="height" secondItem="BCg-pJ-rb7" secondAttribute="height" multiplier="0.47" id="5Lp-gJ-idP"/>
+                                    <constraint firstItem="ZPE-Bl-knJ" firstAttribute="centerX" secondItem="BCg-pJ-rb7" secondAttribute="centerX" id="5Sb-Tu-BWX"/>
                                     <constraint firstItem="9TE-fx-vEN" firstAttribute="height" secondItem="BCg-pJ-rb7" secondAttribute="height" multiplier="0.18" id="5j1-cp-tc6"/>
                                     <constraint firstItem="AGF-PQ-SwT" firstAttribute="trailing" secondItem="BCg-pJ-rb7" secondAttribute="trailing" id="5t5-GC-H6n"/>
-                                    <constraint firstItem="w5B-Qu-97D" firstAttribute="leading" secondItem="BCg-pJ-rb7" secondAttribute="leading" constant="5" id="7ef-md-3f0"/>
-                                    <constraint firstItem="g3R-Ps-PYc" firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="width" multiplier="0.265" id="9YC-qZ-tfs"/>
+                                    <constraint firstItem="w5B-Qu-97D" firstAttribute="height" secondItem="BCg-pJ-rb7" secondAttribute="height" id="7iY-9H-iNF"/>
                                     <constraint firstItem="Vi5-3y-13O" firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="width" multiplier="0.56" id="9mG-dO-P97"/>
-                                    <constraint firstItem="ZPE-Bl-knJ" firstAttribute="leading" secondItem="g3R-Ps-PYc" secondAttribute="trailing" constant="-20" id="AiH-ED-OY4"/>
+                                    <constraint firstItem="2H4-8T-sFk" firstAttribute="centerX" secondItem="BCg-pJ-rb7" secondAttribute="centerX" id="AnY-Zb-Qi5"/>
                                     <constraint firstItem="uJR-gN-JQo" firstAttribute="leading" secondItem="BCg-pJ-rb7" secondAttribute="leading" id="Bg5-tF-4Bv"/>
-                                    <constraint firstItem="g3R-Ps-PYc" firstAttribute="leading" secondItem="CEu-Oy-jy0" secondAttribute="leading" constant="100" id="CkC-jr-ooU"/>
                                     <constraint firstItem="Vi5-3y-13O" firstAttribute="bottom" secondItem="BCg-pJ-rb7" secondAttribute="bottom" id="DGP-UO-faG"/>
-                                    <constraint firstItem="97c-fx-nqq" firstAttribute="width" secondItem="CEu-Oy-jy0" secondAttribute="width" multiplier="0.2" id="GRA-VV-CBh"/>
+                                    <constraint firstItem="w5B-Qu-97D" firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="width" id="FOO-dI-bKZ"/>
+                                    <constraint firstItem="97c-fx-nqq" firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="width" id="Fmu-hx-ehy"/>
                                     <constraint firstItem="k5X-3B-Roi" firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="width" multiplier="0.25" id="Ibw-dR-9eM"/>
-                                    <constraint firstItem="w5B-Qu-97D" firstAttribute="bottom" secondItem="BCg-pJ-rb7" secondAttribute="bottom" constant="-5" id="Iyu-ma-Od9"/>
-                                    <constraint firstItem="bNS-M4-xQT" firstAttribute="width" secondItem="CEu-Oy-jy0" secondAttribute="width" multiplier="0.52" id="J40-0A-QGI"/>
+                                    <constraint firstItem="bNS-M4-xQT" firstAttribute="width" secondItem="CEu-Oy-jy0" secondAttribute="width" id="J40-0A-QGI"/>
                                     <constraint firstItem="9TE-fx-vEN" firstAttribute="top" secondItem="BCg-pJ-rb7" secondAttribute="top" id="Kd0-Zj-FPJ"/>
                                     <constraint firstItem="AGF-PQ-SwT" firstAttribute="height" secondItem="BCg-pJ-rb7" secondAttribute="height" multiplier="0.33" id="NU5-Q0-KyI"/>
+                                    <constraint firstItem="97c-fx-nqq" firstAttribute="height" secondItem="BCg-pJ-rb7" secondAttribute="height" id="O6c-Q0-8rO"/>
                                     <constraint firstItem="AGF-PQ-SwT" firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="width" multiplier="0.5" id="PVN-S3-BSq"/>
                                     <constraint firstItem="JE4-5n-fz8" firstAttribute="height" secondItem="BCg-pJ-rb7" secondAttribute="height" multiplier="0.18" id="Pka-ay-cVx"/>
+                                    <constraint firstItem="ZPE-Bl-knJ" firstAttribute="centerY" secondItem="BCg-pJ-rb7" secondAttribute="centerY" id="RwC-DT-0tv"/>
                                     <constraint firstAttribute="trailing" secondItem="BCg-pJ-rb7" secondAttribute="trailing" id="TPj-vM-bwo"/>
-                                    <constraint firstItem="97c-fx-nqq" firstAttribute="leading" secondItem="ZPE-Bl-knJ" secondAttribute="trailing" constant="4" id="TkE-hG-V8O"/>
                                     <constraint firstItem="EYq-DE-jC2" firstAttribute="trailing" secondItem="BCg-pJ-rb7" secondAttribute="trailing" id="Tlu-EN-Rqc"/>
+                                    <constraint firstItem="ZPE-Bl-knJ" firstAttribute="height" secondItem="BCg-pJ-rb7" secondAttribute="height" id="UIR-PY-Wai"/>
                                     <constraint firstItem="k5X-3B-Roi" firstAttribute="trailing" secondItem="BCg-pJ-rb7" secondAttribute="trailing" id="UNa-Ug-qcJ"/>
+                                    <constraint firstItem="bNS-M4-xQT" firstAttribute="centerY" secondItem="BCg-pJ-rb7" secondAttribute="centerY" id="USX-Xa-VcY"/>
                                     <constraint firstItem="9TE-fx-vEN" firstAttribute="leading" secondItem="JE4-5n-fz8" secondAttribute="trailing" id="Ueq-RV-ZWx"/>
+                                    <constraint firstItem="2H4-8T-sFk" firstAttribute="height" secondItem="BCg-pJ-rb7" secondAttribute="height" id="V2l-C8-hwa"/>
                                     <constraint firstItem="k5X-3B-Roi" firstAttribute="leading" secondItem="9TE-fx-vEN" secondAttribute="trailing" id="VZG-gr-Nr3"/>
-                                    <constraint firstItem="bNS-M4-xQT" firstAttribute="trailing" secondItem="BCg-pJ-rb7" secondAttribute="trailing" constant="-18" id="Wiz-8L-j3z"/>
+                                    <constraint firstItem="g3R-Ps-PYc" firstAttribute="centerY" secondItem="BCg-pJ-rb7" secondAttribute="centerY" id="Vbc-MY-EGS"/>
+                                    <constraint firstItem="cxJ-et-SuD" firstAttribute="centerX" secondItem="BCg-pJ-rb7" secondAttribute="centerX" id="Vxc-m4-fJ6"/>
                                     <constraint firstItem="EYq-DE-jC2" firstAttribute="bottom" secondItem="BCg-pJ-rb7" secondAttribute="bottom" id="XFU-Zq-qg3"/>
+                                    <constraint firstItem="g3R-Ps-PYc" firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="width" id="XUH-3z-X9N"/>
+                                    <constraint firstItem="g3R-Ps-PYc" firstAttribute="centerX" secondItem="BCg-pJ-rb7" secondAttribute="centerX" id="XvS-SN-8QX"/>
                                     <constraint firstItem="JE4-5n-fz8" firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="width" multiplier="0.2" id="Y1f-ug-Xl4"/>
                                     <constraint firstItem="9TE-fx-vEN" firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="width" multiplier="0.21" id="Y2G-aS-c6H"/>
                                     <constraint firstAttribute="bottom" secondItem="BCg-pJ-rb7" secondAttribute="bottom" id="YVc-ZM-33I"/>
-                                    <constraint firstItem="cxJ-et-SuD" firstAttribute="top" secondItem="BCg-pJ-rb7" secondAttribute="top" constant="39" id="Zml-9A-ORd"/>
-                                    <constraint firstItem="cxJ-et-SuD" firstAttribute="leading" secondItem="BCg-pJ-rb7" secondAttribute="leading" constant="5" id="b4f-JX-8lg"/>
-                                    <constraint firstItem="cxJ-et-SuD" firstAttribute="width" secondItem="CEu-Oy-jy0" secondAttribute="width" multiplier="0.53" id="cAG-Il-5gv"/>
+                                    <constraint firstItem="ZPE-Bl-knJ" firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="width" id="aHL-CJ-0Mf"/>
+                                    <constraint firstItem="bNS-M4-xQT" firstAttribute="height" secondItem="BCg-pJ-rb7" secondAttribute="height" id="an5-08-Kpw"/>
+                                    <constraint firstItem="g3R-Ps-PYc" firstAttribute="height" secondItem="BCg-pJ-rb7" secondAttribute="height" id="as6-1P-0zF"/>
+                                    <constraint firstItem="w5B-Qu-97D" firstAttribute="centerX" secondItem="BCg-pJ-rb7" secondAttribute="centerX" id="bEY-QU-v3I"/>
                                     <constraint firstItem="k5X-3B-Roi" firstAttribute="height" secondItem="BCg-pJ-rb7" secondAttribute="height" multiplier="0.18" id="cBB-lD-6Ow"/>
-                                    <constraint firstItem="2H4-8T-sFk" firstAttribute="width" secondItem="CEu-Oy-jy0" secondAttribute="width" multiplier="0.48" id="gzi-kd-kJR"/>
+                                    <constraint firstItem="2H4-8T-sFk" firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="width" id="e2o-8i-XTa"/>
+                                    <constraint firstItem="97c-fx-nqq" firstAttribute="centerX" secondItem="BCg-pJ-rb7" secondAttribute="centerX" id="ehx-jc-6ur"/>
                                     <constraint firstItem="EYq-DE-jC2" firstAttribute="height" secondItem="BCg-pJ-rb7" secondAttribute="height" multiplier="0.46" id="hc0-9r-OBR"/>
-                                    <constraint firstItem="ZPE-Bl-knJ" firstAttribute="top" secondItem="BCg-pJ-rb7" secondAttribute="top" constant="14" id="htg-OP-U9d"/>
-                                    <constraint firstItem="2H4-8T-sFk" firstAttribute="trailing" secondItem="BCg-pJ-rb7" secondAttribute="trailing" constant="-13" id="kLq-vi-8zf"/>
-                                    <constraint firstItem="2H4-8T-sFk" firstAttribute="top" secondItem="BCg-pJ-rb7" secondAttribute="top" constant="65" id="kaq-JV-YQr"/>
+                                    <constraint firstItem="97c-fx-nqq" firstAttribute="centerY" secondItem="BCg-pJ-rb7" secondAttribute="centerY" id="ifW-g9-6QQ"/>
                                     <constraint firstItem="uJR-gN-JQo" firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="width" multiplier="0.45" id="mdD-y8-Gsj"/>
+                                    <constraint firstItem="2H4-8T-sFk" firstAttribute="centerY" secondItem="BCg-pJ-rb7" secondAttribute="centerY" id="od5-n4-rRH"/>
                                     <constraint firstItem="BCg-pJ-rb7" firstAttribute="leading" secondItem="CEu-Oy-jy0" secondAttribute="leading" id="ohy-aT-4j3"/>
                                     <constraint firstItem="Vi5-3y-13O" firstAttribute="leading" secondItem="BCg-pJ-rb7" secondAttribute="leading" id="rd7-5b-xsw"/>
+                                    <constraint firstItem="cxJ-et-SuD" firstAttribute="height" secondItem="BCg-pJ-rb7" secondAttribute="height" id="rrF-5y-DJC"/>
+                                    <constraint firstItem="cxJ-et-SuD" firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="width" id="tYH-cc-SFZ"/>
                                     <constraint firstItem="uJR-gN-JQo" firstAttribute="height" secondItem="BCg-pJ-rb7" secondAttribute="height" multiplier="0.25" id="vNa-Fm-fW2"/>
-                                    <constraint firstItem="97c-fx-nqq" firstAttribute="top" secondItem="BCg-pJ-rb7" secondAttribute="top" constant="14" id="xZ6-sU-TV1"/>
+                                    <constraint firstItem="cxJ-et-SuD" firstAttribute="centerY" secondItem="BCg-pJ-rb7" secondAttribute="centerY" id="vtl-pS-mBK"/>
                                     <constraint firstItem="k5X-3B-Roi" firstAttribute="top" secondItem="BCg-pJ-rb7" secondAttribute="top" id="y7q-Fb-xl7"/>
-                                    <constraint firstItem="bNS-M4-xQT" firstAttribute="bottom" secondItem="BCg-pJ-rb7" secondAttribute="bottom" constant="-14" id="yz5-31-JWi"/>
-                                    <constraint firstItem="w5B-Qu-97D" firstAttribute="width" secondItem="CEu-Oy-jy0" secondAttribute="width" multiplier="0.475" id="zF4-y5-Mud"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWa-cX-f2L">
@@ -2017,14 +2004,13 @@ for voting</string>
                             <constraint firstItem="r0C-rp-J74" firstAttribute="bottom" secondItem="CEu-Oy-jy0" secondAttribute="bottom" id="lAB-aY-CTE"/>
                             <constraint firstItem="r0C-rp-J74" firstAttribute="top" secondItem="GS4-Qg-Epb" secondAttribute="bottom" id="q6J-xj-bp6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CEu-Oy-jy0" secondAttribute="trailing" constant="29.5" id="wW1-hj-Jri"/>
-                            <constraint firstItem="ZPE-Bl-knJ" firstAttribute="width" secondItem="xEh-cc-gD0" secondAttribute="width" multiplier="0.145" id="xvW-jr-VR4"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Lights" id="Mjw-hi-foZ">
                         <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="PMc-Of-AQ9">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jyc-k8-JCI">
-                                <rect key="frame" x="16" y="6" width="83" height="36"/>
+                                <rect key="frame" x="16" y="4" width="83" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Done"/>
@@ -2075,7 +2061,7 @@ for voting</string>
             <objects>
                 <navigationController id="TyO-XQ-AgS" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="m8n-XI-bcm">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2099,21 +2085,21 @@ for voting</string>
         <image name="Beacon2" width="119" height="98"/>
         <image name="DALI_whiteLogo" width="2569" height="970"/>
         <image name="backgroundGradient" width="375" height="667"/>
-        <image name="conference" width="949" height="1317"/>
-        <image name="kitchen" width="1050" height="1149"/>
+        <image name="conference" width="1987" height="2741"/>
+        <image name="kitchen" width="1987" height="2741"/>
         <image name="lightBulb" width="256" height="256"/>
         <image name="lights_none_overlay" width="3981" height="5481"/>
         <image name="lowPolyBackground" width="500" height="800"/>
         <image name="people" width="675" height="501"/>
-        <image name="pod_appa" width="527" height="551"/>
-        <image name="pod_momo" width="380" height="576"/>
-        <image name="pod_pabu" width="393" height="555"/>
+        <image name="pod_appa" width="1987" height="2741"/>
+        <image name="pod_momo" width="1987" height="2741"/>
+        <image name="pod_pabu" width="1987" height="2741"/>
         <image name="poly background" width="2540" height="3828"/>
-        <image name="tvspace" width="1047" height="1293"/>
+        <image name="tvspace" width="1987" height="2741"/>
         <image name="vote" width="330" height="414"/>
         <image name="voteDone" width="330" height="414"/>
         <image name="whiteGear" width="501" height="501"/>
-        <image name="workstations" width="950" height="1027"/>
+        <image name="workstations" width="1987" height="2741"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kGF-TQ-Eex"/>
