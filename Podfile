@@ -7,6 +7,7 @@ target 'iOS' do
   pod 'Google/SignIn'
   pod 'ProximityKit', '~> 1.2'
   pod 'SCLAlertView'
+  pod 'Eureka'
   pod 'Crashlytics'
   pod 'DALI', '~> 0.4.2'
   pod 'Socket.IO-Client-Swift'

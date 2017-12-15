@@ -14,31 +14,43 @@ import DALI
 class TopLevelVotingViewController: UITableViewController {
 	var pastEvents: [DALIEvent.VotingEvent] = []
 	var currentEvent: DALIEvent.VotingEvent?
+	var beaconControl: BeaconController {
+		return BeaconController.current ?? BeaconController()
+	}
+	var persistantRangeEnd: (() -> Void)?
 	
 	override func viewDidLoad() {
 		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Events", style: .plain, target: nil, action: nil)
 		self.updateData()
 	}
 	
-	deinit {
-		BeaconController.current?.breakdown()
+	override func viewWillAppear(_ animated: Bool) {
+		persistantRangeEnd = beaconControl.persistantRange(callback: { (controller) in
+			if controller.inVotingEvent {
+				self.persistantRangeEnd!()
+				self.persistantRangeEnd = nil
+				self.updateData()
+			}
+		})
+	}
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		if let persistantRangeEnd = persistantRangeEnd {
+			persistantRangeEnd()
+		}
 	}
 	
 	func updateData() {
-		var beaconControl = BeaconController.current
-		if beaconControl == nil {
-			beaconControl = BeaconController()
-		}
-		
-//		(UIApplication.shared.delegate as! AppDelegate)
-		
-		if beaconControl!.inVotingEvent {
+		if beaconControl.inVotingEvent {
 			DALIEvent.VotingEvent.getCurrent { (event, error) in
 				self.currentEvent = event
-				
-				DispatchQueue.main.async {
-					self.tableView.reloadData()
+				if let event = event {
+					event.haveVoted(callback: { (haveVoted, error) in
+						UserDefaults.standard.set(haveVoted, forKey: "hasVoted:\(event.id)")
+					})
 				}
+				
+				self.tableView.reloadData()
 			}
 		}
 		
@@ -46,6 +58,11 @@ class TopLevelVotingViewController: UITableViewController {
 			if notification.userInfo?["entering"] as? Bool ?? false {
 				DALIEvent.VotingEvent.getCurrent { (event, error) in
 					self.currentEvent = event
+					if let event = event {
+						event.haveVoted(callback: { (haveVoted, error) in
+							UserDefaults.standard.set(haveVoted, forKey: "hasVoted:\(event.id)")
+						})
+					}
 					self.tableView.reloadData()
 				}
 			}else{
@@ -62,6 +79,7 @@ class TopLevelVotingViewController: UITableViewController {
 				self.tableView.reloadData()
 			}
 		}
+		
 	}
 	
 	@IBAction func cancel(_ sender: Any) {
@@ -133,6 +151,7 @@ class TopLevelVotingViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
 		if indexPath.section == 0 && currentEvent != nil {
 			let hasVoted = UserDefaults.standard.bool(forKey: "hasVoted:\(currentEvent!.id)")
 			let ordered = currentEvent!.config.ordered

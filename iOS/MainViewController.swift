@@ -339,7 +339,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		}else{
 			let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
 			alert.addButton("Sign In", action: {
-				(UIApplication.shared.delegate as! AppDelegate).signOut()
+				(UIApplication.shared.delegate as! AppDelegate).returnToSignIn()
 			})
 			alert.addButton("Nah...", action: { 
 				

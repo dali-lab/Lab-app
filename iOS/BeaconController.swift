@@ -60,6 +60,7 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 	private var rangeDone: (() -> Void)?
 	private var ranged: Set<RPKBeacon> = []
 	private var targetRegion: RPKRegion?
+	private var onRange: (() -> Void)?
 	
 	var refreshTimers = [RPKRegion:Timer]()
 	
@@ -147,7 +148,7 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 	func updateLocation() {
 		self.beaconManager.start()
 		// A good buffer to find all the beacons possible
-		numToRange = 20
+		numToRange = 50
 		self.beaconManager.startRangingBeacons()
 	}
 	
@@ -251,6 +252,21 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 		print("Entered Region \(region.name ?? "unknown name"), \(region.identifier ?? "unknown id")");
 	}
 	
+	func persistantRange(callback: @escaping (BeaconController) -> Void) -> () -> Void {
+		numToRange = -1
+		
+		self.beaconManager.start()
+		self.beaconManager.startRangingBeacons()
+		onRange = {
+			callback(self)
+		}
+		
+		return { () in
+			self.numToRange = 0
+			self.beaconManager.stopRangingIBeacons()
+		}
+	}
+	
 	private func rangeCheckin(region: RPKRegion) {
 		numToRange = 15
 		ranged.removeAll()
@@ -278,7 +294,7 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 	}
 	
 	func proximityKit(_ manager: RPKManager!, didRangeBeacons beacons: [Any]!, in region: RPKBeaconRegion!) {
-		if numToRange <= 0 {
+		if numToRange <= 0 && numToRange != -1 {
 			self.beaconManager.stopRangingIBeacons()
 			return
 		}
@@ -300,6 +316,9 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 		}
 		
 		self.proximityKit(manager, didDetermineState: beacons.count > 0 ? .inside : .outside, for: region)
+		if let onRange = onRange {
+			onRange()
+		}
 	}
 	
 	enum BeaconError: Error {

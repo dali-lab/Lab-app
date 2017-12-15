@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		40DB98AC0FE4CC2E74756E47 /* Pods_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66536EEAC6727C445E15D525 /* Pods_iOSUITests.framework */; };
 		521822DB1FA0CC5400F34E22 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521822DA1FA0CC5400F34E22 /* ViewProtocol.swift */; };
+		5222572E1FE2DEBD00E7D57C /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5222572D1FE2DEBD00E7D57C /* NewEventViewController.swift */; };
 		5225AE081F606DB400718D12 /* PrivateInformation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5225AE071F606DB400718D12 /* PrivateInformation.plist */; };
 		522F31AB1F47D83C00B4BEB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522F31AA1F47D83C00B4BEB4 /* Main.storyboard */; };
 		522F31AD1F47D85500B4BEB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F31AC1F47D85500B4BEB4 /* AppDelegate.swift */; };
@@ -124,6 +125,7 @@
 		40CC816FA24F8E106E9DDD55 /* Pods-iOS-OneSignalNotification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-OneSignalNotification.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-OneSignalNotification/Pods-iOS-OneSignalNotification.debug.xcconfig"; sourceTree = "<group>"; };
 		439D3A8726F67BB493B1A183 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		521822DA1FA0CC5400F34E22 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
+		5222572D1FE2DEBD00E7D57C /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		5225AE071F606DB400718D12 /* PrivateInformation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrivateInformation.plist; sourceTree = "<group>"; };
 		522F31AA1F47D83C00B4BEB4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		522F31AC1F47D85500B4BEB4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				52FA82E31F7350CA00CEC807 /* LightsViewController.swift */,
 				524D86F31F57965100479C0A /* Voting */,
 				529A63281F4E983900BFBFE9 /* Settings */,
+				5222572D1FE2DEBD00E7D57C /* NewEventViewController.swift */,
 				522F31CD1F47D8FA00B4BEB4 /* Main.storyboard */,
 				52B138BF1F47D4590021D7AE /* Assets.xcassets */,
 				522F31CC1F47D8FA00B4BEB4 /* LaunchScreen.storyboard */,
@@ -1017,6 +1020,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-iOS/Pods-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DALI-iOS/DALI.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -1028,6 +1032,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DALI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -1101,6 +1106,7 @@
 			files = (
 				522F31C71F47D8DA00B4BEB4 /* VotingEventMangerViewController.swift in Sources */,
 				529A63271F4E90DF00BFBFE9 /* NewVotingEventViewController.swift in Sources */,
+				5222572E1FE2DEBD00E7D57C /* NewEventViewController.swift in Sources */,
 				522F31BD1F47D8DA00B4BEB4 /* AppDelegate.swift in Sources */,
 				524D86FB1F57A0E100479C0A /* OrderedVotingViewController.swift in Sources */,
 				524D86F51F5796D200479C0A /* TopLevelVotingViewController.swift in Sources */,

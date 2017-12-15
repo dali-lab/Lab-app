@@ -16,10 +16,27 @@ class NewVotingEventViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		self.updateData()
+		
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(NewVotingEventViewController.new))
+	}
+	
+	@objc func new() {
+		let newEventController = NewEventViewController(destination: self) { (success) in
+			if success {
+				self.updateData()
+			}
+		}
+		let navController = UINavigationController(rootViewController: newEventController)
+		navController.navigationBar.barTintColor = self.navigationController?.navigationBar.barTintColor
+		navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+		navController.navigationBar.tintColor = self.navigationController?.navigationBar.tintColor
+		navController.modalPresentationStyle = .formSheet
+		navController.modalTransitionStyle = .coverVertical
+		self.present(navController, animated: true, completion: nil)
 	}
 	
 	func updateData() {
-		DALIEvent.getFuture { (events, error) in
+		DALIEvent.getFuture(includeHidden: true) { (events, error) in
 			if let events = events {
 				self.events.removeAll()
 				for event in events {

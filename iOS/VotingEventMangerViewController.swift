@@ -98,6 +98,7 @@ class VotingEventManagerViewController: UITableViewController {
 		if let dest = segue.destination as? VotingEventOptionsViewController {
 			dest.event = events[sender as! Int]
 			dest.options = options[sender as! Int]
+			dest.delegate = self
 		}
 	}
 	

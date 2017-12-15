@@ -17,6 +17,7 @@ class VotingEventOptionsViewController: UITableViewController {
 	
 	var event: DALIEvent.VotingEvent!
 	var options: [DALIEvent.VotingEvent.Option] = []
+	var delegate: VotingEventManagerViewController?
 	
 	override func viewDidLoad() {
 		self.title = event.name
@@ -33,9 +34,14 @@ class VotingEventOptionsViewController: UITableViewController {
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		self.navigationController?.isToolbarHidden = true
+		if let index = delegate?.events.index(where: { (event) -> Bool in
+			return event.id == self.event.id
+		}) {
+			delegate?.options[index] = options
+		}
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		event.getUnreleasedResults { (options, error) in
 			if let options = options {
 				self.options = options.sorted(by: { (option1, option2) -> Bool in
@@ -56,8 +62,14 @@ class VotingEventOptionsViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 		if (editingStyle == UITableViewCellEditingStyle.delete) {
 			// handle delete (by removing the data from your array and updating the tableview)
-			self.options.remove(at: indexPath.row)
-			tableView.deleteRows(at: [indexPath], with: .automatic)
+			event.removeOption(option: self.options[indexPath.row], callback: { (success, error) in
+				if success {
+					self.options.remove(at: indexPath.row)
+					tableView.deleteRows(at: [indexPath], with: .automatic)
+				}else {
+					SCLAlertView().showError("Encountered error", subTitle: error?.localizedDescription ?? "unknown error")
+				}
+			})
 		}
 	}
 	@IBAction func release(_ sender: UIBarButtonItem) {

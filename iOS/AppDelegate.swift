@@ -302,7 +302,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 					}
 				}else{
 					print(error!)
-					self.signOut()
 					
 					if !alreadySignedIn {
 						DispatchQueue.main.async {
