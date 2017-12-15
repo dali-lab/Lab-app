@@ -118,7 +118,9 @@ class VotingEventOptionsViewController: UITableViewController {
 		return cell
 	}
 	
-	func addAward(option: inout DALIEvent.VotingEvent.Option, textField: UITextField) {
+	func addAward(option optIndex: Int, textField: UITextField) {
+		var option = self.options[optIndex]
+		
 		if option.awards == nil {
 			option.awards = []
 		}
@@ -139,9 +141,13 @@ class VotingEventOptionsViewController: UITableViewController {
 				}
 			}
 		}
+		
+		self.options[optIndex] = option
 	}
 	
-	func removeAward(option: inout DALIEvent.VotingEvent.Option, award: String) {
+	func removeAward(option optIndex: Int, award: String) {
+		var option = self.options[optIndex]
+		
 		if let index = option.awards!.index(of: award) {
 			option.awards!.remove(at: index)
 			
@@ -213,7 +219,16 @@ class VotingEventOptionsViewController: UITableViewController {
 				let textField = alert.addTextField()
 				
 				alert.addButton("Add award", action: {
-					self.addAward(option: &self.options[indexPath.row], textField: textField)
+					if textField.text?.isEmpty ?? false {
+						let error = SCLAlertView(appearance: SCLAlertView.SCLAppearance.init(showCloseButton: false))
+						error.addButton("Okay", action: {
+							addAwardAlert()
+						})
+						error.showError("Need at least one character", subTitle: "")
+						return
+					}
+					
+					self.addAward(option: indexPath.row, textField: textField)
 				})
 				
 				alert.showEdit("Add award", subTitle: "Add an award to '\(self.options[indexPath.row].name)'")
@@ -228,7 +243,7 @@ class VotingEventOptionsViewController: UITableViewController {
 					
 					for award in awards {
 						alert.addButton("\(award)", action: { 
-							self.removeAward(option: &self.options[indexPath.row], award: award)
+							self.removeAward(option: indexPath.row, award: award)
 						})
 					}
 					

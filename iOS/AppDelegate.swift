@@ -66,6 +66,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		GIDSignIn.sharedInstance().signInSilently()
 		UIApplication.shared.setMinimumBackgroundFetchInterval(1.0)
 		
+		UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+			self.notificationsAuthorized = settings.authorizationStatus == .authorized
+		}
+		
 		return true
 	}
 	
@@ -265,6 +269,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		}else{
 			self.beaconController = BeaconController.current
 		}
+		DALIapi.enableSockets()
 		
 		if !noUIChange {
 			let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
@@ -294,23 +299,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 			self.user = user
 			if !alreadySignedIn {
 				self.loginViewController?.beginLoading()
-			}
-			DALIapi.signin(accessToken: user.authentication.accessToken, refreshToken: user.authentication.refreshToken, forced: true, done: { (sucess, error) in
-				if let member = DALIMember.current, sucess {
-					DispatchQueue.main.async {
-						self.didSignIn(member: member, noUIChange: alreadySignedIn)
-					}
-				}else{
-					print(error!)
-					
-					if !alreadySignedIn {
+				DALIapi.signin(accessToken: user.authentication.accessToken, refreshToken: user.authentication.refreshToken, forced: true, done: { (sucess, error) in
+					if let member = DALIMember.current, sucess {
 						DispatchQueue.main.async {
-							self.loginViewController?.showError(alert: SCLAlertView(), title: "Error Logging In", subTitle: "Encountered an error when logging in!")
-							self.loginViewController?.endLoading()
+							self.didSignIn(member: member, noUIChange: alreadySignedIn)
+						}
+					}else{
+						print(error!)
+						
+						if !alreadySignedIn {
+							DispatchQueue.main.async {
+								self.loginViewController?.showError(alert: SCLAlertView(), title: "Error Logging In", subTitle: "Encountered an error when logging in!")
+								self.loginViewController?.endLoading()
+							}
 						}
 					}
-				}
-			})
+				})
+			}
 		}
 	}
 	
@@ -324,6 +329,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		mainViewController.loginTransformAnimationDone = loginViewController?.transformAnimationDone ?? false
 		OneSignal.sendTag("signedIn", value: "\(false)")
 		
+		DALIapi.enableSockets()
+		
 		loginViewController?.present(mainViewController, animated: true, completion: {
 			
 		})
@@ -336,6 +343,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	
 	func signOut() {
 		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalNever)
+		self.breakDownNotificationListeners()
 		BeaconController.current?.breakdown()
 		self.beaconController = nil
 		
@@ -343,10 +351,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		DALIapi.signOut()
 		OneSignal.sendTag("signedIn", value: "\(false)")
 		
-		// I'm gonna need a better way than this:
-		self.window?.rootViewController?.dismiss(animated: true, completion: {
-			self.breakDownNotificationListeners()
-		})
+		DALIapi.disableSockets()
+		
+		let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
+		
+		self.window?.rootViewController? = loginViewController
+		self.loginViewController = loginViewController
 	}
 	
 	func returnToSignIn() {

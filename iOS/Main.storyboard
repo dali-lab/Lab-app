@@ -415,24 +415,41 @@
             </objects>
             <point key="canvasLocation" x="742" y="-1406"/>
         </scene>
-        <!--Results Voting View Controller-->
+        <!--Test: Awards-->
         <scene sceneID="Wf2-xI-krf">
             <objects>
-                <tableViewController id="5bf-NZ-YXB" customClass="ResultsVotingViewController" customModule="iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vda-q2-lUc">
+                <tableViewController title="Test: Awards" id="5bf-NZ-YXB" customClass="ResultsVotingViewController" customModule="iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="70" sectionHeaderHeight="18" sectionFooterHeight="18" id="Vda-q2-lUc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="tXs-VD-zvk">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="awardCell" rowHeight="32" id="Y70-XX-ljN" customClass="VotingAwardCell" customModule="iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="32"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tXs-VD-zvk" id="wey-CW-yqB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y70-XX-ljN" id="2eg-gr-jKJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="31.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best Design" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFb-bO-TMX">
+                                            <rect key="frame" x="16" y="5" width="343" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="KFb-bO-TMX" firstAttribute="centerY" secondItem="2eg-gr-jKJ" secondAttribute="centerY" id="E9S-gY-6AQ"/>
+                                        <constraint firstItem="KFb-bO-TMX" firstAttribute="leading" secondItem="2eg-gr-jKJ" secondAttribute="leading" constant="16" id="oli-tc-mHY"/>
+                                        <constraint firstAttribute="trailing" secondItem="KFb-bO-TMX" secondAttribute="trailing" constant="16" id="pIk-Ud-fSL"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="awardLabel" destination="KFb-bO-TMX" id="tMN-H3-950"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="5bf-NZ-YXB" id="zGN-ZO-7m9"/>
                             <outlet property="delegate" destination="5bf-NZ-YXB" id="fVK-ma-9fi"/>
@@ -441,7 +458,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCH-Yd-JZG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-20" y="-1406"/>
+            <point key="canvasLocation" x="-20" y="-1406.4467766116943"/>
         </scene>
         <!--Has Voted View Controller-->
         <scene sceneID="i3i-Ie-l1y">

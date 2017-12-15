@@ -19,7 +19,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, ErrorAlertShow
 	@IBOutlet weak var loadingOverlay: UIVisualEffectView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
-	var googleSignInView: UIViewController!
 	var transformAnimationDone = false
 
 	override func viewDidLoad() {

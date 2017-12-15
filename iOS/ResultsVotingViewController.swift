@@ -13,21 +13,18 @@ import DALI
 class ResultsVotingViewController: UITableViewController {
 	var event: DALIEvent.VotingEvent!
 	var options: [DALIEvent.VotingEvent.Option] = []
-	var awards: [(String, DALIEvent.VotingEvent.Option)] = []
 	
 	override func viewDidLoad() {
 		event.getResults { (options, error) in
 			if let options = options {
-				self.options = options
-				
-				self.options.sort(by: { (option1, option2) -> Bool in
-					return option1.name > option2.name
+				let options2 = options.sorted(by: { (option1, option2) -> Bool in
+					return option1.name < option2.name
 				})
 				
-				self.options.forEach({ (option) in
-					option.awards?.forEach({ (award) in
-						self.awards.append((award, option))
-					})
+				self.options = options2.filter({ (option) -> Bool in
+					return option.awards != nil && option.awards!.filter({ (string) -> Bool in
+						return !string.isEmpty
+					}).count > 0
 				})
 				
 				DispatchQueue.main.async {
@@ -36,20 +33,49 @@ class ResultsVotingViewController: UITableViewController {
 			}
 		}
 		
-		self.title = event.name
+		self.title = event.name + ": Awards"
+		self.tableView.rowHeight = 40
+		self.tableView.sectionHeaderHeight = 50
+	}
+	
+	override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let view = UITableViewHeaderFooterView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: tableView.sectionHeaderHeight))
+		view.backgroundColor = UIColor.clear
+		let label = UILabel()
+		label.font = UIFont.boldSystemFont(ofSize: 30)
+		label.text = options[section].name
+		label.sizeToFit()
+		label.center = view.center
+		view.addSubview(label)
+		
+		return view
+	}
+	
+	override func numberOfSections(in tableView: UITableView) -> Int {
+		return self.options.count
+	}
+	
+	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return tableView.sectionHeaderHeight
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return awards.count
+		return self.options[section].awards?.count ?? 0
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
+		let cell = tableView.dequeueReusableCell(withIdentifier: "awardCell") as! VotingAwardCell
 		
-		cell.textLabel?.text = awards[indexPath.row].1.name
-		cell.detailTextLabel?.text = awards[indexPath.row].0
-		cell.selectionStyle = .none
+		cell.setAward(award: self.options[indexPath.section].awards![indexPath.row])
 		
 		return cell
+	}
+}
+
+class VotingAwardCell: UITableViewCell {
+	@IBOutlet weak var awardLabel: UILabel!
+	
+	func setAward(award: String) {
+		self.awardLabel.text = award
 	}
 }
