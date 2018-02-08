@@ -662,12 +662,14 @@
 					52B138F71F47D4660021D7AE = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = JQ28K6Y7JE;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 52B138E71F47D4650021D7AE;
 					};
 					52B139021F47D4660021D7AE = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = JQ28K6Y7JE;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 52B138E71F47D4650021D7AE;
 					};
@@ -1439,7 +1441,7 @@
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
@@ -1459,7 +1461,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
@@ -1477,7 +1479,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JohnKotz.DALI.DaliLabApp.tvOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tvOS.app/tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
@@ -1495,7 +1498,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JohnKotz.DALI.DaliLabApp.tvOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tvOS.app/tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
@@ -1512,7 +1516,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JohnKotz.DALI.DaliLabApp.tvOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = tvOS;
 				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
@@ -1529,7 +1534,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JohnKotz.DALI.DaliLabApp.tvOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = tvOS;
 				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};

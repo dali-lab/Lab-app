@@ -43,41 +43,40 @@ class ResultsVotingViewController: UITableViewController {
 		}
 		
 		self.title = event.name + ": Awards"
-		self.tableView.rowHeight = 40
-		self.tableView.sectionHeaderHeight = 50
 	}
 	
-	override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		let view = UITableViewHeaderFooterView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: tableView.sectionHeaderHeight))
-		view.backgroundColor = UIColor.clear
-		let label = UILabel()
-		label.font = UIFont.boldSystemFont(ofSize: 34)
-		label.text = awards[section].award
-		label.sizeToFit()
-		label.center = view.center
-		label.frame.origin = CGPoint(x: 8, y: label.frame.origin.y + (section == 0 ? 10 : 0))
-		view.addSubview(label)
-		
-		return view
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		if indexPath.row == 0 {
+			return 50
+		}else{
+			return 40
+		}
 	}
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {
 		return self.awards.count
 	}
 	
-	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return tableView.sectionHeaderHeight + (section == 0 ? 10 : 0)
-	}
-	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 1
+		return 2
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "awardCell")!
-		
-		cell.textLabel?.text = self.awards[indexPath.section].option.name
-		
-		return cell
+		if indexPath.row == 1 {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "optionCell")!
+			
+			cell.textLabel?.text = self.awards[indexPath.section].option.name
+			cell.selectionStyle = .none
+			
+			return cell
+		}else{
+			let cell = tableView.dequeueReusableCell(withIdentifier: "awardCell")!
+			
+			cell.textLabel?.text = self.awards[indexPath.section].award
+			cell.imageView?.image = #imageLiteral(resourceName: "ribbon")
+			cell.selectionStyle = .none
+			
+			return cell
+		}
 	}
 }

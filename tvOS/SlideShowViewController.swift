@@ -47,7 +47,7 @@ class SlideShowViewController: UIViewController, ViewProtocol {
 		self.view.addGestureRecognizer(tapRecognizer)
 	}
 	
-	func tapped() {
+	@objc func tapped() {
 		AppDelegate.shared.slideshowExitTriggered(view: self)
 	}
 	
@@ -114,7 +114,7 @@ class SlideShowViewController: UIViewController, ViewProtocol {
 		})
 	}
 	
-	func showRandom() {
+	@objc func showRandom() {
 		let imageView = self.imageViews[nextImageIndex]
 		self.nextImageIndex = (nextImageIndex + 1) % self.imageViews.count
 		self.showRandomPhoto(on: imageView)

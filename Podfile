@@ -9,7 +9,7 @@ target 'iOS' do
   pod 'SCLAlertView'
   pod 'Eureka'
   pod 'Crashlytics'
-  pod 'DALI', '~> 0.4.2'
+  pod 'DALI'
   pod 'Socket.IO-Client-Swift'
   pod 'OneSignal', '>= 2.5.2', '< 3.0'
 
@@ -29,7 +29,7 @@ end
 target 'tvOS' do
 	# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 	use_frameworks!
-    pod 'DALI', '~> 0.4.2'
+    pod 'DALI'
 	
 	# Pods for DALI Lab
 	

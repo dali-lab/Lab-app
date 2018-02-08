@@ -46,7 +46,7 @@ class TopLevelVotingViewController: UITableViewController {
 				self.currentEvent = event
 				if let event = event {
 					event.haveVoted(callback: { (haveVoted, error) in
-						UserDefaults.standard.set(haveVoted, forKey: "hasVoted:\(event.id)")
+						UserDefaults.standard.set(haveVoted || UserDefaults.standard.bool(forKey:  "hasVoted:\(event.id)"), forKey: "hasVoted:\(event.id)")
 					})
 				}
 				
@@ -60,7 +60,7 @@ class TopLevelVotingViewController: UITableViewController {
 					self.currentEvent = event
 					if let event = event {
 						event.haveVoted(callback: { (haveVoted, error) in
-							UserDefaults.standard.set(haveVoted, forKey: "hasVoted:\(event.id)")
+							UserDefaults.standard.set(haveVoted || UserDefaults.standard.bool(forKey:  "hasVoted:\(event.id)"), forKey: "hasVoted:\(event.id)")
 						})
 					}
 					self.tableView.reloadData()

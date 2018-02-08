@@ -24,6 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	@IBOutlet weak var peopleInLabView: UIView!
 	@IBOutlet weak var foodLabel: UILabel!
 	@IBOutlet weak var peopleInLabViewHeight: NSLayoutConstraint!
+	@IBOutlet weak var overlayContainer: UIView!
 	
 	let wrapLabel = UILabel()
 	let fadeIn = #imageLiteral(resourceName: "Fadein")
@@ -38,12 +39,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	var timObserver: Observation?
 	var upcomingObserver: Observation?
 	var foodObserver: Observation?
+	
+	var memberEnterObservation: Observation?
 
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		
+		memberEnterObservation = DALILocation.observeMemberEnter { (member) in
+			self.showOverlay(member: member.name)
+		}
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -90,6 +96,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		self.foodLabel.text = "Loading..."
 		foodObserver = DALIFood.observeFood(callback: { (food) in
 			self.foodLabel.text = food ?? "No food tonight"
+		})
+	}
+	
+	func showOverlay(member: String) {
+		let effectView = UIVisualEffectView()
+		effectView.frame = self.overlayContainer.frame
+		self.overlayContainer.addSubview(effectView)
+		let label = UILabel()
+		label.text = "Welcome \(member)! 👋"
+		label.font = UIFont(name: "Avenir Next", size: 50.0)
+		label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+		label.alpha = 0.0
+		label.sizeToFit()
+		label.frame = CGRect(x: self.overlayContainer.frame.origin.x - label.frame.width, y: self.overlayContainer.frame.height / 2, width: label.frame.width, height: label.frame.height)
+		self.overlayContainer.addSubview(label)
+		
+		UIView.animate(withDuration: 0.5, animations: {
+			effectView.effect = UIBlurEffect(style: .dark)
+			label.alpha = 1.0
+			label.frame = CGRect(x: self.overlayContainer.frame.width/2 - label.frame.width/2, y: self.overlayContainer.frame.height / 2 - label.frame.height / 2, width: label.frame.width, height: label.frame.height)
+		}, completion: { (_) in
+			UIView.animate(withDuration: 0.5, delay: 10, options: [], animations: {
+				label.frame = CGRect(x: self.overlayContainer.frame.width, y: self.overlayContainer.frame.height / 2 - label.frame.height / 2, width: label.frame.width, height: label.frame.height)
+				label.alpha = 0.0
+				effectView.alpha = 0
+			}, completion: { (_) in
+				effectView.removeFromSuperview()
+				label.removeFromSuperview()
+			})
 		})
 	}
 	

@@ -1,7 +1,7 @@
 PODS:
   - Crashlytics (3.9.3):
     - Fabric (~> 1.7.2)
-  - DALI (0.4.39):
+  - DALI (0.4.41):
     - Socket.IO-Client-Swift
     - SwiftyJSON
   - Eureka (4.0.1)
@@ -51,7 +51,7 @@ PODS:
 
 DEPENDENCIES:
   - Crashlytics
-  - DALI (~> 0.4.2)
+  - DALI
   - Eureka
   - Google/SignIn
   - OneSignal (< 3.0, >= 2.5.2)
@@ -61,7 +61,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
-  DALI: 32acd47f3e520e33892efbf971572aca4a349873
+  DALI: 94792ca9a68536dc9c2c0786cd365c3248fad0af
   Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
@@ -79,6 +79,6 @@ SPEC CHECKSUMS:
   Starscream: dfb1b3f39506717ee52b67fb48de0c8269504cbc
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 47f038988209f5b8330982f27b02a1ef5ef7d51b
+PODFILE CHECKSUM: 988746d08df17b907342cf0e545341652bc64673
 
 COCOAPODS: 1.3.1
