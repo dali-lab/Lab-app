@@ -11,8 +11,9 @@ import Foundation
 import UIKit
 import DALI
 import SCLAlertView
+import ChromaColorPicker
 
-class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ChromaColorPickerDelegate {
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var groupTitle: UILabel!
 	@IBOutlet weak var viewHeight: NSLayoutConstraint!
@@ -145,6 +146,14 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 	
 	@IBAction func powerChanged(_ sender: Any) {
 		selectedGroup?.set(on: self.onSwitch.isOn, callback: { (success, error) in
+			if error != nil {
+				SCLAlertView().showError("Encountered an error", subTitle: "")
+			}
+		})
+	}
+	
+	func colorPickerDidChooseColor(_ colorPicker: ChromaColorPicker, color: UIColor) {
+		selectedGroup?.set(color: color.toHex(), callback: { (success, error) in
 			if error != nil {
 				SCLAlertView().showError("Encountered an error", subTitle: "")
 			}
@@ -308,6 +317,14 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 		return selectedGroup != nil ? 2 : 0
 	}
 	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		if indexPath.section == 0 {
+			return 44
+		} else {
+			return 350
+		}
+	}
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		switch section {
 		case 0:
@@ -331,33 +348,30 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		var cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-		
-		switch indexPath.section {
-		case 0:
+		if indexPath.section == 0 {
+			let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
 			cell.textLabel?.text = getScenes(selectedGroup!)[indexPath.row].capitalized
-			
+				
 			if getScenes(selectedGroup!)[indexPath.row].lowercased() == selectedGroup?.scene?.lowercased() {
 				tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
 			}else{
 				tableView.deselectRow(at: indexPath, animated: true)
 			}
-			break
-		case 1:
-			let newCell = UITableViewCell(style: .subtitle, reuseIdentifier: "colorCell")
-			newCell.accessoryType = .disclosureIndicator
-			newCell.textLabel?.text = "Color"
-			newCell.detailTextLabel?.text = selectedGroup?.color
 			
-			cell = newCell
-			break
-		default:
-			cell.textLabel?.text = "Unknown cell"
+			cell.backgroundColor = #colorLiteral(red: 0.9672333598, green: 0.9401755622, blue: 0.9525935054, alpha: 1)
+			
+			return cell
+		}else{
+			var cell = tableView.dequeueReusableCell(withIdentifier: "colorPicker") as? ColorPickerCell
+			if cell == nil {
+				tableView.register(UINib.init(nibName: "ColorPicerCell", bundle: nil), forCellReuseIdentifier: "colorPicker")
+				cell = tableView.dequeueReusableCell(withIdentifier: "colorPicker") as? ColorPickerCell
+			}
+			
+			cell?.setUp(color: selectedGroup?.color != nil ? UIColor.init(hex: selectedGroup!.color!.replacingOccurrences(of: "#", with: ""), alpha: 1.0) : nil, delegate: self)
+			
+			return cell!
 		}
-		
-		cell.backgroundColor = #colorLiteral(red: 0.9672333598, green: 0.9401755622, blue: 0.9525935054, alpha: 1)
-		
-		return cell
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -398,6 +412,31 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 	}
 }
 
+class ColorPickerCell: UITableViewCell {
+	var colorPicker: ChromaColorPicker!
+	
+	func setUp(color: UIColor?, delegate: ChromaColorPickerDelegate) {
+		colorPicker = ChromaColorPicker(frame: CGRect(x: 0, y: 0, width: 350, height: 350))
+		if let color = color {
+			colorPicker.adjustToColor(color)
+		}
+		colorPicker.center = self.center
+		colorPicker.frame.origin = CGPoint(x: colorPicker.frame.origin.x, y: 0)
+		
+		colorPicker.padding = 5
+		colorPicker.handleLine.strokeColor = #colorLiteral(red: 0.6720568538, green: 0.6513963938, blue: 0.6651783586, alpha: 1)
+		colorPicker.stroke = 3
+		colorPicker.delegate = delegate
+		colorPicker.backgroundColor = #colorLiteral(red: 0.9672333598, green: 0.9401755622, blue: 0.9525935054, alpha: 1)
+		self.addSubview(colorPicker)
+		self.backgroundColor = #colorLiteral(red: 0.9672333598, green: 0.9401755622, blue: 0.9525935054, alpha: 1)
+	}
+	
+	func setColor(color: UIColor) {
+		colorPicker.adjustToColor(color)
+	}
+}
+
 extension UIColor {
 	convenience init(hex: String, alpha: CGFloat) {
 		let scanner = Scanner(string: hex)
@@ -416,5 +455,18 @@ extension UIColor {
 			green: CGFloat(g) / 0xff,
 			blue: CGFloat(b) / 0xff, alpha: alpha
 		)
+	}
+	
+	func toHex() -> String {
+		var r:CGFloat = 0
+		var g:CGFloat = 0
+		var b:CGFloat = 0
+		var a:CGFloat = 0
+		
+		getRed(&r, green: &g, blue: &b, alpha: &a)
+		
+		let rgb:Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
+		
+		return NSString(format:"#%06x", rgb) as String
 	}
 }

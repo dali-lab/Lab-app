@@ -11,6 +11,7 @@ target 'iOS' do
   pod 'Crashlytics'
   pod 'DALI'
   pod 'Socket.IO-Client-Swift'
+  pod 'ChromaColorPicker'
   pod 'OneSignal', '>= 2.5.2', '< 3.0'
 
   # Pods for DALI Lab
