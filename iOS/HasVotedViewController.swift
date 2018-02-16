@@ -24,13 +24,13 @@ class HasVotedViewController: UIViewController {
 		
 		self.title = event.name
 		
-		OneSignal.sendTag("resultsReleased:\(event.id)", value: "\(notificationSwitch.isOn)")
+		OneSignal.sendTag("resultsReleased:\(event.id!)", value: "\(notificationSwitch.isOn)")
 	}
 	
 	@IBAction func switchChanged(_ sender: UISwitch) {
 		UserDefaults.standard.set(sender.isOn, forKey: "notifyFor:\(event.id)")
 		
-		OneSignal.sendTag("resultsReleased:\(event.id)", value: "\(sender.isOn)")
+		OneSignal.sendTag("resultsReleased:\(event.id!)", value: "\(sender.isOn)")
 	}
 	
 	@objc func pop() {

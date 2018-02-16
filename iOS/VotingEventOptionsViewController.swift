@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import DALI
 import SCLAlertView
+import OneSignal
 
 class VotingEventOptionsViewController: UITableViewController {
 	@IBOutlet weak var releaseButton: UIBarButtonItem!
@@ -84,6 +85,10 @@ class VotingEventOptionsViewController: UITableViewController {
 		self.event.release { (success, error) in
 			DispatchQueue.main.async {
 				if success {
+					OneSignal.postNotification(["contents": ["en": "\(self.event.name): results released"],
+												"tag": [],
+												"headings": ["en": "Notification Title"],
+												"subtitle": ["en": "An English Subtitle"],])
 					sender.isEnabled = false;
 					sender.title = "Released";
 				}
@@ -126,6 +131,7 @@ class VotingEventOptionsViewController: UITableViewController {
 		}
 		
 		option.awards!.append(textField.text!)
+		self.options[optIndex] = option
 		
 		let waitAlert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(
 			showCloseButton: false
@@ -133,12 +139,10 @@ class VotingEventOptionsViewController: UITableViewController {
 		let wait = waitAlert.showWait("Adding...", subTitle: "")
 		self.event.saveResults(options: self.options) { (success, error) in
 			wait.close()
-			DispatchQueue.main.async {
-				if success {
-					self.tableView.reloadData()
-				} else {
-					SCLAlertView().showError("Encountered error", subTitle: error?.localizedDescription ?? "")
-				}
+			if success {
+				self.tableView.reloadData()
+			} else {
+				SCLAlertView().showError("Encountered error", subTitle: error?.localizedDescription ?? "")
 			}
 		}
 		
@@ -227,6 +231,7 @@ class VotingEventOptionsViewController: UITableViewController {
 						error.showError("Need at least one character", subTitle: "")
 						return
 					}
+					textField.resignFirstResponder()
 					
 					self.addAward(option: indexPath.row, textField: textField)
 				})
