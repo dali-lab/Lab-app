@@ -86,7 +86,7 @@ class VotingEventOptionsViewController: UITableViewController {
 			DispatchQueue.main.async {
 				if success {
 					OneSignal.postNotification(["contents": ["en": "\(self.event.name): results released"],
-												"tag": [],
+												"tag": ["resultsReleased:\(self.event!.id!)"],
 												"headings": ["en": "Notification Title"],
 												"subtitle": ["en": "An English Subtitle"],])
 					sender.isEnabled = false;

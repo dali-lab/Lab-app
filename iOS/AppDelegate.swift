@@ -235,13 +235,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		}
 		
 		if SettingsController.getVotingNotif() {
-			DALIEvent.VotingEvent.getCurrent { (event, error) in
-				guard let event = event else {
+			DALIEvent.VotingEvent.getCurrent { (events, error) in
+				guard events.count > 0 else {
 					return
 				}
 				
 				let content = UNMutableNotificationContent()
-				content.title = "Welcome to " + event.name
+				content.title = "Welcome to " + events.first!.name
 				content.body = "Voting is available for this event! 🗳💡"
 				content.subtitle = ""
 				content.sound = UNNotificationSound(named: "coins.m4a")

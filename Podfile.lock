@@ -2,7 +2,7 @@ PODS:
   - ChromaColorPicker (1.5.1)
   - Crashlytics (3.10.0):
     - Fabric (~> 1.7.3)
-  - DALI (0.4.41):
+  - DALI (0.4.43):
     - Socket.IO-Client-Swift
     - SwiftyJSON
   - Eureka (4.0.1)
@@ -64,7 +64,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ChromaColorPicker: cc7fc1d92569a8a9198fe89d9a420147e508462c
   Crashlytics: a989ef242b66605577a425733797f810bd2725eb
-  DALI: 94792ca9a68536dc9c2c0786cd365c3248fad0af
+  DALI: 2c457d69a2b172dc606e14812035d4a62cdc1bac
   Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
   Fabric: bb495bb9a7a7677c6d03a1f8b83d95bc49b47e41
   FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
