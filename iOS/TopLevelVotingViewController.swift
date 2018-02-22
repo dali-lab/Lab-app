@@ -115,7 +115,7 @@ class TopLevelVotingViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		if section == 1 || currentEvents.count > 0 {
+		if section == 1 || currentEvents.count == 0 {
 			return "Past"
 		}else{
 			return "Now Voting"
@@ -123,11 +123,11 @@ class TopLevelVotingViewController: UITableViewController {
 	}
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {
-		return currentEvents.count > 0 ? 1 : 2
+		return currentEvents.count > 0 ? 2 : 1
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		if section == 0 {
+		if section == 0 && currentEvents.count > 0 {
 			return currentEvents.count
 		}else{
 			return pastEvents.count
