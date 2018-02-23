@@ -85,10 +85,6 @@ class VotingEventOptionsViewController: UITableViewController {
 		self.event.release { (success, error) in
 			DispatchQueue.main.async {
 				if success {
-					OneSignal.postNotification(["contents": ["en": "\(self.event.name): results released"],
-												"tag": ["resultsReleased:\(self.event!.id!)"],
-												"headings": ["en": "Notification Title"],
-												"subtitle": ["en": "An English Subtitle"],])
 					sender.isEnabled = false;
 					sender.title = "Released";
 				}
@@ -154,6 +150,7 @@ class VotingEventOptionsViewController: UITableViewController {
 		
 		if let index = option.awards!.index(of: award) {
 			option.awards!.remove(at: index)
+			self.options[optIndex] = option
 			
 			let waitAlert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(
 				showCloseButton: false

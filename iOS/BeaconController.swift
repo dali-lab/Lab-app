@@ -172,7 +172,7 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 		if region.name == "DALI Lab Region", exited || entered {
 			func go(background: Bool) {
 				if userIsTim() {
-					DALILocation.Tim.submit(inDALI: entered, inOffice: inOffice, callback: { (_, _) in
+					DALILocation.Tim.submit(inDALI: entered, inOffice: entered ? false : inOffice, callback: { (_, _) in
 						if background {
 							self.endBackgroundTask()
 						}
@@ -208,7 +208,7 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 				}
 			}else{
 				if entered || exited {
-					DALILocation.Tim.submit(inDALI: inDALI, inOffice: entered, callback: { (_, _) in })
+					DALILocation.Tim.submit(inDALI: entered ? false : inDALI, inOffice: entered, callback: { (_, _) in })
 				}
 				NotificationCenter.default.post(name: Notification.Name.Custom.TimsOfficeEnteredOrExited, object: nil, userInfo: ["entered": entered])
 			}

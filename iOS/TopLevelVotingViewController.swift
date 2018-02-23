@@ -89,7 +89,7 @@ class TopLevelVotingViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if indexPath.section == 0 {
+		if indexPath.section == 0 && currentEvents.count > 0 {
 			let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
 			
 			let formatter = DateFormatter()
@@ -152,7 +152,7 @@ class TopLevelVotingViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		if indexPath.section == 0 {
+		if indexPath.section == 0 && currentEvents.count > 0 {
 			let hasVoted = UserDefaults.standard.bool(forKey: "hasVoted:\(currentEvents[indexPath.row].id)")
 			let ordered = currentEvents[indexPath.row].config.ordered
 			
