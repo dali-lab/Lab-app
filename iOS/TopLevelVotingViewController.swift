@@ -27,7 +27,9 @@ class TopLevelVotingViewController: UITableViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		persistantRangeEnd = beaconControl.persistantRange(callback: { (controller) in
 			if controller.inVotingEvent {
-				self.persistantRangeEnd!()
+				if let persistantRangeEnd = self.persistantRangeEnd {
+					persistantRangeEnd()
+				}
 				self.persistantRangeEnd = nil
 				self.updateData()
 			}

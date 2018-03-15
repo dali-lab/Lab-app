@@ -41,6 +41,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 		min = [self.view.frame.height - (self.lightsMapView.frame.maxY + 20), 20].max()!
 		viewHeight.constant = min
 		self.onSwitch.isHidden = true
+		tableView.separatorStyle = .none
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -158,6 +159,14 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 				SCLAlertView().showError("Encountered an error", subTitle: "")
 			}
 		})
+	}
+	
+	@objc func colorChanged(_ sender: AnyObject?) {
+		if let sender = sender as? ChromaColorPicker {
+			selectedGroup?.set(color: sender.currentColor.toHex(), callback: { (success, error) in
+				
+			})
+		}
 	}
 	
 	@IBAction func buttonPressed(_ sender: UIButton) {
@@ -321,7 +330,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 		if indexPath.section == 0 {
 			return 44
 		} else {
-			return 350
+			return 300
 		}
 	}
 	
@@ -358,7 +367,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 				tableView.deselectRow(at: indexPath, animated: true)
 			}
 			
-			cell.backgroundColor = #colorLiteral(red: 0.9672333598, green: 0.9401755622, blue: 0.9525935054, alpha: 1)
+			cell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 			
 			return cell
 		}else{
@@ -367,6 +376,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 				tableView.register(UINib.init(nibName: "ColorPicerCell", bundle: nil), forCellReuseIdentifier: "colorPicker")
 				cell = tableView.dequeueReusableCell(withIdentifier: "colorPicker") as? ColorPickerCell
 			}
+			cell?.selectionStyle = .none
 			
 			cell?.setUp(color: selectedGroup?.color != nil ? UIColor.init(hex: selectedGroup!.color!.replacingOccurrences(of: "#", with: ""), alpha: 1.0) : nil, delegate: self)
 			
@@ -391,21 +401,6 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 				})
 			}
 			break
-		case 1:
-			let alert = SCLAlertView()
-			let textField = alert.addTextField()
-			alert.addButton("Set color", action: {
-				self.selectedGroup?.set(color: textField.text!, callback: { (success, error) in
-					if error != nil {
-						SCLAlertView().showError("Unsupported color", subTitle: "")
-					}
-					
-					self.tableView.reloadData()
-				})
-			})
-			
-			alert.showInfo("Enter a color", subTitle: "")
-			break
 		default:
 			return
 		}
@@ -415,21 +410,27 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 class ColorPickerCell: UITableViewCell {
 	var colorPicker: ChromaColorPicker!
 	
-	func setUp(color: UIColor?, delegate: ChromaColorPickerDelegate) {
-		colorPicker = ChromaColorPicker(frame: CGRect(x: 0, y: 0, width: 350, height: 350))
+	func setUp(color: UIColor?, delegate: LightsViewController) {
+		if colorPicker == nil {
+			colorPicker = ChromaColorPicker(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+			self.addSubview(colorPicker)
+		}
 		if let color = color {
 			colorPicker.adjustToColor(color)
 		}
 		colorPicker.center = self.center
+		colorPicker.hexLabel.isHidden = true
+		colorPicker.shadeSlider.isHidden = true
+		colorPicker.addButton.isHidden = true
+		colorPicker.handleLine.isHidden = true
+		colorPicker.handleView.frame.size = CGSize(width: 60, height: 60)
+		colorPicker.stroke = 30
+		colorPicker.addTarget(delegate, action: #selector(LightsViewController.colorChanged(_:)), for: .editingDidEnd)
 		colorPicker.frame.origin = CGPoint(x: colorPicker.frame.origin.x, y: 0)
 		
-		colorPicker.padding = 5
-		colorPicker.handleLine.strokeColor = #colorLiteral(red: 0.6720568538, green: 0.6513963938, blue: 0.6651783586, alpha: 1)
-		colorPicker.stroke = 3
 		colorPicker.delegate = delegate
-		colorPicker.backgroundColor = #colorLiteral(red: 0.9672333598, green: 0.9401755622, blue: 0.9525935054, alpha: 1)
-		self.addSubview(colorPicker)
-		self.backgroundColor = #colorLiteral(red: 0.9672333598, green: 0.9401755622, blue: 0.9525935054, alpha: 1)
+		colorPicker.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+		self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 	}
 	
 	func setColor(color: UIColor) {

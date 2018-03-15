@@ -22,6 +22,7 @@ class CalendarController: NSObject, EKCalendarChooserDelegate {
 	
 	override init() {
 		eventView = EKCalendarChooser(selectionStyle: EKCalendarChooserSelectionStyle.single, displayStyle: EKCalendarChooserDisplayStyle.writableCalendarsOnly, entityType: EKEntityType.event, eventStore: self.eventStore)
+		eventView.selectedCalendars = Set();
 		navControl = UINavigationController(rootViewController: self.eventView)
 		
 		
@@ -75,23 +76,30 @@ class CalendarController: NSObject, EKCalendarChooserDelegate {
 			return;
 		}
 		
-		let event = EKEvent(eventStore: self.eventStore)
+		for calender in eventView.selectedCalendars {
+			let event = EKEvent(eventStore: self.eventStore)
 		
-		event.title = self.event.name
-		event.startDate = self.event.start
-		event.endDate = self.event.end
-		event.location = self.event.location
-		event.notes = "\(self.event.description == nil ? "Description: \(self.event.description!)\n\n" : "")ID: \(self.event.id)"
-		
-		event.calendar = eventView.selectedCalendars.first!
-		
-		do {
-			try eventStore.save(event, span: .thisEvent)
+			event.title = self.event.name
+			event.startDate = self.event.start
+			event.endDate = self.event.end
+			event.location = self.event.location
+			event.notes = "\(self.event.description == nil ? "Description: \(self.event.description!)\n\n" : "")ID: \(self.event.id!)"
 			
+			event.calendar = calender
+			
+			do {
+				try eventStore.save(event, span: .thisEvent)
+			} catch let error as NSError {
+				print("failed to save event with error : \(error)")
+				
+				DispatchQueue.main.async {
+					SCLAlertView().showError("Encountered error!", subTitle: error.localizedDescription)
+				}
+			}
+		}
+		
+		DispatchQueue.main.async {
 			self.navControl.dismiss(animated: true) {}
-		} catch let error as NSError {
-			print("failed to save event with error : \(error)")
-			SCLAlertView().showError("Encountered error!", subTitle: error.localizedDescription)
 		}
 	}
 	

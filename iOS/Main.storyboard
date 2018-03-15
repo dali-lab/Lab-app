@@ -1817,13 +1817,12 @@ for voting</string>
                                             <outlet property="delegate" destination="7bB-En-Gd0" id="WK0-Op-Bp4"/>
                                         </connections>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPC-MZ-Yrv">
-                                        <rect key="frame" x="0.0" y="31" width="375" height="39"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tableViewMask" translatesAutoresizingMaskIntoConstraints="NO" id="Bhu-bO-Ekn">
+                                        <rect key="frame" x="0.0" y="33" width="375" height="61"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="39" id="hm9-aD-8AI"/>
+                                            <constraint firstAttribute="height" constant="61" id="Yb0-Tf-UV8"/>
                                         </constraints>
-                                    </view>
+                                    </imageView>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wer-iX-1hh">
                                         <rect key="frame" x="163" y="39" width="51" height="31"/>
                                         <connections>
@@ -1863,16 +1862,16 @@ for voting</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Bhu-bO-Ekn" secondAttribute="trailing" id="5tw-B3-eID"/>
                                     <constraint firstAttribute="bottom" secondItem="wte-tM-cc2" secondAttribute="bottom" id="7Oy-gr-kpO"/>
+                                    <constraint firstItem="Bhu-bO-Ekn" firstAttribute="top" secondItem="g2Y-ro-YLt" secondAttribute="bottom" constant="1" id="92U-JT-VtB"/>
                                     <constraint firstItem="j5B-yK-Iuc" firstAttribute="centerX" secondItem="gWa-cX-f2L" secondAttribute="centerX" id="Bvn-Ar-dyI"/>
                                     <constraint firstAttribute="bottom" secondItem="7Ai-Ar-ybQ" secondAttribute="bottom" constant="-41" id="By2-1t-Rij"/>
-                                    <constraint firstItem="gPC-MZ-Yrv" firstAttribute="leading" secondItem="gWa-cX-f2L" secondAttribute="leading" id="CIc-OY-5V7"/>
                                     <constraint firstItem="g2Y-ro-YLt" firstAttribute="top" secondItem="gWa-cX-f2L" secondAttribute="top" constant="20" id="Cym-DZ-Dkp"/>
-                                    <constraint firstItem="gPC-MZ-Yrv" firstAttribute="top" secondItem="j5B-yK-Iuc" secondAttribute="bottom" constant="17" id="JSH-z4-Lht"/>
                                     <constraint firstAttribute="height" constant="158" id="KJd-4H-W5q"/>
                                     <constraint firstAttribute="trailing" secondItem="g2Y-ro-YLt" secondAttribute="trailing" constant="8" id="MFF-6D-ic4"/>
-                                    <constraint firstAttribute="trailing" secondItem="gPC-MZ-Yrv" secondAttribute="trailing" id="PqJ-cQ-Cgx"/>
                                     <constraint firstItem="j5B-yK-Iuc" firstAttribute="top" secondItem="gWa-cX-f2L" secondAttribute="top" constant="9" id="R5f-O7-8B8"/>
+                                    <constraint firstItem="Bhu-bO-Ekn" firstAttribute="leading" secondItem="gWa-cX-f2L" secondAttribute="leading" id="SVe-80-nIE"/>
                                     <constraint firstItem="wer-iX-1hh" firstAttribute="centerX" secondItem="gWa-cX-f2L" secondAttribute="centerX" id="XTp-6p-Mmb"/>
                                     <constraint firstItem="7Ai-Ar-ybQ" firstAttribute="leading" secondItem="g2Y-ro-YLt" secondAttribute="leading" constant="-8" id="Yim-gd-Gsd"/>
                                     <constraint firstItem="7Ai-Ar-ybQ" firstAttribute="top" secondItem="gWa-cX-f2L" secondAttribute="top" id="ZBe-wh-KEE"/>
@@ -2034,6 +2033,7 @@ for voting</string>
         <image name="pod_momo" width="1987" height="2741"/>
         <image name="pod_pabu" width="1987" height="2741"/>
         <image name="poly background" width="2540" height="3828"/>
+        <image name="tableViewMask" width="309" height="26"/>
         <image name="tvspace" width="1987" height="2741"/>
         <image name="vote" width="330" height="414"/>
         <image name="voteDone" width="330" height="414"/>
