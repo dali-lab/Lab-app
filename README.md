@@ -8,6 +8,7 @@ The DALI app is an app for DALI members and affiliates to provide features and i
 ![image2](http://is2.mzstatic.com/image/thumb/Purple118/v4/fe/e1/f2/fee1f274-91d4-8e3c-bb68-4cb081b1df75/source/392x696bb.jpg)
 
 ## Other documentation
+You can find out more by looking into the code at the comments
 
 ## Getting Started
 To get started with development on this repository, clone the repository. Make sure you have Xcode installed. This Xcode project uses cocoapods for thirdparty package management, so you will need to install this as well:
