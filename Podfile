@@ -9,6 +9,7 @@ target 'iOS' do
   pod 'SCLAlertView'
   pod 'Eureka'
   pod 'Crashlytics'
+  pod 'PromiseKit'
   pod 'DALI'
   pod 'Socket.IO-Client-Swift'
   pod 'ChromaColorPicker'

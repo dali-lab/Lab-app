@@ -56,6 +56,11 @@
 		A729DF33C2BA9A4D7EBB98BD /* Pods_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7045FE4735BC436C030988C8 /* Pods_iOSTests.framework */; };
 		AF3514C21CD5A4E26B64FDBF /* Pods_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 062FA5BDE3125B48ADB5510D /* Pods_iOS.framework */; };
 		C631B1D59E8D1E5232DFB5FD /* Pods_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18558C014FD8296488A99C79 /* Pods_tvOS.framework */; };
+		E2F7B58120BBAABA0037E4A9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7B58020BBAABA0037E4A9 /* LocationManager.swift */; };
+		E2F7B58320BBAB380037E4A9 /* BeaconLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7B58220BBAB380037E4A9 /* BeaconLocationProvider.swift */; };
+		E2F7B58520BBAB430037E4A9 /* GPSLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7B58420BBAB430037E4A9 /* GPSLocationProvider.swift */; };
+		E2F7B58720BBAB4E0037E4A9 /* PeerLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7B58620BBAB4E0037E4A9 /* PeerLocationProvider.swift */; };
+		E2F7B58B20BBC5C20037E4A9 /* PeerLocationAdvertizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7B58A20BBC5C20037E4A9 /* PeerLocationAdvertizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +211,11 @@
 		DE1A7D4065D04C74C7776213 /* Pods-DALI LabUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DALI LabUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DALI LabUITests/Pods-DALI LabUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E06F4B7AF9FBEC4DC8DCC919 /* Pods_tvOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tvOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A870E7E4C288E7ADEEFD40 /* Pods_DALI_LabTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DALI_LabTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2F7B58020BBAABA0037E4A9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		E2F7B58220BBAB380037E4A9 /* BeaconLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconLocationProvider.swift; sourceTree = "<group>"; };
+		E2F7B58420BBAB430037E4A9 /* GPSLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLocationProvider.swift; sourceTree = "<group>"; };
+		E2F7B58620BBAB4E0037E4A9 /* PeerLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerLocationProvider.swift; sourceTree = "<group>"; };
+		E2F7B58A20BBC5C20037E4A9 /* PeerLocationAdvertizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerLocationAdvertizer.swift; sourceTree = "<group>"; };
 		F0CAA924CE8BB597E7276914 /* Pods-DALI LabTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DALI LabTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DALI LabTests/Pods-DALI LabTests.release.xcconfig"; sourceTree = "<group>"; };
 		F97CC101812D5D576CFD8384 /* Pods-tvOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tvOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tvOSUITests/Pods-tvOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC1FEA5FCA84F47006304596 /* Pods-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSTests/Pods-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -333,6 +343,7 @@
 				522F31E41F47DA2300B4BEB4 /* iOS.entitlements */,
 				522F31B21F47D8DA00B4BEB4 /* AppDelegate.swift */,
 				522F31B31F47D8DA00B4BEB4 /* BeaconController.swift */,
+				E2F7B58920BBAB5C0037E4A9 /* Location Managers */,
 				522F31B41F47D8DA00B4BEB4 /* CalendarController.swift */,
 				522F31B51F47D8DA00B4BEB4 /* EnumsAndStructs.swift */,
 				522F31B71F47D8DA00B4BEB4 /* LoginViewController.swift */,
@@ -472,6 +483,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E2F7B58920BBAB5C0037E4A9 /* Location Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E2F7B58020BBAABA0037E4A9 /* LocationManager.swift */,
+				E2F7B58220BBAB380037E4A9 /* BeaconLocationProvider.swift */,
+				E2F7B58420BBAB430037E4A9 /* GPSLocationProvider.swift */,
+				E2F7B58620BBAB4E0037E4A9 /* PeerLocationProvider.swift */,
+				E2F7B58A20BBC5C20037E4A9 /* PeerLocationAdvertizer.swift */,
+			);
+			name = "Location Managers";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -506,8 +529,6 @@
 				52B138C51F47D4590021D7AE /* Sources */,
 				52B138C61F47D4590021D7AE /* Frameworks */,
 				52B138C71F47D4590021D7AE /* Resources */,
-				7871E94591A4D3390AA765F7 /* [CP] Embed Pods Frameworks */,
-				2138E989E804641FF7108D0E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -527,8 +548,6 @@
 				52B138D01F47D4590021D7AE /* Sources */,
 				52B138D11F47D4590021D7AE /* Frameworks */,
 				52B138D21F47D4590021D7AE /* Resources */,
-				8FDEB4930E211482F0F0A299 /* [CP] Embed Pods Frameworks */,
-				6E2563FB2267C03ABA406324 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -549,7 +568,6 @@
 				52B138E51F47D4650021D7AE /* Frameworks */,
 				52B138E61F47D4650021D7AE /* Resources */,
 				7744EB58C1A429C6C5CABC52 /* [CP] Embed Pods Frameworks */,
-				46A55833087B5642ACE12741 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -568,8 +586,6 @@
 				52B138F41F47D4660021D7AE /* Sources */,
 				52B138F51F47D4660021D7AE /* Frameworks */,
 				52B138F61F47D4660021D7AE /* Resources */,
-				BF87C74A0DBF36314A5C9B2B /* [CP] Embed Pods Frameworks */,
-				837AF6B1BFCBF897EBD6DD9A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -589,8 +605,6 @@
 				52B138FF1F47D4660021D7AE /* Sources */,
 				52B139001F47D4660021D7AE /* Frameworks */,
 				52B139011F47D4660021D7AE /* Resources */,
-				5D9E5C3EF056EB9D361F19DB /* [CP] Embed Pods Frameworks */,
-				925E5596F8B5FDF1551F8EA0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -771,21 +785,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2138E989E804641FF7108D0E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSTests/Pods-iOSTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		243AF3F549F66D9CB760A9F9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -804,21 +803,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		46A55833087B5642ACE12741 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tvOS/Pods-tvOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		522F31E51F47DA4900B4BEB4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -831,21 +815,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" b6332eaf2877cd4c71ae5da96a8785e6e49870aa c07b767cee52486a1b7d5a24732a2c2dc77e790d70551fd02f9c983e10e9d2e5";
-		};
-		5D9E5C3EF056EB9D361F19DB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tvOSUITests/Pods-tvOSUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		5FDA45A694C0B5C7F51C5D3C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -863,21 +832,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6E2563FB2267C03ABA406324 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSUITests/Pods-iOSUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		75AE8FF427D5B14F77913FE0 /* [CP] Check Pods Manifest.lock */ = {
@@ -922,21 +876,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tvOS/Pods-tvOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7871E94591A4D3390AA765F7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSTests/Pods-iOSTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7C703579EE1E1BE24D32A596 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -953,51 +892,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS/Pods-iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		837AF6B1BFCBF897EBD6DD9A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tvOSTests/Pods-tvOSTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8FDEB4930E211482F0F0A299 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSUITests/Pods-iOSUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		925E5596F8B5FDF1551F8EA0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tvOSUITests/Pods-tvOSUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B4AE6F88ACF675C4CD5183E7 /* [CP] Check Pods Manifest.lock */ = {
@@ -1031,6 +925,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift-iOS/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream-iOS/Starscream.framework",
@@ -1044,6 +939,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
@@ -1072,21 +968,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BF87C74A0DBF36314A5C9B2B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tvOSTests/Pods-tvOSTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D140E2F52790BE69E07627AB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1113,6 +994,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				522F31C71F47D8DA00B4BEB4 /* VotingEventMangerViewController.swift in Sources */,
+				E2F7B58320BBAB380037E4A9 /* BeaconLocationProvider.swift in Sources */,
 				529A63271F4E90DF00BFBFE9 /* NewVotingEventViewController.swift in Sources */,
 				5222572E1FE2DEBD00E7D57C /* NewEventViewController.swift in Sources */,
 				522F31BD1F47D8DA00B4BEB4 /* AppDelegate.swift in Sources */,
@@ -1129,9 +1011,13 @@
 				522F31C21F47D8DA00B4BEB4 /* LoginViewController.swift in Sources */,
 				522F31C41F47D8DA00B4BEB4 /* PeopleInLabViewController.swift in Sources */,
 				5251D9E31F4BD7C80020D958 /* CheckinViewController.swift in Sources */,
+				E2F7B58120BBAABA0037E4A9 /* LocationManager.swift in Sources */,
 				522F31C01F47D8DA00B4BEB4 /* EnumsAndStructs.swift in Sources */,
+				E2F7B58720BBAB4E0037E4A9 /* PeerLocationProvider.swift in Sources */,
+				E2F7B58520BBAB430037E4A9 /* GPSLocationProvider.swift in Sources */,
 				522F31C61F47D8DA00B4BEB4 /* SettingsViewController.swift in Sources */,
 				529A632C1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift in Sources */,
+				E2F7B58B20BBC5C20037E4A9 /* PeerLocationAdvertizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

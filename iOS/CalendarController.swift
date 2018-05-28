@@ -13,14 +13,21 @@ import SCLAlertView
 import DALI
 
 class CalendarController: NSObject, EKCalendarChooserDelegate {
-	static var current: CalendarController!
+    static var current: CalendarController! {
+        get {
+            return CalendarController.current != nil ? CalendarController.current : CalendarController()
+        }
+        set {
+            CalendarController.current = newValue
+        }
+    }
 	let eventStore = EKEventStore()
 	var event : DALIEvent!
 	
 	let eventView: EKCalendarChooser
 	let navControl: UINavigationController
 	
-	override init() {
+	private override init() {
 		eventView = EKCalendarChooser(selectionStyle: EKCalendarChooserSelectionStyle.single, displayStyle: EKCalendarChooserDisplayStyle.writableCalendarsOnly, entityType: EKEntityType.event, eventStore: self.eventStore)
 		eventView.selectedCalendars = Set();
 		navControl = UINavigationController(rootViewController: self.eventView)

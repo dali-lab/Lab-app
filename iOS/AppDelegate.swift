@@ -260,7 +260,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	
 	func didSignIn(member: DALIMember, noUIChange: Bool = false) {
 		if self.notificationsAuthorized {
-			OneSignal.syncHashedEmail(member.email)
+            OneSignal.setEmail(member.email)
 			OneSignal.sendTag("signedIn", value: "\(true)")
 		}
 		

@@ -9,6 +9,7 @@
 import Foundation
 import PromiseKit
 import CoreBluetooth
+import CoreLocation
 
 class BeaconLocationProvider: GPSLocationProvider, CBCentralManagerDelegate {
     let bluetoothManager: CBCentralManager
@@ -21,7 +22,11 @@ class BeaconLocationProvider: GPSLocationProvider, CBCentralManagerDelegate {
     }
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        
+        LocationManager.shared.requestProviderReevaluation()
+    }
+    
+    func addTrackedRegion(region: CLBeaconRegion) {
+        self.locationManager.startMonitoring(for: region)
     }
     
     override func requirementsAreMet() -> Bool {

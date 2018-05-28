@@ -62,8 +62,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		
 		(UIApplication.shared.delegate as! AppDelegate).mainViewController = self
 		
-		let _ = CalendarController()
-		
 		BeaconController.current?.updateLocation()
 		
 		tableView.estimatedRowHeight = 140
