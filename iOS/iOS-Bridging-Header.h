@@ -3,3 +3,4 @@
 //
 
 #import <Google/Signin.h>
+#import "QRCodeReaderView+DALIAdditions.h"

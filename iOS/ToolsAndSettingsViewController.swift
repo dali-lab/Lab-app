@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.swift
+//  ToolsAndSettingsViewController.swift
 //  DALISwift
 //
 //  Created by John Kotz on 7/6/17.
@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 import SCLAlertView
 import DALI
+import QRCodeReaderViewController
 
-class SettingsViewController: UITableViewController, AlertShower {
+class ToolsAndSettingsViewController: UITableViewController, AlertShower, QRCodeReaderDelegate {
 	@IBOutlet weak var signOutCell: UITableViewCell!
 	@IBOutlet weak var enterSwitch: UISwitch!
 	@IBOutlet weak var checkInSwitch: UISwitch!
@@ -56,8 +57,8 @@ class SettingsViewController: UITableViewController, AlertShower {
 	override func numberOfSections(in tableView: UITableView) -> Int {
 		let user = GIDSignIn.sharedInstance().currentUser
 		if user != nil {
-			return DALIMember.current!.isAdmin ? 5 : 3
-		}else{
+			return DALIMember.current!.isAdmin ? 6 : 4
+		} else {
 			return 1
 		}
 	}
@@ -72,7 +73,7 @@ class SettingsViewController: UITableViewController, AlertShower {
 		if indexPath.section == 0 {
 			// Sign out
 			AppDelegate.shared?.signOut()
-		}else if indexPath.section == 3 {
+        } else if indexPath.section == 4 {
 			let alert = SCLAlertView()
 			
 			let textFeild = alert.addTextField()

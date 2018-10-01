@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		40DB98AC0FE4CC2E74756E47 /* Pods_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66536EEAC6727C445E15D525 /* Pods_iOSUITests.framework */; };
+		5200B9AF2159793A0011DA73 /* CheckOutQRReaderLoadingOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5200B9AE2159793A0011DA73 /* CheckOutQRReaderLoadingOverlayView.swift */; };
+		5203FF1E21503A9B00A406E3 /* CheckOutQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5203FF1D21503A9B00A406E3 /* CheckOutQRViewController.swift */; };
+		5203FF242150518200A406E3 /* CheckOutConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5203FF232150518200A406E3 /* CheckOutConfirmViewController.swift */; };
 		521822DB1FA0CC5400F34E22 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521822DA1FA0CC5400F34E22 /* ViewProtocol.swift */; };
 		5222572E1FE2DEBD00E7D57C /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5222572D1FE2DEBD00E7D57C /* NewEventViewController.swift */; };
 		5225AE081F606DB400718D12 /* PrivateInformation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5225AE071F606DB400718D12 /* PrivateInformation.plist */; };
@@ -22,7 +25,7 @@
 		522F31C21F47D8DA00B4BEB4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F31B71F47D8DA00B4BEB4 /* LoginViewController.swift */; };
 		522F31C31F47D8DA00B4BEB4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F31B81F47D8DA00B4BEB4 /* MainViewController.swift */; };
 		522F31C41F47D8DA00B4BEB4 /* PeopleInLabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F31B91F47D8DA00B4BEB4 /* PeopleInLabViewController.swift */; };
-		522F31C61F47D8DA00B4BEB4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F31BB1F47D8DA00B4BEB4 /* SettingsViewController.swift */; };
+		522F31C61F47D8DA00B4BEB4 /* ToolsAndSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F31BB1F47D8DA00B4BEB4 /* ToolsAndSettingsViewController.swift */; };
 		522F31C71F47D8DA00B4BEB4 /* VotingEventMangerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F31BC1F47D8DA00B4BEB4 /* VotingEventMangerViewController.swift */; };
 		522F31CB1F47D8F100B4BEB4 /* ProximityKit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 522F31CA1F47D8F100B4BEB4 /* ProximityKit.plist */; };
 		522F31CE1F47D8FA00B4BEB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522F31CC1F47D8FA00B4BEB4 /* LaunchScreen.storyboard */; };
@@ -35,6 +38,9 @@
 		524D86FB1F57A0E100479C0A /* OrderedVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86FA1F57A0E100479C0A /* OrderedVotingViewController.swift */; };
 		524D86FD1F57A3F400479C0A /* ResultsVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86FC1F57A3F400479C0A /* ResultsVotingViewController.swift */; };
 		5251D9E31F4BD7C80020D958 /* CheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */; };
+		526F3627215C5E60002F5CD2 /* QRCodeReaderView+DALIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5203FF1F2150422C00A406E3 /* QRCodeReaderView+DALIAdditions.m */; };
+		526F3629215C5E77002F5CD2 /* CheckOutConfirmViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F3628215C5E77002F5CD2 /* CheckOutConfirmViewCells.swift */; };
+		526F362B215C5F23002F5CD2 /* DatePickerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F362A215C5F23002F5CD2 /* DatePickerAlert.swift */; };
 		526FDA7420323A09002A1BA1 /* ColorPicerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526FDA7320323A09002A1BA1 /* ColorPicerCell.xib */; };
 		528DDACF1F69795100ED1F4E /* coins.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 528DDACE1F69790600ED1F4E /* coins.m4a */; };
 		529A63271F4E90DF00BFBFE9 /* NewVotingEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A63261F4E90DF00BFBFE9 /* NewVotingEventViewController.swift */; };
@@ -125,6 +131,11 @@
 		38F9423ACD748D9DBDD7C198 /* Pods-tvOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tvOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tvOSUITests/Pods-tvOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		40CC816FA24F8E106E9DDD55 /* Pods-iOS-OneSignalNotification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-OneSignalNotification.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-OneSignalNotification/Pods-iOS-OneSignalNotification.debug.xcconfig"; sourceTree = "<group>"; };
 		439D3A8726F67BB493B1A183 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5200B9AE2159793A0011DA73 /* CheckOutQRReaderLoadingOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutQRReaderLoadingOverlayView.swift; sourceTree = "<group>"; };
+		5203FF1D21503A9B00A406E3 /* CheckOutQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutQRViewController.swift; sourceTree = "<group>"; };
+		5203FF1F2150422C00A406E3 /* QRCodeReaderView+DALIAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "QRCodeReaderView+DALIAdditions.m"; sourceTree = "<group>"; };
+		5203FF202150424200A406E3 /* QRCodeReaderView+DALIAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QRCodeReaderView+DALIAdditions.h"; sourceTree = "<group>"; };
+		5203FF232150518200A406E3 /* CheckOutConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutConfirmViewController.swift; sourceTree = "<group>"; };
 		521822DA1FA0CC5400F34E22 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
 		5222572D1FE2DEBD00E7D57C /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		5225AE071F606DB400718D12 /* PrivateInformation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrivateInformation.plist; sourceTree = "<group>"; };
@@ -139,7 +150,7 @@
 		522F31B71F47D8DA00B4BEB4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		522F31B81F47D8DA00B4BEB4 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		522F31B91F47D8DA00B4BEB4 /* PeopleInLabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleInLabViewController.swift; sourceTree = "<group>"; };
-		522F31BB1F47D8DA00B4BEB4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		522F31BB1F47D8DA00B4BEB4 /* ToolsAndSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsAndSettingsViewController.swift; sourceTree = "<group>"; };
 		522F31BC1F47D8DA00B4BEB4 /* VotingEventMangerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingEventMangerViewController.swift; sourceTree = "<group>"; };
 		522F31CA1F47D8F100B4BEB4 /* ProximityKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProximityKit.plist; sourceTree = "<group>"; };
 		522F31CC1F47D8FA00B4BEB4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -155,6 +166,8 @@
 		524D86FA1F57A0E100479C0A /* OrderedVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedVotingViewController.swift; sourceTree = "<group>"; };
 		524D86FC1F57A3F400479C0A /* ResultsVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsVotingViewController.swift; sourceTree = "<group>"; };
 		5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinViewController.swift; sourceTree = "<group>"; };
+		526F3628215C5E77002F5CD2 /* CheckOutConfirmViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutConfirmViewCells.swift; sourceTree = "<group>"; };
+		526F362A215C5F23002F5CD2 /* DatePickerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerAlert.swift; sourceTree = "<group>"; };
 		526FDA7320323A09002A1BA1 /* ColorPicerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPicerCell.xib; sourceTree = "<group>"; };
 		528DDACE1F69790600ED1F4E /* coins.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = coins.m4a; sourceTree = "<group>"; };
 		529A63261F4E90DF00BFBFE9 /* NewVotingEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVotingEventViewController.swift; sourceTree = "<group>"; };
@@ -284,16 +297,31 @@
 			name = Voting;
 			sourceTree = "<group>";
 		};
-		529A63281F4E983900BFBFE9 /* Settings */ = {
+		526F3626215C5E54002F5CD2 /* Check out */ = {
 			isa = PBXGroup;
 			children = (
-				522F31BB1F47D8DA00B4BEB4 /* SettingsViewController.swift */,
+				5203FF1D21503A9B00A406E3 /* CheckOutQRViewController.swift */,
+				5200B9AE2159793A0011DA73 /* CheckOutQRReaderLoadingOverlayView.swift */,
+				5203FF232150518200A406E3 /* CheckOutConfirmViewController.swift */,
+				526F362A215C5F23002F5CD2 /* DatePickerAlert.swift */,
+				5203FF202150424200A406E3 /* QRCodeReaderView+DALIAdditions.h */,
+				5203FF1F2150422C00A406E3 /* QRCodeReaderView+DALIAdditions.m */,
+				526F3628215C5E77002F5CD2 /* CheckOutConfirmViewCells.swift */,
+			);
+			path = "Check out";
+			sourceTree = "<group>";
+		};
+		529A63281F4E983900BFBFE9 /* Tools and settings */ = {
+			isa = PBXGroup;
+			children = (
+				522F31BB1F47D8DA00B4BEB4 /* ToolsAndSettingsViewController.swift */,
 				522F31BC1F47D8DA00B4BEB4 /* VotingEventMangerViewController.swift */,
 				529A632B1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift */,
 				529A63261F4E90DF00BFBFE9 /* NewVotingEventViewController.swift */,
 				529A63291F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift */,
+				526F3626215C5E54002F5CD2 /* Check out */,
 			);
-			name = Settings;
+			name = "Tools and settings";
 			sourceTree = "<group>";
 		};
 		52B138461F47D39B0021D7AE = {
@@ -341,7 +369,7 @@
 				5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */,
 				52FA82E31F7350CA00CEC807 /* LightsViewController.swift */,
 				524D86F31F57965100479C0A /* Voting */,
-				529A63281F4E983900BFBFE9 /* Settings */,
+				529A63281F4E983900BFBFE9 /* Tools and settings */,
 				5222572D1FE2DEBD00E7D57C /* NewEventViewController.swift */,
 				522F31CD1F47D8FA00B4BEB4 /* Main.storyboard */,
 				526FDA7320323A09002A1BA1 /* ColorPicerCell.xib */,
@@ -482,10 +510,10 @@
 				75AE8FF427D5B14F77913FE0 /* [CP] Check Pods Manifest.lock */,
 				52B138B21F47D4590021D7AE /* Sources */,
 				52B138B31F47D4590021D7AE /* Frameworks */,
-				52B139201F47D47C0021D7AE /* Embed App Extensions */,
 				BCCA48D37DCDC3452BA81177 /* [CP] Embed Pods Frameworks */,
 				7C703579EE1E1BE24D32A596 /* [CP] Copy Pods Resources */,
 				52B138B41F47D4590021D7AE /* Resources */,
+				52B139201F47D47C0021D7AE /* Embed App Extensions */,
 				522F31E51F47DA4900B4BEB4 /* ShellScript */,
 			);
 			buildRules = (
@@ -506,8 +534,6 @@
 				52B138C51F47D4590021D7AE /* Sources */,
 				52B138C61F47D4590021D7AE /* Frameworks */,
 				52B138C71F47D4590021D7AE /* Resources */,
-				7871E94591A4D3390AA765F7 /* [CP] Embed Pods Frameworks */,
-				2138E989E804641FF7108D0E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -527,8 +553,6 @@
 				52B138D01F47D4590021D7AE /* Sources */,
 				52B138D11F47D4590021D7AE /* Frameworks */,
 				52B138D21F47D4590021D7AE /* Resources */,
-				8FDEB4930E211482F0F0A299 /* [CP] Embed Pods Frameworks */,
-				6E2563FB2267C03ABA406324 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -549,7 +573,6 @@
 				52B138E51F47D4650021D7AE /* Frameworks */,
 				52B138E61F47D4650021D7AE /* Resources */,
 				7744EB58C1A429C6C5CABC52 /* [CP] Embed Pods Frameworks */,
-				46A55833087B5642ACE12741 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -568,8 +591,6 @@
 				52B138F41F47D4660021D7AE /* Sources */,
 				52B138F51F47D4660021D7AE /* Frameworks */,
 				52B138F61F47D4660021D7AE /* Resources */,
-				BF87C74A0DBF36314A5C9B2B /* [CP] Embed Pods Frameworks */,
-				837AF6B1BFCBF897EBD6DD9A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -589,8 +610,6 @@
 				52B138FF1F47D4660021D7AE /* Sources */,
 				52B139001F47D4660021D7AE /* Frameworks */,
 				52B139011F47D4660021D7AE /* Resources */,
-				5D9E5C3EF056EB9D361F19DB /* [CP] Embed Pods Frameworks */,
-				925E5596F8B5FDF1551F8EA0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -771,21 +790,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2138E989E804641FF7108D0E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSTests/Pods-iOSTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		243AF3F549F66D9CB760A9F9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -804,21 +808,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		46A55833087B5642ACE12741 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tvOS/Pods-tvOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		522F31E51F47DA4900B4BEB4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -830,22 +819,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" b6332eaf2877cd4c71ae5da96a8785e6e49870aa c07b767cee52486a1b7d5a24732a2c2dc77e790d70551fd02f9c983e10e9d2e5";
-		};
-		5D9E5C3EF056EB9D361F19DB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tvOSUITests/Pods-tvOSUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" b6332eaf2877cd4c71ae5da96a8785e6e49870aa c07b767cee52486a1b7d5a24732a2c2dc77e790d70551fd02f9c983e10e9d2e5\n";
 		};
 		5FDA45A694C0B5C7F51C5D3C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -863,21 +837,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6E2563FB2267C03ABA406324 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSUITests/Pods-iOSUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		75AE8FF427D5B14F77913FE0 /* [CP] Check Pods Manifest.lock */ = {
@@ -906,6 +865,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-tvOS/Pods-tvOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DALI-tvOS/DALI.framework",
+				"${BUILT_PRODUCTS_DIR}/FutureKit-tvOS/FutureKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift-tvOS/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream-tvOS/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-tvOS/SwiftyJSON.framework",
@@ -913,6 +873,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DALI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FutureKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -920,21 +881,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tvOS/Pods-tvOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7871E94591A4D3390AA765F7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSTests/Pods-iOSTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7C703579EE1E1BE24D32A596 /* [CP] Copy Pods Resources */ = {
@@ -953,51 +899,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS/Pods-iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		837AF6B1BFCBF897EBD6DD9A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tvOSTests/Pods-tvOSTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8FDEB4930E211482F0F0A299 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSUITests/Pods-iOSUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		925E5596F8B5FDF1551F8EA0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tvOSUITests/Pods-tvOSUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B4AE6F88ACF675C4CD5183E7 /* [CP] Check Pods Manifest.lock */ = {
@@ -1028,9 +929,11 @@
 				"${BUILT_PRODUCTS_DIR}/ChromaColorPicker/ChromaColorPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/DALI-iOS/DALI.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/FutureKit-iOS/FutureKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/QRCodeReaderViewController/QRCodeReaderViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift-iOS/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream-iOS/Starscream.framework",
@@ -1041,9 +944,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChromaColorPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DALI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FutureKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReaderViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
@@ -1070,21 +975,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BF87C74A0DBF36314A5C9B2B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tvOSTests/Pods-tvOSTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D140E2F52790BE69E07627AB /* [CP] Check Pods Manifest.lock */ = {
@@ -1114,23 +1004,29 @@
 			files = (
 				522F31C71F47D8DA00B4BEB4 /* VotingEventMangerViewController.swift in Sources */,
 				529A63271F4E90DF00BFBFE9 /* NewVotingEventViewController.swift in Sources */,
+				526F362B215C5F23002F5CD2 /* DatePickerAlert.swift in Sources */,
+				526F3629215C5E77002F5CD2 /* CheckOutConfirmViewCells.swift in Sources */,
 				5222572E1FE2DEBD00E7D57C /* NewEventViewController.swift in Sources */,
 				522F31BD1F47D8DA00B4BEB4 /* AppDelegate.swift in Sources */,
 				524D86FB1F57A0E100479C0A /* OrderedVotingViewController.swift in Sources */,
 				524D86F51F5796D200479C0A /* TopLevelVotingViewController.swift in Sources */,
+				526F3627215C5E60002F5CD2 /* QRCodeReaderView+DALIAdditions.m in Sources */,
 				524D86F91F57A0D700479C0A /* UnorderedVotingViewController.swift in Sources */,
 				52FA82E41F7350CA00CEC807 /* LightsViewController.swift in Sources */,
 				524D86F71F57A08E00479C0A /* HasVotedViewController.swift in Sources */,
 				522F31BF1F47D8DA00B4BEB4 /* CalendarController.swift in Sources */,
 				522F31BE1F47D8DA00B4BEB4 /* BeaconController.swift in Sources */,
 				529A632A1F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift in Sources */,
+				5203FF1E21503A9B00A406E3 /* CheckOutQRViewController.swift in Sources */,
 				522F31C31F47D8DA00B4BEB4 /* MainViewController.swift in Sources */,
 				524D86FD1F57A3F400479C0A /* ResultsVotingViewController.swift in Sources */,
 				522F31C21F47D8DA00B4BEB4 /* LoginViewController.swift in Sources */,
 				522F31C41F47D8DA00B4BEB4 /* PeopleInLabViewController.swift in Sources */,
+				5203FF242150518200A406E3 /* CheckOutConfirmViewController.swift in Sources */,
 				5251D9E31F4BD7C80020D958 /* CheckinViewController.swift in Sources */,
 				522F31C01F47D8DA00B4BEB4 /* EnumsAndStructs.swift in Sources */,
-				522F31C61F47D8DA00B4BEB4 /* SettingsViewController.swift in Sources */,
+				5200B9AF2159793A0011DA73 /* CheckOutQRReaderLoadingOverlayView.swift in Sources */,
+				522F31C61F47D8DA00B4BEB4 /* ToolsAndSettingsViewController.swift in Sources */,
 				529A632C1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

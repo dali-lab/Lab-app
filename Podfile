@@ -9,10 +9,12 @@ target 'iOS' do
   pod 'SCLAlertView'
   pod 'Eureka'
   pod 'Crashlytics'
-  pod 'DALI'
+  pod 'DALI', :path => '~/Programming/DALI/Internal/framework'
   pod 'Socket.IO-Client-Swift'
   pod 'ChromaColorPicker'
+  pod 'QRCodeReaderViewController'
   pod 'OneSignal', '>= 2.5.2', '< 3.0'
+  pod 'FutureKit'
 
   # Pods for DALI Lab
 
@@ -30,7 +32,7 @@ end
 target 'tvOS' do
 	# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 	use_frameworks!
-    pod 'DALI'
+    pod 'DALI', :path => '~/Programming/DALI/Internal/framework'
 	
 	# Pods for DALI Lab
 	

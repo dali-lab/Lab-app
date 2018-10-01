@@ -193,9 +193,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		if UIApplication.shared.applicationState != .background {
 			return
 		}
+        
+        if let lastSentDate = UserDefaults.standard.object(forKey: "entranceNotificationLastSent") as? Date, entered && abs(lastSentDate.timeIntervalSince(Date())) < 2*60*60 {
+            return
+        }
 		
 		if SettingsController.getEnterExitNotif() {
 			let content = UNMutableNotificationContent()
+            if (entered) {
+                UserDefaults.standard.set(Date(), forKey: "entranceNotificationLastSent")
+            }
 			content.title = entered ? "Welcome Back" : "See you next time"
 			let emojies = ["💡", "😄", "🚀", "💻", "🌈", "✨", "🌯", "⚙️"]
 			let randomIndex = Int(arc4random_uniform(UInt32(emojies.count)))
