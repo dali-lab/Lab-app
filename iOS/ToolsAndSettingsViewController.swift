@@ -57,7 +57,7 @@ class ToolsAndSettingsViewController: UITableViewController, AlertShower, QRCode
 	override func numberOfSections(in tableView: UITableView) -> Int {
 		let user = GIDSignIn.sharedInstance().currentUser
 		if user != nil {
-			return DALIMember.current!.isAdmin ? 6 : 4
+			return DALIMember.current!.isAdmin ? 5 : 3
 		} else {
 			return 1
 		}
@@ -73,7 +73,7 @@ class ToolsAndSettingsViewController: UITableViewController, AlertShower, QRCode
 		if indexPath.section == 0 {
 			// Sign out
 			AppDelegate.shared?.signOut()
-        } else if indexPath.section == 4 {
+        } else if indexPath.section == 3 {
 			let alert = SCLAlertView()
 			
 			let textFeild = alert.addTextField()

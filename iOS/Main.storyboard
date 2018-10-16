@@ -887,68 +887,10 @@ for voting</string>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Device manager" footerTitle="" id="icX-N4-rHe">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="nAP-NU-2NF" detailTextLabel="Ygs-mD-uiR" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="kGf-EO-t3u">
-                                        <rect key="frame" x="0.0" y="148.5" width="375" height="70"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kGf-EO-t3u" id="Zpy-rO-oaq">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="69.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="QR Scanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nAP-NU-2NF">
-                                                    <rect key="frame" x="16" y="15" width="91" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Scan and check out a device from the lab" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ygs-mD-uiR">
-                                                    <rect key="frame" x="16" y="38.5" width="234" height="14.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Zd9-5Y-Rdf" kind="show" id="Dwx-Yo-Bmz"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="aNM-TP-wv0" detailTextLabel="3TV-YK-gAW" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="rej-Cj-L2K">
-                                        <rect key="frame" x="0.0" y="218.5" width="375" height="70"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rej-Cj-L2K" id="PwQ-MT-jHb">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="69.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Devices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aNM-TP-wv0">
-                                                    <rect key="frame" x="16" y="15" width="61" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="List of devices and who has checked them out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3TV-YK-gAW">
-                                                    <rect key="frame" x="16" y="38.5" width="262" height="14.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="GRl-vD-PDM" kind="show" id="KrH-g4-GtA"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="Notifications" id="Tjc-3A-uSZ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell1" rowHeight="86" id="D1l-fk-Je0">
-                                        <rect key="frame" x="0.0" y="344.5" width="375" height="86"/>
+                                        <rect key="frame" x="0.0" y="141" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D1l-fk-Je0" id="q6F-gL-gHv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="85.5"/>
@@ -991,7 +933,7 @@ for voting</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell2" rowHeight="86" id="62P-z9-l7Q">
-                                        <rect key="frame" x="0.0" y="430.5" width="375" height="86"/>
+                                        <rect key="frame" x="0.0" y="227" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="62P-z9-l7Q" id="uc5-IA-qkK">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="85.5"/>
@@ -1034,7 +976,7 @@ for voting</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell3" rowHeight="86" id="Q1V-Fn-MIh">
-                                        <rect key="frame" x="0.0" y="516.5" width="375" height="86"/>
+                                        <rect key="frame" x="0.0" y="313" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q1V-Fn-MIh" id="dIA-6o-niC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="85.5"/>
@@ -1081,7 +1023,7 @@ for voting</string>
                             <tableViewSection headerTitle="Location" id="YP5-Go-F1v">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="86" id="e5U-7W-7TO">
-                                        <rect key="frame" x="0.0" y="658.5" width="375" height="86"/>
+                                        <rect key="frame" x="0.0" y="455" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e5U-7W-7TO" id="xvO-ao-RhQ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="85.5"/>
@@ -1128,14 +1070,14 @@ for voting</string>
                             <tableViewSection headerTitle="Food Tonight" id="upl-Ab-qSz">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="vay-zn-EoB" rowHeight="54" style="IBUITableViewCellStyleDefault" id="7Yj-Ba-8FL">
-                                        <rect key="frame" x="0.0" y="800.5" width="375" height="54"/>
+                                        <rect key="frame" x="0.0" y="597" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Yj-Ba-8FL" id="FiJ-8c-p8U">
-                                            <rect key="frame" x="0.0" y="0.0" width="349" height="53.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="No Food Tonight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vay-zn-EoB">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="53.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="53.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1149,7 +1091,7 @@ for voting</string>
                             <tableViewSection headerTitle="Voting Event" footerTitle="This app was developed by John Kotz and designed by Kate Stinson" id="P9v-BY-COC">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="kla-Dn-pbr" rowHeight="54" style="IBUITableViewCellStyleDefault" id="caC-95-oDX">
-                                        <rect key="frame" x="0.0" y="918" width="375" height="54"/>
+                                        <rect key="frame" x="0.0" y="714.5" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="caC-95-oDX" id="hmv-VT-Wcg">
                                             <rect key="frame" x="0.0" y="0.0" width="349" height="53.5"/>
@@ -2281,11 +2223,11 @@ for voting</string>
         <image name="tvspace" width="1987" height="2741"/>
         <image name="vote" width="330" height="414"/>
         <image name="voteDone" width="330" height="414"/>
-        <image name="whiteGear" width="999" height="993"/>
+        <image name="whiteGear" width="15.925827980041504" height="15.925827980041504"/>
         <image name="workstations" width="1987" height="2741"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3DE-sz-bxD"/>
+        <segue reference="z4F-ch-lth"/>
         <segue reference="kGF-TQ-Eex"/>
     </inferredMetricsTieBreakers>
 </document>
