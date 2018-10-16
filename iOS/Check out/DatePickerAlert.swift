@@ -7,18 +7,59 @@
 //
 
 import Foundation
+import UIKit
 
-func datePickerAlert(title: String, datePickerMode: UIDatePickerMode) -> (alert: UIAlertController, datePicker: UIDatePicker) {
-    let datePicker = UIDatePicker()
-    datePicker.datePickerMode = datePickerMode
+extension UIAlertController {
+    func set(vc: UIViewController?, width: CGFloat? = nil, height: CGFloat? = nil) {
+        guard let vc = vc else { return }
+        setValue(vc, forKey: "contentViewController")
+        if let height = height {
+            vc.preferredContentSize.height = height
+            preferredContentSize.height = height
+        }
+    }
+}
+
+extension UIAlertController {
+    func addDatePicker(mode: UIDatePickerMode, date: Date?, minimumDate: Date? = nil, maximumDate: Date? = nil, action: DatePickerViewController.Action?) {
+        let datePicker = DatePickerViewController(mode: mode, date: date, minimumDate: minimumDate, maximumDate: maximumDate, action: action)
+        set(vc: datePicker, height: 217)
+    }
+}
+
+final class DatePickerViewController: UIViewController {
     
-    let alert = UIAlertController(title: "\(title)\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
-    alert.view.addSubview(datePicker)
+    public typealias Action = (Date) -> Void
     
-    NSLayoutConstraint.activate([
-        datePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
-        datePicker.bottomAnchor.constraint(equalTo: alert.view.bottomAnchor)
-    ])
+    fileprivate var action: Action?
     
-    return (alert, datePicker)
+    fileprivate lazy var datePicker: UIDatePicker = { [unowned self] in
+        $0.addTarget(self, action: #selector(DatePickerViewController.actionForDatePicker), for: .valueChanged)
+        return $0
+        }(UIDatePicker())
+    
+    required init(mode: UIDatePickerMode, date: Date? = nil, minimumDate: Date? = nil, maximumDate: Date? = nil, action: Action?) {
+        super.init(nibName: nil, bundle: nil)
+        datePicker.datePickerMode = mode
+        datePicker.date = date ?? Date()
+        datePicker.minimumDate = minimumDate
+        datePicker.maximumDate = maximumDate
+        self.action = action
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        view = datePicker
+    }
+    
+    @objc func actionForDatePicker() {
+        action?(datePicker.date)
+    }
+    
+    public func setDate(_ date: Date) {
+        datePicker.setDate(date, animated: true)
+    }
 }

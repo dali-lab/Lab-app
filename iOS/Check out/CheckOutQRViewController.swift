@@ -43,6 +43,8 @@ class CheckOutQRViewController: UIViewController {
         self.view.addSubview(switchCameraButton)
         self.view.addSubview(overlayView)
         
+        self.navigationController?.setToolbarHidden(true, animated: true)
+        
         reader.previewLayer.frame = self.view.bounds
         reader.startScanning()
         
@@ -126,6 +128,8 @@ class CheckOutQRViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         reader.startScanning()
+        result = nil
+        failedLoadResults = []
         self.readerView.overlay.strokeColor = #colorLiteral(red: 0, green: 0.4871213436, blue: 0.5502281785, alpha: 1)
     }
     
