@@ -9,80 +9,62 @@
 import Foundation
 import UIKit
 import DALI
-
+import FutureKit
 
 class TopLevelVotingViewController: UITableViewController {
 	var pastEvents: [DALIEvent.VotingEvent] = []
 	var currentEvents: [DALIEvent.VotingEvent] = []
-	var beaconControl: BeaconController {
-		return BeaconController.current ?? BeaconController()
-	}
-	var persistantRangeEnd: (() -> Void)?
 	
 	override func viewDidLoad() {
 		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Events", style: .plain, target: nil, action: nil)
-		self.updateData()
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		persistantRangeEnd = beaconControl.persistantRange(callback: { (controller) in
-			if controller.inVotingEvent {
-				if let persistantRangeEnd = self.persistantRangeEnd {
-					persistantRangeEnd()
-				}
-				self.persistantRangeEnd = nil
-				self.updateData()
-			}
-		})
-	}
-	
-	override func viewDidDisappear(_ animated: Bool) {
-		if let persistantRangeEnd = persistantRangeEnd {
-			persistantRangeEnd()
-		}
-	}
-	
-	func updateData() {
-		if beaconControl.inVotingEvent {
-			DALIEvent.VotingEvent.getCurrent { (events, error) in
-				self.currentEvents = events
-				for event in events {
-					event.haveVoted(callback: { (haveVoted, error) in
-						UserDefaults.standard.set(haveVoted || UserDefaults.standard.bool(forKey:  "hasVoted:\(event.id)"), forKey: "hasVoted:\(event.id)")
-					})
-				}
-				
-				self.tableView.reloadData()
-			}
-		}
-		
-		NotificationCenter.default.addObserver(forName: Notification.Name.Custom.EventVoteEnteredOrExited, object: nil, queue: nil) { (notification) in
-			if notification.userInfo?["entering"] as? Bool ?? false {
-				DALIEvent.VotingEvent.getCurrent { (events, error) in
-					self.currentEvents = events
-					for event in events {
-						event.haveVoted(callback: { (haveVoted, error) in
-							UserDefaults.standard.set(haveVoted || UserDefaults.standard.bool(forKey:  "hasVoted:\(event.id)"), forKey: "hasVoted:\(event.id)")
-						})
-					}
-					self.tableView.reloadData()
-				}
-			}else{
-				self.currentEvents = []
-				self.tableView.reloadData()
-			}
-		}
-		
-		DALIEvent.VotingEvent.getReleasedEvents { (events, error) in
-			if let events = events {
-				self.pastEvents = events.sorted(by: { (event1, event2) -> Bool in
-					return event1.start > event2.start
-				})
-				self.tableView.reloadData()
-			}
-		}
-		
-	}
+        
+        let _ = self.updateData().onSuccess { (_) in
+            self.tableView.reloadData()
+        }
+        
+        // TODO: Observe current and released events
+    }
+    
+    func updateData() -> Future<Any> {
+        let currentPromise = Promise<Any>()
+        
+        DALIEvent.VotingEvent.getCurrent { (currentEvents, error) in
+            self.currentEvents = currentEvents
+            let futures = currentEvents.map({ (event) -> Future<Bool> in
+                guard let id = event.id else {
+                    return Future<Bool>(success: false)
+                }
+                let promise = Promise<Bool>()
+                event.haveVoted(callback: { (haveVoted, error) in
+                    let prevHaveVoted = UserDefaults.standard.bool(forKey:  "hasVoted:\(id)")
+                    UserDefaults.standard.set(haveVoted || prevHaveVoted, forKey: "hasVoted:\(id)")
+                    promise.completeWithSuccess(haveVoted || prevHaveVoted)
+                })
+                return promise.future
+            })
+            
+            currentPromise.completeUsingFuture(FutureBatch(futures).future.futureAny)
+        }
+        
+        let releasedPromise = Promise<Any>()
+        DALIEvent.VotingEvent.getReleasedEvents { (releasedEvents, error) in
+            if let events = releasedEvents {
+                self.pastEvents = events.sorted(by: { (event1, event2) -> Bool in
+                    return event1.start > event2.start
+                })
+            }
+            releasedPromise.completeWithSuccess(true)
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(TopLevelVotingViewController.eventVoteEnteredOrExited(notification:)), name: Notification.Name.Custom.EventVoteEnteredOrExited, object: nil)
+        
+        return combineFutures(currentPromise.future, releasedPromise.future).futureAny
+    }
+    
+    @objc func eventVoteEnteredOrExited(notification: NSNotification) {
+        let entering = notification.userInfo?["entering"] as? Bool ?? false
+        // Do work ...
+    }
 	
 	@IBAction func cancel(_ sender: Any) {
 		self.dismiss(animated: true) { 
@@ -138,11 +120,11 @@ class TopLevelVotingViewController: UITableViewController {
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let dest = segue.destination as? ResultsVotingViewController {
-			dest.event = sender as! DALIEvent.VotingEvent
+            dest.event = sender as? DALIEvent.VotingEvent
 		}else if let dest = segue.destination as? OrderedVotingViewController {
-			dest.event = sender as! DALIEvent.VotingEvent
+            dest.event = sender as? DALIEvent.VotingEvent
 		}else if let dest = segue.destination as? UnorderedVotingViewController {
-			dest.event = sender as! DALIEvent.VotingEvent
+            dest.event = sender as? DALIEvent.VotingEvent
 		}else if let dest = segue.destination as? HasVotedViewController {
 			dest.event = sender as! DALIEvent.VotingEvent
 		}
@@ -155,15 +137,20 @@ class TopLevelVotingViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		if indexPath.section == 0 && currentEvents.count > 0 {
-			let hasVoted = UserDefaults.standard.bool(forKey: "hasVoted:\(currentEvents[indexPath.row].id)")
-			let ordered = currentEvents[indexPath.row].config.ordered
+            let currentEvent = currentEvents[indexPath.row]
+            guard let id = currentEvent.id else {
+                return
+            }
+            
+			let hasVoted = UserDefaults.standard.bool(forKey: "hasVoted:\(id)")
+			let ordered = currentEvent.config.ordered
 			
 			if hasVoted {
-				self.performSegue(withIdentifier: "showHasVoted", sender: currentEvents[indexPath.row])
+				self.performSegue(withIdentifier: "showHasVoted", sender: currentEvent)
 			}else if ordered {
-				self.performSegue(withIdentifier: "showOrderedVoting", sender: currentEvents[indexPath.row])
+				self.performSegue(withIdentifier: "showOrderedVoting", sender: currentEvent)
 			}else{
-				self.performSegue(withIdentifier: "showUnorderedVoting", sender: currentEvents[indexPath.row])
+				self.performSegue(withIdentifier: "showUnorderedVoting", sender: currentEvents)
 			}
 		}else{
 			self.performSegue(withIdentifier: "showPastEvent", sender: pastEvents[indexPath.row])

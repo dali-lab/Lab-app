@@ -13,6 +13,7 @@ import UserNotifications
 import SCLAlertView
 import DALI
 import OneSignal
+import FutureKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubscriptionObserver {
@@ -178,7 +179,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		self.askForNotifications { (success) in
 			if success {
 				if let user = GIDSignIn.sharedInstance().currentUser {
-					OneSignal.syncHashedEmail(user.profile.email)
+					OneSignal.setEmail(user.profile.email)
 				}
 				OneSignal.sendTag("signedIn", value: "\(GIDSignIn.sharedInstance().currentUser != nil)")
 				

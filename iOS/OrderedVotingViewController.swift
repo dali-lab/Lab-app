@@ -10,13 +10,15 @@ import Foundation
 import UIKit
 import DALI
 import SCLAlertView
+import CoreLocation
 
 class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	@IBOutlet weak var leftTableView: UITableView!
 	@IBOutlet weak var orderedTableView: UITableView!
-	
+    @IBOutlet weak var submitButton: UIBarButtonItem!
+    
+    static let ordinals = ["1st", "2nd", "3rd"]
 	var event: DALIEvent.VotingEvent!
-	static let ordinals = ["1st", "2nd", "3rd"]
 	var selected: [DALIEvent.VotingEvent.Option?] = []
 	var unselected: [DALIEvent.VotingEvent.Option] = []
 	
@@ -28,13 +30,23 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 		orderedTableView.dataSource = self
 		leftTableView.delegate = self
 		leftTableView.dataSource = self
-		
+		self.submitButton.isEnabled = false
+        
+        
 		self.title = event.name
 		
 		selected = Array.init(repeating: nil, count: event.config.numSelected)
 		
 		self.update()
 	}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        VotingHelper.shared.getLocationAuthorizationStatus().onSuccess { (status) in
+            
+            }.onCancel {
+                VotingHelper.shared.locationManager.requestWhenInUseAuthorization()
+        }
+    }
 	
 	func update() {
 		self.event.getOptions { (options, error) in

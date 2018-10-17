@@ -28,6 +28,10 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 		"Tims Office Region": Notification.Name.Custom.TimsOfficeEnteredOrExited,
 		"Event Vote Region": Notification.Name.Custom.EventVoteEnteredOrExited
 	]
+    
+    static var shared: BeaconController {
+        return current ?? BeaconController()
+    }
 	
 	static var current: BeaconController?
 	var user: GIDGoogleUser?

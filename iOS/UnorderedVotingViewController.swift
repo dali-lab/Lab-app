@@ -35,6 +35,10 @@ class UnorderedVotingViewController: UITableViewController {
 		self.navigationController?.isToolbarHidden = false
 		self.navigationController?.toolbar.barTintColor = #colorLiteral(red: 0, green: 0.4870499372, blue: 0.5501662493, alpha: 1)
 	}
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        if let beaconController =
+    }
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		self.navigationController?.isToolbarHidden = true

@@ -739,6 +739,7 @@ for voting</string>
                     <connections>
                         <outlet property="leftTableView" destination="1Y7-67-lvX" id="H66-75-u4Z"/>
                         <outlet property="orderedTableView" destination="aX3-ma-MbN" id="70x-kn-Uhx"/>
+                        <outlet property="submitButton" destination="uwx-h0-G52" id="Afq-Vt-4vk"/>
                         <segue destination="zMk-Ha-Nx5" kind="show" identifier="done" id="kGF-TQ-Eex"/>
                     </connections>
                 </viewController>
