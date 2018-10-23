@@ -30,7 +30,6 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 		orderedTableView.dataSource = self
 		leftTableView.delegate = self
 		leftTableView.dataSource = self
-		self.submitButton.isEnabled = false
         
         
 		self.title = event.name
