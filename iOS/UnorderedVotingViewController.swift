@@ -37,7 +37,6 @@ class UnorderedVotingViewController: UITableViewController {
 	}
     
     override func viewWillAppear(_ animated: Bool) {
-//        if let beaconController =
     }
 	
 	override func viewWillDisappear(_ animated: Bool) {

@@ -3,9 +3,11 @@ PODS:
   - Crashlytics (3.10.7):
     - Fabric (~> 1.7.11)
   - DALI (0.4.5):
+    - EmitterKit
     - FutureKit
     - Socket.IO-Client-Swift
     - SwiftyJSON
+  - EmitterKit (5.2.0)
   - Eureka (4.2.0)
   - Fabric (1.7.11)
   - FirebaseAnalytics (3.9.0):
@@ -70,6 +72,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ChromaColorPicker
     - Crashlytics
+    - EmitterKit
     - Eureka
     - Fabric
     - FirebaseAnalytics
@@ -96,7 +99,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   ChromaColorPicker: 33efa67b17cca51dd253689d18b83ac7e05642c2
   Crashlytics: ccaac42660eb9351b9960c0d66106b0bcf99f4fa
-  DALI: 343e90cc40963279da0a0a4a54c2a9325c34723d
+  DALI: ba094cdc68e781e3469873a161d68eff1d1271d0
+  EmitterKit: c3948fb82c4cdb11d9019c13d374e7f22188537e
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   Fabric: f233c9492b3bbc1f04e3882986740f7988a58edb
   FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052

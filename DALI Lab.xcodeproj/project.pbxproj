@@ -170,7 +170,7 @@
 		526F3628215C5E77002F5CD2 /* CheckOutConfirmViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutConfirmViewCells.swift; sourceTree = "<group>"; };
 		526F362A215C5F23002F5CD2 /* DatePickerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerAlert.swift; sourceTree = "<group>"; };
 		526FDA7320323A09002A1BA1 /* ColorPicerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPicerCell.xib; sourceTree = "<group>"; };
-		52767CFB21767D7900B191EA /* VotingHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VotingHelpers.swift; path = iOS/VotingHelpers.swift; sourceTree = "<group>"; };
+		52767CFB21767D7900B191EA /* VotingHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingHelpers.swift; sourceTree = "<group>"; };
 		528DDACE1F69790600ED1F4E /* coins.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = coins.m4a; sourceTree = "<group>"; };
 		529A63261F4E90DF00BFBFE9 /* NewVotingEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVotingEventViewController.swift; sourceTree = "<group>"; };
 		529A63291F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVotingEventConfigViewController.swift; sourceTree = "<group>"; };
@@ -295,6 +295,7 @@
 				524D86F81F57A0D700479C0A /* UnorderedVotingViewController.swift */,
 				524D86FA1F57A0E100479C0A /* OrderedVotingViewController.swift */,
 				524D86FC1F57A3F400479C0A /* ResultsVotingViewController.swift */,
+				52767CFB21767D7900B191EA /* VotingHelpers.swift */,
 			);
 			name = Voting;
 			sourceTree = "<group>";
@@ -329,7 +330,6 @@
 		52B138461F47D39B0021D7AE = {
 			isa = PBXGroup;
 			children = (
-				52767CFB21767D7900B191EA /* VotingHelpers.swift */,
 				528DDACE1F69790600ED1F4E /* coins.m4a */,
 				52B138B71F47D4590021D7AE /* iOS */,
 				52B138CC1F47D4590021D7AE /* iOSTests */,
@@ -868,6 +868,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-tvOS/Pods-tvOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DALI-tvOS/DALI.framework",
+				"${BUILT_PRODUCTS_DIR}/EmitterKit-tvOS/EmitterKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FutureKit-tvOS/FutureKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift-tvOS/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream-tvOS/Starscream.framework",
@@ -876,6 +877,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DALI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FutureKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
@@ -931,6 +933,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-iOS/Pods-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChromaColorPicker/ChromaColorPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/DALI-iOS/DALI.framework",
+				"${BUILT_PRODUCTS_DIR}/EmitterKit-iOS/EmitterKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FutureKit-iOS/FutureKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
@@ -946,6 +949,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChromaColorPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DALI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FutureKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",

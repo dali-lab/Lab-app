@@ -19,18 +19,24 @@ class HasVotedViewController: UIViewController {
 	override func viewDidLoad() {
 		self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.pop))
 		
-		UserDefaults.standard.set(true, forKey: "hasVoted:\(event.id)")
-		notificationSwitch.isOn = UserDefaults.standard.value(forKey: "notifyFor:\(event.id)") as? Bool ?? true
+        self.title = event.name
+        
+        guard let id = event.id else {
+            return
+        }
+		UserDefaults.standard.set(true, forKey: "hasVoted:\(id)")
+		notificationSwitch.isOn = UserDefaults.standard.value(forKey: "notifyFor:\(id)") as? Bool ?? true
 		
-		self.title = event.name
-		
-		OneSignal.sendTag("resultsReleased:\(event.id!)", value: "\(notificationSwitch.isOn)")
+		OneSignal.sendTag("resultsReleased:\(id)", value: "\(notificationSwitch.isOn)")
 	}
 	
 	@IBAction func switchChanged(_ sender: UISwitch) {
-		UserDefaults.standard.set(sender.isOn, forKey: "notifyFor:\(event.id)")
+        guard let id = event.id else {
+            return
+        }
+		UserDefaults.standard.set(sender.isOn, forKey: "notifyFor:\(id)")
 		
-		OneSignal.sendTag("resultsReleased:\(event.id!)", value: "\(sender.isOn)")
+		OneSignal.sendTag("resultsReleased:\(id)", value: "\(sender.isOn)")
 	}
 	
 	@objc func pop() {

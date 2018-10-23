@@ -10,10 +10,12 @@ import Foundation
 import UIKit
 import DALI
 import FutureKit
+import EmitterKit
 
 class TopLevelVotingViewController: UITableViewController {
 	var pastEvents: [DALIEvent.VotingEvent] = []
 	var currentEvents: [DALIEvent.VotingEvent] = []
+    var observation: EventListener<[DALIEvent.VotingEvent]>?
 	
 	override func viewDidLoad() {
 		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Events", style: .plain, target: nil, action: nil)
@@ -22,7 +24,19 @@ class TopLevelVotingViewController: UITableViewController {
             self.tableView.reloadData()
         }
         
-        // TODO: Observe current and released events
+        observation = DALIEvent.VotingEvent.observe().on { (_) in
+            let _ = self.updateData().onSuccess(block: { (_) in
+                self.tableView.reloadData()
+            })
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        observation?.isListening = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        observation?.isListening = false
     }
     
     func updateData() -> Future<Any> {
