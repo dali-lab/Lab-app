@@ -45,7 +45,7 @@ class CheckOutQRReaderLoadingOverlayView: UIView, UIGestureRecognizerDelegate {
     
     override init(frame: CGRect) {
         gestureRecognizer = UITapGestureRecognizer(target: nil, action: nil)
-        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicator.hidesWhenStopped = true
         
         super.init(frame: frame)

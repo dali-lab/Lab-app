@@ -28,7 +28,7 @@ class NewVotingEventViewController: UITableViewController {
 		}
 		let navController = UINavigationController(rootViewController: newEventController)
 		navController.navigationBar.barTintColor = self.navigationController?.navigationBar.barTintColor
-		navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+		navController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 		navController.navigationBar.tintColor = self.navigationController?.navigationBar.tintColor
 		navController.modalPresentationStyle = .formSheet
 		navController.modalTransitionStyle = .coverVertical

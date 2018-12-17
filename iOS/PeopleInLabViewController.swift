@@ -22,7 +22,7 @@ class PeopleInLabViewController : UITableViewController {
 	
 	override func viewDidLoad() {
 		indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-		indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+		indicator.style = UIActivityIndicatorView.Style.gray
 		indicator.center = self.view.center
 		self.view.addSubview(indicator)
 	}

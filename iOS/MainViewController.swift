@@ -193,7 +193,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let view = UIView()
-		let backgroundView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.regular))
+		let backgroundView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.regular))
 		backgroundView.backgroundColor = #colorLiteral(red: 0.1450980392, green: 0.5843137255, blue: 0.6588235294, alpha: 0.6546819982)
 		backgroundView.layer.cornerRadius = 4
 		backgroundView.clipsToBounds = true
@@ -225,7 +225,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return UITableViewAutomaticDimension
+		return UITableView.automaticDimension
 	}
 	
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

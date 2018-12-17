@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	
 	var beaconController: BeaconController?
 	
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		let settings = [kOSSettingsKeyAutoPrompt: false]
 		OneSignal.initWithLaunchOptions(launchOptions, appId: "6799d21a-debe-4ec8-b6f0-99c72cac170d", handleNotificationAction: nil, settings: settings)
@@ -209,7 +209,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 			let randomIndex = Int(arc4random_uniform(UInt32(emojies.count)))
 			content.body = entered ? emojies[randomIndex] : "👋"
 			content.subtitle = ""
-			content.sound = UNNotificationSound(named: "coins.m4a")
+			content.sound = UNNotificationSound(named: convertToUNNotificationSoundName("coins.m4a"))
 			
 			let notification = UNNotificationRequest(identifier: "enterExitNotification", content: content, trigger: nil)
 			UNUserNotificationCenter.current().add(notification) { (error) in
@@ -228,7 +228,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 			content.title = "Checked In!"
 			content.body = "Just checked you into this event 👍🤖!"
 			content.subtitle = ""
-			content.sound = UNNotificationSound(named: "coins.m4a")
+			content.sound = UNNotificationSound(named: convertToUNNotificationSoundName("coins.m4a"))
 			
 			let notification = UNNotificationRequest(identifier: "checkInNotification", content: content, trigger: nil)
 			UNUserNotificationCenter.current().add(notification) { (error) in
@@ -252,7 +252,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 				content.title = "Welcome to " + events.first!.name
 				content.body = "Voting is available for this event! 🗳💡"
 				content.subtitle = ""
-				content.sound = UNNotificationSound(named: "coins.m4a")
+				content.sound = UNNotificationSound(named: convertToUNNotificationSoundName("coins.m4a"))
 				
 				let notification = UNNotificationRequest(identifier: "votingNotification", content: content, trigger: nil)
 				UNUserNotificationCenter.current().add(notification) { (error) in
@@ -298,7 +298,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	}
 	
 	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
 		
 		if let error = error {
 			print(error)
@@ -329,7 +329,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	
 	func skipSignIn() {
 		
-		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalNever)
+		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalNever)
 		let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
 		
 		mainViewController.modalTransitionStyle = .crossDissolve
@@ -350,7 +350,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	}
 	
 	func signOut() {
-		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalNever)
+		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalNever)
 		self.breakDownNotificationListeners()
 		BeaconController.current?.breakdown()
 		self.beaconController = nil
@@ -371,7 +371,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		self.signOut()
 	}
 	
-	func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+	func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
 		return GIDSignIn.sharedInstance().handle(url, sourceApplication: options[.sourceApplication] as? String, annotation: options)
 	}
 	
@@ -412,3 +412,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUNNotificationSoundName(_ input: String) -> UNNotificationSoundName {
+	return UNNotificationSoundName(rawValue: input)
+}

@@ -36,7 +36,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, ErrorAlertShow
 		googleButton.style = .wide
 		subView.alpha = 0
 		
-		UIView.animate(withDuration: 1.3, delay: 1.0, options: [UIViewAnimationOptions.curveEaseInOut], animations: {
+		UIView.animate(withDuration: 1.3, delay: 1.0, options: [UIView.AnimationOptions.curveEaseInOut], animations: {
 			self.image.transform = CGAffineTransform(translationX: 0, y: -90)
 			self.subView.transform = CGAffineTransform(translationX: 0, y: -90)
 		}) { (success) in

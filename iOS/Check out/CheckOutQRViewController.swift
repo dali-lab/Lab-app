@@ -144,10 +144,10 @@ class CheckOutQRViewController: UIViewController {
         constraints.append(self.readerView.rightAnchor.constraint(equalTo: self.view.rightAnchor))
         
         if #available(iOS 11.0, *) {
-            let constraint = switchCameraButton.topAnchor.constraintEqualToSystemSpacingBelow(self.view.safeAreaLayoutGuide.topAnchor, multiplier: 2.0)
+            let constraint = switchCameraButton.topAnchor.constraint(equalToSystemSpacingBelow: self.view.safeAreaLayoutGuide.topAnchor, multiplier: 2.0)
             constraints.append(constraint)
             
-            constraints.append(view.rightAnchor.constraintEqualToSystemSpacingAfter(switchCameraButton.rightAnchor, multiplier: 2.0))
+            constraints.append(view.rightAnchor.constraint(equalToSystemSpacingAfter: switchCameraButton.rightAnchor, multiplier: 2.0))
         } else {
             constraints.append(switchCameraButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 16 + (self.navigationController?.navigationBar.bounds.height ?? 0)))
             constraints.append(view.rightAnchor.constraint(equalTo: switchCameraButton.rightAnchor, constant: 16))

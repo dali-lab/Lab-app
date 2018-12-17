@@ -38,24 +38,24 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 	var beaconManager: RPKManager = RPKManager()
 	var locationManager = CLLocationManager()
 	
-	var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+	var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
 	func registerBackgroundTask(_ callback: () -> Void) {
 		print("Registering for background...")
 		backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
 			print("Force killing...")
 			self?.endBackgroundTask()
 		}
-		assert(backgroundTask != UIBackgroundTaskInvalid)
+		assert(backgroundTask != UIBackgroundTaskIdentifier.invalid)
 		print("Background task begun...")
 		callback()
 	}
 	
 	func endBackgroundTask() {
-		if backgroundTask == UIBackgroundTaskInvalid {
+		if backgroundTask == UIBackgroundTaskIdentifier.invalid {
 			return
 		}
-		UIApplication.shared.endBackgroundTask(backgroundTask)
-		backgroundTask = UIBackgroundTaskInvalid
+		UIApplication.shared.endBackgroundTask(convertToUIBackgroundTaskIdentifier(backgroundTask.rawValue))
+		backgroundTask = UIBackgroundTaskIdentifier.invalid
 		print("Background task ended.")
 	}
 	
@@ -328,4 +328,9 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 	enum BeaconError: Error {
 		case DuplicateController
 	}
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIBackgroundTaskIdentifier(_ input: Int) -> UIBackgroundTaskIdentifier {
+	return UIBackgroundTaskIdentifier(rawValue: input)
 }
