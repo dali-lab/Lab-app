@@ -15,7 +15,7 @@ public class VotingHelper: NSObject, CLLocationManagerDelegate {
     private static var _shared: VotingHelper?
     public static var shared: VotingHelper {
         if _shared == nil {
-            _shared = shared
+            _shared = VotingHelper()
         }
         return _shared!
     }

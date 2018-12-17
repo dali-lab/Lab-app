@@ -21,14 +21,16 @@ class TopLevelVotingViewController: UITableViewController {
 		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Events", style: .plain, target: nil, action: nil)
         
         let _ = self.updateData().onSuccess { (_) in
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
         
-        observation = DALIEvent.VotingEvent.observe().on { (_) in
-            let _ = self.updateData().onSuccess(block: { (_) in
-                self.tableView.reloadData()
-            })
-        }
+//        observation = DALIEvent.VotingEvent.observe().on { (_) in
+//            let _ = self.updateData().onSuccess(block: { (_) in
+//                self.tableView.reloadData()
+//            })
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

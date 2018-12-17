@@ -88,8 +88,7 @@ class CheckOutConfirmViewController: UITableViewController {
     }
     
     func reloadEquipment() {
-        let _ = DALIEquipment.equipment(for: self.equipment.qrID).onSuccess(block: { (equipment) in
-            self.equipment = equipment
+        let _ = self.equipment.reload().onSuccess(block: { (equipment) in
             self.updateUI(animated: true)
             self.tableView.reloadData()
         })
@@ -173,7 +172,7 @@ class CheckOutConfirmViewController: UITableViewController {
             
             let titleCell = cell as! CheckOutConfirmViewTitleCell
             titleCell.titleLabel.text = equipment.name
-            titleCell.subtitleLabel.text = equipment.qrID
+            titleCell.subtitleLabel.text = equipment.id
         } else if self.showPasswordCell() && indexPath.section == 1 {
             cell = tableView.dequeueReusableCell(withIdentifier: "passwordCell")
             
