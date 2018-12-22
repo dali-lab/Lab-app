@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 			DALIapi.silentMemberUpdate(callback: { (_) in
 				
 			})
-		}else{
+		} else {
 			DALIapi.silentMemberUpdate(callback: { (member) in
 				if let member = member {
 					self.didSignIn(member: member)

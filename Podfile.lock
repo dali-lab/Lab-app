@@ -49,6 +49,7 @@ PODS:
   - OneSignal (2.8.8)
   - ProximityKit (1.2.9)
   - QRCodeReaderViewController (4.0.2)
+  - RLBAlertsPickers (1.1)
   - SCLAlertView (0.8)
   - Socket.IO-Client-Swift (13.3.0):
     - Starscream (~> 3.0.2)
@@ -65,6 +66,7 @@ DEPENDENCIES:
   - OneSignal (< 3.0, >= 2.5.2)
   - ProximityKit (~> 1.2)
   - QRCodeReaderViewController
+  - RLBAlertsPickers (from `https://github.com/loicgriffie/Alerts-Pickers.git`, branch `master`)
   - SCLAlertView
   - Socket.IO-Client-Swift
 
@@ -95,6 +97,14 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   DALI:
     :path: "~/Programming/DALI/Internal/framework"
+  RLBAlertsPickers:
+    :branch: master
+    :git: https://github.com/loicgriffie/Alerts-Pickers.git
+
+CHECKOUT OPTIONS:
+  RLBAlertsPickers:
+    :commit: 10bec56267327f3ea0899197eeb153a63c2851f1
+    :git: https://github.com/loicgriffie/Alerts-Pickers.git
 
 SPEC CHECKSUMS:
   ChromaColorPicker: 33efa67b17cca51dd253689d18b83ac7e05642c2
@@ -115,11 +125,12 @@ SPEC CHECKSUMS:
   OneSignal: 7d2571e9fce1d961b882e1bd9f1f242802e9c8b1
   ProximityKit: e763235e2fca64711ed7a5bae08cea1508f80919
   QRCodeReaderViewController: e8f27d035b3e72b1d4b1c61ff66458287e3be0ff
+  RLBAlertsPickers: 5a73f4d0b4a816113285a048923750232a93fa58
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   Socket.IO-Client-Swift: 0afb192a562db90d50e3f7f7421c06925a3f0179
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 529b3f7a6e9a3a0eb75153b2f90ebeb7535fd044
+PODFILE CHECKSUM: cc32d8be5d445cb14ee51f088fd4fdff3f0c22f9
 
 COCOAPODS: 1.5.3
