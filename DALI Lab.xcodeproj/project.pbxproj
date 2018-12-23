@@ -38,6 +38,7 @@
 		524D86FB1F57A0E100479C0A /* OrderedVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86FA1F57A0E100479C0A /* OrderedVotingViewController.swift */; };
 		524D86FD1F57A3F400479C0A /* ResultsVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86FC1F57A3F400479C0A /* ResultsVotingViewController.swift */; };
 		5251D9E31F4BD7C80020D958 /* CheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */; };
+		5260330C21CF15690089D5E6 /* FutureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5260330B21CF15690089D5E6 /* FutureExtension.swift */; };
 		526A7CEE21C9AD9B00F25E99 /* CheckOutTopLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A7CED21C9AD9B00F25E99 /* CheckOutTopLevelViewController.swift */; };
 		526F3627215C5E60002F5CD2 /* QRCodeReaderView+DALIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5203FF1F2150422C00A406E3 /* QRCodeReaderView+DALIAdditions.m */; };
 		526F3629215C5E77002F5CD2 /* CheckOutConfirmViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F3628215C5E77002F5CD2 /* CheckOutConfirmViewCells.swift */; };
@@ -173,6 +174,7 @@
 		524D86FA1F57A0E100479C0A /* OrderedVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedVotingViewController.swift; sourceTree = "<group>"; };
 		524D86FC1F57A3F400479C0A /* ResultsVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsVotingViewController.swift; sourceTree = "<group>"; };
 		5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinViewController.swift; sourceTree = "<group>"; };
+		5260330B21CF15690089D5E6 /* FutureExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureExtension.swift; sourceTree = "<group>"; };
 		526A7CED21C9AD9B00F25E99 /* CheckOutTopLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutTopLevelViewController.swift; sourceTree = "<group>"; };
 		526F3628215C5E77002F5CD2 /* CheckOutConfirmViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutConfirmViewCells.swift; sourceTree = "<group>"; };
 		526F362A215C5F23002F5CD2 /* DatePickerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerAlert.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				522F31CA1F47D8F100B4BEB4 /* ProximityKit.plist */,
 				52B138C41F47D4590021D7AE /* Info.plist */,
 				522F31E11F47D9D000B4BEB4 /* iOS-Bridging-Header.h */,
+				5260330B21CF15690089D5E6 /* FutureExtension.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -1060,6 +1063,7 @@
 				526F3627215C5E60002F5CD2 /* QRCodeReaderView+DALIAdditions.m in Sources */,
 				524D86F91F57A0D700479C0A /* UnorderedVotingViewController.swift in Sources */,
 				52767CFC21767D7900B191EA /* VotingHelpers.swift in Sources */,
+				5260330C21CF15690089D5E6 /* FutureExtension.swift in Sources */,
 				52FA82E41F7350CA00CEC807 /* LightsViewController.swift in Sources */,
 				524D86F71F57A08E00479C0A /* HasVotedViewController.swift in Sources */,
 				526A7CEE21C9AD9B00F25E99 /* CheckOutTopLevelViewController.swift in Sources */,

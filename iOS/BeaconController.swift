@@ -121,24 +121,24 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
         if UIApplication.shared.applicationState == .background {
             registerBackgroundTask {
                 if userIsTim() {
-                    DALILocation.Tim.submit(inDALI: false, inOffice: false, callback: { (_, _) in
+                    _ = DALILocation.Tim.submit(inDALI: false, inOffice: false).onSuccess { (_) in
                         self.endBackgroundTask()
-                    })
+                    }
                 }else if DALIapi.isSignedIn {
-                    DALILocation.Shared.submit(inDALI: false, entering: false, callback: { (_, _) in
+                    _ = DALILocation.Shared.submit(inDALI: false, entering: false).onSuccess(block: { (_) in
                         self.endBackgroundTask()
                     })
                 }
             }
         }else{
             if userIsTim() {
-                DALILocation.Tim.submit(inDALI: false, inOffice: false, callback: { (_, _) in
+                _ = DALILocation.Tim.submit(inDALI: false, inOffice: false).onSuccess { (_) in
                     self.endBackgroundTask()
-                })
+                }
             }else if DALIapi.isSignedIn {
-                DALILocation.Shared.submit(inDALI: false, entering: false, callback: { (_, _) in
+                _ = DALILocation.Shared.submit(inDALI: false, entering: false).onSuccess { (_) in
                     self.endBackgroundTask()
-                })
+                }
             }
         }
 		
@@ -176,17 +176,17 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 		if region.name == "DALI Lab Region", exited || entered {
 			func go(background: Bool) {
 				if userIsTim() {
-					DALILocation.Tim.submit(inDALI: entered, inOffice: entered ? false : inOffice, callback: { (_, _) in
-						if background {
-							self.endBackgroundTask()
-						}
-					})
+                    _ = DALILocation.Tim.submit(inDALI: entered, inOffice: entered ? false : inOffice).onSuccess { (_) in
+                        if background {
+                            self.endBackgroundTask()
+                        }
+                    }
 				}else if DALIapi.isSignedIn {
-					DALILocation.Shared.submit(inDALI: entered, entering: entered, callback: { (_, _) in
-						if background {
-							self.endBackgroundTask()
-						}
-					})
+                    _ = DALILocation.Shared.submit(inDALI: entered, entering: entered).onSuccess { (_) in
+                        if background {
+                            self.endBackgroundTask()
+                        }
+                    }
 				}
 			}
 			
@@ -206,13 +206,13 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 		}else if region.name.replacingOccurrences(of: "'", with: "") == "Tims Office Region" && userIsTim() {
 			if UIApplication.shared.applicationState == .background {
 				registerBackgroundTask {
-					DALILocation.Tim.submit(inDALI: inDALI, inOffice: entered, callback: { (_, _) in
-						self.endBackgroundTask()
-					})
+                    _ = DALILocation.Tim.submit(inDALI: inDALI, inOffice: entered).onSuccess { (_) in
+                        self.endBackgroundTask()
+                    }
 				}
 			}else{
 				if entered || exited {
-					DALILocation.Tim.submit(inDALI: entered ? false : inDALI, inOffice: entered, callback: { (_, _) in })
+					_ = DALILocation.Tim.submit(inDALI: entered ? false : inDALI, inOffice: entered)
 				}
 				NotificationCenter.default.post(name: Notification.Name.Custom.TimsOfficeEnteredOrExited, object: nil, userInfo: ["entered": entered])
 			}
@@ -281,12 +281,12 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 				if UIApplication.shared.applicationState != .background {
 					NotificationCenter.default.post(name: NSNotification.Name.Custom.CheckInEnteredOrExited, object: nil, userInfo: ["entered" : true, "major": first.major, "minor": first.minor])
 				}
-				DALIEvent.checkIn(major: first.major as! Int, minor: first.minor as! Int, callback: { (_, _) in
-					if UIApplication.shared.applicationState == .background {
-						AppDelegate.shared.checkInHappened()
-						self.endBackgroundTask()
-					}
-				})
+                _ = DALIEvent.checkIn(major: first.major as! Int, minor: first.minor as! Int).onSuccess(block: { (_) in
+                    if UIApplication.shared.applicationState == .background {
+                        AppDelegate.shared.checkInHappened()
+                        self.endBackgroundTask()
+                    }
+                })
 			}else{
 				// We are in fact not at a check in event
 			}

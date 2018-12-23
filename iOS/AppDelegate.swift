@@ -54,15 +54,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		
 		if DALIapi.isSignedIn {
 			self.didSignIn(member: DALIMember.current!)
-			DALIapi.silentMemberUpdate(callback: { (_) in
-				
-			})
+			_ = DALIapi.silentMemberUpdate()
 		} else {
-			DALIapi.silentMemberUpdate(callback: { (member) in
-				if let member = member {
-					self.didSignIn(member: member)
-				}
-			})
+            _ = DALIapi.silentMemberUpdate().onSuccess { (member) in
+                if let member = member {
+                    self.didSignIn(member: member)
+                }
+            }
 		}
 		GIDSignIn.sharedInstance().signInSilently()
 		UIApplication.shared.setMinimumBackgroundFetchInterval(1.0)
@@ -78,21 +76,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		print("Background fetching...")
 		if let beaconController = BeaconController.current {
 			if userIsTim() {
-				DALILocation.Tim.submit(inDALI: beaconController.inDALI, inOffice: beaconController.inOffice, callback: { (_, error) in
-					if error != nil {
-						completionHandler(.failed)
-					}else{
-						completionHandler(.newData)
-					}
-				})
+                let inDALI = beaconController.inDALI
+                let inOffice = beaconController.inOffice
+                
+                DALILocation.Tim.submit(inDALI: inDALI, inOffice: inOffice).onSuccess { (_) in
+                    completionHandler(.newData)
+                }.onFail { (error) in
+                    completionHandler(.failed)
+                }
 			}else{
-				DALILocation.Shared.submit(inDALI: beaconController.inDALI, entering: false, callback: { (_, error) in
-					if error != nil {
-						completionHandler(.failed)
-					}else{
-						completionHandler(.newData)
-					}
-				})
+                DALILocation.Shared.submit(inDALI: beaconController.inDALI, entering: false).onSuccess { (_) in
+                    completionHandler(.noData)
+                }.onFail { (error) in
+                    completionHandler(.failed)
+                }
 			}
 		}
 	}
@@ -243,22 +240,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		}
 		
 		if SettingsController.getVotingNotif() {
-			DALIEvent.VotingEvent.getCurrent { (events, error) in
-				guard events.count > 0 else {
-					return
-				}
-				
-				let content = UNMutableNotificationContent()
-				content.title = "Welcome to " + events.first!.name
-				content.body = "Voting is available for this event! 🗳💡"
-				content.subtitle = ""
-				content.sound = UNNotificationSound(named: convertToUNNotificationSoundName("coins.m4a"))
-				
-				let notification = UNNotificationRequest(identifier: "votingNotification", content: content, trigger: nil)
-				UNUserNotificationCenter.current().add(notification) { (error) in
-					callback()
-				}
-			}
+            DALIEvent.VotingEvent.getCurrent().onSuccess { (events) in
+                let content = UNMutableNotificationContent()
+                content.title = "Welcome to " + events.first!.name
+                content.body = "Voting is available for this event! 🗳💡"
+                content.subtitle = ""
+                content.sound = UNNotificationSound(named: convertToUNNotificationSoundName("coins.m4a"))
+                
+                let notification = UNNotificationRequest(identifier: "votingNotification", content: content, trigger: nil)
+                UNUserNotificationCenter.current().add(notification) { (error) in
+                    callback()
+                }
+            }.onFail { (error) in
+                // TODO: Handle error
+            }
 		}
 	}
 	
@@ -307,22 +302,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 			self.user = user
 			if !alreadySignedIn {
 				self.loginViewController?.beginLoading()
-				DALIapi.signin(accessToken: user.authentication.accessToken, refreshToken: user.authentication.refreshToken, forced: true, done: { (sucess, error) in
-					if let member = DALIMember.current, sucess {
-						DispatchQueue.main.async {
-							self.didSignIn(member: member, noUIChange: alreadySignedIn)
-						}
-					}else{
-						print(error!)
-						
-						if !alreadySignedIn {
-							DispatchQueue.main.async {
-								self.loginViewController?.showError(alert: SCLAlertView(), title: "Error Logging In", subTitle: "Encountered an error when logging in!")
-								self.loginViewController?.endLoading()
-							}
-						}
-					}
-				})
+                let accessToken = user.authentication.accessToken!
+                let refreshToken = user.authentication.refreshToken!
+                
+                DALIapi.signin(accessToken: accessToken, refreshToken: refreshToken, forced: true)
+                    .mainThreadFuture.onSuccess { (member) in
+                    self.didSignIn(member: member, noUIChange: alreadySignedIn)
+                }.onFail { (error) in
+                    if !alreadySignedIn {
+                        self.loginViewController?.showError(alert: SCLAlertView(), title: "Error Logging In", subTitle: "Encountered an error when logging in!")
+                        self.loginViewController?.endLoading()
+                    }
+                }
 			}
 		}
 	}

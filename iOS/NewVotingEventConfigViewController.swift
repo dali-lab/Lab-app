@@ -31,17 +31,14 @@ class NewVotingEventConfigViewController: UITableViewController {
 	}
 	
 	@objc func done() {
-		event.enableVoting(numSelected: Int(stepper.value), ordered: orderedSwitch.isOn) { (success, event, error) in
-			DispatchQueue.main.async {
-				if success {
-					let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-					self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
-				}else{
-					print(error!)
-					SCLAlertView().showError("Encountered Error", subTitle: "")
-				}
-			}
-		}
+        event.enableVoting(numSelected: Int(stepper.value),ordered: orderedSwitch.isOn)
+            .mainThreadFuture.onSuccess(block: { (event) in
+            self.event = event
+            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+        }).onFail(block: { (error) in
+            SCLAlertView().showError("Encountered Error", subTitle: "\(error.localizedDescription)")
+        })
 	}
 	
 	@IBAction func stepperChanged(_ sender: UIStepper) {

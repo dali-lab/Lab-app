@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import DALI
 import SwiftyJSON
+import FutureKit
 
 class VotingEventManagerViewController: UITableViewController {
 	
@@ -26,23 +27,21 @@ class VotingEventManagerViewController: UITableViewController {
 	}
 	
 	func updateData() {
-		DALIEvent.VotingEvent.get { (events, error) in
-			if let events = events {
-				self.events = events
-				
-				for event in events {
-					event.getUnreleasedResults(callback: { (options, error) in
-						if let options = options {
-							self.options.append(options)
-						}
-					})
-				}
-				
-				DispatchQueue.main.async {
-					self.tableView.reloadData()
-				}
-			}
-		}
+        DALIEvent.VotingEvent.get().onSuccess { (events) -> Future<Any> in
+            self.events = events
+            
+            let futures = events.map({ (event) -> Future<Void> in
+                return event.getUnreleasedResults().onSuccess { (options) in
+                    self.options.append(options)
+                }
+            })
+            
+            return FutureBatch(futures).future.futureAny
+        }.mainThreadFuture.onSuccess { (_) in
+            self.tableView.reloadData()
+        }.onFail { (error) in
+            // TODO: Do something about this error
+        }
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -36,17 +36,15 @@ class NewVotingEventViewController: UITableViewController {
 	}
 	
 	func updateData() {
-		DALIEvent.getFuture(includeHidden: true) { (events, error) in
-			if let events = events {
-				self.events.removeAll()
-				for event in events {
-					if event as? DALIEvent.VotingEvent == nil {
-						self.events.append(event)
-					}
-				}
-				self.tableView.reloadData()
-			}
-		}
+        DALIEvent.getFuture(includeHidden: true).mainThreadFuture.onSuccess { (events) in
+            self.events.removeAll()
+            self.events = events.filter({ (event) -> Bool in
+                return event is DALIEvent.VotingEvent
+            })
+            self.tableView.reloadData()
+        }.onFail { (error) in
+            // TODO: handle error
+        }
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

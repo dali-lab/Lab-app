@@ -106,7 +106,7 @@ class EquipmentDetailTableViewController: UITableViewController {
             sectionTitles.append("History")
             cellTypes.append(checkOuts.map({ (record) -> CellType in
                 if record.endDate == nil {
-                    return .currentCheckout(name: record.member.name, start: record.startDate, end: record.projectedEndDate)
+                    return .currentCheckout(name: record.member.name, start: record.startDate, end: record.expectedReturnDate)
                 } else {
                     return .pastCheckout(name: record.member.name, start: record.startDate, end: record.endDate!)
                 }

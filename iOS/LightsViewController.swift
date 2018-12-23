@@ -146,26 +146,20 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 	}
 	
 	@IBAction func powerChanged(_ sender: Any) {
-		selectedGroup?.set(on: self.onSwitch.isOn, callback: { (success, error) in
-			if error != nil {
-				SCLAlertView().showError("Encountered an error", subTitle: "")
-			}
-		})
+        selectedGroup?.set(on: self.onSwitch.isOn).onFail { (error) in
+            SCLAlertView().showError("Encountered an error", subTitle: "\(error.localizedDescription)")
+        }
 	}
 	
 	func colorPickerDidChooseColor(_ colorPicker: ChromaColorPicker, color: UIColor) {
-		selectedGroup?.set(color: color.toHex(), callback: { (success, error) in
-			if error != nil {
-				SCLAlertView().showError("Encountered an error", subTitle: "")
-			}
-		})
+        selectedGroup?.set(color: color.toHex()).onFail { (error) in
+            SCLAlertView().showError("Encountered an error", subTitle: "\(error.localizedDescription)")
+        }
 	}
 	
 	@objc func colorChanged(_ sender: AnyObject?) {
 		if let sender = sender as? ChromaColorPicker {
-			selectedGroup?.set(color: sender.currentColor.toHex(), callback: { (success, error) in
-				
-			})
+			_ = selectedGroup?.set(color: sender.currentColor.toHex())
 		}
 	}
 	
@@ -389,20 +383,16 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 			tableView.deselectRow(at: indexPath, animated: true)
 		}
 		
-		switch indexPath.section {
-		case 0:
-			if let group = selectedGroup {
-				group.set(scene: self.getScenes(group)[indexPath.row], callback: { (success, error) in
-					if error != nil {
-						SCLAlertView().showError("Encountered error", subTitle: "")
-					}
-					
-					self.tableView.reloadData()
-				})
-			}
-			break
-		default:
-			return
+		if indexPath.section == 0 {
+            guard let group = selectedGroup else {
+                return
+            }
+            
+            group.set(scene: self.getScenes(group)[indexPath.row]).onSuccess { (_) in
+                self.tableView.reloadData()
+            }.onFail { (error) in
+                SCLAlertView().showError("Encountered error", subTitle: "\(error.localizedDescription)")
+            }
 		}
 	}
 }

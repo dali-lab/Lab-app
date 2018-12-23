@@ -16,31 +16,27 @@ class ResultsVotingViewController: UITableViewController {
 	var awards: [(award: String, option: DALIEvent.VotingEvent.Option)] = []
 	
 	override func viewDidLoad() {
-		event.getResults { (options, error) in
-			if let options = options {
-				let options2 = options.sorted(by: { (option1, option2) -> Bool in
-					return option1.name < option2.name
-				})
-				
-				self.options = options2.filter({ (option) -> Bool in
-					return option.awards != nil && option.awards!.filter({ (string) -> Bool in
-						return !string.isEmpty
-					}).count > 0
-				})
-				
-				for option in self.options {
-					if let awards = option.awards {
-						for award in awards {
-							self.awards.append((award: award, option: option))
-						}
-					}
-				}
-				
-				DispatchQueue.main.async {
-					self.tableView.reloadData()
-				}
-			}
-		}
+        _ = event.getResults().mainThreadFuture.onSuccess { (options) in
+            let options2 = options.sorted(by: { (option1, option2) -> Bool in
+                return option1.name < option2.name
+            })
+            
+            self.options = options2.filter({ (option) -> Bool in
+                return option.awards != nil && option.awards!.filter({ (string) -> Bool in
+                    return !string.isEmpty
+                }).count > 0
+            })
+            
+            for option in self.options {
+                if let awards = option.awards {
+                    for award in awards {
+                        self.awards.append((award: award, option: option))
+                    }
+                }
+            }
+            
+            self.tableView.reloadData()
+        }
 		
 		self.title = event.name + ": Awards"
 	}

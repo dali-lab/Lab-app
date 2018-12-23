@@ -29,11 +29,9 @@ class ToolsAndSettingsViewController: UITableViewController, AlertShower, QRCode
 		votingSwitch.isOn = SettingsController.getVotingNotif()
 		shareSwitch.isOn = DALILocation.sharing
 		
-		DALIFood.getFood { (food) in
-			DispatchQueue.main.async {
-				self.foodLabel.text = food ?? "No Food Tonight"
-			}
-		}
+        _ = DALIFood.getFood().mainThreadFuture.onSuccess { (food) in
+            self.foodLabel.text = food ?? "No Food Tonight"
+        }
 	}
 	
 	@IBAction func switchChanged(_ sender: UISwitch) {
@@ -79,34 +77,20 @@ class ToolsAndSettingsViewController: UITableViewController, AlertShower, QRCode
 			let textFeild = alert.addTextField()
 			textFeild.text = foodLabel.text
 			
-			alert.addButton("Save", action: { 
-				let text = textFeild.text!
-				
-				DALIFood.setFood(food: text) { (success) in
-					if !success {
-						DispatchQueue.main.async {
-							SCLAlertView().showError("Encountered Error", subTitle: "")
-						}
-					}else{
-						DispatchQueue.main.async {
-							self.foodLabel.text = text
-						}
-					}
-				}
+			alert.addButton("Save", action: {
+                DALIFood.setFood(food: textFeild.text!).mainThreadFuture.onSuccess(block: { (_) in
+                    self.foodLabel.text = textFeild.text!
+                }).onFail(block: { (error) in
+                    SCLAlertView().showError("Encountered Error", subTitle: "\(error.localizedDescription)")
+                })
 			})
 			
 			alert.addButton("Cancel Food", action: { 
-				DALIFood.cancelFood { (success) in
-					if !success {
-						DispatchQueue.main.async {
-							SCLAlertView().showError("Encountered Error", subTitle: "")
-						}
-					}else{
-						DispatchQueue.main.async {
-							self.foodLabel.text = "No Food Tonight"
-						}
-					}
-				}
+                DALIFood.cancelFood().mainThreadFuture.onSuccess(block: { (_) in
+                    self.foodLabel.text = "No Food Tonight"
+                }).onFail(block: { (error) in
+                    SCLAlertView().showError("Encountered Error", subTitle: "\(error.localizedDescription)")
+                })
 			})
 			
 			alert.showEdit("Set food tonight", subTitle: "")

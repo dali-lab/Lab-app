@@ -73,7 +73,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	
 	
 	func updateData() {
-		func gotEvents(events: [DALIEvent]?, error: DALIError.General?) {
+		func gotEvents(events: [DALIEvent]?, error: Error?) {
 			if let error = error {
 				print("Failed to get events! Reason:")
 				switch error {
@@ -313,9 +313,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 						}
 					}
 					
-					DALIapi.sendSimpleNotification(with: "\(event.name) starts soon!", and: "The event \(event.name) is starting in \(time) \(units)", to: "signedIn", callback: { (success, error) in
-						
-					})
+					DALIapi.sendSimpleNotification(with: "\(event.name) starts soon!", and: "The event \(event.name) is starting in \(time) \(units)", to: "signedIn")
 				})
 				
 				alert.addButton("Actually no...", action: {

@@ -40,7 +40,7 @@ class EquipmentCell: UITableViewCell {
                 }
                 
                 var dateString = "Unknown"
-                if let endDate = checkOut.projectedEndDate {
+                if let endDate = checkOut.expectedReturnDate {
                     dateString = dateFormatter.string(from: endDate)
                 }
                 detailLabel2.text = "Expected return: \(dateString)"
