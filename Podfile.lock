@@ -1,15 +1,15 @@
 PODS:
-  - ChromaColorPicker (1.7)
-  - Crashlytics (3.10.7):
-    - Fabric (~> 1.7.11)
+  - ChromaColorPicker (1.7.2)
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
   - DALI (0.4.5):
     - EmitterKit
     - FutureKit
     - Socket.IO-Client-Swift
     - SwiftyJSON
-  - EmitterKit (5.2.0)
-  - Eureka (4.2.0)
-  - Fabric (1.7.11)
+  - EmitterKit (5.2.1)
+  - Eureka (4.3.0)
+  - Fabric (1.9.0)
   - FirebaseAnalytics (3.9.0):
     - FirebaseCore (~> 3.6)
     - FirebaseInstanceID (~> 1.0)
@@ -24,36 +24,30 @@ PODS:
   - Google/SignIn (3.1.0):
     - Google/Core
     - GoogleSignIn (~> 4.0)
-  - GoogleSignIn (4.2.0):
+  - GoogleSignIn (4.4.0):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
-    - GTMOAuth2 (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleToolboxForMac/DebugUtils (2.1.4):
-    - GoogleToolboxForMac/Defines (= 2.1.4)
-  - GoogleToolboxForMac/Defines (2.1.4)
-  - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
-    - GoogleToolboxForMac/Defines (= 2.1.4)
-  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.1.4)":
-    - GoogleToolboxForMac/DebugUtils (= 2.1.4)
-    - GoogleToolboxForMac/Defines (= 2.1.4)
-    - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.4)"
-  - "GoogleToolboxForMac/NSString+URLArguments (2.1.4)"
-  - GTMOAuth2 (1.1.6):
-    - GTMSessionFetcher (~> 1.1)
-  - GTMSessionFetcher (1.2.0):
-    - GTMSessionFetcher/Full (= 1.2.0)
-  - GTMSessionFetcher/Core (1.2.0)
-  - GTMSessionFetcher/Full (1.2.0):
-    - GTMSessionFetcher/Core (= 1.2.0)
-  - OneSignal (2.8.8)
+  - GoogleToolboxForMac/DebugUtils (2.2.0):
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+  - GoogleToolboxForMac/Defines (2.2.0)
+  - "GoogleToolboxForMac/NSData+zlib (2.2.0)":
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.2.0)":
+    - GoogleToolboxForMac/DebugUtils (= 2.2.0)
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.0)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
+  - GTMSessionFetcher/Core (1.2.1)
+  - OneSignal (2.9.4)
   - ProximityKit (1.2.9)
   - QRCodeReaderViewController (4.0.2)
+  - RLBAlertsPickers (1.1)
   - SCLAlertView (0.8)
-  - Socket.IO-Client-Swift (13.3.0):
+  - Socket.IO-Client-Swift (13.4.0):
     - Starscream (~> 3.0.2)
-  - Starscream (3.0.5)
-  - SwiftyJSON (4.1.0)
+  - Starscream (3.0.6)
+  - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
   - ChromaColorPicker
@@ -65,6 +59,7 @@ DEPENDENCIES:
   - OneSignal (< 3.0, >= 2.5.2)
   - ProximityKit (~> 1.2)
   - QRCodeReaderViewController
+  - RLBAlertsPickers (from `https://github.com/loicgriffie/Alerts-Pickers.git`, branch `master`)
   - SCLAlertView
   - Socket.IO-Client-Swift
 
@@ -82,7 +77,6 @@ SPEC REPOS:
     - Google
     - GoogleSignIn
     - GoogleToolboxForMac
-    - GTMOAuth2
     - GTMSessionFetcher
     - OneSignal
     - ProximityKit
@@ -95,31 +89,39 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   DALI:
     :path: "~/Programming/DALI/Internal/framework"
+  RLBAlertsPickers:
+    :branch: master
+    :git: https://github.com/loicgriffie/Alerts-Pickers.git
+
+CHECKOUT OPTIONS:
+  RLBAlertsPickers:
+    :commit: 10bec56267327f3ea0899197eeb153a63c2851f1
+    :git: https://github.com/loicgriffie/Alerts-Pickers.git
 
 SPEC CHECKSUMS:
-  ChromaColorPicker: 33efa67b17cca51dd253689d18b83ac7e05642c2
-  Crashlytics: ccaac42660eb9351b9960c0d66106b0bcf99f4fa
+  ChromaColorPicker: 78194fbae9f342d3781ac178c4d92c7652197d18
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
   DALI: ba094cdc68e781e3469873a161d68eff1d1271d0
-  EmitterKit: c3948fb82c4cdb11d9019c13d374e7f22188537e
-  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
-  Fabric: f233c9492b3bbc1f04e3882986740f7988a58edb
+  EmitterKit: 2a6818d291cb9f553d3cfdd6aba570bf62337f51
+  Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
   FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   FutureKit: 91f6760df942278db387b05f19a9fdfbeb097df2
   Google: 98da4b1a60ed0beb80a290387a28333406a1eb90
-  GoogleSignIn: 591e46382014e591269f862ba6e7bc0fbd793532
-  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
-  GTMOAuth2: e8b6512c896235149df975c41d9a36c868ab7fba
-  GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
-  OneSignal: 7d2571e9fce1d961b882e1bd9f1f242802e9c8b1
+  GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
+  GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
+  GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  OneSignal: a41f5a896177275662da07e23d6a809c0e105a89
   ProximityKit: e763235e2fca64711ed7a5bae08cea1508f80919
   QRCodeReaderViewController: e8f27d035b3e72b1d4b1c61ff66458287e3be0ff
+  RLBAlertsPickers: 5a73f4d0b4a816113285a048923750232a93fa58
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
-  Socket.IO-Client-Swift: 0afb192a562db90d50e3f7f7421c06925a3f0179
-  Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  Socket.IO-Client-Swift: 2b2720f14c92ff1237ced09bc2f2da2022624fee
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 529b3f7a6e9a3a0eb75153b2f90ebeb7535fd044
+PODFILE CHECKSUM: cc32d8be5d445cb14ee51f088fd4fdff3f0c22f9
 
 COCOAPODS: 1.5.3

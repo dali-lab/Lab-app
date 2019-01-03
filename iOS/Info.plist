@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.7</string>
+	<string>3.8</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -52,7 +52,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>1</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -82,12 +82,16 @@
 	<string>Access to your calendar is needed if you would like to be able to add events to your calendar</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera is used to scan QR codes for checking out equipment</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Contacts are used to compare to the profile information in the app</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Location is used only to determine if you are within the DALI Lab or at one of its events</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Location is used only to determine if you are within the DALI Lab or at one of its events</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location is used only to determine if you are within the DALI Lab or at one of its events'</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photos access will allow you to import photos into the app</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

@@ -50,44 +50,34 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 		bottomView.layer.shadowColor = UIColor.black.cgColor
 		bottomView.layer.shadowOffset = CGSize.zero
 		bottomView.layer.shadowOpacity = 0.4
-		
 		titleLabel.text = "Setting up..."
-		event.enableCheckin { (success, major, minor, error) in
-			DispatchQueue.main.async {
-				if let major = major, let minor = minor, success {
-					DALIEvent.checkIn(major: major, minor: minor, callback: { (success, error) in
-						// Checking in this user
-					})
-					
-					self.titleLabel.text = "Check In Enabled"
-					self.beacon1.image = #imageLiteral(resourceName: "Beacon1")
-					self.beacon2.image = #imageLiteral(resourceName: "Beacon2")
-					self.animate()
-					
-					self.region = self.createBeaconRegion(major, minor)
-					self.peripheral = CBPeripheralManager(delegate: self, queue: nil)
-					
-					DALIEvent.checkIn(major: major, minor: minor, callback: { (_, _) in })
-				}else{
-					let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
-					
-					alert.addButton("Done", action: { 
-						self.navigationController?.dismiss(animated: true, completion: { 
-							
-						})
-					})
-						
-					alert.showError("Encountered error", subTitle: "\(error?.localizedDescription ?? "")")
-					print(error ?? "")
-				}
-			}
-		}
+        
+        event.enableCheckin().mainThreadFuture.onSuccess { (beaconInfo) in
+            guard let major = beaconInfo.major, let minor = beaconInfo.minor else {
+                throw DALIError.General.UnexpectedResponse
+            }
+            
+            self.titleLabel.text = "Check In Enabled"
+            self.beacon1.image = #imageLiteral(resourceName: "Beacon1")
+            self.beacon2.image = #imageLiteral(resourceName: "Beacon2")
+            self.animate()
+            
+            self.region = self.createBeaconRegion(major, minor)
+            self.peripheral = CBPeripheralManager(delegate: self, queue: nil)
+            _ = DALIEvent.checkIn(major: major, minor: minor)
+        }.onFail { (error) in
+            let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+            
+            alert.addButton("Done", action: {
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            })
+            
+            alert.showError("Encountered error", subTitle: "Couldn't get check-in configuration from the server")
+        }
 	}
 	
 	@objc func done() {
-		self.navigationController?.dismiss(animated: true, completion: { 
-			
-		})
+		self.navigationController?.dismiss(animated: true, completion: nil)
 	}
 	
 	func numberOfSections(in tableView: UITableView) -> Int {

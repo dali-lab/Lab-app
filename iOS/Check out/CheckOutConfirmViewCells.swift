@@ -85,7 +85,7 @@ class CheckOutConfirmViewCheckedOutCell: CheckOutConfirmViewCheckOutCell {
     override func update() {
         super.update()
         
-        if let expectEnd = checkOutRecord.projectedEndDate {
+        if let expectEnd = checkOutRecord.expectedReturnDate {
             let formatter = DateFormatter()
             formatter.dateFormat = "LLLL d"
             if Calendar.current.component(.year, from: expectEnd) != Calendar.current.component(.year, from: Date()) {

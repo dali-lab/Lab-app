@@ -43,17 +43,14 @@ class VotingEventOptionsViewController: UITableViewController {
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
-		event.getUnreleasedResults { (options, error) in
-			if let options = options {
-				self.options = options.sorted(by: { (option1, option2) -> Bool in
-					return (option1.points ?? 0) > (option2.points ?? 0)
-				})
-				
-				DispatchQueue.main.async {
-					self.tableView.reloadData()
-				}
-			}
-		}
+        event.getUnreleasedResults().mainThreadFuture.onSuccess { (options) in
+            self.options = options.sorted(by: { (option1, option2) -> Bool in
+                return (option1.points ?? 0) > (option2.points ?? 0)
+            })
+            self.tableView.reloadData()
+        }.onFail { (error) in
+            // TODO: Handle error
+        }
 	}
 	
 	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -63,14 +60,12 @@ class VotingEventOptionsViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if (editingStyle == UITableViewCell.EditingStyle.delete) {
 			// handle delete (by removing the data from your array and updating the tableview)
-			event.removeOption(option: self.options[indexPath.row], callback: { (success, error) in
-				if success {
-					self.options.remove(at: indexPath.row)
-					tableView.deleteRows(at: [indexPath], with: .automatic)
-				}else {
-					SCLAlertView().showError("Encountered error", subTitle: error?.localizedDescription ?? "unknown error")
-				}
-			})
+            event.removeOption(option: self.options[indexPath.row]).mainThreadFuture.onSuccess { (_) in
+                self.options.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }.onFail { (error) in
+                SCLAlertView().showError("Encountered error", subTitle: error.localizedDescription)
+            }
 		}
 	}
 	@IBAction func release(_ sender: UIBarButtonItem) {
@@ -82,14 +77,12 @@ class VotingEventOptionsViewController: UITableViewController {
 			return
 		}
 		
-		self.event.release { (success, error) in
-			DispatchQueue.main.async {
-				if success {
-					sender.isEnabled = false;
-					sender.title = "Released";
-				}
-			}
-		}
+        event.release().onSuccess { (_) in
+            sender.isEnabled = false;
+            sender.title = "Released";
+        }.onFail { (error) in
+            // TODO: Handle error
+        }
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -133,14 +126,14 @@ class VotingEventOptionsViewController: UITableViewController {
 			showCloseButton: false
 		))
 		let wait = waitAlert.showWait("Adding...", subTitle: "")
-		self.event.saveResults(options: self.options) { (success, error) in
-			wait.close()
-			if success {
-				self.tableView.reloadData()
-			} else {
-				SCLAlertView().showError("Encountered error", subTitle: error?.localizedDescription ?? "")
-			}
-		}
+        
+        self.event.saveResults(options: self.options).mainThreadFuture.onSuccess { (_) in
+            self.tableView.reloadData()
+        }.onFail { (error) in
+            SCLAlertView().showError("Encountered error", subTitle: error.localizedDescription)
+        }.onComplete { (_) in
+            wait.close()
+        }
 		
 		self.options[optIndex] = option
 	}
@@ -156,43 +149,28 @@ class VotingEventOptionsViewController: UITableViewController {
 				showCloseButton: false
 			))
 			let wait = waitAlert.showWait("Removing...", subTitle: "")
-			self.event.saveResults(options: self.options, callback: { (success, error) in
-				wait.close()
-				DispatchQueue.main.async {
-					if success {
-						self.tableView.reloadData()
-					} else {
-						SCLAlertView().showError("Encountered error", subTitle: error?.localizedDescription ?? "")
-					}
-				}
-			})
+            
+            self.event.saveResults(options: self.options).onSuccess { (_) in
+                self.tableView.reloadData()
+            }.onFail { (error) in
+                SCLAlertView().showError("Encountered error", subTitle: error.localizedDescription)
+            }.onComplete { (_) in
+                wait.close()
+            }
 		}
 	}
 	
 	func newOption(textField: UITextField) {
 		let option = textField.text
 		
-		self.event.addOption(option: option!, callback: { (success, error) in
-			if success {
-				self.event.getOptions { (options, error) in
-					if let options = options {
-						self.options = options
-						
-						DispatchQueue.main.async {
-							self.tableView.reloadData()
-						}
-					}else{
-						DispatchQueue.main.async {
-							SCLAlertView().showError("Encountered error", subTitle: "")
-						}
-					}
-				}
-			}else{
-				DispatchQueue.main.async {
-					SCLAlertView().showError("Encountered error", subTitle: "")
-				}
-			}
-		})
+        self.event.addOption(option: option!).onSuccess { (_) in
+            return self.event.getOptions().mainThreadFuture
+        }.onSuccess { (options) in
+            self.options = options
+            self.tableView.reloadData()
+        }.onFail { (error) in
+            SCLAlertView().showError("Encountered error", subTitle: "\(error.localizedDescription)")
+        }
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

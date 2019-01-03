@@ -17,23 +17,19 @@ class UnorderedVotingViewController: UITableViewController {
 	var numSelected = 0
 	
 	override func viewDidLoad() {
-		self.event.getOptions { (options, error) in
-			if let options = options {
-				self.options.removeAll()
-				
-				for option in options.sorted(by: { (option1, option2) -> Bool in return option1.name < option2.name }) {
-					self.options.append((option, false))
-				}
-				
-				DispatchQueue.main.async {
-					self.tableView.reloadData()
-				}
-			}
-		}
+        _ = event.getOptions().onSuccess { (options) in
+            self.options.removeAll()
+            
+            let optionsOrdered = options.sorted(by: { (option1, option2) -> Bool in return option1.name < option2.name })
+            self.options = optionsOrdered.map({ (option) -> (DALIEvent.VotingEvent.Option, Bool) in
+                return (option, false)
+            })
+            self.tableView.reloadData()
+        }
 		
-		self.title = event.name
-		self.navigationController?.isToolbarHidden = false
-		self.navigationController?.toolbar.barTintColor = #colorLiteral(red: 0, green: 0.4870499372, blue: 0.5501662493, alpha: 1)
+		title = event.name
+		navigationController?.isToolbarHidden = false
+		navigationController?.toolbar.barTintColor = #colorLiteral(red: 0, green: 0.4870499372, blue: 0.5501662493, alpha: 1)
 	}
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,16 +63,12 @@ class UnorderedVotingViewController: UITableViewController {
 			showCloseButton: false
 		)).showWait("Submitting...", subTitle: "")
 		
-		event.submitVote(options: optionsToSubmit) { (success, error) in
-			DispatchQueue.main.async {
-				wait.close()
-				if success {
-					self.performSegue(withIdentifier: "done", sender: nil)
-				}else{
-					SCLAlertView().showError("Encountered an error", subTitle: "")
-				}
-			}
-		}
+        event.submitVote(options: optionsToSubmit).mainThreadFuture.onSuccess { (_) in
+            wait.close()
+            self.performSegue(withIdentifier: "done", sender: nil)
+        }.onFail { (error) in
+            SCLAlertView().showError("Encountered an error", subTitle: "\(error.localizedDescription)")
+        }
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

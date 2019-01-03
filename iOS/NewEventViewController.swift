@@ -141,19 +141,12 @@ class NewEventViewController: FormViewController {
 							  location: (form.rowBy(tag: "location") as! TextRow).value!,
 							  start: start,
 							  end: end)
-		do {
-			try event.create { (success, error) in
-				if success {
-					self.dismissView()
-				}else{
-					SCLAlertView().showError("Encountered error", subTitle: error?.localizedDescription ?? "unknown error")
-				}
-			}
-		} catch {
-			if error is DALIError.Create {
-				self.dismissView()
-			}
-		}
+        
+        event.create().mainThreadFuture.onSuccess { (_) in
+            self.dismissView()
+        }.onFail { (error) in
+            SCLAlertView().showError("Encountered error", subTitle: error.localizedDescription)
+        }
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

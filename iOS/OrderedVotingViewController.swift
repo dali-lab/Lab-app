@@ -48,17 +48,14 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
     }
 	
 	func update() {
-		self.event.getOptions { (options, error) in
-			if let options = options {
-				self.unselected = options.sorted(by: { (option1, option2) -> Bool in
-					return option1.name < option2.name
-				})
-				
-				DispatchQueue.main.async {
-					self.orderedTableView.reloadData()
-				}
-			}
-		}
+        self.event.getOptions().mainThreadFuture.onSuccess { (options) in
+            self.unselected = options.sorted(by: { (option1, option2) -> Bool in
+                return option1.name < option2.name
+            })
+            self.orderedTableView.reloadData()
+        }.onFail { (error) in
+            // TODO: Handle error
+        }
 	}
 	
 	@IBAction func submit(_ sender: Any) {
@@ -78,16 +75,17 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 			showCloseButton: false
 		)).showWait("Submitting...", subTitle: "")
 		
-		event.submitVote(options: Array(self.selected) as! [DALIEvent.VotingEvent.Option]) { (success, error) in
-			DispatchQueue.main.async {
-				wait.close()
-				if success {
-					self.performSegue(withIdentifier: "done", sender: nil)
-				}else{
-					SCLAlertView().showError("You already voted", subTitle: error?.localizedDescription ?? "")
-				}
-			}
-		}
+        
+        guard let array = Array(self.selected) as? [DALIEvent.VotingEvent.Option] else {
+            return
+        }
+        event.submitVote(options: array).mainThreadFuture.onSuccess { (_) in
+            self.performSegue(withIdentifier: "done", sender: nil)
+        }.onFail { (error) in
+            SCLAlertView().showError("You already voted", subTitle: error.localizedDescription)
+        }.onComplete { (_) in
+            wait.close()
+        }
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

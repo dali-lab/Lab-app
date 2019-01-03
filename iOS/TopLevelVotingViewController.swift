@@ -20,10 +20,8 @@ class TopLevelVotingViewController: UITableViewController {
 	override func viewDidLoad() {
 		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Events", style: .plain, target: nil, action: nil)
         
-        let _ = self.updateData().onSuccess { (_) in
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+        let _ = self.updateData().mainThreadFuture.onSuccess { (_) in
+            self.tableView.reloadData()
         }
         
 //        observation = DALIEvent.VotingEvent.observe().on { (_) in
@@ -42,39 +40,46 @@ class TopLevelVotingViewController: UITableViewController {
     }
     
     func updateData() -> Future<Any> {
-        let currentPromise = Promise<Any>()
+//        DALIEvent.VotingEvent.getCurrent { (currentEvents, error) in
+//            self.currentEvents = currentEvents
+//            let futures = currentEvents.map({ (event) -> Future<Bool> in
+//                guard let id = event.id else {
+//                    return Future<Bool>(success: false)
+//                }
+//                let promise = Promise<Bool>()
+//                event.haveVoted(callback: { (haveVoted, error) in
+//                    let prevHaveVoted = UserDefaults.standard.bool(forKey:  "hasVoted:\(id)")
+//                    UserDefaults.standard.set(haveVoted || prevHaveVoted, forKey: "hasVoted:\(id)")
+//                    promise.completeWithSuccess(haveVoted || prevHaveVoted)
+//                })
+//                return promise.future
+//            })
+//
+//            currentPromise.completeUsingFuture(FutureBatch(futures).future.futureAny)
+//        }
         
-        DALIEvent.VotingEvent.getCurrent { (currentEvents, error) in
-            self.currentEvents = currentEvents
-            let futures = currentEvents.map({ (event) -> Future<Bool> in
+        let future1 = DALIEvent.VotingEvent.getCurrent().onSuccess { (events) -> Future<Any> in
+            self.currentEvents = events
+            return FutureBatch(self.currentEvents.map({ (event) -> Future<Void> in
                 guard let id = event.id else {
-                    return Future<Bool>(success: false)
+                    return Future(success: Void())
                 }
-                let promise = Promise<Bool>()
-                event.haveVoted(callback: { (haveVoted, error) in
-                    let prevHaveVoted = UserDefaults.standard.bool(forKey:  "hasVoted:\(id)")
+                return event.haveVoted().onSuccess { (haveVoted) in
+                    let prevHaveVoted = UserDefaults.standard.bool(forKey: "hasVoted:\(id)")
                     UserDefaults.standard.set(haveVoted || prevHaveVoted, forKey: "hasVoted:\(id)")
-                    promise.completeWithSuccess(haveVoted || prevHaveVoted)
-                })
-                return promise.future
-            })
-            
-            currentPromise.completeUsingFuture(FutureBatch(futures).future.futureAny)
+                }
+            })).batchFuture.futureAny
         }
         
-        let releasedPromise = Promise<Any>()
-        DALIEvent.VotingEvent.getReleasedEvents { (releasedEvents, error) in
-            if let events = releasedEvents {
-                self.pastEvents = events.sorted(by: { (event1, event2) -> Bool in
-                    return event1.start > event2.start
-                })
-            }
-            releasedPromise.completeWithSuccess(true)
+        let future2 = DALIEvent.VotingEvent.getReleasedEvents().onSuccess { (events) in
+            self.pastEvents = events.sorted(by: { (event1, event2) -> Bool in
+                return event1.start > event2.start
+            })
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(TopLevelVotingViewController.eventVoteEnteredOrExited(notification:)), name: Notification.Name.Custom.EventVoteEnteredOrExited, object: nil)
         
-        return combineFutures(currentPromise.future, releasedPromise.future).futureAny
+        return FutureBatch([future1, future2]).resultsFuture.futureAny
     }
     
     @objc func eventVoteEnteredOrExited(notification: NSNotification) {
