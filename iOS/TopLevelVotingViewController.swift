@@ -20,10 +20,8 @@ class TopLevelVotingViewController: UITableViewController {
 	override func viewDidLoad() {
 		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Events", style: .plain, target: nil, action: nil)
         
-        let _ = self.updateData().onSuccess { (_) in
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+        let _ = self.updateData().mainThreadFuture.onSuccess { (_) in
+            self.tableView.reloadData()
         }
         
 //        observation = DALIEvent.VotingEvent.observe().on { (_) in
@@ -81,7 +79,7 @@ class TopLevelVotingViewController: UITableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(TopLevelVotingViewController.eventVoteEnteredOrExited(notification:)), name: Notification.Name.Custom.EventVoteEnteredOrExited, object: nil)
         
-        return combineFutures(future1, future2).futureAny
+        return FutureBatch([future1, future2]).resultsFuture.futureAny
     }
     
     @objc func eventVoteEnteredOrExited(notification: NSNotification) {
