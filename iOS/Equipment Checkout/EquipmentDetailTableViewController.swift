@@ -11,6 +11,7 @@ import UIKit
 import DALI
 import RLBAlertsPickers
 import FutureKit
+import NotificationCenter
 
 class EquipmentDetailTableViewController: UITableViewController {
     var equipment: DALIEquipment!
@@ -43,22 +44,29 @@ class EquipmentDetailTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellID = cellTypes[indexPath.section][indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID.identifier)
+        let cellType = cellTypes[indexPath.section][indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellType.identifier)
         
         if let cell = cell as? EquipmentDetailTableViewCell {
             cell.equipment = equipment
-            cell.type = cellID
+            cell.type = cellType
         }
-        if case CellType.checkOutButton(let title, let enabled) = cellID {
+        if case CellType.checkOutButton(let title, let enabled) = cellType {
             cell?.textLabel?.text = title
             cell?.textLabel?.textColor = enabled ? UIColor.blue : UIColor.gray
-        } else if case CellType.password = cellID {
+        } else if case CellType.password = cellType {
             if passwordIsReveiled {
                 cell?.detailTextLabel?.text = equipment.password
             } else {
                 cell?.detailTextLabel?.text = String(repeating: "●", count: equipment.password!.count)
             }
+        } else if case CellType.updateReturnDate(let current) = cellType {
+            let checkOut = equipment.lastCheckedOut
+            let df = DateFormatter()
+            df.dateFormat = "MMM d"
+            
+            cell?.textLabel?.text = "Return Date: \(df.string(from: current))"
+            cell?.detailTextLabel?.isHidden = (checkOut?.member != DALIMember.current)
         }
         
         return cell!
@@ -83,6 +91,8 @@ class EquipmentDetailTableViewController: UITableViewController {
         } else if case CellType.password = cellType {
             passwordIsReveiled = !passwordIsReveiled
             tableView.reloadRows(at: [indexPath], with: .fade)
+        } else if case CellType.updateReturnDate(let current) = cellType {
+            changeReturnDatePressed(with: current)
         }
         tableView.deselectRow(at: indexPath, animated: deselectAnimated)
     }
@@ -95,6 +105,10 @@ class EquipmentDetailTableViewController: UITableViewController {
         
         sectionTitles.append(nil)
         cellTypes.append([.title])
+        
+        if let returnDate = equipment.lastCheckedOut?.expectedReturnDate {
+            cellTypes[0].append(.updateReturnDate(current: returnDate))
+        }
         
         if equipment.password != nil {
             sectionTitles.append("Notes")
@@ -142,20 +156,48 @@ class EquipmentDetailTableViewController: UITableViewController {
     func checkout(with endDate: Date) {
         equipment.checkout(expectedEndDate: endDate).onSuccess { (record) -> Future<DALIEquipment> in
             return self.equipment.reload()
-        }.onSuccess { (equipment) in
+        }.mainThreadFuture.onSuccess { (equipment) in
             self.equipment = equipment
+            AppDelegate.shared.checkedOut(equipment: equipment)
             if self.checkOuts != nil {
                 self.loadMore()
             } else {
-                DispatchQueue.main.async {
-                    self.updateView()
-                }
+                self.updateView()
             }
         }.onFail { (error) in
-            DispatchQueue.main.async {
-                self.errorAlert(with: "Failed to check out", error: error)
-            }
+            self.errorAlert(with: "Failed to check out", error: error)
         }
+    }
+    
+    func update(returnDate: Date) {
+        equipment.update(returnDate: returnDate).onSuccess { (record) -> Future<DALIEquipment> in
+            return self.equipment.reload()
+        }.mainThreadFuture.onSuccess { (equipment) in
+            self.equipment = equipment
+            AppDelegate.shared.checkedOut(equipment: equipment)
+            if self.checkOuts != nil {
+                self.loadMore()
+            } else {
+                self.updateView()
+            }
+        }.onFail { (error) in
+            self.errorAlert(with: "Failed to update return date", error: error)
+        }
+    }
+    
+    func changeReturnDatePressed(with returnDate: Date) {
+        let alert = UIAlertController(title: "When will you return \(equipment.name)?", message: nil, preferredStyle: .actionSheet)
+        
+        var savedDate: Date = Date()
+        alert.addDatePicker(mode: .date, date: returnDate, minimumDate: Date(), maximumDate: nil) { (date) in
+            savedDate = date
+        }
+        
+        alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { (_) in
+            self.update(returnDate: savedDate)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func checkoutPressed() {
@@ -208,6 +250,7 @@ fileprivate enum CellType {
     case currentCheckout(name: String, start: Date, end: Date?)
     case pastCheckout(name: String, start: Date, end: Date)
     case loadMore
+    case updateReturnDate(current: Date)
     case checkOutButton(title: String, enabled: Bool)
     
     var identifier: String {
@@ -216,6 +259,7 @@ fileprivate enum CellType {
         case .password: return "passwordCell"
         case .currentCheckout(_, _, _): return "currentCheckoutCell"
         case .pastCheckout(_, _, _): return "pastCheckoutCell"
+        case .updateReturnDate(_): return "updateReturnDateCell"
         case .loadMore: return "moreCell"
         case .checkOutButton: return "checkOutButtonCell"
         }
