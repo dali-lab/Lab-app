@@ -16,7 +16,7 @@ import OneSignal
 import FutureKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubscriptionObserver {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubscriptionObserver, UNUserNotificationCenterDelegate {
 	static var shared: AppDelegate!
 	
 	var window: UIWindow?
@@ -44,7 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 		
 		var error: NSError? = nil
 		GGLContext.sharedInstance().configureWithError(&error)
-		
 		assert(error == nil)
 		
 		let config = DALIConfig(serverURL: "https://dalilab-api.herokuapp.com")
@@ -185,6 +184,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 				})
 			}
 		}
+        
+        let updateReturnDate = UNNotificationAction(identifier: "UPDATE_RETURN_ACTION", title: "Update Return Date", options: .foreground)
+        let returnReminderCategory = UNNotificationCategory(identifier: "RETURN_REMINDER", actions: [updateReturnDate], intentIdentifiers: [], options: .customDismissAction)
+        UNUserNotificationCenter.current().setNotificationCategories([returnReminderCategory])
 	}
 	
 	func enterExitHappened(entered: Bool) {
@@ -256,6 +259,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
             }
 		}
 	}
+    
+    func checkedOut(equipment: DALIEquipment) {
+        guard let checkOut = equipment.lastCheckedOut, let returnDate = checkOut.expectedReturnDate else {
+            return
+        }
+        
+        let content = UNMutableNotificationContent()
+        content.title = "\(equipment.name) Return Date Reached"
+        content.body = "The expected return rate for \(equipment.name) has arrived"
+        content.categoryIdentifier = "RETURN_REMINDER"
+        content.threadIdentifier = "returnReminder:\(equipment.id)"
+        content.userInfo = ["equipment": ["id": equipment.id, "name": equipment.name]]
+        
+        var dateComponents = Calendar.current.dateComponents([.calendar,.day,.month,.year,.era], from: returnDate)
+        dateComponents.hour = 14 // 14:00 hours
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let request = UNNotificationRequest(identifier: "returnReminder:\(equipment.id)", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
 	
 	func breakDownNotificationListeners() {
 		NotificationCenter.default.removeObserver(self)
@@ -263,7 +290,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	
 	func didSignIn(member: DALIMember, noUIChange: Bool = false) {
 		if self.notificationsAuthorized {
-			OneSignal.syncHashedEmail(member.email)
+            OneSignal.setEmail(member.email)
 			OneSignal.sendTag("signedIn", value: "\(true)")
 		}
 		
@@ -319,7 +346,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	}
 	
 	func skipSignIn() {
-		
 		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalNever)
 		let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
 		
@@ -361,6 +387,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
 	func returnToSignIn() {
 		self.signOut()
 	}
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        if response.actionIdentifier == "UPDATE_RETURN_ACTION" {
+            guard let equipmentDict = userInfo["equipment"] as? [String:String],
+                  let id = equipmentDict["id"] else {
+                return
+            }
+            
+            DALIEquipment.equipment(for: id).onSuccess { (equipment) in
+                
+            }
+        }
+    }
 	
 	func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
 		return GIDSignIn.sharedInstance().handle(url, sourceApplication: options[.sourceApplication] as? String, annotation: options)
