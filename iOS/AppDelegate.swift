@@ -270,7 +270,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
         content.body = "The expected return rate for \(equipment.name) has arrived"
         content.categoryIdentifier = "RETURN_REMINDER"
         content.threadIdentifier = "returnReminder:\(equipment.id)"
-        content.userInfo = ["equipment": equipment]
+        content.userInfo = ["equipment": ["id": equipment.id, "name": equipment.name]]
         
         var dateComponents = Calendar.current.dateComponents([.calendar,.day,.month,.year,.era], from: returnDate)
         dateComponents.hour = 14 // 14:00 hours
@@ -391,10 +391,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, OSSubs
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         if response.actionIdentifier == "UPDATE_RETURN_ACTION" {
-            guard let equipment = userInfo["equipment"] as? DALIEquipment else {
+            guard let equipmentDict = userInfo["equipment"] as? [String:String],
+                  let id = equipmentDict["id"] else {
                 return
             }
-            // TODO: Deep link to equipment detail view
+            
+            DALIEquipment.equipment(for: id).onSuccess { (equipment) in
+                
+            }
         }
     }
 	
