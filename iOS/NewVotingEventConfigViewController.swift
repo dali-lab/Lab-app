@@ -21,9 +21,13 @@ class NewVotingEventConfigViewController: UITableViewController {
 	override func viewDidLoad() {
 		self.title = event.name
 		
-		self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+		self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                                target: self,
+                                                                action: #selector(cancel))
 		
-		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                                                 target: self,
+                                                                 action: #selector(done))
 	}
 	
 	@objc func cancel() {
@@ -31,7 +35,7 @@ class NewVotingEventConfigViewController: UITableViewController {
 	}
 	
 	@objc func done() {
-        event.enableVoting(numSelected: Int(stepper.value),ordered: orderedSwitch.isOn)
+        event.enableVoting(numSelected: Int(stepper.value), ordered: orderedSwitch.isOn)
             .mainThreadFuture.onSuccess(block: { (event) in
             self.event = event
             let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]

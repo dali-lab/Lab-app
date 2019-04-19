@@ -20,7 +20,7 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 			if let region = region {
 				advertiseDevice(region: region)
 			}
-		}else{
+		} else {
 			SCLAlertView().showError("Bluetooth Off!", subTitle: "Turn on bluetooth to be able to ...")
 		}
 	}

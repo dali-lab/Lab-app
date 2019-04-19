@@ -1,6 +1,6 @@
 //
-//  iOSUITests.swift
-//  iOSUITests
+//  UITests.swift
+//  UITests
 //
 //  Created by John Kotz on 8/18/17.
 //  Copyright © 2017 BrunchLabs. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class iOSUITests: XCTestCase {
+class UITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

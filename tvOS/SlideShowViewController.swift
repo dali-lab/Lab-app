@@ -65,16 +65,25 @@ class SlideShowViewController: UIViewController, ViewProtocol {
 		label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 		label.alpha = 0.0
 		label.sizeToFit()
-		label.frame = CGRect(x: self.overlayContainer.frame.origin.x - label.frame.width, y: self.overlayContainer.frame.height / 2, width: label.frame.width, height: label.frame.height)
+		label.frame = CGRect(x: self.overlayContainer.frame.origin.x - label.frame.width,
+                             y: self.overlayContainer.frame.height / 2,
+                             width: label.frame.width,
+                             height: label.frame.height)
 		self.overlayContainer.addSubview(label)
 		
 		UIView.animate(withDuration: 0.5, animations: {
 			effectView.effect = UIBlurEffect(style: .dark)
 			label.alpha = 1.0
-			label.frame = CGRect(x: self.overlayContainer.frame.width/2 - label.frame.width/2, y: self.overlayContainer.frame.height / 2 - label.frame.height / 2, width: label.frame.width, height: label.frame.height)
+			label.frame = CGRect(x: self.overlayContainer.frame.width/2 - label.frame.width/2,
+                                 y: self.overlayContainer.frame.height / 2 - label.frame.height / 2,
+                                 width: label.frame.width,
+                                 height: label.frame.height)
 		}, completion: { (_) in
 			UIView.animate(withDuration: 0.5, delay: 10, options: [], animations: {
-				label.frame = CGRect(x: self.overlayContainer.frame.width, y: self.overlayContainer.frame.height / 2 - label.frame.height / 2, width: label.frame.width, height: label.frame.height)
+				label.frame = CGRect(x: self.overlayContainer.frame.width,
+                                     y: self.overlayContainer.frame.height / 2 - label.frame.height / 2,
+                                     width: label.frame.width,
+                                     height: label.frame.height)
 				label.alpha = 0.0
 				effectView.alpha = 0
 			}, completion: { (_) in
@@ -128,7 +137,7 @@ class SlideShowViewController: UIViewController, ViewProtocol {
 		URLSession.shared.dataTask(with: url) { (data, response, error) in
 			if let data = data, let image = UIImage.init(data: data){
 				callback(image)
-			}else{
+			} else {
 				print("Failed to get image from: \(url)")
 			}
 		}.resume()

@@ -10,7 +10,9 @@ import Foundation
 import SCLAlertView
 import DALI
 
-let env = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "PrivateInformation", ofType: "plist")!)! as! [String: Any]
+// swiftlint:disable force_cast
+let env = NSDictionary(contentsOfFile:
+    Bundle.main.path(forResource: "PrivateInformation", ofType: "plist")!)! as! [String: Any]
 
 extension Notification.Name {
 	enum Custom {
@@ -50,3 +52,5 @@ protocol AlertShower {
 protocol ErrorAlertShower {
 	func showError(alert: SCLAlertView, title: String, subTitle: String)
 }
+
+// swiftlint:enable force_cast

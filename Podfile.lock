@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.8.2)
   - ChromaColorPicker (1.7.2)
   - Crashlytics (3.12.0):
     - Fabric (~> 1.9.0)
@@ -8,7 +9,7 @@ PODS:
     - Socket.IO-Client-Swift
     - SwiftyJSON
   - EmitterKit (5.2.1)
-  - Eureka (4.3.0)
+  - Eureka (4.3.1)
   - Fabric (1.9.0)
   - FirebaseAnalytics (3.9.0):
     - FirebaseCore (~> 3.6)
@@ -39,17 +40,18 @@ PODS:
     - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.0)"
   - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
   - GTMSessionFetcher/Core (1.2.1)
-  - OneSignal (2.9.4)
+  - OneSignal (2.9.5)
   - ProximityKit (1.2.9)
   - QRCodeReaderViewController (4.0.2)
-  - RLBAlertsPickers (1.1)
+  - RLBAlertsPickers (1.1.1)
   - SCLAlertView (0.8)
-  - Socket.IO-Client-Swift (13.4.0):
-    - Starscream (~> 3.0.2)
-  - Starscream (3.0.6)
+  - Socket.IO-Client-Swift (15.0.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.0)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
+  - Alamofire
   - ChromaColorPicker
   - Crashlytics
   - DALI (from `~/Programming/DALI/Internal/framework`)
@@ -65,6 +67,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - ChromaColorPicker
     - Crashlytics
     - EmitterKit
@@ -95,15 +98,16 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   RLBAlertsPickers:
-    :commit: 10bec56267327f3ea0899197eeb153a63c2851f1
+    :commit: 5ce7637f4c8d5118442f1a9ae781020fa80fccb9
     :git: https://github.com/loicgriffie/Alerts-Pickers.git
 
 SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   ChromaColorPicker: 78194fbae9f342d3781ac178c4d92c7652197d18
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
-  DALI: ba094cdc68e781e3469873a161d68eff1d1271d0
+  DALI: d6adf2a331ce195e5fbee01885ab47e21d20a8b4
   EmitterKit: 2a6818d291cb9f553d3cfdd6aba570bf62337f51
-  Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
+  Eureka: 28ea296f06710f6745266b71f17862048941a32d
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
@@ -113,15 +117,15 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
-  OneSignal: a41f5a896177275662da07e23d6a809c0e105a89
+  OneSignal: ccdeb961882f8668305e5b694e2cb7cb325fc907
   ProximityKit: e763235e2fca64711ed7a5bae08cea1508f80919
   QRCodeReaderViewController: e8f27d035b3e72b1d4b1c61ff66458287e3be0ff
-  RLBAlertsPickers: 5a73f4d0b4a816113285a048923750232a93fa58
+  RLBAlertsPickers: d8dd984ed0a686bd167554eeb4a3af5ae8d82d24
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
-  Socket.IO-Client-Swift: 2b2720f14c92ff1237ced09bc2f2da2022624fee
-  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+  Socket.IO-Client-Swift: c039a808195d22a7192962841b8c035cb61ea49e
+  Starscream: 08172b481e145289c4930cb567230fb55897cfa4
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: cc32d8be5d445cb14ee51f088fd4fdff3f0c22f9
+PODFILE CHECKSUM: e3d55e64e9f00c095eb79b2668e95a7ff517a78b
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

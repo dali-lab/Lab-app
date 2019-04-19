@@ -39,7 +39,9 @@ class CheckOutConfirmViewCheckOutCell: UITableViewCell {
         let start = checkOutRecord.startDate
         let end = checkOutRecord.endDate
         
-        let startSameAsThisYear = Calendar.current.component(.year, from: start) == Calendar.current.component(.year, from: Date())
+        let startYear = Calendar.current.component(.year, from: start)
+        let thisYear = Calendar.current.component(.year, from: Date())
+        let startSameAsThisYear = startYear == thisYear
         
         var sameYear = true
         var sameMonth = true
@@ -51,7 +53,7 @@ class CheckOutConfirmViewCheckOutCell: UITableViewCell {
         // Formatters for the begining...
         let startFormatter = DateFormatter()
         startFormatter.dateFormat = "LLLL d"
-        if (!sameYear && !startSameAsThisYear) {
+        if !sameYear && !startSameAsThisYear {
             startFormatter.dateFormat += ", yyyy"
         }
         
@@ -59,15 +61,16 @@ class CheckOutConfirmViewCheckOutCell: UITableViewCell {
         var dateRangeString = ""
         dateRangeString += startFormatter.string(from: start)
         if let end = end {
-            let endSameAsThisYear = Calendar.current.component(.year, from: end) == Calendar.current.component(.year, from: Date())
+            let endYear = Calendar.current.component(.year, from: end)
+            let endSameAsThisYear = endYear == thisYear
             
             // and end of the range
             let endFormatter = DateFormatter()
             endFormatter.dateFormat = "d"
-            if (!endSameAsThisYear) {
+            if !endSameAsThisYear {
                 endFormatter.dateFormat += ", yyyy"
             }
-            if (!sameMonth) {
+            if !sameMonth {
                 endFormatter.dateFormat = "LLLL \(endFormatter.dateFormat!)"
             }
             

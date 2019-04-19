@@ -20,7 +20,7 @@ class TopLevelVotingViewController: UITableViewController {
 	override func viewDidLoad() {
 		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Events", style: .plain, target: nil, action: nil)
         
-        let _ = self.updateData().mainThreadFuture.onSuccess { (_) in
+        _ = self.updateData().mainThreadFuture.onSuccess { (_) in
             self.tableView.reloadData()
         }
         
@@ -77,7 +77,10 @@ class TopLevelVotingViewController: UITableViewController {
             })
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(TopLevelVotingViewController.eventVoteEnteredOrExited(notification:)), name: Notification.Name.Custom.EventVoteEnteredOrExited, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(eventVoteEnteredOrExited(notification:)),
+                                               name: Notification.Name.Custom.EventVoteEnteredOrExited,
+                                               object: nil)
         
         return FutureBatch([future1, future2]).resultsFuture.futureAny
     }
@@ -122,7 +125,7 @@ class TopLevelVotingViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		if section == 1 || currentEvents.count == 0 {
 			return "Past"
-		}else{
+		} else {
 			return "Now Voting"
 		}
 	}
@@ -134,7 +137,7 @@ class TopLevelVotingViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if section == 0 && currentEvents.count > 0 {
 			return currentEvents.count
-		}else{
+		} else {
 			return pastEvents.count
 		}
 	}
@@ -142,12 +145,12 @@ class TopLevelVotingViewController: UITableViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let dest = segue.destination as? ResultsVotingViewController {
             dest.event = sender as? DALIEvent.VotingEvent
-		}else if let dest = segue.destination as? OrderedVotingViewController {
+		} else if let dest = segue.destination as? OrderedVotingViewController {
             dest.event = sender as? DALIEvent.VotingEvent
-		}else if let dest = segue.destination as? UnorderedVotingViewController {
+		} else if let dest = segue.destination as? UnorderedVotingViewController {
             dest.event = sender as? DALIEvent.VotingEvent
-		}else if let dest = segue.destination as? HasVotedViewController {
-			dest.event = sender as! DALIEvent.VotingEvent
+		} else if let dest = segue.destination as? HasVotedViewController {
+			dest.event = sender as? DALIEvent.VotingEvent
 		}
 	}
 	
@@ -159,21 +162,21 @@ class TopLevelVotingViewController: UITableViewController {
 		tableView.deselectRow(at: indexPath, animated: true)
 		if indexPath.section == 0 && currentEvents.count > 0 {
             let currentEvent = currentEvents[indexPath.row]
-            guard let id = currentEvent.id else {
+            guard let currentEventID = currentEvent.id else {
                 return
             }
             
-			let hasVoted = UserDefaults.standard.bool(forKey: "hasVoted:\(id)")
+			let hasVoted = UserDefaults.standard.bool(forKey: "hasVoted:\(currentEventID)")
 			let ordered = currentEvent.config.ordered
 			
 			if hasVoted {
 				self.performSegue(withIdentifier: "showHasVoted", sender: currentEvent)
-			}else if ordered {
+			} else if ordered {
 				self.performSegue(withIdentifier: "showOrderedVoting", sender: currentEvent)
-			}else{
+			} else {
 				self.performSegue(withIdentifier: "showUnorderedVoting", sender: currentEvents)
 			}
-		}else{
+		} else {
 			self.performSegue(withIdentifier: "showPastEvent", sender: pastEvents[indexPath.row])
 		}
 	}

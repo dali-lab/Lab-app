@@ -1,0 +1,14 @@
+disabled_rules:
+    - trailing_whitespace
+    - force_cast
+    - function_body_length
+    - file_length
+    - switch_case_alignment
+    - cyclomatic_complexity
+    - type_body_length
+    - identifier_name
+    - multiple_closures_with_trailing_closure
+opt_in_rules: # some rules are only opt-in
+    - missing_docs
+excluded:
+    - Pods

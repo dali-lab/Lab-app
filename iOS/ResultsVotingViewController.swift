@@ -44,7 +44,7 @@ class ResultsVotingViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.row == 0 {
 			return 50
-		}else{
+		} else {
 			return 40
 		}
 	}
@@ -65,7 +65,7 @@ class ResultsVotingViewController: UITableViewController {
 			cell.selectionStyle = .none
 			
 			return cell
-		}else{
+		} else {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "awardCell")!
 			
 			cell.textLabel?.text = self.awards[indexPath.section].award

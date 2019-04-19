@@ -38,7 +38,8 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 		for overlay in overlays {
 			overlay.isHidden = true
 		}
-		min = [self.view.frame.height - (self.lightsMapView.frame.maxY + 20), 20].max()!
+        let val = self.view.frame.height - (self.lightsMapView.frame.maxY + 20)
+		min = max(val, 20)
 		viewHeight.constant = min
 		self.onSwitch.isHidden = true
 		tableView.separatorStyle = .none
@@ -67,25 +68,25 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 		if sender.state == .began || sender.state == .changed {
 			// Still dragging
 			let translation = sender.translation(in: self.view)
-			if (viewHeight.constant - translation.y > min) {
-				if (viewHeight.constant - translation.y < max) {
-					viewHeight.constant = viewHeight.constant - translation.y
-				}else{
+			if viewHeight.constant - translation.y > min {
+				if viewHeight.constant - translation.y < max {
+					viewHeight.constant -= translation.y
+				} else {
 					viewHeight.constant = max
 				}
-			}else {
+			} else {
 				viewHeight.constant = min
 			}
 			
 			sender.setTranslation(CGPoint(x: 0, y: 0), in: self.view)
 			self.lastTranslation = translation
-		}else {
+		} else {
 			// Released
-			if(viewHeight.constant >= max) {
+			if viewHeight.constant >= max {
 				viewHeight.constant = max
-			}else if (viewHeight.constant <= min) {
+			} else if viewHeight.constant <= min {
 				viewHeight.constant = min
-			}else{
+			} else {
 				UIView.setAnimationCurve(.linear)
 				
 				func animate(toTop: Bool, translation: CGFloat?) {
@@ -100,7 +101,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 						UIView.animate(withDuration: duration, animations: {
 							self.view.layoutIfNeeded()
 						})
-					}else{
+					} else {
 						self.viewHeight.constant = min;
 						UIView.animate(withDuration: duration, animations: {
 							self.view.layoutIfNeeded()
@@ -112,7 +113,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 					// We had some momentum...
 					// If it was negative then it was upwards
 					animate(toTop: lastTranslation.y < 0, translation: lastTranslation.y)
-				}else{
+				} else {
 					// No momentum, so we will use whichever is closest
 					// If the space between the bottom and the center is greater than that of the top, then it is closer to the top
 					animate(toTop: abs(min - viewHeight.constant) > abs(max - viewHeight.constant), translation: nil)
@@ -189,7 +190,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 			self.onSwitch.isOn = group.isOn
 			self.tableView.reloadData()
 			self.onSwitch.isHidden = false
-		}else{
+		} else {
 			self.onSwitch.isHidden = true
 		}
 		
@@ -235,24 +236,30 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if sender.accessibilityLabel!.range(of: "pod:") != nil {
             if sender.accessibilityLabel == "pod:appa" {
                 image = #imageLiteral(resourceName: "lights_pod_appa_overlay")
-            }else if sender.accessibilityLabel == "pod:momo" {
+            } else if sender.accessibilityLabel == "pod:momo" {
                 image = #imageLiteral(resourceName: "lights_pod_momo_overlay")
-            }else if sender.accessibilityLabel == "pod:pabu" {
+            } else if sender.accessibilityLabel == "pod:pabu" {
                 image = #imageLiteral(resourceName: "lights_pod_pabu_overlay")
             }
         }
         
         if let button = button {
             if selectionIndicator.isHidden {
-                self.selectionIndicator.frame = CGRect(x: button.frame.origin.x + button.titleLabel!.frame.origin.x, y: button.frame.origin.y + button.frame.height, width: button.titleLabel!.frame.width, height: 2)
+                self.selectionIndicator.frame = CGRect(x: button.frame.origin.x + button.titleLabel!.frame.origin.x,
+                                                       y: button.frame.origin.y + button.frame.height,
+                                                       width: button.titleLabel!.frame.width,
+                                                       height: 2)
                 self.selectionIndicator.alpha = 0.0
                 self.selectionIndicator.isHidden = false
                 UIView.animate(withDuration: 0.3, animations: {
                     self.selectionIndicator.alpha = 1.0
                 })
-            }else{
+            } else {
                 UIView.animate(withDuration: 0.3, animations: {
-                    self.selectionIndicator.frame = CGRect(x: button.frame.origin.x + button.titleLabel!.frame.origin.x, y: button.frame.origin.y + button.frame.height, width: button.titleLabel!.frame.width, height: 2)
+                    self.selectionIndicator.frame = CGRect(x: button.frame.origin.x + button.titleLabel!.frame.origin.x,
+                                                           y: button.frame.origin.y + button.frame.height,
+                                                           width: button.titleLabel!.frame.width,
+                                                           height: 2)
                 })
             }
         }else if !self.selectionIndicator.isHidden {
@@ -357,14 +364,14 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 				
 			if getScenes(selectedGroup!)[indexPath.row].lowercased() == selectedGroup?.scene?.lowercased() {
 				tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-			}else{
+			} else {
 				tableView.deselectRow(at: indexPath, animated: true)
 			}
 			
 			cell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 			
 			return cell
-		}else{
+		} else {
 			var cell = tableView.dequeueReusableCell(withIdentifier: "colorPicker") as? ColorPickerCell
 			if cell == nil {
 				tableView.register(UINib.init(nibName: "ColorPicerCell", bundle: nil), forCellReuseIdentifier: "colorPicker")
@@ -437,27 +444,27 @@ extension UIColor {
 		
 		scanner.scanHexInt64(&rgbValue)
 		
-		let r = (rgbValue & 0xff0000) >> 16
-		let g = (rgbValue & 0xff00) >> 8
-		let b = rgbValue & 0xff
+		let red = (rgbValue & 0xff0000) >> 16
+		let green = (rgbValue & 0xff00) >> 8
+		let blue = rgbValue & 0xff
 		
 		self.init(
-			red: CGFloat(r) / 0xff,
-			green: CGFloat(g) / 0xff,
-			blue: CGFloat(b) / 0xff, alpha: alpha
+			red: CGFloat(red) / 0xff,
+			green: CGFloat(green) / 0xff,
+			blue: CGFloat(blue) / 0xff, alpha: alpha
 		)
 	}
 	
 	func toHex() -> String {
-		var r:CGFloat = 0
-		var g:CGFloat = 0
-		var b:CGFloat = 0
-		var a:CGFloat = 0
+		var red: CGFloat = 0
+		var green: CGFloat = 0
+		var blue: CGFloat = 0
+		var alpha: CGFloat = 0
 		
-		getRed(&r, green: &g, blue: &b, alpha: &a)
+		getRed(&red, green: &green, blue: &blue, alpha: &alpha)
 		
-		let rgb:Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
+		let rgb: Int = (Int)(red * 255)<<16 | (Int)(green * 255)<<8 | (Int)(blue * 255)<<0
 		
-		return NSString(format:"#%06x", rgb) as String
+		return NSString(format: "#%06x", rgb) as String
 	}
 }

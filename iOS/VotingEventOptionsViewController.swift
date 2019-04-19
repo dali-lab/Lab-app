@@ -35,7 +35,7 @@ class VotingEventOptionsViewController: UITableViewController {
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		self.navigationController?.isToolbarHidden = true
-		if let index = delegate?.events.index(where: { (event) -> Bool in
+		if let index = delegate?.events.firstIndex(where: { (event) -> Bool in
 			return event.id == self.event.id
 		}) {
 			delegate?.options[index] = options
@@ -141,7 +141,7 @@ class VotingEventOptionsViewController: UITableViewController {
 	func removeAward(option optIndex: Int, award: String) {
 		var option = self.options[optIndex]
 		
-		if let index = option.awards!.index(of: award) {
+		if let index = option.awards!.firstIndex(of: award) {
 			option.awards!.remove(at: index)
 			self.options[optIndex] = option
 			
@@ -192,7 +192,7 @@ class VotingEventOptionsViewController: UITableViewController {
 			})
 			
 			alert.showEdit("New Option", subTitle: "")
-		}else{
+		} else {
 			func addAwardAlert() {
 				let alert = SCLAlertView()
 				let textField = alert.addTextField()
@@ -235,7 +235,7 @@ class VotingEventOptionsViewController: UITableViewController {
 				})
 				
 				whatToDoAlert.showInfo("What to do?", subTitle: "What do you want to do?")
-			}else{
+			} else {
 				addAwardAlert()
 			}
 		}

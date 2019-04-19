@@ -124,18 +124,18 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
                     _ = DALILocation.Tim.submit(inDALI: false, inOffice: false).onSuccess { (_) in
                         self.endBackgroundTask()
                     }
-                }else if DALIapi.isSignedIn {
+                } else if DALIapi.isSignedIn {
                     _ = DALILocation.Shared.submit(inDALI: false, entering: false).onSuccess(block: { (_) in
                         self.endBackgroundTask()
                     })
                 }
             }
-        }else{
+        } else {
             if userIsTim() {
                 _ = DALILocation.Tim.submit(inDALI: false, inOffice: false).onSuccess { (_) in
                     self.endBackgroundTask()
                 }
-            }else if DALIapi.isSignedIn {
+            } else if DALIapi.isSignedIn {
                 _ = DALILocation.Shared.submit(inDALI: false, entering: false).onSuccess { (_) in
                     self.endBackgroundTask()
                 }
@@ -143,9 +143,14 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
         }
 		
 		if UIApplication.shared.applicationState != .background {
-			NotificationCenter.default.post(name: Notification.Name.Custom.EnteredOrExitedDALI, object: nil, userInfo: ["entered" : false])
-			NotificationCenter.default.post(name: Notification.Name.Custom.EventVoteEnteredOrExited, object: nil, userInfo: ["entered" : false])
-			NotificationCenter.default.post(name: Notification.Name.Custom.TimsOfficeEnteredOrExited, object: nil, userInfo: ["entered" : false])
+			NotificationCenter.default.post(name: Notification.Name.Custom.EnteredOrExitedDALI,
+                                            object: nil,
+                                            userInfo: ["entered": false])
+			NotificationCenter.default.post(name: Notification.Name.Custom.EventVoteEnteredOrExited,
+                                            object: nil, userInfo: ["entered": false])
+			NotificationCenter.default.post(name: Notification.Name.Custom.TimsOfficeEnteredOrExited,
+                                            object: nil,
+                                            userInfo: ["entered": false])
 		}
 	}
 	
@@ -169,19 +174,19 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 		var exited = false
 		if state == .inside {
 			entered = regions.insert(region!).inserted
-		}else{
+		} else {
 			exited = regions.remove(region!) != nil
 		}
 		
 		if region.name == "DALI Lab Region", exited || entered {
 			func go(background: Bool) {
 				if userIsTim() {
-                    _ = DALILocation.Tim.submit(inDALI: entered, inOffice: entered ? false : inOffice).onSuccess { (_) in
+                    _ = DALILocation.Tim.submit(inDALI: entered, inOffice: entered ? false : inOffice).onSuccess { _ in
                         if background {
                             self.endBackgroundTask()
                         }
                     }
-				}else if DALIapi.isSignedIn {
+				} else if DALIapi.isSignedIn {
                     _ = DALILocation.Shared.submit(inDALI: entered, entering: entered).onSuccess { (_) in
                         if background {
                             self.endBackgroundTask()
@@ -198,40 +203,42 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 					UserDefaults.standard.set(entered, forKey: "inDALI")
 					go(background: true)
 				}
-			}else{
+			} else {
 				go(background: false)
 				UserDefaults.standard.set(entered, forKey: "inDALI")
-				NotificationCenter.default.post(name: Notification.Name.Custom.EnteredOrExitedDALI, object: nil, userInfo: ["entered": entered])
+				NotificationCenter.default.post(name: Notification.Name.Custom.EnteredOrExitedDALI,
+                                                object: nil,
+                                                userInfo: ["entered": entered])
 			}
-		}else if region.name.replacingOccurrences(of: "'", with: "") == "Tims Office Region" && userIsTim() {
+		} else if region.name.replacingOccurrences(of: "'", with: "") == "Tims Office Region" && userIsTim() {
 			if UIApplication.shared.applicationState == .background {
 				registerBackgroundTask {
                     _ = DALILocation.Tim.submit(inDALI: inDALI, inOffice: entered).onSuccess { (_) in
                         self.endBackgroundTask()
                     }
 				}
-			}else{
+			} else {
 				if entered || exited {
 					_ = DALILocation.Tim.submit(inDALI: entered ? false : inDALI, inOffice: entered)
 				}
 				NotificationCenter.default.post(name: Notification.Name.Custom.TimsOfficeEnteredOrExited, object: nil, userInfo: ["entered": entered])
 			}
-		}else if region.name == "Event Vote Region", entered {
+		} else if region.name == "Event Vote Region", entered {
 			if UIApplication.shared.applicationState == .background {
 				registerBackgroundTask {
 					AppDelegate.shared.votingEventEnteredOrExited {
 						self.endBackgroundTask()
 					}
 				}
-			}else{
+			} else {
 				NotificationCenter.default.post(name: Notification.Name.Custom.EventVoteEnteredOrExited, object: nil, userInfo: ["entered": entered])
 			}
-		}else if region.name == "Check In Region", entered {
+		} else if region.name == "Check In Region", entered {
 			if UIApplication.shared.applicationState == .background {
 				registerBackgroundTask {
 					rangeCheckin(region: region)
 				}
-			}else{
+			} else {
 				rangeCheckin(region: region)
 			}
 		}
@@ -247,13 +254,13 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 	
 	private func staticSetup() throws {
 		if BeaconController.current != nil {
-			throw BeaconError.DuplicateController
+            throw BeaconError.duplicateController
 		}
 		BeaconController.current = self
 	}
 	
-	func proximityKit(_ manager : RPKManager, didEnter region:RPKRegion) {
-		print("Entered Region \(region.name ?? "unknown name"), \(region.identifier ?? "unknown id")");
+	func proximityKit(_ manager: RPKManager, didEnter region: RPKRegion) {
+		print("Entered Region \(region.name ?? "unknown name"), \(region.identifier ?? "unknown id")")
 	}
 	
 	func persistantRange(callback: @escaping (BeaconController) -> Void) -> () -> Void {
@@ -279,7 +286,11 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 		rangeDone = { () in
 			if let first = self.ranged.first {
 				if UIApplication.shared.applicationState != .background {
-					NotificationCenter.default.post(name: NSNotification.Name.Custom.CheckInEnteredOrExited, object: nil, userInfo: ["entered" : true, "major": first.major, "minor": first.minor])
+					NotificationCenter.default.post(name: NSNotification.Name.Custom.CheckInEnteredOrExited,
+                                                    object: nil,
+                                                    userInfo: ["entered" : true,
+                                                               "major": first.major!,
+                                                               "minor": first.minor!])
 				}
                 _ = DALIEvent.checkIn(major: first.major as! Int, minor: first.minor as! Int).onSuccess(block: { (_) in
                     if UIApplication.shared.applicationState == .background {
@@ -287,14 +298,14 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
                         self.endBackgroundTask()
                     }
                 })
-			}else{
+			} else {
 				// We are in fact not at a check in event
 			}
 		}
 	}
 	
-	func proximityKit(_ manager : RPKManager, didExit region:RPKRegion) {
-		print("Exited Region \(region.name ?? "unknown name"), \(region.identifier ?? "unknown id")");
+	func proximityKit(_ manager: RPKManager, didExit region: RPKRegion) {
+		print("Exited Region \(region.name ?? "unknown name"), \(region.identifier ?? "unknown id")")
 	}
 	
 	func proximityKit(_ manager: RPKManager!, didRangeBeacons beacons: [Any]!, in region: RPKBeaconRegion!) {
@@ -326,11 +337,11 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 	}
 	
 	enum BeaconError: Error {
-		case DuplicateController
+		case duplicateController
 	}
 }
 
 // Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUIBackgroundTaskIdentifier(_ input: Int) -> UIBackgroundTaskIdentifier {
+private func convertToUIBackgroundTaskIdentifier(_ input: Int) -> UIBackgroundTaskIdentifier {
 	return UIBackgroundTaskIdentifier(rawValue: input)
 }

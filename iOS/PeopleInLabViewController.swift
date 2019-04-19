@@ -54,7 +54,7 @@ class PeopleInLabViewController : UITableViewController {
 					self.timLocation = "In DALI"
 				}else if tim.inOffice {
 					self.timLocation = "In his office"
-				}else{
+				} else {
 					self.timLocation = "Location unknown"
 				}
 				
@@ -85,7 +85,7 @@ class PeopleInLabViewController : UITableViewController {
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if section == 0 {
 			return 1
-		}else{
+		} else {
 			return members?.count ?? 0
 		}
 	}

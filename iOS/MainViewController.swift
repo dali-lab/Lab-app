@@ -47,7 +47,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 					self.foodLabel.text = food == nil ? "No Food Tonight" : "Food Tonight: \(food!)"
 				}
 			})
-		}else{
+		} else {
 			self.locationLabel.text = "Not signed in"
 			peopleButton.isHidden = true
 			peopleButton.isEnabled = false
@@ -60,9 +60,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		}
 		self.updateData()
 		
-		(UIApplication.shared.delegate as! AppDelegate).mainViewController = self
+		(UIApplication.shared.delegate as? AppDelegate)?.mainViewController = self
 		
-		let _ = CalendarController()
+		_ = CalendarController()
 		
 		BeaconController.current?.updateLocation()
 		
@@ -71,7 +71,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		votingButton.isEnabled = true
 	}
 	
-	
 	func updateData() {
 		func gotEvents(events: [DALIEvent]?, error: Error?) {
 			if let error = error {
@@ -79,11 +78,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 				switch error {
 				case DALIError.General.Unauthorized:
 					print("Unauthorize")
-					break
 					
 				default:
 					print("Unknown: \(error)")
-					break
 				}
 				
 				return
@@ -99,9 +96,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 			
 			self.events = []
 			
-			var today = [DALIEvent]();
-			var week = [DALIEvent]();
-			var next = [DALIEvent]();
+			var today = [DALIEvent]()
+			var week = [DALIEvent]()
+			var next = [DALIEvent]()
 			let calendar = NSCalendar.current
 			
 			func getWeekEnd() -> Date {
@@ -118,9 +115,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 			for event in events {
 				if calendar.isDateInToday(event.start) || event.isNow {
 					today.append(event)
-				}else if event.start < getWeekEnd() {
+				} else if event.start < getWeekEnd() {
 					week.append(event)
-				}else{
+				} else {
 					next.append(event)
 				}
 			}
@@ -144,7 +141,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 			eventsObserver = DALIEvent.observeUpcoming { (events, error) in
 				gotEvents(events: events, error: error)
 			}
-		}else{
+		} else {
 			eventsObserver = DALIEvent.observePublicUpcoming(callback: { (events, error) in
 				gotEvents(events: events, error: error)
 			})
@@ -152,7 +149,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	}
 	
 	func setUpListeners() {
-		NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.locationUpdated), name: NSNotification.Name.Custom.LocationUpdated, object: nil)
+		NotificationCenter.default.addObserver(self,
+                                               selector: #selector(MainViewController.locationUpdated),
+                                               name: NSNotification.Name.Custom.LocationUpdated,
+                                               object: nil)
 	}
 	
 	deinit {
@@ -162,9 +162,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	}
 	
 	@objc func locationUpdated() {
-		if let controller = (UIApplication.shared.delegate as! AppDelegate).beaconController, let location = controller.currentLocation {
+		if let controller = (UIApplication.shared.delegate as! AppDelegate).beaconController,
+            let location = controller.currentLocation {
 			self.locationLabel.text = "In \(location)"
-		}else{
+		} else {
 			self.locationLabel.text = "Not in DALI Lab"
 		}
 	}
@@ -234,8 +235,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	
 	func showAlert(alert: SCLAlertView, title: String, subTitle: String, color: UIColor, image: UIImage) {
 		animationDone = { () in
-			UIApplication.shared.statusBarStyle = .default
-			let _ = alert.showCustom(title, subTitle: subTitle, color: color, icon: image)
+			_ = alert.showCustom(title, subTitle: subTitle, color: color, icon: image)
 		}
 	}
 	
@@ -261,7 +261,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		
 		UIView.animate(withDuration: 0.5, delay: 1.8, options: [], animations: {
 			self.internalView.alpha = 1.0
-		}) { (success) in
+		}) { (_) in
 			if let animationDone = self.animationDone {
 				animationDone()
 			}
@@ -270,8 +270,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if let nav = segue.destination as? UINavigationController, let dest = nav.topViewController as? CheckinViewController {
-			dest.event = sender as! DALIEvent
+		if let nav = segue.destination as? UINavigationController,
+            let dest = nav.topViewController as? CheckinViewController {
+			dest.event = sender as? DALIEvent
 		}
 	}
 	
@@ -313,14 +314,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 						}
 					}
 					
-					DALIapi.sendSimpleNotification(with: "\(event.name) starts soon!", and: "The event \(event.name) is starting in \(time) \(units)", to: "signedIn")
+					_ = DALIapi.sendSimpleNotification(with: "\(event.name) starts soon!",
+                        and: "The event \(event.name) is starting in \(time) \(units)",
+                        to: "signedIn")
 				})
 				
 				alert.addButton("Actually no...", action: {
 					
 				})
 				
-				alert.showNotice("Really notify?", subTitle: "This will notify all DALI member devices that are signed in about the time (in hours, or mintues if < 1 hour) until event starts. Are you sure you want to this?")
+				alert.showNotice("Really notify?",
+                                 subTitle: "This will notify all DALI member devices that are signed in" +
+                                    " about the time (in hours, or mintues if < 1 hour) until event" +
+                                    " starts. Are you sure you want to this?")
 			})
 		}
 		alert.addButton("Cancel") {
@@ -334,7 +340,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	@IBAction func settingsButtonPressed(_ sender: UIButton) {
 		if signedIn {
 			self.performSegue(withIdentifier: "showSettings", sender: nil)
-		}else{
+		} else {
 			let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
 			alert.addButton("Sign In", action: {
 				(UIApplication.shared.delegate as! AppDelegate).returnToSignIn()
@@ -388,7 +394,7 @@ class EventCell: UITableViewCell {
 				let endString = "\(endHour):\(endMinute < 10 ? "0" : "")\(endMinute) \(endDaytime ? "AM" : "PM")"
 				
 				self.timeLabel.text = "\(weekdayStart) \(startString) - \(weekdayEnd == nil ? "" : weekdayEnd! + " ")\(endString)"
-			}else{
+			} else {
 				self.titleLabel.text = ""
 			}
 		}

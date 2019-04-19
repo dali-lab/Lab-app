@@ -31,40 +31,29 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 		leftTableView.delegate = self
 		leftTableView.dataSource = self
         
-        
 		self.title = event.name
-		
 		selected = Array.init(repeating: nil, count: event.config.numSelected)
 		
 		self.update()
 	}
     
     override func viewWillAppear(_ animated: Bool) {
-        VotingHelper.shared.getLocationAuthorizationStatus().onSuccess { (status) in
-            
-            }.onCancel {
-                VotingHelper.shared.locationManager.requestWhenInUseAuthorization()
+        VotingHelper.shared.getLocationAuthorizationStatus().onCancel {
+            VotingHelper.shared.locationManager.requestWhenInUseAuthorization()
         }
     }
 	
 	func update() {
-        self.event.getOptions().mainThreadFuture.onSuccess { (options) in
+        _ = self.event.getOptions().mainThreadFuture.onSuccess { (options) in
             self.unselected = options.sorted(by: { (option1, option2) -> Bool in
                 return option1.name < option2.name
             })
             self.orderedTableView.reloadData()
-        }.onFail { (error) in
-            // TODO: Handle error
         }
 	}
 	
 	@IBAction func submit(_ sender: Any) {
-		var numSelected = 0
-		for x in self.selected {
-			if x != nil {
-				numSelected += 1
-			}
-		}
+        let numSelected = self.selected.compactMap { $0 }.count
 		
 		if numSelected < event.config.numSelected {
 			SCLAlertView().showError("Choose more", subTitle: "Please select options for each ordered space")
@@ -75,7 +64,6 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 			showCloseButton: false
 		)).showWait("Submitting...", subTitle: "")
 		
-        
         guard let array = Array(self.selected) as? [DALIEvent.VotingEvent.Option] else {
             return
         }
@@ -91,7 +79,10 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let dest = segue.destination as? HasVotedViewController {
 			dest.event = event
-			self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.pop))
+			self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Done",
+                                                                    style: .done,
+                                                                    target: self,
+                                                                    action: #selector(self.pop))
 		}
 	}
 	
@@ -128,35 +119,35 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 				let movedObject = self.selected[sourceIndexPath.row]
 				self.selected[sourceIndexPath.row] = self.selected[destPath.row]
 				self.selected[destPath.row] = movedObject
-			}else{
+			} else {
 				let movedObject = self.selected[sourceIndexPath.row]!
 				self.selected[sourceIndexPath.row] = nil
 				self.unselected.insert(movedObject, at: destPath.row)
 			}
-		}else{
+		} else {
 			if destPath.section == 1 {
 				let movedObject = self.unselected[sourceIndexPath.row]
 				self.unselected.remove(at: sourceIndexPath.row)
 				self.unselected.insert(movedObject, at: destPath.row)
-			}else{
+			} else {
 				let movedObject = self.unselected[sourceIndexPath.row]
 				self.unselected.remove(at: sourceIndexPath.row)
 				if destPath.row > self.selected.count - 1 {
-					var firstIndex: Int? = nil
-					for i in 0...self.selected.count-1 {
-						if self.selected[self.selected.count - 1 - i] == nil && firstIndex == nil {
-							firstIndex = self.selected.count - 1 - i; break
+					var firstIndex: Int?
+					for index in 0...self.selected.count-1 {
+						if self.selected[self.selected.count - 1 - index] == nil && firstIndex == nil {
+							firstIndex = self.selected.count - 1 - index; break
 						}
 					}
 					if firstIndex != nil {
 						self.selected.remove(at: firstIndex!)
 						self.selected.append(movedObject)
-					}else{
+					} else {
 						self.unselected.insert(movedObject, at: sourceIndexPath.row)
 					}
 				} else if self.selected[destPath.row] == nil {
 					self.selected[destPath.row] = movedObject
-				}else{
+				} else {
 					self.unselected.insert(self.selected[destPath.row]!, at: sourceIndexPath.row)
 					self.selected[destPath.row] = movedObject
 				}
@@ -192,16 +183,16 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 				cell.textLabel?.text = option.name
 				
 				return cell
-			}else{
+			} else {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell")!
 				return cell
 			}
-		}else{
+		} else {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell") as! VotingOrderCell
 			
 			if indexPath.row < OrderedVotingViewController.ordinals.count {
 				cell.orderLabel?.text = OrderedVotingViewController.ordinals[indexPath.row]
-			}else{
+			} else {
 				cell.orderLabel?.text = "\(indexPath.row)th"
 			}
 			
@@ -212,7 +203,7 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if section == 0 {
 			return event.config.numSelected
-		}else{
+		} else {
 			return unselected.count
 		}
 	}

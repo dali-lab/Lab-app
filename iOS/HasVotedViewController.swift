@@ -17,7 +17,10 @@ class HasVotedViewController: UIViewController {
 	var event: DALIEvent!
 	
 	override func viewDidLoad() {
-		self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.pop))
+		self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Done",
+                                                                style: .done,
+                                                                target: self,
+                                                                action: #selector(self.pop))
 		
         self.title = event.name
         

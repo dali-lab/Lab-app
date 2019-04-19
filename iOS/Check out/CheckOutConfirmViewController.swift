@@ -19,7 +19,10 @@ class CheckOutConfirmViewController: UITableViewController {
         self.title = equipment.name
         
         let flexSpace1 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        barButtonItem = UIBarButtonItem(title: "Check Out", style: .done, target: self, action: #selector(CheckOutConfirmViewController.checkOutPressed))
+        barButtonItem = UIBarButtonItem(title: "Check Out",
+                                        style: .done,
+                                        target: self,
+                                        action: #selector(CheckOutConfirmViewController.checkOutPressed))
         let flexSpace2 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
         self.setToolbarItems([flexSpace1, barButtonItem, flexSpace2], animated: false)
@@ -76,7 +79,8 @@ class CheckOutConfirmViewController: UITableViewController {
             
             self.present(alert, animated: true, completion: nil)
         } else if canReturn() {
-            let alert = UIAlertController(title: "Return \(equipment.name)?", message: "Make sure you put it back in its proper place in the lab", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Return \(equipment.name)?",
+                message: "Make sure you put it back in its proper place in the lab", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Return", style: .default, handler: { (_) in
                 self.returnEquipment()
@@ -88,19 +92,20 @@ class CheckOutConfirmViewController: UITableViewController {
     }
     
     func reloadEquipment() {
-        let _ = self.equipment.reload().onSuccess(block: { (equipment) in
+        _ = self.equipment.reload().onSuccess(block: { (_) in
             self.updateUI(animated: true)
             self.tableView.reloadData()
         })
     }
     
     func showErrorAlert(action: String, error: Error) {
-        let alert = UIAlertController(title: "Error", message: "Failed to \(action) \(equipment.name): \(error.localizedDescription)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error",
+                                      message: "Failed to \(action) \(equipment.name): \(error.localizedDescription)",
+                                      preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
-    
     
     func returnEquipment() {
         let future = self.equipment.returnEquipment()
@@ -170,9 +175,9 @@ class CheckOutConfirmViewController: UITableViewController {
         if indexPath.section == 0 {
             cell = tableView.dequeueReusableCell(withIdentifier: "titleCell")
             
-            let titleCell = cell as! CheckOutConfirmViewTitleCell
-            titleCell.titleLabel.text = equipment.name
-            titleCell.subtitleLabel.text = equipment.id
+            let titleCell = cell as? CheckOutConfirmViewTitleCell
+            titleCell?.titleLabel.text = equipment.name
+            titleCell?.subtitleLabel.text = equipment.id
         } else if self.showPasswordCell() && indexPath.section == 1 {
             cell = tableView.dequeueReusableCell(withIdentifier: "passwordCell")
             
@@ -195,8 +200,8 @@ class CheckOutConfirmViewController: UITableViewController {
                 cell = tableView.dequeueReusableCell(withIdentifier: "checkoutCell")
             }
             
-            let checkOutCell = cell as! CheckOutConfirmViewCheckOutCell
-            checkOutCell.checkOutRecord = record
+            let checkOutCell = cell as? CheckOutConfirmViewCheckOutCell
+            checkOutCell?.checkOutRecord = record
         }
         
         return cell
@@ -204,7 +209,7 @@ class CheckOutConfirmViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.indexPathIsLoadMore(indexPath) {
-            let _ = self.equipment.getHistory().onSuccess { (records) in
+            _ = self.equipment.getHistory().onSuccess { (records) in
                 self.checkouts = records
                 tableView.reloadData()
             }

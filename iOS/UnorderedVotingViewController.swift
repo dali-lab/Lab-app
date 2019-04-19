@@ -96,7 +96,7 @@ class UnorderedVotingViewController: UITableViewController {
 		options[indexPath.row].1 = !options[indexPath.row].1
 		if options[indexPath.row].1 {
 			numSelected += 1
-		}else{
+		} else {
 			numSelected -= 1
 		}
 		

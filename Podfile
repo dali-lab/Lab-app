@@ -4,6 +4,8 @@
 target 'iOS' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
+  inhibit_all_warnings!
+  
   pod 'Google/SignIn'
   pod 'ProximityKit', '~> 1.2'
   pod 'SCLAlertView'
@@ -15,6 +17,7 @@ target 'iOS' do
   pod 'QRCodeReaderViewController'
   pod 'OneSignal', '>= 2.5.2', '< 3.0'
   pod 'FutureKit'
+  pod 'Alamofire'
   pod 'RLBAlertsPickers', :git => 'https://github.com/loicgriffie/Alerts-Pickers.git', :branch => 'master'
 
   # Pods for DALI Lab

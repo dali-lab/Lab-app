@@ -19,9 +19,9 @@ class CheckOutQRReaderLoadingOverlayView: UIView, UIGestureRecognizerDelegate {
             return _loading
         }
         set {
-            if (_loading != newValue) {
+            if _loading != newValue {
                 _loading = newValue
-                if (newValue) {
+                if newValue {
                     self.activityIndicator.startAnimating()
                     self.backgroundColor = UIColor.black.withAlphaComponent(0.5)
                 } else {
@@ -34,7 +34,7 @@ class CheckOutQRReaderLoadingOverlayView: UIView, UIGestureRecognizerDelegate {
     }
     
     func isLoading() -> Bool {
-        return _loading;
+        return _loading
     }
     
     func set(loading: Bool, animated: Bool) {

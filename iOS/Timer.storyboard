@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qqT-FS-HfV">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Track Hours-->
+        <scene sceneID="U3L-Lo-JMW">
+            <objects>
+                <viewController id="boj-dw-uc7" customClass="TimerViewController" customModule="iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xGm-XL-DJp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXa-tX-EMj">
+                                <rect key="frame" x="80" y="804" width="254" height="58"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="254" id="3OK-ND-Qf5"/>
+                                    <constraint firstAttribute="height" constant="58" id="P2I-MJ-jaP"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="  Sign in with GitHub" image="GitHub"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signIn:" destination="boj-dw-uc7" eventType="touchUpInside" id="hS9-vr-xkK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GY6-eZ-p4h">
+                                <rect key="frame" x="124" y="290" width="166" height="166"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                <color key="tintColor" red="0.94654065369999996" green="0.63095492119999996" blue="0.29396703839999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Start" backgroundImage="startButton"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GY6-eZ-p4h" firstAttribute="top" secondItem="q4n-w3-dDS" secondAttribute="top" constant="202" id="3hQ-Qr-vHB"/>
+                            <constraint firstItem="uXa-tX-EMj" firstAttribute="bottom" secondItem="q4n-w3-dDS" secondAttribute="bottom" id="G14-cr-nQo"/>
+                            <constraint firstItem="uXa-tX-EMj" firstAttribute="centerX" secondItem="xGm-XL-DJp" secondAttribute="centerX" id="faa-yU-tVP"/>
+                            <constraint firstItem="GY6-eZ-p4h" firstAttribute="centerX" secondItem="xGm-XL-DJp" secondAttribute="centerX" id="v2n-BD-NfC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="q4n-w3-dDS"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Track Hours" id="JDU-WF-03g">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="zEj-O1-LUJ">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="boj-dw-uc7" id="5mN-hd-Vw5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="startButton" destination="GY6-eZ-p4h" id="eew-ac-sfM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xxg-YO-L3Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="666.66666666666674" y="18.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Lkt-IM-p9K">
+            <objects>
+                <navigationController id="qqT-FS-HfV" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dzh-xU-Kxz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.22745098039215686" green="0.43529411764705883" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.1137254902" green="0.47843137250000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="boj-dw-uc7" kind="relationship" relationship="rootViewController" id="mCd-TV-fD0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cny-Uw-XWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-596" y="136"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="GitHub" width="42" height="40.666667938232422"/>
+        <image name="startButton" width="166" height="166"/>
+    </resources>
+</document>

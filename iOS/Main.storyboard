@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -267,7 +266,7 @@
                                         <rect key="frame" x="103" y="616" width="82.5" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uab-YS-PLJ">
-                                                <rect key="frame" x="28" y="0.0" width="26" height="30"/>
+                                                <rect key="frame" x="31.5" y="4" width="19" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Uab-YS-PLJ" secondAttribute="height" multiplier="25:29" id="E4K-1j-RmZ"/>
                                                 </constraints>
@@ -318,7 +317,7 @@
                                         <rect key="frame" x="20" y="618.5" width="83" height="25"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocu-fZ-WNj">
-                                                <rect key="frame" x="28.5" y="0.0" width="26" height="25"/>
+                                                <rect key="frame" x="30" y="1.5" width="23" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Ocu-fZ-WNj" secondAttribute="height" multiplier="25:24" id="Pfi-ZE-nXk"/>
                                                 </constraints>
@@ -342,14 +341,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ygv-Ha-Xds">
                                         <rect key="frame" x="272.5" y="618.5" width="82.5" height="25"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXd-xF-1zI">
-                                                <rect key="frame" x="31" y="0.0" width="20" height="25"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXd-xF-1zI">
+                                                <rect key="frame" x="28.5" y="0.0" width="25" height="25"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="AXd-xF-1zI" secondAttribute="height" multiplier="4:5" id="wRA-xu-tgh"/>
+                                                    <constraint firstAttribute="width" secondItem="AXd-xF-1zI" secondAttribute="height" multiplier="1:1" id="wRA-xu-tgh"/>
                                                 </constraints>
-                                                <state key="normal" image="vote"/>
+                                                <state key="normal" image="clock"/>
                                                 <connections>
-                                                    <segue destination="TyO-XQ-AgS" kind="show" id="wSQ-9W-FWc"/>
+                                                    <segue destination="fhL-8h-17d" kind="show" id="zVv-8Y-9Aa"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -854,13 +853,13 @@ for voting</string>
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Beacon1" translatesAutoresizingMaskIntoConstraints="NO" id="OS2-uO-Z7k">
-                                <rect key="frame" x="128.5" y="90" width="118" height="98"/>
+                                <rect key="frame" x="179.5" y="131" width="16" height="16"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Beacon2" translatesAutoresizingMaskIntoConstraints="NO" id="kqr-dj-5i3">
-                                <rect key="frame" x="128" y="90" width="119" height="98"/>
+                                <rect key="frame" x="179.5" y="131" width="16" height="16"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zR-Pu-qNq">
-                                <rect key="frame" x="0.0" y="210" width="375" height="507"/>
+                                <rect key="frame" x="0.0" y="169" width="375" height="548"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check In Enabled" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8J-Y6-Q8a">
                                         <rect key="frame" x="0.0" y="14" width="375" height="54"/>
@@ -869,7 +868,7 @@ for voting</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SE0-Wx-2w7">
-                                        <rect key="frame" x="0.0" y="102.5" width="375" height="357.5"/>
+                                        <rect key="frame" x="0.0" y="102.5" width="375" height="398.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="dataSource" destination="c4m-8d-i99" id="Yjm-vW-GJ5"/>
@@ -1672,7 +1671,7 @@ for voting</string>
                 <viewControllerPlaceholder storyboardName="EquipmentCheckout" id="nVL-ao-h8L" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lf3-zE-KZr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1228" y="420"/>
+            <point key="canvasLocation" x="566" y="477"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rhE-ob-OcZ">
@@ -1768,7 +1767,7 @@ for voting</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTs-tK-Fbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1694" y="777"/>
+            <point key="canvasLocation" x="1671" y="835"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bDo-LD-bFd">
@@ -1789,7 +1788,7 @@ for voting</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4a9-aM-sLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="742" y="1541"/>
+            <point key="canvasLocation" x="719" y="1599"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HgK-3r-dcC">
@@ -1810,7 +1809,7 @@ for voting</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ulx-bK-Yq4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="742" y="777"/>
+            <point key="canvasLocation" x="759" y="835"/>
         </scene>
         <!--Lights-->
         <scene sceneID="whN-hm-kcm">
@@ -2202,7 +2201,7 @@ for voting</string>
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1693.5999999999999" y="1541.3793103448277"/>
+            <point key="canvasLocation" x="1671" y="1600"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="swS-wd-McQ">
@@ -2278,30 +2277,38 @@ for voting</string>
             </objects>
             <point key="canvasLocation" x="3409" y="1782"/>
         </scene>
+        <!--Timer-->
+        <scene sceneID="rEE-ER-5Cf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Timer" id="fhL-8h-17d" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CNQ-nf-5XW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="477"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Background" width="1920" height="1080"/>
         <image name="Beacon1" width="118" height="98"/>
         <image name="Beacon2" width="119" height="98"/>
-        <image name="DALI_whiteLogo" width="616.55999755859375" height="232.80000305175781"/>
+        <image name="DALI_whiteLogo" width="2569" height="970"/>
         <image name="backgroundGradient" width="375" height="667"/>
+        <image name="clock" width="90" height="90"/>
         <image name="conference" width="1987" height="2741"/>
         <image name="devices" width="58" height="56"/>
         <image name="emptyCell" width="724" height="150"/>
         <image name="kitchen" width="1987" height="2741"/>
         <image name="lightBulb" width="84" height="98"/>
-        <image name="lights_none_overlay" width="573.26397705078125" height="789.26397705078125"/>
+        <image name="lights_none_overlay" width="3981" height="5481"/>
         <image name="lowPolyBackground" width="500" height="800"/>
         <image name="people" width="92" height="48"/>
         <image name="pod_appa" width="1987" height="2741"/>
         <image name="pod_momo" width="1987" height="2741"/>
         <image name="pod_pabu" width="1987" height="2741"/>
-        <image name="poly background" width="609.5999755859375" height="918.719970703125"/>
+        <image name="poly background" width="2540" height="3828"/>
         <image name="tableViewMask" width="309" height="26"/>
         <image name="tvspace" width="1987" height="2741"/>
-        <image name="vote" width="330" height="414"/>
         <image name="voteDone" width="330" height="414"/>
-        <image name="whiteGear" width="15.925827980041504" height="15.925827980041504"/>
+        <image name="whiteGear" width="501" height="501"/>
         <image name="workstations" width="1987" height="2741"/>
     </resources>
     <inferredMetricsTieBreakers>

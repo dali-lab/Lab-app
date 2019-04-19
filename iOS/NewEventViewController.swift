@@ -13,10 +13,10 @@ import SCLAlertView
 import DALI
 
 class NewEventViewController: FormViewController {
-	let completionHandler: (destination: UIViewController, callback: ((_ success: Bool)->Void)?)?
+	let completionHandler: (destination: UIViewController, callback: ((_ success: Bool) -> Void)?)?
 	var complete = false
 	
-	init(destination: UIViewController, callback: ((_ success: Bool)->Void)?) {
+	init(destination: UIViewController, callback: ((_ success: Bool) -> Void)?) {
 		completionHandler = (destination, callback)
 		super.init(style: .grouped)
 	}
@@ -34,7 +34,7 @@ class NewEventViewController: FormViewController {
 		dateFormatter.dateStyle = .short
 		dateFormatter.timeStyle = .short
 		form +++ Section("General")
-			<<< TextRow() { row in
+			<<< TextRow { row in
 				row.tag = "name"
 				row.add(rule: RuleRequired())
 				row.validationOptions = [.validatesOnChange]
@@ -45,7 +45,7 @@ class NewEventViewController: FormViewController {
 					cell.titleLabel?.textColor = .red
 				}
 			}
-			<<< TextRow() { row in
+			<<< TextRow { row in
 				row.tag = "location"
 				row.add(rule: RuleRequired())
 				row.validationOptions = [.validatesOnChange]
@@ -57,13 +57,13 @@ class NewEventViewController: FormViewController {
 				}
 			}
 		+++ Section("Description")
-			<<< TextAreaRow() { row in
+			<<< TextAreaRow { row in
 				row.tag = "description"
 				row.title = "Description"
 				row.placeholder = "eg. Members and non-members alike can come to this event..."
 			}
 		+++ Section("Timing")
-			<<< DateTimeRow() { row in
+			<<< DateTimeRow { row in
 				row.tag = "start"
 				row.title = "Start time"
 				row.add(rule: RuleRequired())
@@ -76,7 +76,7 @@ class NewEventViewController: FormViewController {
 				}
 				(self.form.rowBy(tag: "end") as! DateTimeRow).minimumDate = row.value
 			}
-			<<< DateTimeRow() { row in
+			<<< DateTimeRow { row in
 				row.tag = "end"
 				row.title = "End time"
 				row.add(rule: RuleRequired())
@@ -95,18 +95,21 @@ class NewEventViewController: FormViewController {
 					cell.textLabel?.textColor = .red
 				}
 			}
-		+++ MultivaluedSection(multivaluedOptions: [.Insert, .Delete], header: "Tags", footer: "Tags allow users to subscribe to events with certain tags, so tag this with project names, topics, or description words") { section in
+		+++ MultivaluedSection(multivaluedOptions: [.Insert, .Delete],
+                               header: "Tags",
+                               footer: "Tags allow users to subscribe to events with certain tags," +
+                                        " so tag this with project names, topics, or description words") { section in
 			section.addButtonProvider = { section in
-				return ButtonRow() { button in
+				return ButtonRow { button in
 					button.title = "New tag"
 				}
 			}
 			section.multivaluedRowToInsertAt = { index in
-				return NameRow() { row in
+				return NameRow { row in
 					row.placeholder = "Tag name"
 				}
 			}
-			section <<< NameRow() { row in
+			section <<< NameRow { row in
 				row.placeholder = "Tag Name"
 			}
 		}
