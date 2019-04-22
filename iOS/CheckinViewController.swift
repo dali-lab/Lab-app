@@ -14,7 +14,6 @@ import SCLAlertView
 import DALI
 
 class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITableViewDelegate, UITableViewDataSource {
-	@available(iOS 6.0, *)
 	func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
 		if peripheral.state == .poweredOn {
 			if let region = region {
@@ -43,7 +42,9 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 		beacon1.image = #imageLiteral(resourceName: "BeaconDisabled")
 		beacon2.image = #imageLiteral(resourceName: "BeaconDisabled")
 		
-		self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.done))
+		self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                                                target: self,
+                                                                action: #selector(self.done))
 		
 		bottomView.layer.cornerRadius = 20
 		bottomView.layer.shadowRadius = 10
@@ -65,7 +66,7 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
             self.region = self.createBeaconRegion(major, minor)
             self.peripheral = CBPeripheralManager(delegate: self, queue: nil)
             _ = DALIEvent.checkIn(major: major, minor: minor)
-        }.onFail { (error) in
+        }.onFail { _ in
             let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
             
             alert.addButton("Done", action: {
@@ -117,18 +118,18 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 	
 	func createBeaconRegion(_ major: Int, _ minor: Int) -> CLBeaconRegion? {
 		let proximityUUID = UUID(uuidString: checkInRangeID)
-		let major : CLBeaconMajorValue = CLBeaconMajorValue(major)
-		let minor : CLBeaconMinorValue = CLBeaconMajorValue(minor)
+		let major: CLBeaconMajorValue = CLBeaconMajorValue(major)
+		let minor: CLBeaconMinorValue = CLBeaconMajorValue(minor)
 		let beaconID = "com.JohnKotz.DALI.DaliLabApp.CheckinRegion"
 		
 		return CLBeaconRegion(proximityUUID: proximityUUID!,
 		                      major: major, minor: minor, identifier: beaconID)
 	}
 	
-	func advertiseDevice(region : CLBeaconRegion) {
+	func advertiseDevice(region: CLBeaconRegion) {
 		let peripheralData = region.peripheralData(withMeasuredPower: nil)
 		
-		peripheral.startAdvertising(((peripheralData as NSDictionary) as! [String : Any]))
+		peripheral.startAdvertising(((peripheralData as NSDictionary) as! [String: Any]))
 	}
 	
 	func animate() {
@@ -137,10 +138,10 @@ class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITa
 		
 		UIView.animate(withDuration: 1.0, animations: {
 			self.beacon2.alpha = 0.0
-		}) { (sucess) in
+		}) { _ in
 			UIView.animate(withDuration: 1.0, animations: {
 				self.beacon2.alpha = 1.0
-			}, completion: { (success) in
+			}, completion: { _ in
 				if self.animating { self.animate() }
 			})
 		}

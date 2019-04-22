@@ -1,4 +1,3 @@
-
 //
 //  LightViewController.swift
 //  DALI Lab
@@ -30,7 +29,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 	var groups: [DALILights.Group] = []
 	var overlayLightsMap: UIImageView?
 	
-	var selectedGroup : DALILights.Group?
+	var selectedGroup: DALILights.Group?
 	var lastTranslation = CGPoint()
 	var min: CGFloat = 0
 	
@@ -97,19 +96,19 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 					}
 					
 					if toTop {
-						self.viewHeight.constant = max;
+						self.viewHeight.constant = max
 						UIView.animate(withDuration: duration, animations: {
 							self.view.layoutIfNeeded()
 						})
 					} else {
-						self.viewHeight.constant = min;
+						self.viewHeight.constant = min
 						UIView.animate(withDuration: duration, animations: {
 							self.view.layoutIfNeeded()
 						})
 					}
 				}
 				
-				if (abs(lastTranslation.y) > 2) {
+				if abs(lastTranslation.y) > 2 {
 					// We had some momentum...
 					// If it was negative then it was upwards
 					animate(toTop: lastTranslation.y < 0, translation: lastTranslation.y)
@@ -123,7 +122,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 	}
 	
 	func updateGroups() {
-		var map: [String:UIImageView] = [:]
+		var map: [String: UIImageView] = [:]
 		
 		for overlay in self.overlays {
 			map[overlay.accessibilityLabel!] = overlay
@@ -178,13 +177,13 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 			self.onSwitch.isOn = DALILights.Group.all.isOn
 			self.onSwitch.isHidden = false
             self.tableView.reloadData()
-		}else if sender.accessibilityLabel == "pods" {
+		} else if sender.accessibilityLabel == "pods" {
 			selectedGroup = DALILights.Group.pods
 			groupTitle.text = DALILights.Group.pods.name.uppercased()
 			self.onSwitch.isOn = DALILights.Group.pods.isOn
 			self.onSwitch.isHidden = false
 			self.tableView.reloadData()
-		}else if let group = map[sender.accessibilityLabel!] {
+		} else if let group = map[sender.accessibilityLabel!] {
 			selectedGroup = group
 			groupTitle.text = group.formattedName.uppercased().replacingOccurrences(of: "POD:", with: "")
 			self.onSwitch.isOn = group.isOn
@@ -193,7 +192,6 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 		} else {
 			self.onSwitch.isHidden = true
 		}
-		
 		
 		if selectedGroup?.name == prevGroup?.name {
 			selectedGroup = nil
@@ -262,7 +260,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                                            height: 2)
                 })
             }
-        }else if !self.selectionIndicator.isHidden {
+        } else if !self.selectionIndicator.isHidden {
             self.selectionIndicator.alpha = 1.0
             UIView.animate(withDuration: 0.3, animations: {
                 self.selectionIndicator.alpha = 0.0
@@ -286,7 +284,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 			}, completion: { (_) in
 				oldMap.removeFromSuperview()
 			})
-		}else if let image = image {
+		} else if let image = image {
 			self.overlayLightsMap = UIImageView(frame: self.lightsMap.frame)
 			self.overlayLightsMap!.image = image
 			self.overlayLightsMap!.alpha = 0.0
@@ -294,7 +292,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 			UIView.animate(withDuration: 0.3, animations: {
 				self.overlayLightsMap!.alpha = 0.5
 			})
-		}else if let overlayLightsMap = self.overlayLightsMap {
+		} else if let overlayLightsMap = self.overlayLightsMap {
 			UIView.animate(withDuration: 0.3, animations: {
 				overlayLightsMap.alpha = 0.0
 			}, completion: { (_) in
@@ -304,7 +302,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 		}
 		
 		if self.viewHeight.constant != min {
-			self.viewHeight.constant = min;
+			self.viewHeight.constant = min
 			UIView.animate(withDuration: 0.3, animations: {
 				self.view.layoutIfNeeded()
 			})
@@ -379,7 +377,11 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 			}
 			cell?.selectionStyle = .none
 			
-			cell?.setUp(color: selectedGroup?.color != nil ? UIColor.init(hex: selectedGroup!.color!.replacingOccurrences(of: "#", with: ""), alpha: 1.0) : nil, delegate: self)
+            var selectedColor: UIColor?
+            if let color = selectedGroup?.color {
+                selectedColor = UIColor.init(hex: color.replacingOccurrences(of: "#", with: ""), alpha: 1.0)
+            }
+			cell?.setUp(color: selectedColor, delegate: self)
 			
 			return cell!
 		}

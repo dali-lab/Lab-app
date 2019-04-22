@@ -17,7 +17,9 @@ class NewVotingEventViewController: UITableViewController {
 	override func viewDidLoad() {
 		self.updateData()
 		
-		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(NewVotingEventViewController.new))
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                                 target: self,
+                                                                 action: #selector(NewVotingEventViewController.new))
 	}
 	
 	@objc func new() {
@@ -42,7 +44,7 @@ class NewVotingEventViewController: UITableViewController {
                 return event is DALIEvent.VotingEvent
             })
             self.tableView.reloadData()
-        }.onFail { (error) in
+        }.onFail { _ in
             // TODO: handle error
         }
 	}

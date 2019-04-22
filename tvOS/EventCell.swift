@@ -21,7 +21,11 @@ class EventCell: UITableViewCell {
 		set {
 			if let newValue = newValue {
 				nameLabel.text = newValue.name
-				descriptionLabel.text = newValue.description == newValue.name && newValue.location != nil ? newValue.location : newValue.description
+                 if newValue.description == newValue.name && newValue.location != nil {
+                    descriptionLabel.text = newValue.location
+                } else {
+                    descriptionLabel.text = newValue.description
+                }
 				
 				let calendar = Calendar.current
 				
@@ -29,8 +33,11 @@ class EventCell: UITableViewCell {
 				let weekDay = EventCell.days[weekDayIndex - 1]
 				let day = calendar.component(.day, from: newValue.start)
 				let dayPostFix = EventCell.getDayPostfix(day: day)
+                let dayString = String(day) + dayPostFix
+                let startString = newValue.start.timeString()
+                let endString = newValue.end.timeString()
 				
-				dateLabel.text = "\n\(weekDay) \(newValue.start.timeString())-\(newValue.end.timeString()), \(String(day) + dayPostFix)"
+				dateLabel.text = "\n\(weekDay) \(startString)-\(endString), \(dayString)"
 			}
 		}
 		get {
@@ -57,7 +64,11 @@ extension Date {
 		let minutes = Calendar.current.component(.minute, from: self)
 		var hours = Calendar.current.component(.hour, from: self)
 		hours = hours != 0 ? hours : 12
+        
+        let hours12 = hours > 12 ? hours - 12 : hours
+        let minutesString = minutes != 0 ? ":\(minutes < 10 ? "0" : "")\(minutes)" : ""
+        let amPMString = hours >= 12 && hours < 24 ? "PM" : "AM"
 		
-		return "\(hours > 12 ? hours - 12 : hours)\(minutes != 0 ? ":\(minutes < 10 ? "0" : "")\(minutes)" : "") \(hours >= 12 && hours < 24 ? "PM" : "AM")"
+		return "\(hours12)\(minutesString) \(amPMString)"
 	}
 }

@@ -34,7 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		let settings = [kOSSettingsKeyAutoPrompt: false]
-		OneSignal.initWithLaunchOptions(launchOptions, appId: "6799d21a-debe-4ec8-b6f0-99c72cac170d", handleNotificationAction: nil, settings: settings)
+		OneSignal.initWithLaunchOptions(launchOptions,
+                                        appId: "6799d21a-debe-4ec8-b6f0-99c72cac170d",
+                                        handleNotificationAction: nil,
+                                        settings: settings)
 		OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
 		OneSignal.add(self as OSSubscriptionObserver)
 		
@@ -44,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 		
 		AppDelegate.shared = self
 		
-		var error: NSError? = nil
+		var error: NSError?
 		GGLContext.sharedInstance().configureWithError(&error)
 		assert(error == nil)
 		
@@ -73,7 +76,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 		return true
 	}
 	
-	func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+	func application(_ application: UIApplication,
+                     performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 		print("Background fetching...")
 		if let beaconController = BeaconController.current {
 			if userIsTim() {
@@ -82,13 +86,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
                 
                 DALILocation.Tim.submit(inDALI: inDALI, inOffice: inOffice).onSuccess { (_) in
                     completionHandler(.newData)
-                }.onFail { (error) in
+                }.onFail { _ in
                     completionHandler(.failed)
                 }
 			} else {
                 DALILocation.Shared.submit(inDALI: beaconController.inDALI, entering: false).onSuccess { (_) in
                     completionHandler(.noData)
-                }.onFail { (error) in
+                }.onFail { _ in
                     completionHandler(.failed)
                 }
 			}
@@ -96,7 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 	}
 	
 	func onOSSubscriptionChanged(_ stateChanges: OSSubscriptionStateChanges!) {
-		//The player id is inside stateChanges. But be careful, this value can be nil if the user has not granted you permission to send notifications.
+		// The player id is inside stateChanges.
+        // But be careful, this value can be nil if the user has not granted you permission to send notifications.
 		if let playerId = stateChanges.to.userId {
 			UserDefaults.standard.set(playerId, forKey: "playerID")
 		}
@@ -111,7 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 		}
 		
 		center.getNotificationSettings(completionHandler: { (settings) in
-			switch (settings.authorizationStatus) {
+			switch settings.authorizationStatus {
 			case .notDetermined:
 				DispatchQueue.main.async {
 					let alertAppearance = SCLAlertView.SCLAppearance(
@@ -124,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 						callback(false)
 					})
 					alert.addButton("Sure", action: {
-						center.requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
+						center.requestAuthorization(options: [.alert, .badge, .sound]) { (success, _) in
 							self.notificationsAuthorized = true
 							callback(success)
 						}
@@ -138,18 +143,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
                                            color: #colorLiteral(red: 0.6085096002, green: 0.80526066, blue: 0.9126116071, alpha: 1),
                                            image: #imageLiteral(resourceName: "notificationBell"))
 				}
-				break
+				
 			case .authorized:
 				self.notificationsAuthorized = true
 				callback(true)
-				break
+				
 			default:
 				callback(false)
-				break
 			}
 		})
 	}
-	
 	
 	// Credits to @ProgrammierTier https://stackoverflow.com/a/34179192
 	func getVisibleViewController(_ rootViewController: UIViewController?) -> UIViewController? {
@@ -187,14 +190,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 				}
 				OneSignal.sendTag("signedIn", value: "\(GIDSignIn.sharedInstance().currentUser != nil)")
 				
-				OneSignal.promptForPushNotifications(userResponse: { accepted in
+				OneSignal.promptForPushNotifications(userResponse: { _ in
 					
 				})
 			}
 		}
         
-        let updateReturnDate = UNNotificationAction(identifier: "UPDATE_RETURN_ACTION", title: "Update Return Date", options: .foreground)
-        let returnReminderCategory = UNNotificationCategory(identifier: "RETURN_REMINDER", actions: [updateReturnDate], intentIdentifiers: [], options: .customDismissAction)
+        let updateReturnDate = UNNotificationAction(identifier: "UPDATE_RETURN_ACTION",
+                                                    title: "Update Return Date",
+                                                    options: .foreground)
+        let returnReminderCategory = UNNotificationCategory(identifier: "RETURN_REMINDER",
+                                                            actions: [updateReturnDate],
+                                                            intentIdentifiers: [],
+                                                            options: .customDismissAction)
         UNUserNotificationCenter.current().setNotificationCategories([returnReminderCategory])
 	}
 	
@@ -203,13 +211,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 			return
 		}
         
-        if let lastSentDate = UserDefaults.standard.object(forKey: "entranceNotificationLastSent") as? Date, entered && abs(lastSentDate.timeIntervalSince(Date())) < 2*60*60 {
+        let lastSentDate = UserDefaults.standard.object(forKey: "entranceNotificationLastSent") as? Date
+        if let lastSentDate = lastSentDate, entered && abs(lastSentDate.timeIntervalSince(Date())) < 2*60*60 {
             return
         }
 		
 		if SettingsController.getEnterExitNotif() {
 			let content = UNMutableNotificationContent()
-            if (entered) {
+            if entered {
                 UserDefaults.standard.set(Date(), forKey: "entranceNotificationLastSent")
             }
 			content.title = entered ? "Welcome Back" : "See you next time"
@@ -220,7 +229,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 			content.sound = UNNotificationSound(named: convertToUNNotificationSoundName("coins.m4a"))
 			
 			let notification = UNNotificationRequest(identifier: "enterExitNotification", content: content, trigger: nil)
-			UNUserNotificationCenter.current().add(notification) { (error) in
+			UNUserNotificationCenter.current().add(notification) { (_) in
 				
 			}
 		}
@@ -239,7 +248,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 			content.sound = UNNotificationSound(named: convertToUNNotificationSoundName("coins.m4a"))
 			
 			let notification = UNNotificationRequest(identifier: "checkInNotification", content: content, trigger: nil)
-			UNUserNotificationCenter.current().add(notification) { (error) in
+			UNUserNotificationCenter.current().add(notification) { (_) in
 				
 			}
 		}
@@ -258,11 +267,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
                 content.subtitle = ""
                 content.sound = UNNotificationSound(named: self.convertToUNNotificationSoundName("coins.m4a"))
                 
-                let notification = UNNotificationRequest(identifier: "votingNotification", content: content, trigger: nil)
-                UNUserNotificationCenter.current().add(notification) { (error) in
+                let notification = UNNotificationRequest(identifier: "votingNotification",
+                                                         content: content,
+                                                         trigger: nil)
+                UNUserNotificationCenter.current().add(notification) { (_) in
                     callback()
                 }
-            }.onFail { (error) in
+            }.onFail { _ in
                 // TODO: Handle error
             }
 		}
@@ -280,11 +291,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         content.threadIdentifier = "returnReminder:\(equipment.id)"
         content.userInfo = ["equipment": ["id": equipment.id, "name": equipment.name]]
         
-        var dateComponents = Calendar.current.dateComponents([.calendar,.day,.month,.year,.era], from: returnDate)
+        var dateComponents = Calendar.current.dateComponents([.calendar, .day, .month, .year, .era], from: returnDate)
         dateComponents.hour = 14 // 14:00 hours
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        let request = UNNotificationRequest(identifier: "returnReminder:\(equipment.id)", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "returnReminder:\(equipment.id)",
+                                            content: content,
+                                            trigger: trigger)
         UNUserNotificationCenter.current().add(request) { (error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -310,7 +323,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 		DALIapi.enableSockets()
 		
 		if !noUIChange {
-			let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+			let mainViewController = UIStoryboard(name: "Main", bundle: nil)
+                .instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
 			if let loginViewController = self.loginViewController {
 				mainViewController.modalTransitionStyle = .crossDissolve
 				mainViewController.modalPresentationStyle = .fullScreen
@@ -343,9 +357,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
                 DALIapi.signin(accessToken: accessToken, refreshToken: refreshToken, forced: true)
                     .mainThreadFuture.onSuccess { (member) in
                     self.didSignIn(member: member, noUIChange: alreadySignedIn)
-                }.onFail { (error) in
+                }.onFail { _ in
                     if !alreadySignedIn {
-                        self.loginViewController?.showError(alert: SCLAlertView(), title: "Error Logging In", subTitle: "Encountered an error when logging in!")
+                        self.loginViewController?.showError(alert: SCLAlertView(),
+                                                            title: "Error Logging In",
+                                                            subTitle: "Encountered an error when logging in!")
                         self.loginViewController?.endLoading()
                     }
                 }
@@ -355,7 +371,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 	
 	func skipSignIn() {
 		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalNever)
-		let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+		let mainViewController = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
 		
 		mainViewController.modalTransitionStyle = .crossDissolve
 		mainViewController.modalPresentationStyle = .fullScreen
@@ -386,7 +403,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 		
 		DALIapi.disableSockets()
 		
-		let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
+		let loginViewController = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateInitialViewController() as! LoginViewController
 		
 		self.window?.rootViewController? = loginViewController
 		self.loginViewController = loginViewController
@@ -396,15 +414,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 		self.signOut()
 	}
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         if response.actionIdentifier == "UPDATE_RETURN_ACTION" {
-            guard let equipmentDict = userInfo["equipment"] as? [String:String],
+            guard let equipmentDict = userInfo["equipment"] as? [String: String],
                   let id = equipmentDict["id"] else {
                 return
             }
             
-            _ = DALIEquipment.equipment(for: id).onSuccess { (equipment) in
+            _ = DALIEquipment.equipment(for: id).onSuccess { _ in
                 
             }
         }
@@ -412,7 +432,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 	
 	func application(_ app: UIApplication,
                      open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
 		return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication: options[.sourceApplication] as? String,
                                                  annotation: options)

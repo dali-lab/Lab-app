@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import DALI
 
-class PeopleInLabViewController : UITableViewController {
+class PeopleInLabViewController: UITableViewController {
 	
 	var timLocation = "Loading..."
 	var timLocationLabel: UILabel?
@@ -52,7 +52,7 @@ class PeopleInLabViewController : UITableViewController {
 			DispatchQueue.main.async {
 				if tim.inDALI {
 					self.timLocation = "In DALI"
-				}else if tim.inOffice {
+				} else if tim.inOffice {
 					self.timLocation = "In his office"
 				} else {
 					self.timLocation = "Location unknown"
@@ -119,12 +119,12 @@ class PeopleInLabViewController : UITableViewController {
 			cell?.textLabel?.text = "Tim Tregubov"
 			cell?.detailTextLabel?.text = self.timLocation
 			self.timLocationLabel = cell?.detailTextLabel
-			break
+			
 		case 1:
 			cell = tableView.dequeueReusableCell(withIdentifier: "memberCell", for: indexPath)
 			let member = members![indexPath.row]
 			cell?.textLabel?.text = member.name
-			break
+			
 		default:
 			return UITableViewCell()
 		}

@@ -15,10 +15,9 @@ import OneSignal
 class VotingEventOptionsViewController: UITableViewController {
 	@IBOutlet weak var releaseButton: UIBarButtonItem!
 	
-	
 	var event: DALIEvent.VotingEvent!
 	var options: [DALIEvent.VotingEvent.Option] = []
-	var delegate: VotingEventManagerViewController?
+	weak var delegate: VotingEventManagerViewController?
 	
 	override func viewDidLoad() {
 		self.title = event.name
@@ -48,7 +47,7 @@ class VotingEventOptionsViewController: UITableViewController {
                 return (option1.points ?? 0) > (option2.points ?? 0)
             })
             self.tableView.reloadData()
-        }.onFail { (error) in
+        }.onFail { _ in
             // TODO: Handle error
         }
 	}
@@ -57,8 +56,10 @@ class VotingEventOptionsViewController: UITableViewController {
 		return true
 	}
 	
-	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-		if (editingStyle == UITableViewCell.EditingStyle.delete) {
+	override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
+		if editingStyle == UITableViewCell.EditingStyle.delete {
 			// handle delete (by removing the data from your array and updating the tableview)
             event.removeOption(option: self.options[indexPath.row]).mainThreadFuture.onSuccess { (_) in
                 self.options.remove(at: indexPath.row)
@@ -78,9 +79,9 @@ class VotingEventOptionsViewController: UITableViewController {
 		}
 		
         event.release().onSuccess { (_) in
-            sender.isEnabled = false;
-            sender.title = "Released";
-        }.onFail { (error) in
+            sender.isEnabled = false
+            sender.title = "Released"
+        }.onFail { (_) in
             // TODO: Handle error
         }
 	}

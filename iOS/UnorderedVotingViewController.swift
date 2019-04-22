@@ -20,7 +20,9 @@ class UnorderedVotingViewController: UITableViewController {
         _ = event.getOptions().onSuccess { (options) in
             self.options.removeAll()
             
-            let optionsOrdered = options.sorted(by: { (option1, option2) -> Bool in return option1.name < option2.name })
+            let optionsOrdered = options.sorted(by: { (option1, option2) -> Bool in
+                return option1.name < option2.name
+            })
             self.options = optionsOrdered.map({ (option) -> (DALIEvent.VotingEvent.Option, Bool) in
                 return (option, false)
             })
@@ -46,13 +48,9 @@ class UnorderedVotingViewController: UITableViewController {
 	}
 	
 	@IBAction func submit(_ sender: Any) {
-		var optionsToSubmit: [DALIEvent.VotingEvent.Option] = []
-		
-		for option in options {
-			if option.1 {
-				optionsToSubmit.append(option.0)
-			}
-		}
+        let optionsToSubmit = options.compactMap { (option) -> DALIEvent.VotingEvent.Option? in
+            return option.1 ? option.0 : nil
+        }
 		
 		if optionsToSubmit.count < event.config.numSelected {
 			SCLAlertView().showError("Please select \(event.config.numSelected)", subTitle: "")

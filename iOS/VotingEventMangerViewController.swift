@@ -39,7 +39,7 @@ class VotingEventManagerViewController: UITableViewController {
             return FutureBatch(futures).future.futureAny
         }.mainThreadFuture.onSuccess { (_) in
             self.tableView.reloadData()
-        }.onFail { (error) in
+        }.onFail { _ in
             // TODO: Do something about this error
         }
 	}
@@ -140,10 +140,12 @@ class VotingEventCell: UITableViewCell {
 				
 				let daytimeDifferent = startDaytime != endDaytime
 				
-				let startString = "\(startHour):\(startMinute  < 10 ? "0" : "")\(startMinute)\(daytimeDifferent ? " \(startDaytime ? "AM" : "PM")" : "")"
+				let startString = "\(startHour):\(startMinute  < 10 ? "0" : "")" +
+                    "\(startMinute)\(daytimeDifferent ? " \(startDaytime ? "AM" : "PM")" : "")"
 				let endString = "\(endHour):\(endMinute < 10 ? "0" : "")\(endMinute) \(endDaytime ? "AM" : "PM")"
 				
-				self.detailTextLabel?.text = "\(weekdayStart) \(startString) - \(weekdayEnd == nil ? "" : weekdayEnd! + " ")\(endString)"
+				self.detailTextLabel?.text = "\(weekdayStart) \(startString) - " +
+                    "\(weekdayEnd == nil ? "" : weekdayEnd! + " ")\(endString)"
 			}
 		}
 	}

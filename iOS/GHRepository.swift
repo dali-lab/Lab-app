@@ -22,7 +22,7 @@ struct GHRepository: PagableObject {
     let issuesURL: String
     let htmlURL: String
     
-    init?(dictionary: [String:Any]) {
+    init?(dictionary: [String: Any]) {
         guard let name = dictionary["name"] as? String,
               let openIssues = dictionary["open_issues"] as? Int,
               let isPrivate = dictionary["private"] as? Int,
@@ -48,7 +48,7 @@ struct GHRepository: PagableObject {
     }
     
     init?(data: Any) {
-        guard let data = data as? [String:Any] else {
+        guard let data = data as? [String: Any] else {
             return nil
         }
         self.init(dictionary: data)
@@ -64,8 +64,9 @@ struct GHRepository: PagableObject {
         }
         let promise = Promise<[GHIssue]>()
         
-        Alamofire.request(allIssuesURL, method: .get, parameters: ["access_token": accessToken]).responseJSON { (response) in
-            if let data = response.result.value as? [[String:Any]] {
+        Alamofire.request(allIssuesURL, method: .get, parameters: ["access_token": accessToken])
+            .responseJSON { (response) in
+            if let data = response.result.value as? [[String: Any]] {
                 promise.completeWithSuccess(data.compactMap({ (data) -> GHIssue? in
                     return GHIssue(dictionary: data)
                 }))
@@ -89,7 +90,7 @@ struct GHRepository: PagableObject {
         let promise = Promise<GHRepository>()
         
         Alamofire.request(url, method: .get, parameters: ["access_token": accessToken]).responseJSON { (response) in
-            if let data = response.result.value as? [String:Any], let repo = GHRepository(dictionary: data) {
+            if let data = response.result.value as? [String: Any], let repo = GHRepository(dictionary: data) {
                 promise.completeWithSuccess(repo)
             } else {
                 if let error = response.error {

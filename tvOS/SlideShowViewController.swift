@@ -23,18 +23,21 @@ class SlideShowViewController: UIViewController, ViewProtocol {
 	@IBOutlet weak var overlayContainer: UIView!
 	@IBOutlet var imageViews: [UIImageView]!
 	
-	
 	var photos: [String] = []
 	var timer: Timer!
 	var observation: Observation?
 	var nextImageIndex = 0
 	
 	override func viewDidLoad() {
-		DALIPhoto.get { (photos, error) in
+		DALIPhoto.get { (photos, _) in
 			self.photos = photos
 			self.showRandomAll()
 			
-			self.timer = Timer(timeInterval: 20, target: self, selector: #selector(self.showRandom), userInfo: nil, repeats: true)
+			self.timer = Timer(timeInterval: 20,
+                               target: self,
+                               selector: #selector(self.showRandom),
+                               userInfo: nil,
+                               repeats: true)
 			RunLoop.main.add(self.timer, forMode: RunLoopMode.commonModes)
 		}
 		
@@ -43,7 +46,8 @@ class SlideShowViewController: UIViewController, ViewProtocol {
 		}
 		
 		let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(SlideShowViewController.tapped))
-		tapRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue), NSNumber.init(value: UIPressType.menu.rawValue)];
+		tapRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue),
+                                           NSNumber.init(value: UIPressType.menu.rawValue)]
 		self.view.addGestureRecognizer(tapRecognizer)
 	}
 	
@@ -134,8 +138,8 @@ class SlideShowViewController: UIViewController, ViewProtocol {
 			return
 		}
 		
-		URLSession.shared.dataTask(with: url) { (data, response, error) in
-			if let data = data, let image = UIImage.init(data: data){
+		URLSession.shared.dataTask(with: url) { (data, _, _) in
+			if let data = data, let image = UIImage.init(data: data) {
 				callback(image)
 			} else {
 				print("Failed to get image from: \(url)")

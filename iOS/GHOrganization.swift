@@ -18,7 +18,7 @@ struct GHOrganization: PagableObject {
     let reposURL: String
     let membersURL: String
     
-    init?(dictionary: [String:Any]) {
+    init?(dictionary: [String: Any]) {
         guard let name = dictionary["login"] as? String,
               let url = dictionary["url"] as? String,
               let reposURL = dictionary["repos_url"] as? String,

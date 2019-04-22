@@ -9,6 +9,6 @@
 import Foundation
 
 protocol ViewProtocol {
-	func startSlideshow();
-	func endSlideshow();
+	func startSlideshow()
+	func endSlideshow()
 }

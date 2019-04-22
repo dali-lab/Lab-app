@@ -359,7 +359,6 @@ class EventCell: UITableViewCell {
 	@IBOutlet weak var timeLabel: UILabel!
 	@IBOutlet weak var locationLabel: UILabel!
 	
-	
 	private var eventVal: DALIEvent?
 	var event: DALIEvent? {
 		get {
@@ -390,7 +389,8 @@ class EventCell: UITableViewCell {
 				
 				let daytimeDifferent = startDaytime != endDaytime
 				
-				let startString = "\(startHour):\(startMinute  < 10 ? "0" : "")\(startMinute)\(daytimeDifferent ? " \(startDaytime ? "AM" : "PM")" : "")"
+				let startString = "\(startHour):\(startMinute  < 10 ? "0" : "")" +
+                    "\(startMinute)\(daytimeDifferent ? " \(startDaytime ? "AM" : "PM")" : "")"
 				let endString = "\(endHour):\(endMinute < 10 ? "0" : "")\(endMinute) \(endDaytime ? "AM" : "PM")"
 				
 				self.timeLabel.text = "\(weekdayStart) \(startString) - \(weekdayEnd == nil ? "" : weekdayEnd! + " ")\(endString)"

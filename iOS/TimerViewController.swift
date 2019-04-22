@@ -13,13 +13,14 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     
     override func viewDidLoad() {
-        startButton.setBackgroundImage(startButton.currentBackgroundImage?.withRenderingMode(.alwaysTemplate), for: .normal)
+        startButton.setBackgroundImage(startButton.currentBackgroundImage?.withRenderingMode(.alwaysTemplate),
+                                       for: .normal)
     }
     
     @IBAction func signIn(_ sender: UIButton) {
         GitHubLoginSession(scope: "repo,notifications,read:user,read:org").start().onSuccess { (_) in
             
-        }.onFail { (error) in
+        }.onFail { _ in
             
         }
     }

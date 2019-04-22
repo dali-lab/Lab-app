@@ -49,7 +49,7 @@ class ToolsAndSettingsViewController: UITableViewController, AlertShower, QRCode
 	}
 	
 	func showAlert(alert: SCLAlertView, title: String, subTitle: String, color: UIColor, image: UIImage) {
-		let _ = alert.showCustom(title, subTitle: subTitle, color: color, icon: image)
+		_ = alert.showCustom(title, subTitle: subTitle, color: color, icon: image)
 	}
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {

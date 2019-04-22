@@ -12,7 +12,8 @@ import GoogleSignIn
 import DALI
 
 /**
- Handles all beacon activity for the application. It tracks at all times, even in the background, the beacon's nearby to get an accurate understanding of position
+ Handles all beacon activity for the application. It tracks at all times, even in the background,
+ the beacon's nearby to get an accurate understanding of position
 
 Functions:
  -
@@ -66,12 +67,18 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 	private var targetRegion: RPKRegion?
 	private var onRange: (() -> Void)?
 	
-	var refreshTimers = [RPKRegion:Timer]()
+	var refreshTimers = [RPKRegion: Timer]()
 	
 	var currentLocation: String? {
-		return (regions.filter({ (Int($0.attributes["locationPriority"] as! String))! > 0 }) as [RPKRegion]).sorted(by: { (region1, region2) -> Bool in
-			return (Int(region1.attributes["locationPriority"] as! String))! > (Int(region2.attributes["locationPriority"] as! String))!
-		}).first?.name.replacingOccurrences(of: " Region", with: "").replacingOccurrences(of: "\\", with: "")
+		let region = regions.filter({ region in
+            return (Int(region.attributes["locationPriority"] as! String))! > 0
+        }).sorted(by: { (region1, region2) -> Bool in
+            let region1Priority = Int(region1.attributes["locationPriority"] as! String)
+            let region2Priority = Int(region2.attributes["locationPriority"] as! String)
+			return region1Priority! > region2Priority!
+		}).first
+        
+        return region?.name.replacingOccurrences(of: " Region", with: "").replacingOccurrences(of: "\\", with: "")
 	}
 	
 	var inDALI: Bool {
@@ -98,7 +105,7 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 		
 		do {
 			try self.staticSetup()
-		}catch {
+		} catch {
 			fatalError("Already have one!")
 		}
 		
@@ -221,7 +228,9 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 				if entered || exited {
 					_ = DALILocation.Tim.submit(inDALI: entered ? false : inDALI, inOffice: entered)
 				}
-				NotificationCenter.default.post(name: Notification.Name.Custom.TimsOfficeEnteredOrExited, object: nil, userInfo: ["entered": entered])
+				NotificationCenter.default.post(name: Notification.Name.Custom.TimsOfficeEnteredOrExited,
+                                                object: nil,
+                                                userInfo: ["entered": entered])
 			}
 		} else if region.name == "Event Vote Region", entered {
 			if UIApplication.shared.applicationState == .background {
@@ -231,7 +240,9 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 					}
 				}
 			} else {
-				NotificationCenter.default.post(name: Notification.Name.Custom.EventVoteEnteredOrExited, object: nil, userInfo: ["entered": entered])
+				NotificationCenter.default.post(name: Notification.Name.Custom.EventVoteEnteredOrExited,
+                                                object: nil,
+                                                userInfo: ["entered": entered])
 			}
 		} else if region.name == "Check In Region", entered {
 			if UIApplication.shared.applicationState == .background {
@@ -288,7 +299,7 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 				if UIApplication.shared.applicationState != .background {
 					NotificationCenter.default.post(name: NSNotification.Name.Custom.CheckInEnteredOrExited,
                                                     object: nil,
-                                                    userInfo: ["entered" : true,
+                                                    userInfo: ["entered": true,
                                                                "major": first.major!,
                                                                "minor": first.minor!])
 				}

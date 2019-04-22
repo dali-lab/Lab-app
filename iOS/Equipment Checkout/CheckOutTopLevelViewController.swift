@@ -40,6 +40,7 @@ class CheckOutTopLevelViewController: UIViewController {
     
     override func viewDidLoad() {
         self.title = "Equipment"
+        blurView.alpha = 0.0
     }
     
     override func viewWillAppear(_ animated: Bool) {

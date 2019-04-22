@@ -159,12 +159,15 @@ class OrderedVotingViewController: UIViewController, UITableViewDelegate, UITabl
 	}
 	
 	var lastProposedDestination: IndexPath?
-	func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+	func tableView(_ tableView: UITableView,
+                   targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath,
+                   toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
 		lastProposedDestination = proposedDestinationIndexPath
 		if sourceIndexPath.section == 0 {
 			return sourceIndexPath
 		}
-		return IndexPath(row: proposedDestinationIndexPath.section == 1 ? proposedDestinationIndexPath.row : self.unselected.count - 1, section: 1)
+        let sectionIs1 = proposedDestinationIndexPath.section == 1
+		return IndexPath(row: sectionIs1 ? proposedDestinationIndexPath.row : self.unselected.count - 1, section: 1)
 	}
 	
 	func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {

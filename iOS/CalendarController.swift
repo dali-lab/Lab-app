@@ -81,7 +81,8 @@ class CalendarController: NSObject, EKCalendarChooserDelegate {
 			event.startDate = self.event.start
 			event.endDate = self.event.end
 			event.location = self.event.location
-			event.notes = "\(self.event.description == nil ? "Description: \(self.event.description!)\n\n" : "")ID: \(self.event.id!)"
+            let description = self.event.description == nil ? "Description: \(self.event.description!)\n\n" : ""
+			event.notes = "\(description)ID: \(self.event.id!)"
 			
 			event.calendar = calender
 			
@@ -111,7 +112,9 @@ class CalendarController: NSObject, EKCalendarChooserDelegate {
 					vc.present(self.navControl, animated: true, completion: {})
 				}
 			} else {
-				SCLAlertView().showError("Cant access calendar!", subTitle: "You may have not allowed access to your calendar. Change this in your phone settings to put events on your calendar")
+				SCLAlertView().showError("Cant access calendar!",
+                                         subTitle: "You may have not allowed access to your calendar." +
+                                            " Change this in your phone settings to put events on your calendar")
 			}
 		}
 	}

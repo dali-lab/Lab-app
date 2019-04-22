@@ -42,7 +42,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	var memberEnterObservation: Observation?
 
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
@@ -55,7 +54,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	override func viewDidAppear(_ animated: Bool) {
 		
 		self.peopleInLabLabel.text = "People in the lab: Loading..."
-		sharedObserver = DALILocation.Shared.observe { (people, error) in
+		sharedObserver = DALILocation.Shared.observe { (people, _) in
 			DispatchQueue.main.async {
 				if let people = people {
 					self.people = people
@@ -65,7 +64,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			}
 		}
 		
-		timObserver = DALILocation.Tim.observe(callback: { (tim, error) in
+		timObserver = DALILocation.Tim.observe(callback: { (tim, _) in
 			if let tim = tim {
 				self.tim = tim
 				DispatchQueue.main.async {
@@ -201,4 +200,3 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		return events.count
 	}
 }
-

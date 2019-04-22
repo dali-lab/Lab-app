@@ -59,7 +59,8 @@ public class VotingHelper: NSObject, CLLocationManagerDelegate {
             promise.completeWithFail(AuthorizationErrors.canceled)
         }
         
-        alert.showWait("Access to location?", subTitle: "In order to keep this event fair you need to confirm you are at the event. To do this, will you grant this app access to your location?")
+        alert.showWait("Access to location?", subTitle: "In order to keep this event fair you need to confirm" +
+            " you are at the event. To do this, will you grant this app access to your location?")
         return promise.future
     }
     

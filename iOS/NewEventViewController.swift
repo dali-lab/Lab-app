@@ -81,7 +81,8 @@ class NewEventViewController: FormViewController {
 				row.title = "End time"
 				row.add(rule: RuleRequired())
 				let ruleRequiredViaClosure = RuleClosure<Date> { rowValue in
-					if rowValue != nil && ((self.form.rowBy(tag: "start") as! DateTimeRow).value == nil || rowValue! > (self.form.rowBy(tag: "start") as! DateTimeRow).value!) {
+                    let startValue = (self.form.rowBy(tag: "start") as! DateTimeRow).value
+					if rowValue != nil && (startValue == nil || rowValue! > startValue!) {
 						return nil
 					}
 					return ValidationError(msg: "End time must be later than start")
@@ -114,8 +115,12 @@ class NewEventViewController: FormViewController {
 			}
 		}
 		
-		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(NewEventViewController.done))
-		self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(NewEventViewController.dismissView))
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                                                 target: self,
+                                                                 action: #selector(NewEventViewController.done))
+		self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                                target: self,
+                                                                action: #selector(NewEventViewController.dismissView))
 	}
 	
 	@objc func dismissView() {
@@ -128,10 +133,8 @@ class NewEventViewController: FormViewController {
 		let errors = form.validate(includeHidden: true)
 		if errors.count > 0 {
 			SCLAlertView().showError("Some errors", subTitle: "Please address the form errors")
-			for row in form.allRows {
-				if !row.isValid {
-					row.baseCell.textLabel?.textColor = .red
-				}
+			for row in form.allRows where !row.isValid {
+                row.baseCell.textLabel?.textColor = .red
 			}
 			return
 		}

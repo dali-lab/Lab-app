@@ -26,7 +26,7 @@ struct GHIssue {
         return df
     }()
     
-    init?(dictionary: [String:Any]) {
+    init?(dictionary: [String: Any]) {
         guard
             let title = dictionary["title"] as? String,
             let number = dictionary["number"] as? Int,

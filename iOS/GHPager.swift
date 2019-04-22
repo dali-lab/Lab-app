@@ -89,7 +89,8 @@ class GHPager<T: PagableObject> {
         }
         let promise = Promise<[T]>()
         
-        Alamofire.request(baseURL, method: .get, parameters: ["access_token": accessToken, "page": pageNum]).responseJSON { (response) in
+        Alamofire.request(baseURL, method: .get, parameters: ["access_token": accessToken, "page": pageNum])
+            .responseJSON { (response) in
             if let value = response.result.value as? [Any] {
                 let objects = value.compactMap({ (data) -> T? in
                     return T(data: data)

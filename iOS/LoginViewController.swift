@@ -23,8 +23,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, ErrorAlertShow
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		loadingOverlay.isHidden = true;
-		activityIndicator.isHidden = true;
+		loadingOverlay.isHidden = true
+		activityIndicator.isHidden = true
 		activityIndicator.stopAnimating()
 		
 		GIDSignIn.sharedInstance().uiDelegate = self
@@ -39,7 +39,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, ErrorAlertShow
 		UIView.animate(withDuration: 1.3, delay: 1.0, options: [UIView.AnimationOptions.curveEaseInOut], animations: {
 			self.image.transform = CGAffineTransform(translationX: 0, y: -90)
 			self.subView.transform = CGAffineTransform(translationX: 0, y: -90)
-		}) { (success) in
+		}) { _ in
 			UIView.animate(withDuration: 1.0, animations: { 
 				self.subView.alpha = 1
 			})
@@ -49,25 +49,25 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, ErrorAlertShow
 	
 	func showError(alert: SCLAlertView, title: String, subTitle: String) {
 		DispatchQueue.main.async {
-			let _ = alert.showError(title, subTitle: subTitle)
+			_ = alert.showError(title, subTitle: subTitle)
 		}
 	}
 	
 	func beginLoading() {
-		loadingOverlay.isHidden = false;
+		loadingOverlay.isHidden = false
 		loadingOverlay.alpha = 0.0
-		activityIndicator.isHidden = false;
+		activityIndicator.isHidden = false
 		activityIndicator.startAnimating()
 		
 		UIView.animate(withDuration: 0.3, delay: 0.5, options: [], animations: {
 			self.loadingOverlay.alpha = 1.0
-		}) { (success) in
+		}) { _ in
 			
 		}
 	}
 	
 	func endLoading() {
-		activityIndicator.isHidden = true;
+		activityIndicator.isHidden = true
 		activityIndicator.stopAnimating()
 		
 		UIView.animate(withDuration: 0.5) {
@@ -92,4 +92,3 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, ErrorAlertShow
 		// Dispose of any resources that can be recreated.
 	}
 }
-

@@ -120,9 +120,9 @@ open class CornerRadiusAndShadowView: UIView {
 
 extension NSCoder {
     func encode(_ color: UIColor, forKey key: String) {
-        var red : CGFloat = 0
-        var green : CGFloat = 0
-        var blue : CGFloat = 0
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
         var alpha: CGFloat = 0
         
         if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {

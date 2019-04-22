@@ -80,8 +80,10 @@ class EquipmentDetailTableViewController: UITableViewController {
             if !enabled {
                 deselectAnimated = false
             } else {
-                if let lastCheckOut = equipment.lastCheckedOut, equipment.isCheckedOut, lastCheckOut.member == DALIMember.current {
-                    returnPressed()
+                if let lastCheckOut = equipment.lastCheckedOut,
+                    equipment.isCheckedOut,
+                    lastCheckOut.member == DALIMember.current {
+                        returnPressed()
                 } else if !equipment.isCheckedOut {
                     checkoutPressed()
                 }
@@ -120,7 +122,9 @@ class EquipmentDetailTableViewController: UITableViewController {
             sectionTitles.append("History")
             cellTypes.append(checkOuts.map({ (record) -> CellType in
                 if record.endDate == nil {
-                    return .currentCheckout(name: record.member.name, start: record.startDate, end: record.expectedReturnDate)
+                    return .currentCheckout(name: record.member.name,
+                                            start: record.startDate,
+                                            end: record.expectedReturnDate)
                 } else {
                     return .pastCheckout(name: record.member.name, start: record.startDate, end: record.endDate!)
                 }
@@ -132,7 +136,9 @@ class EquipmentDetailTableViewController: UITableViewController {
         }
         
         sectionTitles.append("Actions")
-        let canReturn = equipment.lastCheckedOut != nil && equipment.isCheckedOut && equipment.lastCheckedOut?.member == DALIMember.current
+        let canReturn = equipment.lastCheckedOut != nil &&
+                        equipment.isCheckedOut &&
+                        equipment.lastCheckedOut?.member == DALIMember.current
         let enabled = !equipment.isCheckedOut || equipment.lastCheckedOut?.member == DALIMember.current
         
         cellTypes.append([.checkOutButton(title: canReturn ? "Return" : "Check out", enabled: enabled)])
@@ -146,15 +152,17 @@ class EquipmentDetailTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 self.updateView()
             }
-        }.onFail { (error) in
-            let alert = UIAlertController(title: "Failed to get history", message: "Couldn't retrieve the check-out history", preferredStyle: .alert)
+        }.onFail { _ in
+            let alert = UIAlertController(title: "Failed to get history",
+                                          message: "Couldn't retrieve the check-out history",
+                                          preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }
     
     func checkout(with endDate: Date) {
-        equipment.checkout(expectedEndDate: endDate).onSuccess { (record) -> Future<DALIEquipment> in
+        equipment.checkout(expectedEndDate: endDate).onSuccess { _ -> Future<DALIEquipment> in
             return self.equipment.reload()
         }.mainThreadFuture.onSuccess { (equipment) in
             self.equipment = equipment
@@ -170,7 +178,7 @@ class EquipmentDetailTableViewController: UITableViewController {
     }
     
     func update(returnDate: Date) {
-        equipment.update(returnDate: returnDate).onSuccess { (record) -> Future<DALIEquipment> in
+        equipment.update(returnDate: returnDate).onSuccess { _ -> Future<DALIEquipment> in
             return self.equipment.reload()
         }.mainThreadFuture.onSuccess { (equipment) in
             self.equipment = equipment
@@ -186,7 +194,9 @@ class EquipmentDetailTableViewController: UITableViewController {
     }
     
     func changeReturnDatePressed(with returnDate: Date) {
-        let alert = UIAlertController(title: "When will you return \(equipment.name)?", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "When will you return \(equipment.name)?",
+                                      message: nil,
+                                      preferredStyle: .actionSheet)
         
         var savedDate: Date = Date()
         alert.addDatePicker(mode: .date, date: returnDate, minimumDate: Date(), maximumDate: nil) { (date) in
@@ -201,7 +211,9 @@ class EquipmentDetailTableViewController: UITableViewController {
     }
     
     func checkoutPressed() {
-        let alert = UIAlertController(title: "When will you return \(equipment.name)?", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "When will you return \(equipment.name)?",
+                                      message: nil,
+                                      preferredStyle: .actionSheet)
         
         var savedDate: Date = Date()
         alert.addDatePicker(mode: .date, date: savedDate, minimumDate: Date(), maximumDate: nil) { (date) in
@@ -244,7 +256,7 @@ class EquipmentDetailTableViewController: UITableViewController {
 /**
  The type of cell to show
  */
-fileprivate enum CellType {
+private enum CellType {
     case title
     case password
     case currentCheckout(name: String, start: Date, end: Date?)
@@ -257,9 +269,9 @@ fileprivate enum CellType {
         switch self {
         case .title: return "titleCell"
         case .password: return "passwordCell"
-        case .currentCheckout(_, _, _): return "currentCheckoutCell"
-        case .pastCheckout(_, _, _): return "pastCheckoutCell"
-        case .updateReturnDate(_): return "updateReturnDateCell"
+        case .currentCheckout: return "currentCheckoutCell"
+        case .pastCheckout: return "pastCheckoutCell"
+        case .updateReturnDate: return "updateReturnDateCell"
         case .loadMore: return "moreCell"
         case .checkOutButton: return "checkOutButtonCell"
         }
@@ -268,11 +280,11 @@ fileprivate enum CellType {
 
 /// An abstraction of the cell
 class EquipmentDetailTableViewCell: UITableViewCell {
-    var equipment: DALIEquipment? = nil
-    fileprivate var type: CellType? = nil
+    var equipment: DALIEquipment?
+    fileprivate var type: CellType?
 }
 
-class EquipmentDetailTableViewTitleCell: EquipmentDetailTableViewCell {
+class TitleCell: EquipmentDetailTableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     
@@ -288,7 +300,7 @@ class EquipmentDetailTableViewTitleCell: EquipmentDetailTableViewCell {
     }
 }
 
-class EquipmentDetailTableViewCheckOutCell: EquipmentDetailTableViewCell {
+class CheckOutCell: EquipmentDetailTableViewCell {
     lazy var dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "MMM d"
@@ -306,7 +318,7 @@ class EquipmentDetailTableViewCheckOutCell: EquipmentDetailTableViewCell {
     }
 }
 
-class EquipmentDetailTableViewCurrentCheckOutCell: EquipmentDetailTableViewCell {
+class CurrentCheckoutCell: EquipmentDetailTableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateRangeLabel: UILabel!
     @IBOutlet weak var returnLabel: UILabel!
