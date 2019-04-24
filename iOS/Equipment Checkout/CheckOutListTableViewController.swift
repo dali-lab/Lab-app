@@ -37,6 +37,9 @@ class CheckOutListTableViewController: UIViewController, UITableViewDelegate, UI
     
     override func viewDidLoad() {
         tableView.isScrollEnabled = false
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 80
+        
         self.updateData()
     }
     
@@ -67,8 +70,7 @@ class CheckOutListTableViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let device = splitEquipment[indexPath.section][indexPath.row]
-        let identifier = device.isCheckedOut ? "checkedOutCell" : "availableCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "checkOutCell")
         
         if let cell = cell as? EquipmentCell {
             cell.equipment = device

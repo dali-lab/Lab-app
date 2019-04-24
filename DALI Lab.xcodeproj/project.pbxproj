@@ -343,16 +343,6 @@
 			path = QR;
 			sourceTree = "<group>";
 		};
-		526F3626215C5E54002F5CD2 /* Check out */ = {
-			isa = PBXGroup;
-			children = (
-				5203FF232150518200A406E3 /* CheckOutConfirmViewController.swift */,
-				526F362A215C5F23002F5CD2 /* DatePickerAlert.swift */,
-				526F3628215C5E77002F5CD2 /* CheckOutConfirmViewCells.swift */,
-			);
-			path = "Check out";
-			sourceTree = "<group>";
-		};
 		529A63281F4E983900BFBFE9 /* Tools and settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,7 +351,6 @@
 				529A632B1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift */,
 				529A63261F4E90DF00BFBFE9 /* NewVotingEventViewController.swift */,
 				529A63291F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift */,
-				526F3626215C5E54002F5CD2 /* Check out */,
 			);
 			name = "Tools and settings";
 			sourceTree = "<group>";
@@ -514,6 +503,9 @@
 				52ED6E0321CAF06400B201A1 /* CheckOutListTableViewController.swift */,
 				52F9EE8C21C9A5B000341542 /* CornerRadiusAndShadowView.swift */,
 				52ED6E0721CB283900B201A1 /* EquipmentDetailTableViewController.swift */,
+				5203FF232150518200A406E3 /* CheckOutConfirmViewController.swift */,
+				526F3628215C5E77002F5CD2 /* CheckOutConfirmViewCells.swift */,
+				526F362A215C5F23002F5CD2 /* DatePickerAlert.swift */,
 				526A7CEF21C9AE1F00F25E99 /* QR */,
 			);
 			path = "Equipment Checkout";

@@ -313,6 +313,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 		if self.notificationsAuthorized {
             OneSignal.setEmail(member.email)
 			OneSignal.sendTag("signedIn", value: "\(true)")
+            OneSignal.sendTag("admin", value: "\(member.isAdmin)")
 		}
 		
 		if self.beaconController == nil && BeaconController.current == nil {

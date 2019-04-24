@@ -18,7 +18,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	@IBOutlet weak var internalView: UIView!
 	@IBOutlet weak var locationLabel: UILabel!
 	@IBOutlet weak var tableView: UITableView!
-	@IBOutlet weak var votingButton: UIButton!
+//    @IBOutlet weak var votingButton: UIButton!
 	@IBOutlet weak var peopleButton: UIButton!
 	@IBOutlet weak var foodLabel: UILabel!
     @IBOutlet weak var lightButton: UIButton!
@@ -68,7 +68,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		
 		tableView.estimatedRowHeight = 140
 		
-		votingButton.isEnabled = true
+		// votingButton.isEnabled = true
 	}
 	
 	func updateData() {

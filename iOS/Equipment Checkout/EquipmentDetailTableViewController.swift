@@ -51,7 +51,7 @@ class EquipmentDetailTableViewController: UITableViewController {
             cell.equipment = equipment
             cell.type = cellType
         }
-        if case CellType.checkOutButton(let title, let enabled) = cellType {
+        if case CellType.checkOutButton(let title, let enabled, _) = cellType {
             cell?.textLabel?.text = title
             cell?.textLabel?.textColor = enabled ? UIColor.blue : UIColor.gray
         } else if case CellType.password = cellType {
@@ -60,6 +60,9 @@ class EquipmentDetailTableViewController: UITableViewController {
             } else {
                 cell?.detailTextLabel?.text = String(repeating: "●", count: equipment.password!.count)
             }
+        } else if case CellType.note(let title, let value) = cellType {
+            cell?.textLabel?.text = title
+            cell?.detailTextLabel?.text = value
         } else if case CellType.updateReturnDate(let current) = cellType {
             let checkOut = equipment.lastCheckedOut
             let df = DateFormatter()
@@ -76,16 +79,13 @@ class EquipmentDetailTableViewController: UITableViewController {
         let cellType = cellTypes[indexPath.section][indexPath.row]
         var deselectAnimated = true
         
-        if case CellType.checkOutButton(_, let enabled) = cellType {
+        if case CellType.checkOutButton(_, let enabled, let type) = cellType {
             if !enabled {
                 deselectAnimated = false
             } else {
-                if let lastCheckOut = equipment.lastCheckedOut,
-                    equipment.isCheckedOut,
-                    lastCheckOut.member == DALIMember.current {
-                        returnPressed()
-                } else if !equipment.isCheckedOut {
-                    checkoutPressed()
+                switch type {
+                case .returnButton: returnPressed()
+                case .checkOutButton: checkoutPressed()
                 }
             }
         } else if case CellType.loadMore = cellType {
@@ -114,7 +114,18 @@ class EquipmentDetailTableViewController: UITableViewController {
         
         if equipment.password != nil {
             sectionTitles.append("Notes")
-            cellTypes.append([.password])
+            var notesCells: [CellType] = [.password]
+            
+            if let make = equipment.make {
+                notesCells.append(.note(title: "Make", value: make))
+            }
+            if let model = equipment.model {
+                notesCells.append(.note(title: "Model", value: model))
+            }
+            if let serialNumber = equipment.serialNumber {
+                notesCells.append(.note(title: "Serial Number", value: serialNumber))
+            }
+            cellTypes.append(notesCells)
         }
         
         if let lastCheckout = equipment.lastCheckedOut {
@@ -135,13 +146,44 @@ class EquipmentDetailTableViewController: UITableViewController {
             }
         }
         
+        if equipment.checkingOutMembers.count >= 1 {
+            sectionTitles.append("Members checking out")
+            
+            var memberFrequency: [String: Int] = [:]
+            equipment.checkingOutMembers.forEach { (member) in
+                if memberFrequency[member.id] == nil {
+                    memberFrequency[member.id] = 0
+                }
+                memberFrequency[member.id]! += 1
+            }
+            
+            cellTypes.append(equipment.checkingOutMembers.compactMap({ (member) -> CellType? in
+                if let frequency = memberFrequency[member.id] {
+                    memberFrequency.removeValue(forKey: member.id)
+                    return .note(title: member.name, value: frequency != 1 ? "x\(frequency)" : "")
+                }
+                return nil
+            }))
+        }
+        
         sectionTitles.append("Actions")
-        let canReturn = equipment.lastCheckedOut != nil &&
+        var actionButtons = [CellType]()
+        
+        let canReturnAsSingle = equipment.lastCheckedOut != nil &&
                         equipment.isCheckedOut &&
                         equipment.lastCheckedOut?.member == DALIMember.current
-        let enabled = !equipment.isCheckedOut || equipment.lastCheckedOut?.member == DALIMember.current
+        let canReturn = canReturnAsSingle || equipment.checkingOutMembers.contains(where: { (member) -> Bool in
+            return member == DALIMember.current
+        })
+        let canCheckOut = !equipment.isCheckedOut
         
-        cellTypes.append([.checkOutButton(title: canReturn ? "Return" : "Check out", enabled: enabled)])
+        if canReturn {
+            actionButtons.append(.checkOutButton(title: "Return", enabled: true, type: .returnButton))
+        }
+        if canCheckOut || !canReturn {
+            actionButtons.append(.checkOutButton(title: "Check out", enabled: canCheckOut, type: .checkOutButton))
+        }
+        cellTypes.append(actionButtons)
         
         self.tableView.reloadData()
     }
@@ -161,7 +203,7 @@ class EquipmentDetailTableViewController: UITableViewController {
         }
     }
     
-    func checkout(with endDate: Date) {
+    func checkout(with endDate: Date?) {
         equipment.checkout(expectedEndDate: endDate).onSuccess { _ -> Future<DALIEquipment> in
             return self.equipment.reload()
         }.mainThreadFuture.onSuccess { (equipment) in
@@ -211,6 +253,11 @@ class EquipmentDetailTableViewController: UITableViewController {
     }
     
     func checkoutPressed() {
+        guard equipment.type == .single else {
+            checkout(with: nil)
+            return
+        }
+        
         let alert = UIAlertController(title: "When will you return \(equipment.name)?",
                                       message: nil,
                                       preferredStyle: .actionSheet)
@@ -262,8 +309,9 @@ private enum CellType {
     case currentCheckout(name: String, start: Date, end: Date?)
     case pastCheckout(name: String, start: Date, end: Date)
     case loadMore
+    case note(title: String, value: String)
     case updateReturnDate(current: Date)
-    case checkOutButton(title: String, enabled: Bool)
+    case checkOutButton(title: String, enabled: Bool, type: ActionButtonType)
     
     var identifier: String {
         switch self {
@@ -273,9 +321,15 @@ private enum CellType {
         case .pastCheckout: return "pastCheckoutCell"
         case .updateReturnDate: return "updateReturnDateCell"
         case .loadMore: return "moreCell"
+        case .note: return "noteCell"
         case .checkOutButton: return "checkOutButtonCell"
         }
     }
+}
+
+private enum ActionButtonType {
+    case checkOutButton
+    case returnButton
 }
 
 /// An abstraction of the cell
@@ -285,8 +339,9 @@ class EquipmentDetailTableViewCell: UITableViewCell {
 }
 
 class TitleCell: EquipmentDetailTableViewCell {
+    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
     
     override func awakeFromNib() {
         self.selectionStyle = .none
@@ -294,8 +349,28 @@ class TitleCell: EquipmentDetailTableViewCell {
     
     override var equipment: DALIEquipment? {
         didSet {
+            if let iconName = equipment?.iconName {
+                iconImageView.image = UIImage(named: iconName)
+            } else {
+                iconImageView.image = nil
+            }
+            iconImageView.isHidden = iconImageView.image == nil
+            
             titleLabel.text = equipment?.name
-            idLabel.text = equipment?.id
+            var detailsThings = [String]()
+            if let description = equipment?.description {
+                detailsThings.append(description)
+            } else if let make = equipment?.make, let model = equipment?.model {
+                detailsThings.append("\(make) \(model)")
+            }
+            
+            if let serialNumber = equipment?.serialNumber {
+                detailsThings.append("SN: \(serialNumber)")
+            } else {
+                detailsThings.append("ID: \(equipment?.id ?? "null")")
+            }
+            
+            detailLabel.text = detailsThings.joined(separator: " | ")
         }
     }
 }
