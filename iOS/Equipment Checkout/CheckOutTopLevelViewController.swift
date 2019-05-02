@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import DALI
 
-class CheckOutTopLevelViewController: UIViewController {
+class CheckOutTopLevelViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
     @IBOutlet weak var cardTallnessConstraint: NSLayoutConstraint!
     @IBOutlet weak var cardView: CornerRadiusAndShadowView!
@@ -41,6 +41,7 @@ class CheckOutTopLevelViewController: UIViewController {
     override func viewDidLoad() {
         self.title = "Equipment"
         blurView.alpha = 0.0
+        panGestureRecognizer.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,6 +109,8 @@ class CheckOutTopLevelViewController: UIViewController {
     // MARK: - UI
     
     @IBAction func cardDidPan(_ sender: UIPanGestureRecognizer) {
+        cardViewController?.searchBar.endEditing(true)
+        
         if sender.state == .began {
             dragging = true
             tallnessAtDragStart = -cardTallnessConstraint.constant
@@ -156,6 +159,19 @@ class CheckOutTopLevelViewController: UIViewController {
         } else if let dest = segue.destination as? EquipmentDetailTableViewController {
             dest.equipment = sender as? DALIEquipment
         }
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        let gesture = (gestureRecognizer as! UIPanGestureRecognizer)
+        let direction = gesture.velocity(in: view).y
+        let tableView = cardViewController?.tableView
+        
+        let isDownScrollAtTop = (cardPosition == CardPostion.max && tableView?.contentOffset.y == 0 && direction > 0)
+        let isAtMin = cardPosition == CardPostion.min
+        
+        tableView?.isScrollEnabled = !isDownScrollAtTop && !isAtMin
+        return false
     }
     
     // MARK: - Helpers

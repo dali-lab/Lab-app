@@ -44,8 +44,14 @@ class EquipmentDetailTableViewController: UITableViewController {
         cellConfigurations.removeAll()
         cellConfigurations.append((configs: [.title], sectionTitle: nil))
         
-        if let returnDate = equipment.lastCheckedOut?.expectedReturnDate {
-            cellConfigurations[0].configs.append(.updateReturnDate(current: returnDate))
+        if let returnDate = equipment.lastCheckedOut?.expectedReturnDate {//
+            let checkOut = equipment.lastCheckedOut
+            let df = DateFormatter()
+            df.dateFormat = "MMM d"
+            
+            cellConfigurations[0].configs.append(.button(title: "Return Date: \(df.string(from: returnDate))",
+                                                         enabled: checkOut?.member == DALIMember.current,
+                                                         type: .updateReturnDateButton))
         }
         
         // MARK: Members checking out
@@ -73,17 +79,15 @@ class EquipmentDetailTableViewController: UITableViewController {
             // Generate the configurations
             var checkOutConfigs = checkOuts.map({ (record) -> CellConfiguration in
                 if record.endDate == nil {
-                    return .currentCheckout(name: record.member.name,
-                                            start: record.startDate,
-                                            end: record.expectedReturnDate)
+                    return .checkout(name: record.member.name, start: record.startDate, end: nil)
                 } else {
-                    return .pastCheckout(name: record.member.name, start: record.startDate, end: record.endDate!)
+                    return .checkout(name: record.member.name, start: record.startDate, end: record.endDate!)
                 }
             })
             
             // Add a load more button if have no extra history data
-            if self.checkOuts == nil {
-                checkOutConfigs.append(.loadMore)
+            if self.checkOuts == nil && equipment.hasHistory {
+                checkOutConfigs.append(.button(title: "Load More...", enabled: true, type: .loadMoreButton))
             }
             cellConfigurations.append((configs: checkOutConfigs, sectionTitle: "History"))
         }
@@ -119,12 +123,12 @@ class EquipmentDetailTableViewController: UITableViewController {
         
         // Using booleans, add to action buttons accordingly
         if canReturn {
-            actionButtons.append(.checkOutButton(title: "Return",
+            actionButtons.append(.button(title: "Return",
                                                  enabled: true,
                                                  type: .returnButton))
         }
         if !equipment.isCheckedOut || !canReturn {
-            actionButtons.append(.checkOutButton(title: "Check out",
+            actionButtons.append(.button(title: "Check out",
                                                  enabled: !equipment.isCheckedOut,
                                                  type: .checkOutButton))
         }
@@ -233,29 +237,29 @@ class EquipmentDetailTableViewController: UITableViewController {
         let cellConfig = cellConfigurations[indexPath.section].configs[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: cellConfig.identifier)
         
+        // If it is one of cells that is a subclass of the config class
         if let cell = cell as? EquipmentDetailTableViewCell {
             cell.equipment = equipment
             cell.type = cellConfig
         }
-        if case CellConfiguration.checkOutButton(let title, let enabled, _) = cellConfig {
+        
+        // In other special cases...
+        if case CellConfiguration.button(let title, let enabled, _) = cellConfig {
+            // A button cell
             cell?.textLabel?.text = title
             cell?.textLabel?.textColor = enabled ? UIColor.blue : UIColor.gray
+            cell?.selectionStyle = enabled ? .default : .none
         } else if case CellConfiguration.password = cellConfig {
+            // A password cell. It should only reveal the password when you tap the cell
             if passwordIsReveiled {
                 cell?.detailTextLabel?.text = equipment.password
             } else {
                 cell?.detailTextLabel?.text = String(repeating: "●", count: equipment.password!.count)
             }
         } else if case CellConfiguration.note(let title, let value) = cellConfig {
+            // A simple note cell
             cell?.textLabel?.text = title
             cell?.detailTextLabel?.text = value
-        } else if case CellConfiguration.updateReturnDate(let current) = cellConfig {
-            let checkOut = equipment.lastCheckedOut
-            let df = DateFormatter()
-            df.dateFormat = "MMM d"
-            
-            cell?.textLabel?.text = "Return Date: \(df.string(from: current))"
-            cell?.detailTextLabel?.isHidden = (checkOut?.member != DALIMember.current)
         }
         
         return cell!
@@ -265,22 +269,20 @@ class EquipmentDetailTableViewController: UITableViewController {
         let cellConfig = cellConfigurations[indexPath.section].configs[indexPath.row]
         var deselectAnimated = true
         
-        if case CellConfiguration.checkOutButton(_, let enabled, let type) = cellConfig {
+        if case CellConfiguration.button(_, let enabled, let type) = cellConfig {
             if !enabled {
                 deselectAnimated = false
             } else {
                 switch type {
                 case .returnButton: _ = returnEquipment()
                 case .checkOutButton: checkOutPressed()
+                case .updateReturnDateButton: changeReturnDatePressed()
+                case .loadMoreButton: loadHistory()
                 }
             }
-        } else if case CellConfiguration.loadMore = cellConfig {
-            loadHistory()
         } else if case CellConfiguration.password = cellConfig {
             passwordIsReveiled = !passwordIsReveiled
             tableView.reloadRows(at: [indexPath], with: .fade)
-        } else if case CellConfiguration.updateReturnDate(let current) = cellConfig {
-            changeReturnDatePressed(with: current)
         }
         tableView.deselectRow(at: indexPath, animated: deselectAnimated)
     }
@@ -293,7 +295,11 @@ class EquipmentDetailTableViewController: UITableViewController {
      
      - parameter returnDate: The current return date assigned to the equipment
      */
-    func changeReturnDatePressed(with returnDate: Date) {
+    func changeReturnDatePressed() {
+        guard let returnDate = equipment.lastCheckedOut?.expectedReturnDate else {
+            return
+        }
+        
         let alert = UIAlertController(title: "When will you return \(equipment.name)?",
                                       message: nil,
                                       preferredStyle: .actionSheet)
@@ -361,23 +367,17 @@ class EquipmentDetailTableViewController: UITableViewController {
 private enum CellConfiguration {
     case title
     case password
-    case currentCheckout(name: String, start: Date, end: Date?)
-    case pastCheckout(name: String, start: Date, end: Date)
-    case loadMore
+    case checkout(name: String, start: Date, end: Date?)
     case note(title: String, value: String)
-    case updateReturnDate(current: Date)
-    case checkOutButton(title: String, enabled: Bool, type: ActionButtonType)
+    case button(title: String, enabled: Bool, type: ActionButtonType)
     
     var identifier: String {
         switch self {
         case .title: return "titleCell"
         case .password: return "passwordCell"
-        case .currentCheckout: return "currentCheckoutCell"
-        case .pastCheckout: return "pastCheckoutCell"
-        case .updateReturnDate: return "updateReturnDateCell"
-        case .loadMore: return "moreCell"
+        case .checkout: return "pastCheckoutCell"
         case .note: return "noteCell"
-        case .checkOutButton: return "checkOutButtonCell"
+        case .button: return "checkOutButtonCell"
         }
     }
 }
@@ -385,6 +385,8 @@ private enum CellConfiguration {
 private enum ActionButtonType {
     case checkOutButton
     case returnButton
+    case updateReturnDateButton
+    case loadMoreButton
 }
 
 /// An abstraction of the cell
@@ -439,38 +441,12 @@ class CheckOutCell: EquipmentDetailTableViewCell {
     
     override fileprivate var type: CellConfiguration? {
         didSet {
-            if let type = type, case CellConfiguration.pastCheckout(let name, let start, let end) = type {
+            self.selectionStyle = .none
+            if let type = type, case CellConfiguration.checkout(let name, let start, let end) = type {
                 let df = dateFormatter
+                let endString = end != nil ? df.string(from: end!) : "Now"
                 textLabel?.text = name
-                detailTextLabel?.text = "\(df.string(from: start)) - \(df.string(from: end))"
-            }
-        }
-    }
-}
-
-class CurrentCheckoutCell: EquipmentDetailTableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var dateRangeLabel: UILabel!
-    @IBOutlet weak var returnLabel: UILabel!
-    
-    lazy var dateFormatter: DateFormatter = {
-        let df = DateFormatter()
-        df.dateFormat = "MMM d"
-        return df
-    }()
-    
-    override fileprivate var type: CellConfiguration? {
-        didSet {
-            if let type = type, case CellConfiguration.currentCheckout(let name, let start, let end) = type {
-                let df = dateFormatter
-                nameLabel?.text = name
-                dateRangeLabel?.text = "\(df.string(from: start)) - Now"
-                
-                var returnByString = "Unknown"
-                if let end = end {
-                    returnByString = df.string(from: end)
-                }
-                returnLabel.text = "Return by: \(returnByString)"
+                detailTextLabel?.text = "\(df.string(from: start)) - \(endString)"
             }
         }
     }

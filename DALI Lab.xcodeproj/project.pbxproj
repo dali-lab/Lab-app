@@ -64,6 +64,10 @@
 		52B138F21F47D4650021D7AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B138F11F47D4650021D7AE /* Assets.xcassets */; };
 		52B138FD1F47D4660021D7AE /* tvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B138FC1F47D4660021D7AE /* tvOSTests.swift */; };
 		52B139081F47D4660021D7AE /* tvOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B139071F47D4660021D7AE /* tvOSUITests.swift */; };
+		52CFA210227B67D900C6D7C9 /* EquipmentFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52CFA20F227B67D900C6D7C9 /* EquipmentFilterView.xib */; };
+		52CFA212227B68F300C6D7C9 /* EquipmentFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA211227B68F300C6D7C9 /* EquipmentFilterView.swift */; };
+		52CFA214227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA213227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift */; };
+		52CFA216227B6ECB00C6D7C9 /* EquipmentFilterIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52CFA215227B6ECB00C6D7C9 /* EquipmentFilterIconCell.xib */; };
 		52E2F4371F853FEE00CED245 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E2F4361F853FEE00CED245 /* Stickers.xcassets */; };
 		52E2F43B1F853FEE00CED245 /* Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 52E2F4341F853FEE00CED245 /* Stickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		52E9B743202BE6DC00BFD011 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E9B742202BE6DC00BFD011 /* GoogleService-Info.plist */; };
@@ -220,6 +224,10 @@
 		52B139031F47D4660021D7AE /* tvOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tvOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B139071F47D4660021D7AE /* tvOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSUITests.swift; sourceTree = "<group>"; };
 		52B139091F47D4660021D7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52CFA20F227B67D900C6D7C9 /* EquipmentFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentFilterView.xib; sourceTree = "<group>"; };
+		52CFA211227B68F300C6D7C9 /* EquipmentFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentFilterView.swift; sourceTree = "<group>"; };
+		52CFA213227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentFilterIconCell.swift; sourceTree = "<group>"; };
+		52CFA215227B6ECB00C6D7C9 /* EquipmentFilterIconCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentFilterIconCell.xib; sourceTree = "<group>"; };
 		52E2F4341F853FEE00CED245 /* Stickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Stickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E2F4361F853FEE00CED245 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		52E2F4381F853FEE00CED245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -498,6 +506,10 @@
 			isa = PBXGroup;
 			children = (
 				52F9EE8921C99E0B00341542 /* EquipmentCheckout.storyboard */,
+				52CFA20F227B67D900C6D7C9 /* EquipmentFilterView.xib */,
+				52CFA215227B6ECB00C6D7C9 /* EquipmentFilterIconCell.xib */,
+				52CFA211227B68F300C6D7C9 /* EquipmentFilterView.swift */,
+				52CFA213227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift */,
 				52ED6E0521CB1F3600B201A1 /* EquipmentCell.swift */,
 				526A7CED21C9AD9B00F25E99 /* CheckOutTopLevelViewController.swift */,
 				52ED6E0321CAF06400B201A1 /* CheckOutListTableViewController.swift */,
@@ -803,7 +815,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52CFA216227B6ECB00C6D7C9 /* EquipmentFilterIconCell.xib in Resources */,
 				52A40A0E224ECDC9006AC872 /* Timer.storyboard in Resources */,
+				52CFA210227B67D900C6D7C9 /* EquipmentFilterView.xib in Resources */,
 				522F31CB1F47D8F100B4BEB4 /* ProximityKit.plist in Resources */,
 				52B138C01F47D4590021D7AE /* Assets.xcassets in Resources */,
 				528DDACF1F69795100ED1F4E /* coins.m4a in Resources */,
@@ -1112,11 +1126,13 @@
 				522F31BD1F47D8DA00B4BEB4 /* AppDelegate.swift in Sources */,
 				524D86FB1F57A0E100479C0A /* OrderedVotingViewController.swift in Sources */,
 				52579270224EE457007673FF /* GitHubLogin.swift in Sources */,
+				52CFA212227B68F300C6D7C9 /* EquipmentFilterView.swift in Sources */,
 				524D86F51F5796D200479C0A /* TopLevelVotingViewController.swift in Sources */,
 				5257926D224EE457007673FF /* GHConfig.swift in Sources */,
 				52ED6E0421CAF06400B201A1 /* CheckOutListTableViewController.swift in Sources */,
 				526F3627215C5E60002F5CD2 /* QRCodeReaderView+DALIAdditions.m in Sources */,
 				52A40A0C224ECD86006AC872 /* TimerViewController.swift in Sources */,
+				52CFA214227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift in Sources */,
 				524D86F91F57A0D700479C0A /* UnorderedVotingViewController.swift in Sources */,
 				52767CFC21767D7900B191EA /* VotingHelpers.swift in Sources */,
 				5260330C21CF15690089D5E6 /* FutureExtension.swift in Sources */,

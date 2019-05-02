@@ -49,6 +49,13 @@ open class CornerRadiusAndShadowView: UIView {
         }
     }
     
+    @IBInspectable var borderColor: UIColor = UIColor.clear {
+        didSet {
+            updateFrame()
+            updateView()
+        }
+    }
+    
     public override init(frame: CGRect) {
         containerView = UIView(frame: frame)
         super.init(frame: frame)
@@ -82,6 +89,8 @@ open class CornerRadiusAndShadowView: UIView {
         shadowLayer.shadowRadius = shadowRadius
         shadowLayer.shadowOffset = shadowOffset
         shadowLayer.fillColor = fillColor.cgColor
+        shadowLayer.borderWidth = borderColor == UIColor.clear ? 0 : 1
+        shadowLayer.borderColor = borderColor.cgColor
         containerView.backgroundColor = UIColor.clear
         self.updateFrame()
     }
@@ -101,6 +110,7 @@ open class CornerRadiusAndShadowView: UIView {
         self.shadowRadius = CGFloat(aDecoder.decodeFloat(forKey: "shadowRadius"))
         self.shadowOffset = aDecoder.decodeCGSize(forKey: "shadowOffset")
         self.fillColor = aDecoder.decodeColor(forKey: "fillColor")
+        self.borderColor = aDecoder.decodeColor(forKey: "borderColor")
         
         containerView = UIView(frame: CGRect.zero)
         super.init(coder: aDecoder)
@@ -115,6 +125,7 @@ open class CornerRadiusAndShadowView: UIView {
         aCoder.encode(shadowRadius, forKey: "shadowRadius")
         aCoder.encode(shadowOffset, forKey: "shadowOffset")
         aCoder.encode(fillColor, forKey: "fillColor")
+        aCoder.encode(borderColor, forKey: "borderColor")
     }
 }
 

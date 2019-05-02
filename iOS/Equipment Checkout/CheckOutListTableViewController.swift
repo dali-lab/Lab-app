@@ -10,8 +10,11 @@ import Foundation
 import UIKit
 import DALI
 
-class CheckOutListTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CheckOutListTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
+    var filterView: EquipmentFilterView!
+    var searchBar: UISearchBar!
+    //    var searchController: UISearchController!
     var topLevelController: CheckOutTopLevelViewController? {
         return self.parent as? CheckOutTopLevelViewController
     }
@@ -26,6 +29,8 @@ class CheckOutListTableViewController: UIViewController, UITableViewDelegate, UI
             })
         ]
     }
+    var filteredEquipment = [[DALIEquipment]]()
+    var selectedIconName: String?
     
     var minimumTallness: CGFloat {
         return 20
@@ -40,14 +45,69 @@ class CheckOutListTableViewController: UIViewController, UITableViewDelegate, UI
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
         
+        filterView = Bundle.main.loadNibNamed("EquipmentFilterView", owner: self, options: nil)?.first as! EquipmentFilterView
+        filterView.equipmentListViewController = self
+        searchBar = filterView.searchBar
+        updateSearchResults(with: nil)
+        tableView.tableHeaderView = filterView
+        
+        searchBar.delegate = self
+        
         self.updateData()
+    }
+    
+    func filter(equipment: DALIEquipment, string: String) -> Bool {
+        let isIconSame = selectedIconName == nil || equipment.iconName == selectedIconName
+        guard !string.isEmpty else {
+            return isIconSame
+        }
+        
+        let lowerString = string.lowercased()
+        let inName = equipment.name.lowercased().contains(lowerString)
+        let inDescription = equipment.description?.lowercased().contains(lowerString) ?? false
+        let inIcon = equipment.iconName?.lowercased().contains(lowerString) ?? false
+        
+        return (inName || inDescription || inIcon) && isIconSame
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        topLevelController?.set(cardPosition: .max)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        updateSearchResults(with: searchText)
+    }
+    
+    func updateSearchResults(with text: String?) {
+        filteredEquipment.removeAll(keepingCapacity: false)
+        filteredEquipment = splitEquipment.map { (equipment) in
+            return equipment.filter { (equipment) -> Bool in
+                return filter(equipment: equipment, string: text ?? "")
+            }
+        }
+        
+        self.tableView.reloadData()
+    }
+    
+    func filterSelectedIcon(named iconName: String?) {
+        selectedIconName = iconName
+        updateSearchResults(with: searchBar.text)
     }
     
     func updateData() {
         _ = DALIEquipment.allEquipment().onSuccess { (equipment) in
             self.equipment = equipment
+            let iconNames = self.equipment.compactMap { (equipment) -> String? in
+                return equipment.iconName
+                }.unique().sorted()
+            
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.filterView.update(with: iconNames)
+                self.updateSearchResults(with: self.searchBar.text)
             }
         }
     }
@@ -65,11 +125,11 @@ class CheckOutListTableViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return splitEquipment[section].count
+        return filteredEquipment[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let device = splitEquipment[indexPath.section][indexPath.row]
+        let device = filteredEquipment[indexPath.section][indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "checkOutCell")
         
         if let cell = cell as? EquipmentCell {
@@ -81,11 +141,11 @@ class CheckOutListTableViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        topLevelController?.showDetailView(for: splitEquipment[indexPath.section][indexPath.row])
+        topLevelController?.showDetailView(for: filteredEquipment[indexPath.section][indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 20 : 30
+        return 30
     }
     
     enum Section {
@@ -99,5 +159,12 @@ class CheckOutListTableViewController: UIViewController, UITableViewDelegate, UI
             case .checkedOut: return "Checked Out"
             }
         }
+    }
+}
+
+extension Sequence where Iterator.Element: Hashable {
+    func unique() -> [Iterator.Element] {
+        var seen: [Iterator.Element: Bool] = [:]
+        return self.filter { seen.updateValue(true, forKey: $0) == nil }
     }
 }
