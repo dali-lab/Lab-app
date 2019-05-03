@@ -103,7 +103,7 @@ class CheckOutListTableViewController: UIViewController, UITableViewDelegate, UI
             self.equipment = equipment
             let iconNames = self.equipment.compactMap { (equipment) -> String? in
                 return equipment.iconName
-                }.unique().sorted()
+            }.unique().sorted()
             
             DispatchQueue.main.async {
                 self.filterView.update(with: iconNames)

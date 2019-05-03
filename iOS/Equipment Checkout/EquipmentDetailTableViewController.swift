@@ -93,9 +93,9 @@ class EquipmentDetailTableViewController: UITableViewController {
         }
         
         // MARK: Members checking out
-        if equipment.checkingOutMembers.count > 0 {
+        if equipment.checkingOutUsers.count > 0 {
             // Get the frequency of each member occuring in this list
-            let memberFrequency = equipment.checkingOutMembers.reduce(into: [String: Int]()) { (result, member) in
+            let memberFrequency = equipment.checkingOutUsers.reduce(into: [String: Int]()) { (result, member) in
                 if result[member.id] == nil {
                     result[member.id] = 0
                 }
@@ -117,7 +117,7 @@ class EquipmentDetailTableViewController: UITableViewController {
         let singleTypeCanReturn = equipment.lastCheckedOut != nil &&
             equipment.isCheckedOut &&
             equipment.lastCheckedOut?.member == DALIMember.current
-        let canReturn = singleTypeCanReturn || equipment.checkingOutMembers.contains(where: { (member) -> Bool in
+        let canReturn = singleTypeCanReturn || equipment.checkingOutUsers.contains(where: { (member) -> Bool in
             return member == DALIMember.current
         })
         

@@ -56,7 +56,7 @@ class EquipmentCell: UITableViewCell {
                 detailLabel2.isHidden = !equipment.isCheckedOut
             
             case .collection: // If the equipment is a collection of items
-                let numAvailable = equipment.totalStock - equipment.checkingOutMembers.count
+                let numAvailable = equipment.totalStock - equipment.checkingOutUsers.count
                 detailLabel.text = "\(numAvailable)/\(equipment.totalStock) Available"
                 detailLabel2.isHidden = true
             }
