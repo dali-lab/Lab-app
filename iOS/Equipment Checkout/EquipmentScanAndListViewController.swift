@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 import DALI
 
-class CheckOutTopLevelViewController: UIViewController, UIGestureRecognizerDelegate {
+class EquipmentScanAndListViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
     @IBOutlet weak var cardTallnessConstraint: NSLayoutConstraint!
     @IBOutlet weak var cardView: CornerRadiusAndShadowView!
     @IBOutlet weak var blurView: UIVisualEffectView!
     
-    var cardViewController: CheckOutListTableViewController?
+    var cardViewController: EquipmentListViewController?
     var qrViewController: CheckOutQRViewController?
     
     var cardPosition: CardPostion = .half
@@ -152,7 +152,7 @@ class CheckOutTopLevelViewController: UIViewController, UIGestureRecognizerDeleg
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? CheckOutListTableViewController {
+        if let dest = segue.destination as? EquipmentListViewController {
             cardViewController = dest
         } else if let dest = segue.destination as? CheckOutQRViewController {
             qrViewController = dest

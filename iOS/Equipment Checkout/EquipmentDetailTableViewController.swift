@@ -120,6 +120,7 @@ class EquipmentDetailTableViewController: UITableViewController {
         let canReturn = singleTypeCanReturn || equipment.checkingOutUsers.contains(where: { (member) -> Bool in
             return member == DALIMember.current
         })
+        let canForceReturn = equipment.isCheckedOut && !canReturn && (DALIMember.current?.isAdmin ?? false)
         
         // Using booleans, add to action buttons accordingly
         if canReturn {
@@ -127,7 +128,12 @@ class EquipmentDetailTableViewController: UITableViewController {
                                                  enabled: true,
                                                  type: .returnButton))
         }
-        if !equipment.isCheckedOut || !canReturn {
+        if canForceReturn {
+            actionButtons.append(.button(title: "Force return",
+                                         enabled: true,
+                                         type: .forceReturnButton))
+        }
+        if !equipment.isCheckedOut || !canReturn && !canForceReturn {
             actionButtons.append(.button(title: "Check out",
                                                  enabled: !equipment.isCheckedOut,
                                                  type: .checkOutButton))
@@ -278,6 +284,7 @@ class EquipmentDetailTableViewController: UITableViewController {
                 case .checkOutButton: checkOutPressed()
                 case .updateReturnDateButton: changeReturnDatePressed()
                 case .loadMoreButton: loadHistory()
+                case .forceReturnButton: forceReturnButtonPressed()
                 }
             }
         } else if case CellConfiguration.password = cellConfig {
@@ -316,6 +323,25 @@ class EquipmentDetailTableViewController: UITableViewController {
                 self.handleError(error: error, fromFunction: "changeReturnDatePressed")
             }
         }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func forceReturnButtonPressed() {
+        guard DALIMember.current?.isAdmin ?? false else {
+            return
+        }
+        
+        let alert = UIAlertController(title: "Force return?",
+                                      message: "Use your admin privileges to force this device to be returned",
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Return", style: .destructive) { (_) in
+            self.returnEquipment().onFail { (error) in
+                self.handleError(error: error, fromFunction: "forceReturnButtonPressed")
+            }
+        })
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
@@ -387,6 +413,7 @@ private enum ActionButtonType {
     case returnButton
     case updateReturnDateButton
     case loadMoreButton
+    case forceReturnButton
 }
 
 /// An abstraction of the cell

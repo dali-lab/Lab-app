@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 import DALI
 
-class CheckOutListTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class EquipmentListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     var filterView: EquipmentFilterView!
     var searchBar: UISearchBar!
     //    var searchController: UISearchController!
-    var topLevelController: CheckOutTopLevelViewController? {
-        return self.parent as? CheckOutTopLevelViewController
+    var topLevelController: EquipmentScanAndListViewController? {
+        return self.parent as? EquipmentScanAndListViewController
     }
     var equipment: [DALIEquipment] = []
     var splitEquipment: [[DALIEquipment]] {
@@ -112,7 +112,7 @@ class CheckOutListTableViewController: UIViewController, UITableViewDelegate, UI
         }
     }
     
-    func cardDidReach(position: CheckOutTopLevelViewController.CardPostion) {
+    func cardDidReach(position: EquipmentScanAndListViewController.CardPostion) {
         tableView.isScrollEnabled = position == .tall
     }
     

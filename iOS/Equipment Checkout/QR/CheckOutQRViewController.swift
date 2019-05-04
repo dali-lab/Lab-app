@@ -19,8 +19,8 @@ class CheckOutQRViewController: UIViewController {
     var overlayView: CheckOutQRReaderLoadingOverlayView!
     var switchCamera: UIButton!
     
-    var topLevelController: CheckOutTopLevelViewController? {
-        return self.parent as? CheckOutTopLevelViewController
+    var topLevelController: EquipmentScanAndListViewController? {
+        return self.parent as? EquipmentScanAndListViewController
     }
     
     var enabled = false

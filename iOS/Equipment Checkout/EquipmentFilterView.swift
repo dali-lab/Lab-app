@@ -16,7 +16,7 @@ class EquipmentFilterView: UIView,
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
-    var equipmentListViewController: CheckOutListTableViewController?
+    var equipmentListViewController: EquipmentListViewController?
     var iconNames = [String]()
     var selectedIndexPath: IndexPath?
     var filterOpen = false
