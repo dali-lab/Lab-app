@@ -299,8 +299,6 @@ class EquipmentDetailTableViewController: UITableViewController {
     
     /**
      The update return date cell button was pressed
-     
-     - parameter returnDate: The current return date assigned to the equipment
      */
     func changeReturnDatePressed() {
         guard let returnDate = equipment.lastCheckedOut?.expectedReturnDate else {
@@ -328,6 +326,9 @@ class EquipmentDetailTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    /**
+     The button allowing an admin to force the return of the device was pressed
+     */
     func forceReturnButtonPressed() {
         guard DALIMember.current?.isAdmin ?? false else {
             return
