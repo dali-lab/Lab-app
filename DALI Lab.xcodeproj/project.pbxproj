@@ -504,14 +504,14 @@
 			isa = PBXGroup;
 			children = (
 				52F9EE8921C99E0B00341542 /* EquipmentCheckout.storyboard */,
-				52CFA20F227B67D900C6D7C9 /* EquipmentFilterView.xib */,
-				52CFA215227B6ECB00C6D7C9 /* EquipmentFilterIconCell.xib */,
-				52CFA211227B68F300C6D7C9 /* EquipmentFilterView.swift */,
-				52CFA213227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift */,
-				52ED6E0521CB1F3600B201A1 /* EquipmentCell.swift */,
 				526A7CED21C9AD9B00F25E99 /* EquipmentScanAndListViewController.swift */,
 				52ED6E0321CAF06400B201A1 /* EquipmentListViewController.swift */,
+				52ED6E0521CB1F3600B201A1 /* EquipmentCell.swift */,
 				52ED6E0721CB283900B201A1 /* EquipmentDetailTableViewController.swift */,
+				52CFA20F227B67D900C6D7C9 /* EquipmentFilterView.xib */,
+				52CFA211227B68F300C6D7C9 /* EquipmentFilterView.swift */,
+				52CFA215227B6ECB00C6D7C9 /* EquipmentFilterIconCell.xib */,
+				52CFA213227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift */,
 				526A7CEF21C9AE1F00F25E99 /* QR */,
 			);
 			path = "Equipment Checkout";

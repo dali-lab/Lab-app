@@ -14,7 +14,6 @@ class EquipmentListViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var tableView: UITableView!
     var filterView: EquipmentFilterView!
     var searchBar: UISearchBar!
-    //    var searchController: UISearchController!
     var topLevelController: EquipmentScanAndListViewController? {
         return self.parent as? EquipmentScanAndListViewController
     }
@@ -31,13 +30,16 @@ class EquipmentListViewController: UIViewController, UITableViewDelegate, UITabl
     }
     var filteredEquipment = [[DALIEquipment]]()
     var selectedIconName: String?
+    var listener: Observation?
     
     var minimumTallness: CGFloat {
         return 20
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.updateData()
+        listener = DALIEquipment.observeAllEquipment { (_) in
+            self.updateData()
+        }
     }
     
     override func viewDidLoad() {
@@ -45,15 +47,20 @@ class EquipmentListViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
         
-        filterView = Bundle.main.loadNibNamed("EquipmentFilterView", owner: self, options: nil)?.first as! EquipmentFilterView
+        filterView = Bundle.main.loadNibNamed("EquipmentFilterView",
+                                              owner: self,
+                                              options: nil)?.first as? EquipmentFilterView
         filterView.equipmentListViewController = self
         searchBar = filterView.searchBar
         updateSearchResults(with: nil)
         tableView.tableHeaderView = filterView
         
         searchBar.delegate = self
-        
         self.updateData()
+    }
+    
+    deinit {
+        listener?.stop()
     }
     
     func filter(equipment: DALIEquipment, string: String) -> Bool {
@@ -99,16 +106,14 @@ class EquipmentListViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func updateData() {
-        _ = DALIEquipment.allEquipment().onSuccess { (equipment) in
+        _ = DALIEquipment.allEquipment().onSuccess { (equipment) -> [String] in
             self.equipment = equipment
-            let iconNames = self.equipment.compactMap { (equipment) -> String? in
+            return self.equipment.compactMap { (equipment) -> String? in
                 return equipment.iconName
             }.unique().sorted()
-            
-            DispatchQueue.main.async {
-                self.filterView.update(with: iconNames)
-                self.updateSearchResults(with: self.searchBar.text)
-            }
+        }.mainThreadFuture.onSuccess { (iconNames) in
+            self.filterView.update(with: iconNames)
+            self.updateSearchResults(with: self.searchBar.text)
         }
     }
     

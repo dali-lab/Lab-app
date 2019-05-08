@@ -23,12 +23,23 @@ class EquipmentDetailTableViewController: UITableViewController {
     var checkOuts: [DALIEquipment.CheckOutRecord]?
     /// The password is reveiled (the password feild is by default hidden)
     var passwordIsReveiled = false
+    var observer: Observation?
     
     /// The configurations for all the cell
     private var cellConfigurations = [(configs: [CellConfiguration], sectionTitle: String?)]()
     
     override func viewDidLoad() {
         updateView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        observer = equipment.observe { (_) in
+            self.updateView()
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        observer?.stop()
     }
     
     // =========================================================
@@ -77,7 +88,9 @@ class EquipmentDetailTableViewController: UITableViewController {
             let checkOuts = self.checkOuts ?? [lastCheckout]
             
             // Generate the configurations
-            var checkOutConfigs = checkOuts.map({ (record) -> CellConfiguration in
+            var checkOutConfigs = checkOuts.sorted(by: { (record1, record2) -> Bool in
+                return record1.startDate > record2.startDate
+            }).map({ (record) -> CellConfiguration in
                 if record.endDate == nil {
                     return .checkout(name: record.member.name, start: record.startDate, end: nil)
                 } else {
@@ -196,11 +209,8 @@ class EquipmentDetailTableViewController: UITableViewController {
      */
     func update(returnDate: Date) -> Future<DALIEquipment> {
         return equipment.update(returnDate: returnDate).onSuccess { _ -> Future<DALIEquipment> in
+            AppDelegate.shared.checkedOut(equipment: self.equipment)
             return self.equipment.reload()
-        }.mainThreadFuture.onSuccess { (equipment) in
-            self.equipment = equipment
-            AppDelegate.shared.checkedOut(equipment: equipment)
-            return equipment
         }.onFail { (error) in
             self.errorAlert(with: "Failed to update return date", error: error)
         }
@@ -212,9 +222,9 @@ class EquipmentDetailTableViewController: UITableViewController {
     func returnEquipment() -> Future<DALIEquipment> {
         return equipment.returnEquipment().onSuccess { (_) in
             return self.equipment.reload()
-        }.onSuccess { (equipment) in
-            self.equipment = equipment
-            return equipment
+        }.mainThreadFuture.onSuccess { (_) in
+            self.updateView()
+            return self.equipment
         }.onFail { (error) in
             self.errorAlert(with: "Failed to return", error: error)
         }
@@ -315,7 +325,7 @@ class EquipmentDetailTableViewController: UITableViewController {
         
         // Alert Buttons
         alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { (_) in
-            self.update(returnDate: savedDate).onSuccess { _ in
+            self.update(returnDate: savedDate).mainThreadFuture.onSuccess { _ in
                 self.updateView()
             }.onFail { (error) in
                 self.handleError(error: error, fromFunction: "changeReturnDatePressed")
