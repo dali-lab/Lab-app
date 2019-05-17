@@ -22,7 +22,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	@IBOutlet weak var peopleButton: UIButton!
 	@IBOutlet weak var foodLabel: UILabel!
     @IBOutlet weak var lightButton: UIButton!
-    @IBOutlet weak var tableViewBottomContraint: NSLayoutConstraint!
+    @IBOutlet weak var equipmentButton: UIButton!
     
 	var viewShown = false
 	var loginTransformAnimationDone = false
@@ -53,10 +53,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 			peopleButton.isEnabled = false
             lightButton.isHidden = true
             lightButton.isEnabled = false
+            equipmentButton.isHidden = true
+            equipmentButton.isEnabled = false
 			
 			foodLabel.isHidden = true
 			foodLabel.text = ""
-            tableViewBottomContraint.constant = 0
 		}
 		self.updateData()
 		
@@ -284,7 +285,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		)
 		
 		let alert = SCLAlertView(appearance: appearance)
-		alert.addButton("Add to your calendar") {
+		alert.addButton("Add to my calendar") {
 			tableView.deselectRow(at: indexPath, animated: true)
 			
 			CalendarController.current.event = event

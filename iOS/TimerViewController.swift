@@ -18,11 +18,7 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func signIn(_ sender: UIButton) {
-        GitHubLoginSession(scope: "repo,notifications,read:user,read:org").start().onSuccess { (_) in
-            
-        }.onFail { _ in
-            
-        }
+        
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {

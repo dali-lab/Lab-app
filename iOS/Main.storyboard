@@ -403,6 +403,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="daliImage" destination="MtM-fv-ipP" id="f6x-7k-pY1"/>
+                        <outlet property="equipmentButton" destination="Ocu-fZ-WNj" id="o6J-zH-hyT"/>
                         <outlet property="foodLabel" destination="a0M-4A-ary" id="1Oy-xR-QO9"/>
                         <outlet property="internalView" destination="kIM-eC-D4F" id="Mgi-N5-zx7"/>
                         <outlet property="lightButton" destination="Uab-YS-PLJ" id="IbT-Lw-Pnj"/>
