@@ -23,19 +23,11 @@ Properties:
 	Generated property
  */
 class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate {
-	
-	static let notificationNames: [String: Notification.Name] = [
-		"DALI Lab Region": Notification.Name.Custom.EnteredOrExitedDALI,
-		"Tims Office Region": Notification.Name.Custom.TimsOfficeEnteredOrExited,
-		"Event Vote Region": Notification.Name.Custom.EventVoteEnteredOrExited
-	]
-    
     static var shared: BeaconController {
         return current ?? BeaconController()
     }
-	
 	static var current: BeaconController?
-	var user: GIDGoogleUser?
+    
 	var beaconManager: RPKManager = RPKManager()
 	var locationManager = CLLocationManager()
 	
@@ -100,7 +92,6 @@ class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate 
 	private var regions = Set<RPKRegion>()
 	
 	override init() {
-		user = GIDSignIn.sharedInstance().currentUser
 		super.init()
 		
 		do {

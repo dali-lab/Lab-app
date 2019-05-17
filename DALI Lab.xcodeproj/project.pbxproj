@@ -10,6 +10,7 @@
 		40DB98AC0FE4CC2E74756E47 /* Pods_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66536EEAC6727C445E15D525 /* Pods_iOSUITests.framework */; };
 		5200B9AF2159793A0011DA73 /* CheckOutQRReaderLoadingOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5200B9AE2159793A0011DA73 /* CheckOutQRReaderLoadingOverlayView.swift */; };
 		5203FF1E21503A9B00A406E3 /* CheckOutQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5203FF1D21503A9B00A406E3 /* CheckOutQRViewController.swift */; };
+		5210FED9228CA03700099553 /* DALI Regions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210FED8228CA03700099553 /* DALI Regions.swift */; };
 		521822DB1FA0CC5400F34E22 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521822DA1FA0CC5400F34E22 /* ViewProtocol.swift */; };
 		5222572E1FE2DEBD00E7D57C /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5222572D1FE2DEBD00E7D57C /* NewEventViewController.swift */; };
 		5225AE081F606DB400718D12 /* PrivateInformation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5225AE071F606DB400718D12 /* PrivateInformation.plist */; };
@@ -37,12 +38,6 @@
 		524D86FB1F57A0E100479C0A /* OrderedVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86FA1F57A0E100479C0A /* OrderedVotingViewController.swift */; };
 		524D86FD1F57A3F400479C0A /* ResultsVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86FC1F57A3F400479C0A /* ResultsVotingViewController.swift */; };
 		5251D9E31F4BD7C80020D958 /* CheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */; };
-		5257926D224EE457007673FF /* GHConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5257926A224EE456007673FF /* GHConfig.swift */; };
-		5257926E224EE457007673FF /* GHOrganization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52579269224EE456007673FF /* GHOrganization.swift */; };
-		5257926F224EE457007673FF /* GHPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52579268224EE456007673FF /* GHPager.swift */; };
-		52579270224EE457007673FF /* GitHubLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5257926C224EE457007673FF /* GitHubLogin.swift */; };
-		52579271224EE457007673FF /* GHRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5257926B224EE456007673FF /* GHRepository.swift */; };
-		52579273224EE569007673FF /* GHIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52579272224EE568007673FF /* GHIssue.swift */; };
 		5260330C21CF15690089D5E6 /* FutureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5260330B21CF15690089D5E6 /* FutureExtension.swift */; };
 		526A7CEE21C9AD9B00F25E99 /* EquipmentScanAndListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A7CED21C9AD9B00F25E99 /* EquipmentScanAndListViewController.swift */; };
 		526F3627215C5E60002F5CD2 /* QRCodeReaderView+DALIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5203FF1F2150422C00A406E3 /* QRCodeReaderView+DALIAdditions.m */; };
@@ -54,8 +49,6 @@
 		529A63271F4E90DF00BFBFE9 /* NewVotingEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A63261F4E90DF00BFBFE9 /* NewVotingEventViewController.swift */; };
 		529A632A1F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A63291F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift */; };
 		529A632C1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A632B1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift */; };
-		52A40A0C224ECD86006AC872 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A40A0B224ECD86006AC872 /* TimerViewController.swift */; };
-		52A40A0E224ECDC9006AC872 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A40A0D224ECDC9006AC872 /* Timer.storyboard */; };
 		52B138C01F47D4590021D7AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B138BF1F47D4590021D7AE /* Assets.xcassets */; };
 		52B138CE1F47D4590021D7AE /* iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B138CD1F47D4590021D7AE /* iOSTests.swift */; };
 		52B138D91F47D4590021D7AE /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B138D81F47D4590021D7AE /* UITests.swift */; };
@@ -154,6 +147,7 @@
 		5203FF1D21503A9B00A406E3 /* CheckOutQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutQRViewController.swift; sourceTree = "<group>"; };
 		5203FF1F2150422C00A406E3 /* QRCodeReaderView+DALIAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "QRCodeReaderView+DALIAdditions.m"; sourceTree = "<group>"; };
 		5203FF202150424200A406E3 /* QRCodeReaderView+DALIAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QRCodeReaderView+DALIAdditions.h"; sourceTree = "<group>"; };
+		5210FED8228CA03700099553 /* DALI Regions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DALI Regions.swift"; sourceTree = "<group>"; };
 		521822DA1FA0CC5400F34E22 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
 		5222572D1FE2DEBD00E7D57C /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		5225AE071F606DB400718D12 /* PrivateInformation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrivateInformation.plist; sourceTree = "<group>"; };
@@ -184,12 +178,6 @@
 		524D86FA1F57A0E100479C0A /* OrderedVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedVotingViewController.swift; sourceTree = "<group>"; };
 		524D86FC1F57A3F400479C0A /* ResultsVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsVotingViewController.swift; sourceTree = "<group>"; };
 		5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinViewController.swift; sourceTree = "<group>"; };
-		52579268224EE456007673FF /* GHPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHPager.swift; sourceTree = "<group>"; };
-		52579269224EE456007673FF /* GHOrganization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHOrganization.swift; sourceTree = "<group>"; };
-		5257926A224EE456007673FF /* GHConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHConfig.swift; sourceTree = "<group>"; };
-		5257926B224EE456007673FF /* GHRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHRepository.swift; sourceTree = "<group>"; };
-		5257926C224EE457007673FF /* GitHubLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubLogin.swift; sourceTree = "<group>"; };
-		52579272224EE568007673FF /* GHIssue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GHIssue.swift; path = ../../../GithubTest/GithubTest/GitHub/GHIssue.swift; sourceTree = "<group>"; };
 		5260330B21CF15690089D5E6 /* FutureExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureExtension.swift; sourceTree = "<group>"; };
 		526A7CED21C9AD9B00F25E99 /* EquipmentScanAndListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentScanAndListViewController.swift; sourceTree = "<group>"; };
 		526F362A215C5F23002F5CD2 /* DatePickerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerAlert.swift; sourceTree = "<group>"; };
@@ -200,8 +188,6 @@
 		529A63261F4E90DF00BFBFE9 /* NewVotingEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVotingEventViewController.swift; sourceTree = "<group>"; };
 		529A63291F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVotingEventConfigViewController.swift; sourceTree = "<group>"; };
 		529A632B1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingEventOptionsViewController.swift; sourceTree = "<group>"; };
-		52A40A0B224ECD86006AC872 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
-		52A40A0D224ECDC9006AC872 /* Timer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timer.storyboard; sourceTree = "<group>"; };
 		52B138B61F47D4590021D7AE /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B138BF1F47D4590021D7AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52B138C41F47D4590021D7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -359,15 +345,6 @@
 			name = "Tools and settings";
 			sourceTree = "<group>";
 		};
-		52A40A0A224ECD58006AC872 /* Timer */ = {
-			isa = PBXGroup;
-			children = (
-				52A40A0B224ECD86006AC872 /* TimerViewController.swift */,
-				52A40A0D224ECDC9006AC872 /* Timer.storyboard */,
-			);
-			name = Timer;
-			sourceTree = "<group>";
-		};
 		52B138461F47D39B0021D7AE = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +383,7 @@
 				522F31E41F47DA2300B4BEB4 /* iOS.entitlements */,
 				522F31B21F47D8DA00B4BEB4 /* AppDelegate.swift */,
 				522F31B31F47D8DA00B4BEB4 /* BeaconController.swift */,
+				5210FED8228CA03700099553 /* DALI Regions.swift */,
 				522F31B41F47D8DA00B4BEB4 /* CalendarController.swift */,
 				522F31B51F47D8DA00B4BEB4 /* EnumsAndStructs.swift */,
 				522F31B71F47D8DA00B4BEB4 /* LoginViewController.swift */,
@@ -416,7 +394,6 @@
 				524D86F31F57965100479C0A /* Voting */,
 				529A63281F4E983900BFBFE9 /* Tools and settings */,
 				52F9EE8B21C99E1300341542 /* Equipment Checkout */,
-				52A40A0A224ECD58006AC872 /* Timer */,
 				5222572D1FE2DEBD00E7D57C /* NewEventViewController.swift */,
 				522F31CD1F47D8FA00B4BEB4 /* Main.storyboard */,
 				526FDA7320323A09002A1BA1 /* ColorPicerCell.xib */,
@@ -428,14 +405,8 @@
 				52B138C41F47D4590021D7AE /* Info.plist */,
 				522F31E11F47D9D000B4BEB4 /* iOS-Bridging-Header.h */,
 				52F9EE8C21C9A5B000341542 /* CornerRadiusAndShadowView.swift */,
-				526F362A215C5F23002F5CD2 /* DatePickerAlert.swift */,
 				5260330B21CF15690089D5E6 /* FutureExtension.swift */,
-				5257926A224EE456007673FF /* GHConfig.swift */,
-				52579269224EE456007673FF /* GHOrganization.swift */,
-				52579268224EE456007673FF /* GHPager.swift */,
-				52579272224EE568007673FF /* GHIssue.swift */,
-				5257926B224EE456007673FF /* GHRepository.swift */,
-				5257926C224EE457007673FF /* GitHubLogin.swift */,
+				526F362A215C5F23002F5CD2 /* DatePickerAlert.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -810,7 +781,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				52CFA216227B6ECB00C6D7C9 /* EquipmentFilterIconCell.xib in Resources */,
-				52A40A0E224ECDC9006AC872 /* Timer.storyboard in Resources */,
 				52CFA210227B67D900C6D7C9 /* EquipmentFilterView.xib in Resources */,
 				522F31CB1F47D8F100B4BEB4 /* ProximityKit.plist in Resources */,
 				52B138C01F47D4590021D7AE /* Assets.xcassets in Resources */,
@@ -1111,25 +1081,20 @@
 				522F31C71F47D8DA00B4BEB4 /* VotingEventMangerViewController.swift in Sources */,
 				529A63271F4E90DF00BFBFE9 /* NewVotingEventViewController.swift in Sources */,
 				526F362B215C5F23002F5CD2 /* DatePickerAlert.swift in Sources */,
-				5257926E224EE457007673FF /* GHOrganization.swift in Sources */,
 				52ED6E0621CB1F3600B201A1 /* EquipmentCell.swift in Sources */,
 				52F9EE8D21C9A5B000341542 /* CornerRadiusAndShadowView.swift in Sources */,
 				5222572E1FE2DEBD00E7D57C /* NewEventViewController.swift in Sources */,
-				5257926F224EE457007673FF /* GHPager.swift in Sources */,
 				522F31BD1F47D8DA00B4BEB4 /* AppDelegate.swift in Sources */,
 				524D86FB1F57A0E100479C0A /* OrderedVotingViewController.swift in Sources */,
-				52579270224EE457007673FF /* GitHubLogin.swift in Sources */,
 				52CFA212227B68F300C6D7C9 /* EquipmentFilterView.swift in Sources */,
 				524D86F51F5796D200479C0A /* TopLevelVotingViewController.swift in Sources */,
-				5257926D224EE457007673FF /* GHConfig.swift in Sources */,
 				52ED6E0421CAF06400B201A1 /* EquipmentListViewController.swift in Sources */,
 				526F3627215C5E60002F5CD2 /* QRCodeReaderView+DALIAdditions.m in Sources */,
-				52A40A0C224ECD86006AC872 /* TimerViewController.swift in Sources */,
+				5210FED9228CA03700099553 /* DALI Regions.swift in Sources */,
 				52CFA214227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift in Sources */,
 				524D86F91F57A0D700479C0A /* UnorderedVotingViewController.swift in Sources */,
 				52767CFC21767D7900B191EA /* VotingHelpers.swift in Sources */,
 				5260330C21CF15690089D5E6 /* FutureExtension.swift in Sources */,
-				52579271224EE457007673FF /* GHRepository.swift in Sources */,
 				52FA82E41F7350CA00CEC807 /* LightsViewController.swift in Sources */,
 				524D86F71F57A08E00479C0A /* HasVotedViewController.swift in Sources */,
 				526A7CEE21C9AD9B00F25E99 /* EquipmentScanAndListViewController.swift in Sources */,
@@ -1141,7 +1106,6 @@
 				522F31C31F47D8DA00B4BEB4 /* MainViewController.swift in Sources */,
 				524D86FD1F57A3F400479C0A /* ResultsVotingViewController.swift in Sources */,
 				522F31C21F47D8DA00B4BEB4 /* LoginViewController.swift in Sources */,
-				52579273224EE569007673FF /* GHIssue.swift in Sources */,
 				522F31C41F47D8DA00B4BEB4 /* PeopleInLabViewController.swift in Sources */,
 				5251D9E31F4BD7C80020D958 /* CheckinViewController.swift in Sources */,
 				522F31C01F47D8DA00B4BEB4 /* EnumsAndStructs.swift in Sources */,

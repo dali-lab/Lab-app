@@ -7,7 +7,6 @@ target 'iOS' do
   inhibit_all_warnings!
   
   pod 'Google/SignIn'
-  pod 'ProximityKit', '~> 1.2'
   pod 'SCLAlertView'
   pod 'Eureka'
   pod 'Crashlytics'
