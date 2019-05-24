@@ -14,33 +14,27 @@ import SCLAlertView
 import DALI
 import OneSignal
 import FutureKit
+import EmitterKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,
-                   GIDSignInDelegate, OSSubscriptionObserver, UNUserNotificationCenterDelegate {
-	static var shared: AppDelegate!
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    /// The shared instance of the AppDelegate
+	static private(set) var shared: AppDelegate!
 	
-	var window: UIWindow?
-	var user: GIDGoogleUser?
+    var window: UIWindow?
+    /// User provided by Google Sign In
+	var googleUser: GIDGoogleUser?
+    /// The saved LoginViewController instance
 	var loginViewController: LoginViewController?
+    /// The saved MainViewController instance
 	var mainViewController: MainViewController?
-	var inBackground = false
-	var playerID: String?
-	var notificationsAuthorized = false
-	
-	var beaconController: BeaconController?
+    /// Keep track of when the app is backgrounded so we know when it is reactivated
+	private(set) var inBackground = false
+    /// Event triggered when the user signs in or out
+    let memberSignedInEvent = Event<DALIMember?>()
 	
 	func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
-		let settings = [kOSSettingsKeyAutoPrompt: false]
-		OneSignal.initWithLaunchOptions(launchOptions,
-                                        appId: "6799d21a-debe-4ec8-b6f0-99c72cac170d",
-                                        handleNotificationAction: nil,
-                                        settings: settings)
-		OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
-		OneSignal.add(self as OSSubscriptionObserver)
-		
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {		
 		#if !DEBUG
 			Fabric.with([Crashlytics.self])
 		#endif
@@ -67,11 +61,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
             }
 		}
 		GIDSignIn.sharedInstance().signInSilently()
-		UIApplication.shared.setMinimumBackgroundFetchInterval(1.0)
-		
-		UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-			self.notificationsAuthorized = settings.authorizationStatus == .authorized
-		}
+        NotificationsController.shared.setup(launchOptions: launchOptions)
+        CheckInController.shared.setup()
 		
 		return true
 	}
@@ -79,200 +70,167 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 	func application(_ application: UIApplication,
                      performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 		print("Background fetching...")
-		if let beaconController = BeaconController.current {
-			if userIsTim() {
-                let inDALI = beaconController.inDALI
-                let inOffice = beaconController.inOffice
-                
-                DALILocation.Tim.submit(inDALI: inDALI, inOffice: inOffice).onSuccess { (_) in
-                    completionHandler(.newData)
-                }.onFail { _ in
-                    completionHandler(.failed)
-                }
-			} else {
-                DALILocation.Shared.submit(inDALI: beaconController.inDALI, entering: false).onSuccess { (_) in
-                    completionHandler(.noData)
-                }.onFail { _ in
-                    completionHandler(.failed)
-                }
-			}
-		}
-	}
-	
-	func onOSSubscriptionChanged(_ stateChanges: OSSubscriptionStateChanges!) {
-		// The player id is inside stateChanges.
-        // But be careful, this value can be nil if the user has not granted you permission to send notifications.
-		if let playerId = stateChanges.to.userId {
-			UserDefaults.standard.set(playerId, forKey: "playerID")
-		}
-	}
-	
-	func askForNotifications(callback: @escaping (_ success: Bool) -> Void) {
-		let center = UNUserNotificationCenter.current()
-		
-		if UserDefaults.standard.bool(forKey: "noNotificationsSelected") {
-			callback(false)
-			return
-		}
-		
-		center.getNotificationSettings(completionHandler: { (settings) in
-			switch settings.authorizationStatus {
-			case .notDetermined:
-				DispatchQueue.main.async {
-					let alertAppearance = SCLAlertView.SCLAppearance(
-						showCloseButton: false
-					)
-					
-					let alert = SCLAlertView(appearance: alertAppearance)
-					alert.addButton("No, not now", action: {
-						UserDefaults.standard.set(true, forKey: "noNotificationsSelected")
-						callback(false)
-					})
-					alert.addButton("Sure", action: {
-						center.requestAuthorization(options: [.alert, .badge, .sound]) { (success, _) in
-							self.notificationsAuthorized = true
-							callback(success)
-						}
-					})
-					
-                    let alertShower = self.getVisibleViewController(self.window?.rootViewController) as? AlertShower
-                    alertShower?.showAlert(alert: alert,
-                                           title: "Notifications",
-                                           subTitle: "Would you like this app to send you notifications to" +
-                                                " welcoming you to events you go to?",
-                                           color: #colorLiteral(red: 0.6085096002, green: 0.80526066, blue: 0.9126116071, alpha: 1),
-                                           image: #imageLiteral(resourceName: "notificationBell"))
-				}
-				
-			case .authorized:
-				self.notificationsAuthorized = true
-				callback(true)
-				
-			default:
-				callback(false)
-			}
-		})
-	}
-	
-	// Credits to @ProgrammierTier https://stackoverflow.com/a/34179192
-	func getVisibleViewController(_ rootViewController: UIViewController?) -> UIViewController? {
-		
-		var rootVC = rootViewController
-		if rootVC == nil {
-			rootVC = UIApplication.shared.keyWindow?.rootViewController
-		}
-		
-		if rootVC?.presentedViewController == nil {
-			return rootVC
-		}
-		
-		if let presented = rootVC?.presentedViewController {
-			if presented.isKind(of: UINavigationController.self) {
-				let navigationController = presented as! UINavigationController
-				return navigationController.viewControllers.last!
-			}
-			
-			if presented.isKind(of: UITabBarController.self) {
-				let tabBarController = presented as! UITabBarController
-				return tabBarController.selectedViewController!
-			}
-			
-			return getVisibleViewController(presented)
-		}
-		return nil
-	}
-	
-	func setUpNotificationListeners() {
-		self.askForNotifications { (success) in
-			if success {
-				if let user = GIDSignIn.sharedInstance().currentUser {
-					OneSignal.setEmail(user.profile.email)
-				}
-				OneSignal.sendTag("signedIn", value: "\(GIDSignIn.sharedInstance().currentUser != nil)")
-				
-				OneSignal.promptForPushNotifications(userResponse: { _ in
-					
-				})
-			}
-		}
+        var inDALI = BeaconController.shared.inside(.DALI)
+        var inOffice = BeaconController.shared.inside(.timsOffice)
         
-        let updateReturnDate = UNNotificationAction(identifier: "UPDATE_RETURN_ACTION",
-                                                    title: "Update Return Date",
-                                                    options: .foreground)
-        let returnReminderCategory = UNNotificationCategory(identifier: "RETURN_REMINDER",
-                                                            actions: [updateReturnDate],
-                                                            intentIdentifiers: [],
-                                                            options: .customDismissAction)
-        UNUserNotificationCenter.current().setNotificationCategories([returnReminderCategory])
-	}
-	
-	func enterExitHappened(entered: Bool) {
-		if UIApplication.shared.applicationState != .background {
-			return
-		}
-        
-        let lastSentDate = UserDefaults.standard.object(forKey: "entranceNotificationLastSent") as? Date
-        if let lastSentDate = lastSentDate, entered && abs(lastSentDate.timeIntervalSince(Date())) < 2*60*60 {
-            return
-        }
-		
-		if SettingsController.getEnterExitNotif() {
-			let content = UNMutableNotificationContent()
-            if entered {
-                UserDefaults.standard.set(Date(), forKey: "entranceNotificationLastSent")
+        if userIsTim() {
+            if inDALI && inOffice {
+                inDALI = DALIRegion.DALI.locationTextPriority > DALIRegion.timsOffice.locationTextPriority
+                inOffice = DALIRegion.timsOffice.locationTextPriority > DALIRegion.DALI.locationTextPriority
             }
-			content.title = entered ? "Welcome Back" : "See you next time"
-			let emojies = ["💡", "😄", "🚀", "💻", "🌈", "✨", "🌯", "⚙️"]
-			let randomIndex = Int(arc4random_uniform(UInt32(emojies.count)))
-			content.body = entered ? emojies[randomIndex] : "👋"
-			content.subtitle = ""
-			content.sound = UNNotificationSound(named: convertToUNNotificationSoundName("coins.m4a"))
-			
-			let notification = UNNotificationRequest(identifier: "enterExitNotification", content: content, trigger: nil)
-			UNUserNotificationCenter.current().add(notification) { (_) in
-				
-			}
-		}
+            
+            DALILocation.Tim.submit(inDALI: inDALI, inOffice: inOffice).onSuccess { (_) in
+                completionHandler(.newData)
+            }.onFail { _ in
+                completionHandler(.failed)
+            }
+        } else {
+            DALILocation.Shared.submit(inDALI: inDALI, entering: false).onSuccess { (_) in
+                completionHandler(.noData)
+            }.onFail { _ in
+                completionHandler(.failed)
+            }
+        }
 	}
-	
-	func checkInHappened() {
-		if UIApplication.shared.applicationState != .background {
-			return
-		}
-		
-		if SettingsController.getCheckInNotif() {
-			let content = UNMutableNotificationContent()
-			content.title = "Checked In!"
-			content.body = "Just checked you into this event 👍🤖!"
-			content.subtitle = ""
-			content.sound = UNNotificationSound(named: convertToUNNotificationSoundName("coins.m4a"))
-			
-			let notification = UNNotificationRequest(identifier: "checkInNotification", content: content, trigger: nil)
-			UNUserNotificationCenter.current().add(notification) { (_) in
-				
-			}
-		}
-	}
+    
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url,
+                                                 sourceApplication: options[.sourceApplication] as? String,
+                                                 annotation: options)
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        inBackground = true
+        print("Entering Background")
+        
+        // Notify the rest of the app
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "enterBackground"), object: nil)
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        if inBackground {
+            print("Returning from Background")
+            inBackground = false
+            
+            // Notify the rest of the app
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "returnFromBackground"), object: nil)
+        }
+    }
+    
+    // MARK: - GIDSignInDelegate
+    
+    /**
+     Completed signing in using Google
+     
+     - parameter signIn: The Google sign in controller
+     - parameter user: The Goole user object
+     - parameter error: Error encountered, if any
+     */
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        if let error = error {
+            print(error)
+            UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalNever)
+        } else {
+            UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+            let alreadySignedIn = DALIapi.isSignedIn
+            self.googleUser = user
+            
+            if !alreadySignedIn {
+                self.loginViewController?.beginLoading()
+                let accessToken = user.authentication.accessToken!
+                let refreshToken = user.authentication.refreshToken!
+                
+                DALIapi.signin(accessToken: accessToken, refreshToken: refreshToken, forced: true)
+                    .mainThreadFuture.onSuccess { (member) in
+                        self.didSignIn(member: member, changeUI: !alreadySignedIn)
+                    }.onFail { _ in
+                        if !alreadySignedIn {
+                            self.loginViewController?.showError(alert: SCLAlertView(),
+                                                                title: "Error Logging In",
+                                                                subTitle: "Encountered an error when logging in!")
+                            self.loginViewController?.endLoading()
+                        }
+                }
+            }
+        }
+    }
+    
+    // MARK: - User management
+    
+    func didSignIn(member: DALIMember, changeUI: Bool = true) {
+        memberSignedInEvent.emit(member)
+        DALIapi.enableSockets()
+        BeaconController.shared.assemble()
+        BeaconController.shared.updateLocation()
+        
+        if changeUI {
+            let mainViewController = UIStoryboard(name: "Main", bundle: nil)
+                .instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+            if let loginViewController = self.loginViewController {
+                mainViewController.modalTransitionStyle = .crossDissolve
+                mainViewController.modalPresentationStyle = .fullScreen
+                mainViewController.loginTransformAnimationDone = loginViewController.transformAnimationDone
+                
+                loginViewController.present(mainViewController, animated: true, completion: {
+                    NotificationsController.shared.setUpNotificationListeners()
+                })
+            } else {
+                self.window?.rootViewController = mainViewController
+            }
+            
+            self.loginViewController?.endLoading()
+        }
+    }
+    
+    func skipSignIn() {
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalNever)
+        let mainViewController = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        
+        mainViewController.modalTransitionStyle = .crossDissolve
+        mainViewController.modalPresentationStyle = .fullScreen
+        mainViewController.loginTransformAnimationDone = loginViewController?.transformAnimationDone ?? false
+        
+        memberSignedInEvent.emit(nil)
+        DALIapi.enableSockets()
+        
+        loginViewController?.present(mainViewController, animated: true, completion: {
+            
+        })
+    }
+    
+    func signOut() {
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalNever)
+        BeaconController.shared.dismantle()
+        
+        GIDSignIn.sharedInstance().signOut()
+        DALIapi.signOut()
+        memberSignedInEvent.emit(nil)
+        
+        DALIapi.disableSockets()
+        
+        let loginViewController = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateInitialViewController() as! LoginViewController
+        
+        self.window?.rootViewController? = loginViewController
+        self.loginViewController = loginViewController
+    }
+    
+    // MARK: - Notifications
 	
 	func votingEventEnteredOrExited(_ callback: @escaping () -> Void) {
 		if UIApplication.shared.applicationState != .background {
 			return
 		}
 		
-		if SettingsController.getVotingNotif() {
+		if SettingsController.votingNotificationsEnabled {
             DALIEvent.VotingEvent.getCurrent().onSuccess { (events) in
-                let content = UNMutableNotificationContent()
-                content.title = "Welcome to " + events.first!.name
-                content.body = "Voting is available for this event! 🗳💡"
-                content.subtitle = ""
-                content.sound = UNNotificationSound(named: self.convertToUNNotificationSoundName("coins.m4a"))
-                
-                let notification = UNNotificationRequest(identifier: "votingNotification",
-                                                         content: content,
-                                                         trigger: nil)
-                UNUserNotificationCenter.current().add(notification) { (_) in
-                    callback()
-                }
+                return NotificationsController.shared.votingNotif(events: events)
+            }.onSuccess { (_) in
+                callback()
             }.onFail { _ in
                 // TODO: Handle error
             }
@@ -284,181 +242,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
             return
         }
         
-        let content = UNMutableNotificationContent()
-        content.title = "\(equipment.name) Return Date Reached"
-        content.body = "The expected return rate for \(equipment.name) has arrived"
-        content.categoryIdentifier = "RETURN_REMINDER"
-        content.threadIdentifier = "returnReminder:\(equipment.id)"
-        content.userInfo = ["equipment": ["id": equipment.id, "name": equipment.name]]
-        
-        var dateComponents = Calendar.current.dateComponents([.calendar, .day, .month, .year, .era], from: returnDate)
-        dateComponents.hour = 14 // 14:00 hours
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        let request = UNNotificationRequest(identifier: "returnReminder:\(equipment.id)",
-                                            content: content,
-                                            trigger: trigger)
-        UNUserNotificationCenter.current().add(request) { (error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-    }
-	
-	func breakDownNotificationListeners() {
-		NotificationCenter.default.removeObserver(self)
-	}
-	
-	func didSignIn(member: DALIMember, noUIChange: Bool = false) {
-		if self.notificationsAuthorized {
-            OneSignal.setEmail(member.email)
-			OneSignal.sendTag("signedIn", value: "\(true)")
-            OneSignal.sendTag("admin", value: "\(member.isAdmin)")
-		}
-		
-		if self.beaconController == nil && BeaconController.current == nil {
-			self.beaconController = BeaconController()
-		} else {
-			self.beaconController = BeaconController.current
-		}
-		DALIapi.enableSockets()
-		
-		if !noUIChange {
-			let mainViewController = UIStoryboard(name: "Main", bundle: nil)
-                .instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-			if let loginViewController = self.loginViewController {
-				mainViewController.modalTransitionStyle = .crossDissolve
-				mainViewController.modalPresentationStyle = .fullScreen
-				mainViewController.loginTransformAnimationDone = loginViewController.transformAnimationDone
-				
-				loginViewController.present(mainViewController, animated: true, completion: {
-					self.setUpNotificationListeners()
-				})
-			} else {
-				self.window?.rootViewController = mainViewController
-			}
-			
-			self.loginViewController?.endLoading()
-		}
-	}
-	
-	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
-		
-		if let error = error {
-			print(error)
-		} else {
-			let alreadySignedIn = DALIapi.isSignedIn
-			self.user = user
-			if !alreadySignedIn {
-				self.loginViewController?.beginLoading()
-                let accessToken = user.authentication.accessToken!
-                let refreshToken = user.authentication.refreshToken!
-                
-                DALIapi.signin(accessToken: accessToken, refreshToken: refreshToken, forced: true)
-                    .mainThreadFuture.onSuccess { (member) in
-                    self.didSignIn(member: member, noUIChange: alreadySignedIn)
-                }.onFail { _ in
-                    if !alreadySignedIn {
-                        self.loginViewController?.showError(alert: SCLAlertView(),
-                                                            title: "Error Logging In",
-                                                            subTitle: "Encountered an error when logging in!")
-                        self.loginViewController?.endLoading()
-                    }
-                }
-			}
-		}
-	}
-	
-	func skipSignIn() {
-		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalNever)
-		let mainViewController = UIStoryboard(name: "Main", bundle: nil)
-            .instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-		
-		mainViewController.modalTransitionStyle = .crossDissolve
-		mainViewController.modalPresentationStyle = .fullScreen
-		mainViewController.loginTransformAnimationDone = loginViewController?.transformAnimationDone ?? false
-		OneSignal.sendTag("signedIn", value: "\(false)")
-		
-		DALIapi.enableSockets()
-		
-		loginViewController?.present(mainViewController, animated: true, completion: {
-			
-		})
-	}
-	
-	func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-		print("Disconnected!")
-		self.breakDownNotificationListeners()
-	}
-	
-	func signOut() {
-		UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalNever)
-		self.breakDownNotificationListeners()
-		BeaconController.current?.breakdown()
-		self.beaconController = nil
-		
-		GIDSignIn.sharedInstance().signOut()
-		DALIapi.signOut()
-		OneSignal.sendTag("signedIn", value: "\(false)")
-		
-		DALIapi.disableSockets()
-		
-		let loginViewController = UIStoryboard(name: "Main", bundle: nil)
-            .instantiateInitialViewController() as! LoginViewController
-		
-		self.window?.rootViewController? = loginViewController
-		self.loginViewController = loginViewController
-	}
-	
-	func returnToSignIn() {
-		self.signOut()
-	}
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
-        if response.actionIdentifier == "UPDATE_RETURN_ACTION" {
-            guard let equipmentDict = userInfo["equipment"] as? [String: String],
-                  let id = equipmentDict["id"] else {
-                return
-            }
-            
-            _ = DALIEquipment.equipment(for: id).onSuccess { _ in
-                
-            }
-        }
-    }
-	
-	func application(_ app: UIApplication,
-                     open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-		return GIDSignIn.sharedInstance().handle(url,
-                                                 sourceApplication: options[.sourceApplication] as? String,
-                                                 annotation: options)
-	}
-	
-	func applicationDidEnterBackground(_ application: UIApplication) {
-		inBackground = true
-		print("Entering Background")
-		
-		// Notify the rest of the app
-		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "enterBackground"), object: nil)
-	}
-	
-	func applicationDidBecomeActive(_ application: UIApplication) {
-		if inBackground {
-			print("Returning from Background")
-			inBackground = false
-			
-			// Notify the rest of the app
-			NotificationCenter.default.post(name: NSNotification.Name(rawValue: "returnFromBackground"), object: nil)
-		}
-	}
-    
-    // Helper function inserted by Swift 4.2 migrator.
-    private func convertToUNNotificationSoundName(_ input: String) -> UNNotificationSoundName {
-        return UNNotificationSoundName(rawValue: input)
+        NotificationsController.shared.returnNotif(equipment: equipment, returnDate: returnDate)
     }
 }

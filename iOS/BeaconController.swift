@@ -7,9 +7,12 @@
 //
 
 import Foundation
-import ProximityKit
+import CoreLocation
 import GoogleSignIn
 import DALI
+import FutureKit
+import Log
+import EmitterKit
 
 /**
  Handles all beacon activity for the application. It tracks at all times, even in the background,
@@ -22,328 +25,245 @@ Properties:
 - currentLocation: String?
 	Generated property
  */
-class BeaconController: NSObject, RPKManagerDelegate, CLLocationManagerDelegate {
+class BeaconController: NSObject, CLLocationManagerDelegate {
+    static var _shared: BeaconController?
     static var shared: BeaconController {
-        return current ?? BeaconController()
+        if _shared == nil {
+            _shared = BeaconController()
+        }
+        return _shared!
     }
-	static var current: BeaconController?
+    let logger: Logger
     
-	var beaconManager: RPKManager = RPKManager()
 	var locationManager = CLLocationManager()
 	
 	var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
-	func registerBackgroundTask(_ callback: () -> Void) {
-		print("Registering for background...")
-		backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
-			print("Force killing...")
-			self?.endBackgroundTask()
-		}
-		assert(backgroundTask != UIBackgroundTaskIdentifier.invalid)
-		print("Background task begun...")
-		callback()
-	}
-	
-	func endBackgroundTask() {
-		if backgroundTask == UIBackgroundTaskIdentifier.invalid {
-			return
-		}
-		UIApplication.shared.endBackgroundTask(convertToUIBackgroundTaskIdentifier(backgroundTask.rawValue))
-		backgroundTask = UIBackgroundTaskIdentifier.invalid
-		print("Background task ended.")
-	}
 	
 	var numToRange = 0
 	
-	private var rangeDone: (() -> Void)?
-	private var ranged: Set<RPKBeacon> = []
-	private var targetRegion: RPKRegion?
-	private var onRange: (() -> Void)?
+    let rangeEvent = Event<(beacons: [CLBeacon], region: DALIRegion)>()
+    let locationChangedEvent = Event<String?>()
+//    private var ranged: Set<RPKBeacon> = []
+//    private var targetRegion: RPKRegion?
 	
-	var refreshTimers = [RPKRegion: Timer]()
+//    var refreshTimers = [RPKRegion: Timer]()
 	
 	var currentLocation: String? {
-		let region = regions.filter({ region in
-            return (Int(region.attributes["locationPriority"] as! String))! > 0
-        }).sorted(by: { (region1, region2) -> Bool in
-            let region1Priority = Int(region1.attributes["locationPriority"] as! String)
-            let region2Priority = Int(region2.attributes["locationPriority"] as! String)
-			return region1Priority! > region2Priority!
-		}).first
-        
-        return region?.name.replacingOccurrences(of: " Region", with: "").replacingOccurrences(of: "\\", with: "")
+        return DALIRegion.highestPriority(in: regions)?.name
 	}
 	
-	var inDALI: Bool {
-		return regions.filter({ (region) -> Bool in
-			return region.name == "DALI Lab Region"
-		}).count >= 1
-	}
-	var inOffice: Bool {
-		return regions.filter({ (region) -> Bool in
-			return region.name == "Tims Office Region"
-		}).count >= 1
-	}
-	var inVotingEvent: Bool {
-		return regions.filter({ (region) -> Bool in
-			return region.name == "Event Vote Region"
-		}).count >= 1
-	}
+    private var regions = Set<DALIRegion>()
 	
-	private var regions = Set<RPKRegion>()
-	
-	override init() {
+    // MARK: - Basic data
+    
+	private override init() {
+        logger = Logger()
 		super.init()
-		
-		do {
-			try self.staticSetup()
-		} catch {
-			fatalError("Already have one!")
-		}
-		
-		self.beaconManager = RPKManager(delegate: self, andConfig: [
-			"kit_url": "https://proximitykit.radiusnetworks.com/api/kits/9339",
-			"api_token": "753b54a6bf172823b68c10c9966c4d6da40ff85f57ef65ad0e155fcb40d0ccb2",
-			"allow_cellular_data": true
-			])
-		
+        locationManager.delegate = self
 		updateLocation()
 	}
+    
+    deinit {
+        dismantle(shouldSubmitLocation: false)
+    }
+    
+    // MARK: - Statup and breakdown
+    
+    func assemble() {
+        DALIRegion.all.forEach { (region) in
+            self.locationManager.startMonitoring(for: region.beaconRegion)
+        }
+    }
 	
-	func breakdown() {
-		BeaconController.current = nil
-		
-		self.beaconManager.stopRangingIBeacons()
-		self.beaconManager.stopAdvertising()
-		self.beaconManager.stop()
-		
-        if UIApplication.shared.applicationState == .background {
-            registerBackgroundTask {
+    func dismantle(shouldSubmitLocation: Bool = true) {
+        self.stopRangingBeacons()
+        DALIRegion.all.forEach { (region) in
+            self.locationManager.stopMonitoring(for: region.beaconRegion)
+        }
+        
+        if shouldSubmitLocation {
+            let submitLocation = { () -> Future<Any> in
                 if userIsTim() {
-                    _ = DALILocation.Tim.submit(inDALI: false, inOffice: false).onSuccess { (_) in
-                        self.endBackgroundTask()
-                    }
+                    return DALILocation.Tim.submit(inDALI: false, inOffice: false).futureAny
                 } else if DALIapi.isSignedIn {
-                    _ = DALILocation.Shared.submit(inDALI: false, entering: false).onSuccess(block: { (_) in
-                        self.endBackgroundTask()
-                    })
+                    return DALILocation.Shared.submit(inDALI: false, entering: false).futureAny
                 }
+                return Future<Any>(cancelled: ())
             }
-        } else {
-            if userIsTim() {
-                _ = DALILocation.Tim.submit(inDALI: false, inOffice: false).onSuccess { (_) in
-                    self.endBackgroundTask()
+            
+            if UIApplication.shared.applicationState == .background {
+                registerBackgroundTask {
+                    submitLocation().onSuccess { (_) in
+                        self.endBackgroundTask()
+                    }.onFail { (error) in
+                        self.logger.error("Failed to submit dismantle location report to server in background", error)
+                    }
                 }
-            } else if DALIapi.isSignedIn {
-                _ = DALILocation.Shared.submit(inDALI: false, entering: false).onSuccess { (_) in
-                    self.endBackgroundTask()
+            } else {
+                // Submit to the server that we are leaving all places
+                submitLocation().onFail { (error) in
+                    self.logger.error("Failed to submit dismantle location report to server", error)
+                }
+                
+                let package = ["entered": false]
+                DALIRegion.all.forEach { (region) in
+                    NotificationCenter.default.post(name: region.notificationName, object: nil, userInfo: package)
+                    region.stateEvent.emit((change: .none, now: .outside))
                 }
             }
         }
-		
-		if UIApplication.shared.applicationState != .background {
-			NotificationCenter.default.post(name: Notification.Name.Custom.EnteredOrExitedDALI,
-                                            object: nil,
-                                            userInfo: ["entered": false])
-			NotificationCenter.default.post(name: Notification.Name.Custom.EventVoteEnteredOrExited,
-                                            object: nil, userInfo: ["entered": false])
-			NotificationCenter.default.post(name: Notification.Name.Custom.TimsOfficeEnteredOrExited,
-                                            object: nil,
-                                            userInfo: ["entered": false])
-		}
 	}
+    
+    // MARK: - API
+    
+    func startRangingBeacons() {
+        DALIRegion.all.forEach { (region) in
+            self.locationManager.startRangingBeacons(in: CLBeaconRegion(proximityUUID: region.uuid,
+                                                                        identifier: region.rawValue))
+        }
+    }
+    
+    func stopRangingBeacons() {
+        DALIRegion.all.forEach { (region) in
+            self.locationManager.stopRangingBeacons(in: CLBeaconRegion(proximityUUID: region.uuid,
+                                                                       identifier: region.rawValue))
+        }
+    }
 	
 	func updateLocation() {
-		self.beaconManager.start()
 		// A good buffer to find all the beacons possible
 		numToRange = 50
-		self.beaconManager.startRangingBeacons()
+        startRangingBeacons()
 	}
 	
 	func updateLocation(with callback: @escaping (BeaconController) -> Void) {
 		updateLocation()
-		rangeDone = {
-			callback(self)
-			self.rangeDone = nil
-		}
+        var listener: Listener?
+        listener = rangeEvent.on { (_) in
+            if self.numToRange == 0 {
+                listener?.isListening = false
+                callback(self)
+            }
+        }
 	}
-	
-	func proximityKit(_ manager: RPKManager!, didDetermineState state: RPKRegionState, for region: RPKRegion!) {
-		var entered = false
-		var exited = false
-		if state == .inside {
-			entered = regions.insert(region!).inserted
-		} else {
-			exited = regions.remove(region!) != nil
-		}
-		
-		if region.name == "DALI Lab Region", exited || entered {
-			func go(background: Bool) {
-				if userIsTim() {
-                    _ = DALILocation.Tim.submit(inDALI: entered, inOffice: entered ? false : inOffice).onSuccess { _ in
-                        if background {
-                            self.endBackgroundTask()
-                        }
+    
+    func inside(_ region: DALIRegion) -> Bool {
+        return regions.contains(region)
+    }
+    
+    // MARK: - CLLocationManagerDelegate
+    
+    var seenDuringUpdate = Set<DALIRegion>()
+    func locationManager(_ manager: CLLocationManager,
+                         didRangeBeacons beacons: [CLBeacon],
+                         in beaconRegion: CLBeaconRegion) {
+        if numToRange <= 0 && numToRange != -1 {
+            stopRangingBeacons()
+            return
+        }
+        numToRange -= 1
+        
+        guard let region = DALIRegion.with(uuid: beaconRegion.proximityUUID) else {
+            return
+        }
+        print("beacons in \(region): \(beacons.count)")
+        if beacons.count > 0 {
+            if seenDuringUpdate.insert(region).inserted {
+                self.locationManager(self.locationManager, didDetermineState: .inside, for: beaconRegion)
+            }
+        }
+        
+        if numToRange == 0 {
+            DALIRegion.all.forEach { (region) in
+                let state: CLRegionState = seenDuringUpdate.contains(region) ? .inside : .outside
+                self.locationManager(self.locationManager, didDetermineState: state, for: region.beaconRegion)
+            }
+            seenDuringUpdate.removeAll()
+        }
+        
+        rangeEvent.emit((beacons: beacons, region: region))
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        self.locationManager(manager, didDetermineState: .outside, for: region)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        self.locationManager(manager, didDetermineState: .inside, for: region)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for clregion: CLRegion) {
+        guard let beaconRegion = clregion as? CLBeaconRegion,
+              let region = DALIRegion.with(uuid: beaconRegion.proximityUUID) else {
+            return
+        }
+        var stateChange: DALIRegion.State.Change = .none
+        if state == .inside {
+            stateChange = regions.insert(region).inserted ? .entering : .none
+        } else {
+            stateChange = regions.remove(region) != nil ? .exiting : .none
+        }
+        let regionState = DALIRegion.State.from(state)
+
+        func go() {
+            region.emit(change: stateChange, state: regionState)
+            
+            if stateChange != .none {
+                if userIsTim(), region == .DALI || region == .timsOffice {
+                    var inDALI = regions.contains(.DALI)
+                    var inOffice = regions.contains(.timsOffice)
+                    
+                    if inDALI && inOffice {
+                        inDALI = region == .DALI
+                        inOffice = region == .timsOffice
                     }
-				} else if DALIapi.isSignedIn {
-                    _ = DALILocation.Shared.submit(inDALI: entered, entering: entered).onSuccess { (_) in
-                        if background {
-                            self.endBackgroundTask()
-                        }
-                    }
-				}
-			}
-			
-			if UIApplication.shared.applicationState == .background {
-				registerBackgroundTask {
-					if UserDefaults.standard.bool(forKey: "inDALI") != entered {
-						AppDelegate.shared.enterExitHappened(entered: entered)
-					}
-					UserDefaults.standard.set(entered, forKey: "inDALI")
-					go(background: true)
-				}
-			} else {
-				go(background: false)
-				UserDefaults.standard.set(entered, forKey: "inDALI")
-				NotificationCenter.default.post(name: Notification.Name.Custom.EnteredOrExitedDALI,
-                                                object: nil,
-                                                userInfo: ["entered": entered])
-			}
-		} else if region.name.replacingOccurrences(of: "'", with: "") == "Tims Office Region" && userIsTim() {
-			if UIApplication.shared.applicationState == .background {
-				registerBackgroundTask {
-                    _ = DALILocation.Tim.submit(inDALI: inDALI, inOffice: entered).onSuccess { (_) in
-                        self.endBackgroundTask()
-                    }
-				}
-			} else {
-				if entered || exited {
-					_ = DALILocation.Tim.submit(inDALI: entered ? false : inDALI, inOffice: entered)
-				}
-				NotificationCenter.default.post(name: Notification.Name.Custom.TimsOfficeEnteredOrExited,
-                                                object: nil,
-                                                userInfo: ["entered": entered])
-			}
-		} else if region.name == "Event Vote Region", entered {
-			if UIApplication.shared.applicationState == .background {
-				registerBackgroundTask {
-					AppDelegate.shared.votingEventEnteredOrExited {
-						self.endBackgroundTask()
-					}
-				}
-			} else {
-				NotificationCenter.default.post(name: Notification.Name.Custom.EventVoteEnteredOrExited,
-                                                object: nil,
-                                                userInfo: ["entered": entered])
-			}
-		} else if region.name == "Check In Region", entered {
-			if UIApplication.shared.applicationState == .background {
-				registerBackgroundTask {
-					rangeCheckin(region: region)
-				}
-			} else {
-				rangeCheckin(region: region)
-			}
-		}
-		
-		NotificationCenter.default.post(name: NSNotification.Name.Custom.LocationUpdated, object: nil)
-	}
-	
-	deinit {
-		self.beaconManager.stopRangingIBeacons()
-		self.beaconManager.stopAdvertising()
-		self.beaconManager.stop()
-	}
-	
-	private func staticSetup() throws {
-		if BeaconController.current != nil {
-            throw BeaconError.duplicateController
-		}
-		BeaconController.current = self
-	}
-	
-	func proximityKit(_ manager: RPKManager, didEnter region: RPKRegion) {
-		print("Entered Region \(region.name ?? "unknown name"), \(region.identifier ?? "unknown id")")
-	}
-	
-	func persistantRange(callback: @escaping (BeaconController) -> Void) -> () -> Void {
-		numToRange = -1
-		
-		self.beaconManager.start()
-		self.beaconManager.startRangingBeacons()
-		onRange = {
-			callback(self)
-		}
-		
-		return { () in
-			self.numToRange = 0
-			self.beaconManager.stopRangingIBeacons()
-		}
-	}
-	
-	private func rangeCheckin(region: RPKRegion) {
-		numToRange = 15
-		ranged.removeAll()
-		targetRegion = region
-		self.beaconManager.startRangingBeacons()
-		rangeDone = { () in
-			if let first = self.ranged.first {
-				if UIApplication.shared.applicationState != .background {
-					NotificationCenter.default.post(name: NSNotification.Name.Custom.CheckInEnteredOrExited,
-                                                    object: nil,
-                                                    userInfo: ["entered": true,
-                                                               "major": first.major!,
-                                                               "minor": first.minor!])
-				}
-                _ = DALIEvent.checkIn(major: first.major as! Int, minor: first.minor as! Int).onSuccess(block: { (_) in
-                    if UIApplication.shared.applicationState == .background {
-                        AppDelegate.shared.checkInHappened()
-                        self.endBackgroundTask()
-                    }
-                })
-			} else {
-				// We are in fact not at a check in event
-			}
-		}
-	}
-	
-	func proximityKit(_ manager: RPKManager, didExit region: RPKRegion) {
-		print("Exited Region \(region.name ?? "unknown name"), \(region.identifier ?? "unknown id")")
-	}
-	
-	func proximityKit(_ manager: RPKManager!, didRangeBeacons beacons: [Any]!, in region: RPKBeaconRegion!) {
-		if numToRange <= 0 && numToRange != -1 {
-			self.beaconManager.stopRangingIBeacons()
-			return
-		}
-		
-		numToRange -= 1
-		if beacons.count == 0 && regions.contains(region) {
-			// I am not going to deal with exits here. That will be the job of the exit region code
-			return
-		}
-		
-		if let targetRegion = targetRegion, targetRegion.identifier == region.identifier {
-			for beacon in beacons as! [RPKBeacon] {
-				ranged.insert(beacon)
-			}
-		}
-		
-		if let rangeDone = rangeDone, numToRange == 0 {
-			rangeDone()
-		}
-		
-		self.proximityKit(manager, didDetermineState: beacons.count > 0 ? .inside : .outside, for: region)
-		if let onRange = onRange {
-			onRange()
-		}
-	}
+
+                    _ = DALILocation.Tim.submit(inDALI: inDALI, inOffice: inOffice)
+                } else if region == .DALI {
+                    _ = DALILocation.Shared.submit(inDALI: regionState == .inside,
+                                               entering: stateChange == .entering)
+                }
+            }
+        }
+        
+        if UIApplication.shared.applicationState == .background {
+            registerBackgroundTask {
+                go()
+            }
+        } else {
+            go()
+            
+            // TODO: Fix voting event
+            NotificationCenter.default.post(name: NSNotification.Name.Custom.LocationUpdated, object: nil)
+            locationChangedEvent.emit(currentLocation)
+        }
+    }
+    
+    // MARK: - Background tasks
+    
+    func registerBackgroundTask(_ callback: () -> Void) {
+        print("Registering for background...")
+        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+            print("Force killing...")
+            self?.endBackgroundTask()
+        }
+        assert(backgroundTask != UIBackgroundTaskIdentifier.invalid)
+        print("Background task begun...")
+        callback()
+    }
+    
+    func endBackgroundTask() {
+        if backgroundTask == UIBackgroundTaskIdentifier.invalid {
+            return
+        }
+        UIApplication.shared.endBackgroundTask(backgroundTask)
+        backgroundTask = UIBackgroundTaskIdentifier.invalid
+        print("Background task ended.")
+    }
+    
+    // MARK: - Enums
 	
 	enum BeaconError: Error {
 		case duplicateController
 	}
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-private func convertToUIBackgroundTaskIdentifier(_ input: Int) -> UIBackgroundTaskIdentifier {
-	return UIBackgroundTaskIdentifier(rawValue: input)
 }

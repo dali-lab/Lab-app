@@ -40,6 +40,7 @@ PODS:
     - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.0)"
   - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
   - GTMSessionFetcher/Core (1.2.1)
+  - Log (1.0)
   - OneSignal (2.9.5)
   - QRCodeReaderViewController (4.0.2)
   - RLBAlertsPickers (1.1.1)
@@ -47,6 +48,7 @@ PODS:
   - Socket.IO-Client-Swift (15.0.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.0)
+  - SwiftLint (0.31.0)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
@@ -57,11 +59,13 @@ DEPENDENCIES:
   - Eureka
   - FutureKit
   - Google/SignIn
+  - Log
   - OneSignal (< 3.0, >= 2.5.2)
   - QRCodeReaderViewController
   - RLBAlertsPickers (from `https://github.com/loicgriffie/Alerts-Pickers.git`, branch `master`)
   - SCLAlertView
   - Socket.IO-Client-Swift
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -79,11 +83,13 @@ SPEC REPOS:
     - GoogleSignIn
     - GoogleToolboxForMac
     - GTMSessionFetcher
+    - Log
     - OneSignal
     - QRCodeReaderViewController
     - SCLAlertView
     - Socket.IO-Client-Swift
     - Starscream
+    - SwiftLint
     - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -114,14 +120,16 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  Log: 5e368c9528db07517d18d2d04ff5fe2b6f5a1e21
   OneSignal: ccdeb961882f8668305e5b694e2cb7cb325fc907
   QRCodeReaderViewController: e8f27d035b3e72b1d4b1c61ff66458287e3be0ff
   RLBAlertsPickers: d8dd984ed0a686bd167554eeb4a3af5ae8d82d24
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   Socket.IO-Client-Swift: c039a808195d22a7192962841b8c035cb61ea49e
   Starscream: 08172b481e145289c4930cb567230fb55897cfa4
+  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: e82ef1c4b80e3ffb4ce9ada3d886c93dd0326ccb
+PODFILE CHECKSUM: 44fc8f79e8dfb69d96d73909ffa7b18574ad7f2a
 
 COCOAPODS: 1.6.1

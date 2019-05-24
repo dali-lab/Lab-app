@@ -17,6 +17,8 @@ target 'iOS' do
   pod 'OneSignal', '>= 2.5.2', '< 3.0'
   pod 'FutureKit'
   pod 'Alamofire'
+  pod 'Log'
+  pod 'SwiftLint'
   pod 'RLBAlertsPickers', :git => 'https://github.com/loicgriffie/Alerts-Pickers.git', :branch => 'master'
 
   # Pods for DALI Lab

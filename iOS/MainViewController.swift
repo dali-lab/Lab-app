@@ -64,7 +64,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		
 		_ = CalendarController()
 		
-		BeaconController.current?.updateLocation()
+		BeaconController.shared.updateLocation()
 		
 		tableView.estimatedRowHeight = 140
 		
@@ -162,8 +162,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	}
 	
 	@objc func locationUpdated() {
-		if let controller = (UIApplication.shared.delegate as! AppDelegate).beaconController,
-            let location = controller.currentLocation {
+		if let location = BeaconController.shared.currentLocation {
 			self.locationLabel.text = "In \(location)"
 		} else {
 			self.locationLabel.text = "Not in DALI Lab"
@@ -235,7 +234,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	
 	func showAlert(alert: SCLAlertView, title: String, subTitle: String, color: UIColor, image: UIImage) {
 		animationDone = { () in
-			_ = alert.showCustom(title, subTitle: subTitle, color: color, icon: image)
+            DispatchQueue.main.async {
+                _ = alert.showCustom(title, subTitle: subTitle, color: color, icon: image)
+            }
 		}
 	}
 	
@@ -343,7 +344,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		} else {
 			let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
 			alert.addButton("Sign In", action: {
-				(UIApplication.shared.delegate as! AppDelegate).returnToSignIn()
+				(UIApplication.shared.delegate as! AppDelegate).signOut()
 			})
 			alert.addButton("Nah...", action: { 
 				

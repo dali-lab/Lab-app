@@ -10,6 +10,9 @@
 		40DB98AC0FE4CC2E74756E47 /* Pods_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66536EEAC6727C445E15D525 /* Pods_iOSUITests.framework */; };
 		5200B9AF2159793A0011DA73 /* CheckOutQRReaderLoadingOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5200B9AE2159793A0011DA73 /* CheckOutQRReaderLoadingOverlayView.swift */; };
 		5203FF1E21503A9B00A406E3 /* CheckOutQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5203FF1D21503A9B00A406E3 /* CheckOutQRViewController.swift */; };
+		520F85712295BBF700A0F491 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520F85702295BBF700A0F491 /* NotificationsController.swift */; };
+		520F85732295C25D00A0F491 /* DALIUIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520F85722295C25D00A0F491 /* DALIUIError.swift */; };
+		520F85752295D1C600A0F491 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520F85742295D1C600A0F491 /* SettingsController.swift */; };
 		5210FED9228CA03700099553 /* DALI Regions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210FED8228CA03700099553 /* DALI Regions.swift */; };
 		521822DB1FA0CC5400F34E22 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521822DA1FA0CC5400F34E22 /* ViewProtocol.swift */; };
 		5222572E1FE2DEBD00E7D57C /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5222572D1FE2DEBD00E7D57C /* NewEventViewController.swift */; };
@@ -55,6 +58,7 @@
 		52B138F21F47D4650021D7AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B138F11F47D4650021D7AE /* Assets.xcassets */; };
 		52B138FD1F47D4660021D7AE /* tvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B138FC1F47D4660021D7AE /* tvOSTests.swift */; };
 		52B139081F47D4660021D7AE /* tvOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B139071F47D4660021D7AE /* tvOSUITests.swift */; };
+		52B143E222989F9C0092481D /* CheckInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B143E122989F9C0092481D /* CheckInController.swift */; };
 		52CFA210227B67D900C6D7C9 /* EquipmentFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52CFA20F227B67D900C6D7C9 /* EquipmentFilterView.xib */; };
 		52CFA212227B68F300C6D7C9 /* EquipmentFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA211227B68F300C6D7C9 /* EquipmentFilterView.swift */; };
 		52CFA214227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA213227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift */; };
@@ -147,6 +151,9 @@
 		5203FF1D21503A9B00A406E3 /* CheckOutQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutQRViewController.swift; sourceTree = "<group>"; };
 		5203FF1F2150422C00A406E3 /* QRCodeReaderView+DALIAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "QRCodeReaderView+DALIAdditions.m"; sourceTree = "<group>"; };
 		5203FF202150424200A406E3 /* QRCodeReaderView+DALIAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QRCodeReaderView+DALIAdditions.h"; sourceTree = "<group>"; };
+		520F85702295BBF700A0F491 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
+		520F85722295C25D00A0F491 /* DALIUIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DALIUIError.swift; sourceTree = "<group>"; };
+		520F85742295D1C600A0F491 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		5210FED8228CA03700099553 /* DALI Regions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DALI Regions.swift"; sourceTree = "<group>"; };
 		521822DA1FA0CC5400F34E22 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
 		5222572D1FE2DEBD00E7D57C /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +213,7 @@
 		52B139031F47D4660021D7AE /* tvOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tvOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B139071F47D4660021D7AE /* tvOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSUITests.swift; sourceTree = "<group>"; };
 		52B139091F47D4660021D7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52B143E122989F9C0092481D /* CheckInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInController.swift; sourceTree = "<group>"; };
 		52CFA20F227B67D900C6D7C9 /* EquipmentFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentFilterView.xib; sourceTree = "<group>"; };
 		52CFA211227B68F300C6D7C9 /* EquipmentFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentFilterView.swift; sourceTree = "<group>"; };
 		52CFA213227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentFilterIconCell.swift; sourceTree = "<group>"; };
@@ -341,6 +349,7 @@
 				529A632B1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift */,
 				529A63261F4E90DF00BFBFE9 /* NewVotingEventViewController.swift */,
 				529A63291F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift */,
+				520F85742295D1C600A0F491 /* SettingsController.swift */,
 			);
 			name = "Tools and settings";
 			sourceTree = "<group>";
@@ -382,7 +391,8 @@
 			children = (
 				522F31E41F47DA2300B4BEB4 /* iOS.entitlements */,
 				522F31B21F47D8DA00B4BEB4 /* AppDelegate.swift */,
-				522F31B31F47D8DA00B4BEB4 /* BeaconController.swift */,
+				52B143E32298A3410092481D /* Background Controllers */,
+				520F85722295C25D00A0F491 /* DALIUIError.swift */,
 				5210FED8228CA03700099553 /* DALI Regions.swift */,
 				522F31B41F47D8DA00B4BEB4 /* CalendarController.swift */,
 				522F31B51F47D8DA00B4BEB4 /* EnumsAndStructs.swift */,
@@ -460,6 +470,16 @@
 				52B139091F47D4660021D7AE /* Info.plist */,
 			);
 			path = tvOSUITests;
+			sourceTree = "<group>";
+		};
+		52B143E32298A3410092481D /* Background Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				520F85702295BBF700A0F491 /* NotificationsController.swift */,
+				522F31B31F47D8DA00B4BEB4 /* BeaconController.swift */,
+				52B143E122989F9C0092481D /* CheckInController.swift */,
+			);
+			name = "Background Controllers";
 			sourceTree = "<group>";
 		};
 		52E2F4351F853FEE00CED245 /* Stickers */ = {
@@ -752,10 +772,9 @@
 			};
 			buildConfigurationList = 52B1384A1F47D39B0021D7AE /* Build configuration list for PBXProject "DALI Lab" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -889,7 +908,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		5FDA45A694C0B5C7F51C5D3C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1006,6 +1025,7 @@
 				"${BUILT_PRODUCTS_DIR}/FutureKit-iOS/FutureKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Log/Log.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReaderViewController/QRCodeReaderViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/RLBAlertsPickers/RLBAlertsPickers.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
@@ -1023,6 +1043,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FutureKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Log.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReaderViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RLBAlertsPickers.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
@@ -1103,15 +1124,19 @@
 				529A632A1F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift in Sources */,
 				5203FF1E21503A9B00A406E3 /* CheckOutQRViewController.swift in Sources */,
 				52ED6E0821CB283900B201A1 /* EquipmentDetailTableViewController.swift in Sources */,
+				52B143E222989F9C0092481D /* CheckInController.swift in Sources */,
 				522F31C31F47D8DA00B4BEB4 /* MainViewController.swift in Sources */,
 				524D86FD1F57A3F400479C0A /* ResultsVotingViewController.swift in Sources */,
 				522F31C21F47D8DA00B4BEB4 /* LoginViewController.swift in Sources */,
 				522F31C41F47D8DA00B4BEB4 /* PeopleInLabViewController.swift in Sources */,
 				5251D9E31F4BD7C80020D958 /* CheckinViewController.swift in Sources */,
+				520F85732295C25D00A0F491 /* DALIUIError.swift in Sources */,
 				522F31C01F47D8DA00B4BEB4 /* EnumsAndStructs.swift in Sources */,
 				5200B9AF2159793A0011DA73 /* CheckOutQRReaderLoadingOverlayView.swift in Sources */,
+				520F85712295BBF700A0F491 /* NotificationsController.swift in Sources */,
 				522F31C61F47D8DA00B4BEB4 /* ToolsAndSettingsViewController.swift in Sources */,
 				529A632C1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift in Sources */,
+				520F85752295D1C600A0F491 /* SettingsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
