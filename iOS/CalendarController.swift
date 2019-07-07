@@ -13,7 +13,14 @@ import SCLAlertView
 import DALI
 
 class CalendarController: NSObject, EKCalendarChooserDelegate {
-	static var current: CalendarController!
+    static private var _shared: CalendarController?
+    static var shared: CalendarController {
+        if _shared == nil {
+            _shared = CalendarController()
+        }
+        return _shared!
+    }
+    
 	let eventStore = EKEventStore()
 	var event: DALIEvent!
 	
@@ -35,7 +42,6 @@ class CalendarController: NSObject, EKCalendarChooserDelegate {
 		eventView.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                                      target: self,
                                                                      action: #selector(self.calendarChooserDidCancel))
-		CalendarController.current = self
 	}
 	
 	func checkPermissions(callback: ((Bool) -> Void)?) {

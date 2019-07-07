@@ -41,6 +41,14 @@ func userIsTim(user: DALIMember? = DALIMember.current) -> Bool {
 	return (env["tim"] as! String) == user!.email
 }
 
+func animateThis(_ animated: Bool, duration: TimeInterval, block: @escaping () -> Void) {
+    if animated {
+        UIView.animate(withDuration: duration, animations: block)
+    } else {
+        block()
+    }
+}
+
 var checkInRangeID: String {
 	return env["checkInRangeID"] as! String
 }
