@@ -1,6 +1,4156 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/AppDelegate.swift",
+      "line": 20,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/AppDelegate.swift",
+      "line": 24,
+      "symbol": "AppDelegate.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/AppDelegate.swift",
+      "line": 36,
+      "symbol": "AppDelegate.application(_:didFinishLaunchingWithOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/AppDelegate.swift",
+      "line": 70,
+      "symbol": "AppDelegate.application(_:performFetchWithCompletionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/AppDelegate.swift",
+      "line": 96,
+      "symbol": "AppDelegate.application(_:open:options:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/AppDelegate.swift",
+      "line": 104,
+      "symbol": "AppDelegate.applicationDidEnterBackground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/AppDelegate.swift",
+      "line": 112,
+      "symbol": "AppDelegate.applicationDidBecomeActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/AppDelegate.swift",
+      "line": 163,
+      "symbol": "AppDelegate.didSignIn(member:changeUI:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/AppDelegate.swift",
+      "line": 188,
+      "symbol": "AppDelegate.skipSignIn()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/AppDelegate.swift",
+      "line": 205,
+      "symbol": "AppDelegate.signOut()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/AppDelegate.swift",
+      "line": 224,
+      "symbol": "AppDelegate.votingEventEnteredOrExited(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/AppDelegate.swift",
+      "line": 240,
+      "symbol": "AppDelegate.checkedOut(equipment:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 29,
+      "symbol": "BeaconController._shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 30,
+      "symbol": "BeaconController.shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 36,
+      "symbol": "BeaconController.logger",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 38,
+      "symbol": "BeaconController.locationManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 40,
+      "symbol": "BeaconController.backgroundTask",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 42,
+      "symbol": "BeaconController.numToRange",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 44,
+      "symbol": "BeaconController.rangeEvent",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 45,
+      "symbol": "BeaconController.locationChangedEvent",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 51,
+      "symbol": "BeaconController.currentLocation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 55,
+      "symbol": "BeaconController.regions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 59,
+      "symbol": "BeaconController.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 66,
+      "symbol": "BeaconController.deinit",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 72,
+      "symbol": "BeaconController.assemble()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 78,
+      "symbol": "BeaconController.dismantle(shouldSubmitLocation:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 119,
+      "symbol": "BeaconController.startRangingBeacons()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 126,
+      "symbol": "BeaconController.stopRangingBeacons()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 133,
+      "symbol": "BeaconController.updateLocation()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 139,
+      "symbol": "BeaconController.updateLocation(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 150,
+      "symbol": "BeaconController.inside(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 156,
+      "symbol": "BeaconController.seenDuringUpdate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 157,
+      "symbol": "BeaconController.locationManager(_:didRangeBeacons:in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 187,
+      "symbol": "BeaconController.locationManager(_:didExitRegion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 191,
+      "symbol": "BeaconController.locationManager(_:didEnterRegion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 195,
+      "symbol": "BeaconController.locationManager(_:didDetermineState:for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 208,
+      "symbol": "BeaconController.locationManager(_:didDetermineState:for:).go()",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 244,
+      "symbol": "BeaconController.registerBackgroundTask(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 255,
+      "symbol": "BeaconController.endBackgroundTask()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 266,
+      "symbol": "BeaconController.BeaconError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/BeaconController.swift",
+      "line": 267,
+      "symbol": "BeaconController.BeaconError.duplicateController",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CalendarController.swift",
+      "line": 15,
+      "symbol": "CalendarController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CalendarController.swift",
+      "line": 16,
+      "symbol": "CalendarController.current",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CalendarController.swift",
+      "line": 17,
+      "symbol": "CalendarController.eventStore",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CalendarController.swift",
+      "line": 18,
+      "symbol": "CalendarController.event",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CalendarController.swift",
+      "line": 20,
+      "symbol": "CalendarController.eventView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CalendarController.swift",
+      "line": 21,
+      "symbol": "CalendarController.navControl",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CalendarController.swift",
+      "line": 23,
+      "symbol": "CalendarController.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CalendarController.swift",
+      "line": 41,
+      "symbol": "CalendarController.checkPermissions(callback:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CalendarController.swift",
+      "line": 59,
+      "symbol": "CalendarController.requestPermissions(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CalendarController.swift",
+      "line": 67,
+      "symbol": "CalendarController.calendarChooserDidCancel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CalendarController.swift",
+      "line": 71,
+      "symbol": "CalendarController.calendarChooserDidFinish()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CalendarController.swift",
+      "line": 105,
+      "symbol": "CalendarController.showCalendarChooser(on:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckInController.swift",
+      "line": 19,
+      "symbol": "CheckInController._shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckInController.swift",
+      "line": 28,
+      "symbol": "CheckInController.listener",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckInController.swift",
+      "line": 29,
+      "symbol": "CheckInController.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 16,
+      "symbol": "CheckinViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 17,
+      "symbol": "CheckinViewController.beacon1",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 18,
+      "symbol": "CheckinViewController.beacon2",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 19,
+      "symbol": "CheckinViewController.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 20,
+      "symbol": "CheckinViewController.tableView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 21,
+      "symbol": "CheckinViewController.bottomView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 23,
+      "symbol": "CheckinViewController.members",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 25,
+      "symbol": "CheckinViewController.region",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 26,
+      "symbol": "CheckinViewController.peripheral",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 27,
+      "symbol": "CheckinViewController.event",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 28,
+      "symbol": "CheckinViewController.observer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 29,
+      "symbol": "CheckinViewController.animating",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 33,
+      "symbol": "CheckinViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 73,
+      "symbol": "CheckinViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 85,
+      "symbol": "CheckinViewController.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 94,
+      "symbol": "CheckinViewController.done()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 100,
+      "symbol": "CheckinViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 104,
+      "symbol": "CheckinViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 108,
+      "symbol": "CheckinViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 118,
+      "symbol": "CheckinViewController.peripheralManagerDidUpdateState(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 130,
+      "symbol": "CheckinViewController.createBeaconRegion(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 142,
+      "symbol": "CheckinViewController.advertiseDevice(region:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 148,
+      "symbol": "CheckinViewController.startAnimation()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CheckinViewController.swift",
+      "line": 162,
+      "symbol": "CheckinViewController.stopAnimating()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 12,
+      "symbol": "CornerRadiusAndShadowView",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 13,
+      "symbol": "CornerRadiusAndShadowView.shadowLayer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 14,
+      "symbol": "CornerRadiusAndShadowView.containerView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 16,
+      "symbol": "CornerRadiusAndShadowView.cornerRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 22,
+      "symbol": "CornerRadiusAndShadowView.shadowColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 28,
+      "symbol": "CornerRadiusAndShadowView.shadowOpacity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 34,
+      "symbol": "CornerRadiusAndShadowView.shadowRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 40,
+      "symbol": "CornerRadiusAndShadowView.shadowOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 46,
+      "symbol": "CornerRadiusAndShadowView.fillColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 52,
+      "symbol": "CornerRadiusAndShadowView.borderColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 59,
+      "symbol": "CornerRadiusAndShadowView.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 68,
+      "symbol": "CornerRadiusAndShadowView.addSubview(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 79,
+      "symbol": "CornerRadiusAndShadowView.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 85,
+      "symbol": "CornerRadiusAndShadowView.updateView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 98,
+      "symbol": "CornerRadiusAndShadowView.updateFrame()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 106,
+      "symbol": "CornerRadiusAndShadowView.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 121,
+      "symbol": "CornerRadiusAndShadowView.encode(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 133,
+      "symbol": "NSCoder.encode(_:forKey:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/CornerRadiusAndShadowView.swift",
+      "line": 147,
+      "symbol": "NSCoder.decodeColor(forKey:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DALIRegion.swift",
+      "line": 145,
+      "symbol": "DALIRegion.State.inside",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DALIRegion.swift",
+      "line": 146,
+      "symbol": "DALIRegion.State.outside",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DALIRegion.swift",
+      "line": 147,
+      "symbol": "DALIRegion.State.unknown",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DALIRegion.swift",
+      "line": 172,
+      "symbol": "DALIRegion.State.Change.entering",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DALIRegion.swift",
+      "line": 173,
+      "symbol": "DALIRegion.State.Change.exiting",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DALIRegion.swift",
+      "line": 174,
+      "symbol": "DALIRegion.State.Change.none",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DALIUIError.swift",
+      "line": 15,
+      "symbol": "DALIUIError.Notifications",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DALIUIError.swift",
+      "line": 16,
+      "symbol": "DALIUIError.Notifications.notificationsDisabled",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DALIUIError.swift",
+      "line": 17,
+      "symbol": "DALIUIError.Notifications.notificationsDismissed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DatePickerAlert.swift",
+      "line": 13,
+      "symbol": "UIAlertController.set(vc:width:height:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DatePickerAlert.swift",
+      "line": 24,
+      "symbol": "UIAlertController.addDatePicker(mode:date:minimumDate:maximumDate:action:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DatePickerAlert.swift",
+      "line": 38,
+      "symbol": "DatePickerViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DatePickerAlert.swift",
+      "line": 40,
+      "symbol": "DatePickerViewController.Action",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DatePickerAlert.swift",
+      "line": 42,
+      "symbol": "DatePickerViewController.action",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DatePickerAlert.swift",
+      "line": 44,
+      "symbol": "DatePickerViewController.datePicker",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DatePickerAlert.swift",
+      "line": 49,
+      "symbol": "DatePickerViewController.init(mode:date:minimumDate:maximumDate:action:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DatePickerAlert.swift",
+      "line": 62,
+      "symbol": "DatePickerViewController.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DatePickerAlert.swift",
+      "line": 66,
+      "symbol": "DatePickerViewController.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DatePickerAlert.swift",
+      "line": 70,
+      "symbol": "DatePickerViewController.actionForDatePicker()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/DatePickerAlert.swift",
+      "line": 74,
+      "symbol": "DatePickerViewController.setDate(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 14,
+      "symbol": "env",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 18,
+      "symbol": "Notification.Name.Custom",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 19,
+      "symbol": "Notification.Name.Custom.LocationUpdated",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 20,
+      "symbol": "Notification.Name.Custom.CheckInComeplte",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 21,
+      "symbol": "Notification.Name.Custom.EnteredOrExitedDALI",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 22,
+      "symbol": "Notification.Name.Custom.CheckInEnteredOrExited",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 23,
+      "symbol": "Notification.Name.Custom.EventVoteEnteredOrExited",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 24,
+      "symbol": "Notification.Name.Custom.TimsOfficeEnteredOrExited",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 28,
+      "symbol": "abvWeekDays",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 29,
+      "symbol": "signedIn",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 33,
+      "symbol": "userIsTim(user:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 37,
+      "symbol": "userIsTim(user:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 44,
+      "symbol": "checkInRangeID",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 48,
+      "symbol": "AlertShower",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 49,
+      "symbol": "AlertShower.showAlert(alert:title:subTitle:color:image:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 52,
+      "symbol": "ErrorAlertShower",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/EnumsAndStructs.swift",
+      "line": 53,
+      "symbol": "ErrorAlertShower.showError(alert:title:subTitle:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentCell.swift",
+      "line": 13,
+      "symbol": "EquipmentCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentCell.swift",
+      "line": 14,
+      "symbol": "EquipmentCell.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentCell.swift",
+      "line": 15,
+      "symbol": "EquipmentCell.detailLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentCell.swift",
+      "line": 16,
+      "symbol": "EquipmentCell.detailLabel2",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentCell.swift",
+      "line": 17,
+      "symbol": "EquipmentCell.iconImageView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentCell.swift",
+      "line": 19,
+      "symbol": "EquipmentCell.dateFormatter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentCell.swift",
+      "line": 25,
+      "symbol": "EquipmentCell.equipment",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 26,
+      "symbol": "EquipmentDetailTableViewController.observer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 31,
+      "symbol": "EquipmentDetailTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 35,
+      "symbol": "EquipmentDetailTableViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 41,
+      "symbol": "EquipmentDetailTableViewController.viewDidDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 236,
+      "symbol": "EquipmentDetailTableViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 240,
+      "symbol": "EquipmentDetailTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 244,
+      "symbol": "EquipmentDetailTableViewController.tableView(_:titleForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 248,
+      "symbol": "EquipmentDetailTableViewController.tableView(_:heightForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 252,
+      "symbol": "EquipmentDetailTableViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 284,
+      "symbol": "EquipmentDetailTableViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 388,
+      "symbol": "EquipmentDetailTableViewController.errorAlert(with:error:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 396,
+      "symbol": "EquipmentDetailTableViewController.handleError(error:fromFunction:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 405,
+      "symbol": "CellConfiguration.title",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 406,
+      "symbol": "CellConfiguration.password",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 407,
+      "symbol": "CellConfiguration.checkout(name:start:end:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 408,
+      "symbol": "CellConfiguration.note(title:value:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 409,
+      "symbol": "CellConfiguration.button(title:enabled:type:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 411,
+      "symbol": "CellConfiguration.identifier",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 422,
+      "symbol": "ActionButtonType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 423,
+      "symbol": "ActionButtonType.checkOutButton",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 424,
+      "symbol": "ActionButtonType.returnButton",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 425,
+      "symbol": "ActionButtonType.updateReturnDateButton",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 426,
+      "symbol": "ActionButtonType.loadMoreButton",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 427,
+      "symbol": "ActionButtonType.forceReturnButton",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 432,
+      "symbol": "EquipmentDetailTableViewCell.equipment",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 433,
+      "symbol": "EquipmentDetailTableViewCell.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 436,
+      "symbol": "TitleCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 437,
+      "symbol": "TitleCell.iconImageView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 438,
+      "symbol": "TitleCell.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 439,
+      "symbol": "TitleCell.detailLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 441,
+      "symbol": "TitleCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 445,
+      "symbol": "TitleCell.equipment",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 473,
+      "symbol": "CheckOutCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 474,
+      "symbol": "CheckOutCell.dateFormatter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentDetailTableViewController.swift",
+      "line": 480,
+      "symbol": "CheckOutCell.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterIconCell.swift",
+      "line": 11,
+      "symbol": "EquipmentFilterIconCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterIconCell.swift",
+      "line": 12,
+      "symbol": "EquipmentFilterIconCell.image",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterIconCell.swift",
+      "line": 13,
+      "symbol": "EquipmentFilterIconCell.selectionView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterIconCell.swift",
+      "line": 15,
+      "symbol": "EquipmentFilterIconCell.isSelected",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 12,
+      "symbol": "EquipmentFilterView",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 16,
+      "symbol": "EquipmentFilterView.searchBar",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 17,
+      "symbol": "EquipmentFilterView.filterButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 18,
+      "symbol": "EquipmentFilterView.collectionView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 19,
+      "symbol": "EquipmentFilterView.equipmentListViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 20,
+      "symbol": "EquipmentFilterView.iconNames",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 21,
+      "symbol": "EquipmentFilterView.selectedIndexPath",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 22,
+      "symbol": "EquipmentFilterView.filterOpen",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 24,
+      "symbol": "EquipmentFilterView.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 31,
+      "symbol": "EquipmentFilterView.update(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 36,
+      "symbol": "EquipmentFilterView.filterButtonPressed(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 53,
+      "symbol": "EquipmentFilterView.collectionView(_:numberOfItemsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 57,
+      "symbol": "EquipmentFilterView.collectionView(_:layout:sizeForItemAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 64,
+      "symbol": "EquipmentFilterView.collectionView(_:cellForItemAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentFilterView.swift",
+      "line": 74,
+      "symbol": "EquipmentFilterView.collectionView(_:didSelectItemAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 13,
+      "symbol": "EquipmentListViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 14,
+      "symbol": "EquipmentListViewController.tableView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 15,
+      "symbol": "EquipmentListViewController.filterView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 16,
+      "symbol": "EquipmentListViewController.searchBar",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 17,
+      "symbol": "EquipmentListViewController.topLevelController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 20,
+      "symbol": "EquipmentListViewController.equipment",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 21,
+      "symbol": "EquipmentListViewController.splitEquipment",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 31,
+      "symbol": "EquipmentListViewController.filteredEquipment",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 32,
+      "symbol": "EquipmentListViewController.selectedIconName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 33,
+      "symbol": "EquipmentListViewController.listener",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 35,
+      "symbol": "EquipmentListViewController.minimumTallness",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 39,
+      "symbol": "EquipmentListViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 45,
+      "symbol": "EquipmentListViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 62,
+      "symbol": "EquipmentListViewController.deinit",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 66,
+      "symbol": "EquipmentListViewController.filter(equipment:string:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 80,
+      "symbol": "EquipmentListViewController.searchBarTextDidBeginEditing(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 84,
+      "symbol": "EquipmentListViewController.searchBarSearchButtonClicked(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 88,
+      "symbol": "EquipmentListViewController.searchBar(_:textDidChange:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 92,
+      "symbol": "EquipmentListViewController.updateSearchResults(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 103,
+      "symbol": "EquipmentListViewController.filterSelectedIcon(named:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 108,
+      "symbol": "EquipmentListViewController.updateData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 120,
+      "symbol": "EquipmentListViewController.cardDidReach(position:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 124,
+      "symbol": "EquipmentListViewController.tableView(_:titleForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 128,
+      "symbol": "EquipmentListViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 132,
+      "symbol": "EquipmentListViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 136,
+      "symbol": "EquipmentListViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 147,
+      "symbol": "EquipmentListViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 152,
+      "symbol": "EquipmentListViewController.tableView(_:heightForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 156,
+      "symbol": "EquipmentListViewController.Section",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 157,
+      "symbol": "EquipmentListViewController.Section.available",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 158,
+      "symbol": "EquipmentListViewController.Section.checkedOut",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 160,
+      "symbol": "EquipmentListViewController.Section.all",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 161,
+      "symbol": "EquipmentListViewController.Section.title",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentListViewController.swift",
+      "line": 171,
+      "symbol": "Sequence.unique()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 13,
+      "symbol": "EquipmentScanAndListViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 14,
+      "symbol": "EquipmentScanAndListViewController.panGestureRecognizer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 15,
+      "symbol": "EquipmentScanAndListViewController.cardTallnessConstraint",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 16,
+      "symbol": "EquipmentScanAndListViewController.cardView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 17,
+      "symbol": "EquipmentScanAndListViewController.blurView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 19,
+      "symbol": "EquipmentScanAndListViewController.cardViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 20,
+      "symbol": "EquipmentScanAndListViewController.qrViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 22,
+      "symbol": "EquipmentScanAndListViewController.cardPosition",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 23,
+      "symbol": "EquipmentScanAndListViewController.visibleAreaSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 38,
+      "symbol": "EquipmentScanAndListViewController.tallnessAtDragStart",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 39,
+      "symbol": "EquipmentScanAndListViewController.dragging",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 41,
+      "symbol": "EquipmentScanAndListViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 47,
+      "symbol": "EquipmentScanAndListViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 51,
+      "symbol": "EquipmentScanAndListViewController.viewDidLayoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 60,
+      "symbol": "EquipmentScanAndListViewController.set(cardTallness:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 71,
+      "symbol": "EquipmentScanAndListViewController.tallness(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 76,
+      "symbol": "EquipmentScanAndListViewController.showDetailView(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 80,
+      "symbol": "EquipmentScanAndListViewController.CardPostion",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 81,
+      "symbol": "EquipmentScanAndListViewController.CardPostion.tall",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 82,
+      "symbol": "EquipmentScanAndListViewController.CardPostion.half",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 84,
+      "symbol": "EquipmentScanAndListViewController.CardPostion.percentVisible",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 91,
+      "symbol": "EquipmentScanAndListViewController.CardPostion.up",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 97,
+      "symbol": "EquipmentScanAndListViewController.CardPostion.down",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 104,
+      "symbol": "EquipmentScanAndListViewController.CardPostion.all",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 105,
+      "symbol": "EquipmentScanAndListViewController.CardPostion.min",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 106,
+      "symbol": "EquipmentScanAndListViewController.CardPostion.max",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 111,
+      "symbol": "EquipmentScanAndListViewController.cardDidPan(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 150,
+      "symbol": "EquipmentScanAndListViewController.doneButtonPressed(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 154,
+      "symbol": "EquipmentScanAndListViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 164,
+      "symbol": "EquipmentScanAndListViewController.gestureRecognizer(_:shouldRecognizeSimultaneouslyWith:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 179,
+      "symbol": "EquipmentScanAndListViewController.cardDidReach(position:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 183,
+      "symbol": "EquipmentScanAndListViewController.cap(tallness:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 189,
+      "symbol": "EquipmentScanAndListViewController.set(cardPosition:velocity:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/EquipmentScanAndListViewController.swift",
+      "line": 191,
+      "symbol": "EquipmentScanAndListViewController.set(cardPosition:velocity:animated:).block()",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRReaderLoadingOverlayView.swift",
+      "line": 12,
+      "symbol": "CheckOutQRReaderLoadingOverlayView",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRReaderLoadingOverlayView.swift",
+      "line": 13,
+      "symbol": "CheckOutQRReaderLoadingOverlayView.activityIndicator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRReaderLoadingOverlayView.swift",
+      "line": 14,
+      "symbol": "CheckOutQRReaderLoadingOverlayView.gestureRecognizer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRReaderLoadingOverlayView.swift",
+      "line": 16,
+      "symbol": "CheckOutQRReaderLoadingOverlayView._loading",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRReaderLoadingOverlayView.swift",
+      "line": 17,
+      "symbol": "CheckOutQRReaderLoadingOverlayView.loading",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRReaderLoadingOverlayView.swift",
+      "line": 36,
+      "symbol": "CheckOutQRReaderLoadingOverlayView.isLoading()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRReaderLoadingOverlayView.swift",
+      "line": 40,
+      "symbol": "CheckOutQRReaderLoadingOverlayView.set(loading:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRReaderLoadingOverlayView.swift",
+      "line": 46,
+      "symbol": "CheckOutQRReaderLoadingOverlayView.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRReaderLoadingOverlayView.swift",
+      "line": 62,
+      "symbol": "CheckOutQRReaderLoadingOverlayView.gestureRecognizer(_:shouldReceive:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRReaderLoadingOverlayView.swift",
+      "line": 66,
+      "symbol": "CheckOutQRReaderLoadingOverlayView.updateConstraints()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRReaderLoadingOverlayView.swift",
+      "line": 76,
+      "symbol": "CheckOutQRReaderLoadingOverlayView.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 13,
+      "symbol": "CheckOutQRViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 14,
+      "symbol": "CheckOutQRViewController.tintColor",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 15,
+      "symbol": "CheckOutQRViewController.qrImageView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 17,
+      "symbol": "CheckOutQRViewController.reader",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 18,
+      "symbol": "CheckOutQRViewController.readerView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 19,
+      "symbol": "CheckOutQRViewController.overlayView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 20,
+      "symbol": "CheckOutQRViewController.switchCamera",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 22,
+      "symbol": "CheckOutQRViewController.topLevelController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 26,
+      "symbol": "CheckOutQRViewController.enabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 27,
+      "symbol": "CheckOutQRViewController.processingString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 28,
+      "symbol": "CheckOutQRViewController.pastBadScans",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 29,
+      "symbol": "CheckOutQRViewController.inactive",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 43,
+      "symbol": "CheckOutQRViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 48,
+      "symbol": "CheckOutQRViewController.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 54,
+      "symbol": "CheckOutQRViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 64,
+      "symbol": "CheckOutQRViewController.updateViewConstraints()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 92,
+      "symbol": "CheckOutQRViewController.scanQRPressed(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 130,
+      "symbol": "CheckOutQRViewController.switchDeviceInput()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/Equipment Checkout/QR/CheckOutQRViewController.swift",
+      "line": 136,
+      "symbol": "CheckOutQRViewController.didReceive(resultString:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/HasVotedViewController.swift",
+      "line": 14,
+      "symbol": "HasVotedViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/HasVotedViewController.swift",
+      "line": 15,
+      "symbol": "HasVotedViewController.notificationSwitch",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/HasVotedViewController.swift",
+      "line": 17,
+      "symbol": "HasVotedViewController.event",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/HasVotedViewController.swift",
+      "line": 19,
+      "symbol": "HasVotedViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/HasVotedViewController.swift",
+      "line": 36,
+      "symbol": "HasVotedViewController.switchChanged(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/HasVotedViewController.swift",
+      "line": 45,
+      "symbol": "HasVotedViewController.pop()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 15,
+      "symbol": "LightsViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 16,
+      "symbol": "LightsViewController.tableView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 17,
+      "symbol": "LightsViewController.groupTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 18,
+      "symbol": "LightsViewController.viewHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 19,
+      "symbol": "LightsViewController.bottomView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 20,
+      "symbol": "LightsViewController.lightsMapView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 21,
+      "symbol": "LightsViewController.lightsMap",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 22,
+      "symbol": "LightsViewController.onSwitch",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 23,
+      "symbol": "LightsViewController.selectionIndicator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 24,
+      "symbol": "LightsViewController.allButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 25,
+      "symbol": "LightsViewController.podsButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 26,
+      "symbol": "LightsViewController.overlays",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 28,
+      "symbol": "LightsViewController.observation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 29,
+      "symbol": "LightsViewController.groups",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 30,
+      "symbol": "LightsViewController.overlayLightsMap",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 32,
+      "symbol": "LightsViewController.selectedGroup",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 33,
+      "symbol": "LightsViewController.lastTranslation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 34,
+      "symbol": "LightsViewController.min",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 36,
+      "symbol": "LightsViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 47,
+      "symbol": "LightsViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 54,
+      "symbol": "LightsViewController.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 58,
+      "symbol": "LightsViewController.done(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 64,
+      "symbol": "LightsViewController.dragged(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 124,
+      "symbol": "LightsViewController.updateGroups()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 148,
+      "symbol": "LightsViewController.powerChanged(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 154,
+      "symbol": "LightsViewController.colorPickerDidChooseColor(_:color:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 160,
+      "symbol": "LightsViewController.colorChanged(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 166,
+      "symbol": "LightsViewController.buttonPressed(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 312,
+      "symbol": "LightsViewController.getScenes(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 324,
+      "symbol": "LightsViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 328,
+      "symbol": "LightsViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 336,
+      "symbol": "LightsViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 347,
+      "symbol": "LightsViewController.tableView(_:titleForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 358,
+      "symbol": "LightsViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 390,
+      "symbol": "LightsViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 409,
+      "symbol": "ColorPickerCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 410,
+      "symbol": "ColorPickerCell.colorPicker",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 412,
+      "symbol": "ColorPickerCell.setUp(color:delegate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 435,
+      "symbol": "ColorPickerCell.setColor(color:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 441,
+      "symbol": "UIColor.init(hex:alpha:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LightsViewController.swift",
+      "line": 460,
+      "symbol": "UIColor.toHex()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 13,
+      "symbol": "LoginViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 14,
+      "symbol": "LoginViewController.image",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 15,
+      "symbol": "LoginViewController.imageHorizontalContraint",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 16,
+      "symbol": "LoginViewController.subView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 17,
+      "symbol": "LoginViewController.googleButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 18,
+      "symbol": "LoginViewController.skipSignInButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 19,
+      "symbol": "LoginViewController.loadingOverlay",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 20,
+      "symbol": "LoginViewController.activityIndicator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 22,
+      "symbol": "LoginViewController.transformAnimationDone",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 24,
+      "symbol": "LoginViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 50,
+      "symbol": "LoginViewController.showError(alert:title:subTitle:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 56,
+      "symbol": "LoginViewController.beginLoading()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 69,
+      "symbol": "LoginViewController.endLoading()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 78,
+      "symbol": "LoginViewController.skipSignInPressed(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 84,
+      "symbol": "LoginViewController.sign(_:present:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/LoginViewController.swift",
+      "line": 90,
+      "symbol": "LoginViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 16,
+      "symbol": "MainViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 17,
+      "symbol": "MainViewController.daliImage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 18,
+      "symbol": "MainViewController.internalView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 19,
+      "symbol": "MainViewController.locationLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 20,
+      "symbol": "MainViewController.tableView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 22,
+      "symbol": "MainViewController.peopleButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 23,
+      "symbol": "MainViewController.foodLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 24,
+      "symbol": "MainViewController.lightButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 25,
+      "symbol": "MainViewController.tableViewBottomContraint",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 27,
+      "symbol": "MainViewController.viewShown",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 28,
+      "symbol": "MainViewController.loginTransformAnimationDone",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 29,
+      "symbol": "MainViewController.animationDone",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 31,
+      "symbol": "MainViewController.eventsObserver",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 32,
+      "symbol": "MainViewController.foodObserver",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 34,
+      "symbol": "MainViewController.events",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 35,
+      "symbol": "MainViewController.sections",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 37,
+      "symbol": "MainViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 74,
+      "symbol": "MainViewController.updateData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 75,
+      "symbol": "MainViewController.updateData().gotEvents(events:error:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 104,
+      "symbol": "MainViewController.updateData().gotEvents(events:error:).getWeekEnd()",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 151,
+      "symbol": "MainViewController.setUpListeners()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 158,
+      "symbol": "MainViewController.deinit",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 164,
+      "symbol": "MainViewController.locationUpdated()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 172,
+      "symbol": "MainViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 178,
+      "symbol": "MainViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 186,
+      "symbol": "MainViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 190,
+      "symbol": "MainViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 194,
+      "symbol": "MainViewController.tableView(_:viewForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 227,
+      "symbol": "MainViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 231,
+      "symbol": "MainViewController.tableView(_:heightForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 235,
+      "symbol": "MainViewController.showAlert(alert:title:subTitle:color:image:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 243,
+      "symbol": "MainViewController.startAnimation()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 273,
+      "symbol": "MainViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 280,
+      "symbol": "MainViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 341,
+      "symbol": "MainViewController.settingsButtonPressed(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 358,
+      "symbol": "EventCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 359,
+      "symbol": "EventCell.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 360,
+      "symbol": "EventCell.timeLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 361,
+      "symbol": "EventCell.locationLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 363,
+      "symbol": "EventCell.eventVal",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/MainViewController.swift",
+      "line": 364,
+      "symbol": "EventCell.event",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewEventViewController.swift",
+      "line": 15,
+      "symbol": "NewEventViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewEventViewController.swift",
+      "line": 16,
+      "symbol": "NewEventViewController.completionHandler",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewEventViewController.swift",
+      "line": 17,
+      "symbol": "NewEventViewController.complete",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewEventViewController.swift",
+      "line": 19,
+      "symbol": "NewEventViewController.init(destination:callback:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewEventViewController.swift",
+      "line": 24,
+      "symbol": "NewEventViewController.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewEventViewController.swift",
+      "line": 29,
+      "symbol": "NewEventViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewEventViewController.swift",
+      "line": 126,
+      "symbol": "NewEventViewController.dismissView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewEventViewController.swift",
+      "line": 132,
+      "symbol": "NewEventViewController.done()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewEventViewController.swift",
+      "line": 158,
+      "symbol": "NewEventViewController.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventConfigViewController.swift",
+      "line": 14,
+      "symbol": "NewVotingEventConfigViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventConfigViewController.swift",
+      "line": 15,
+      "symbol": "NewVotingEventConfigViewController.orderedSwitch",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventConfigViewController.swift",
+      "line": 16,
+      "symbol": "NewVotingEventConfigViewController.stepper",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventConfigViewController.swift",
+      "line": 17,
+      "symbol": "NewVotingEventConfigViewController.numSelectedLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventConfigViewController.swift",
+      "line": 19,
+      "symbol": "NewVotingEventConfigViewController.event",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventConfigViewController.swift",
+      "line": 21,
+      "symbol": "NewVotingEventConfigViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventConfigViewController.swift",
+      "line": 33,
+      "symbol": "NewVotingEventConfigViewController.cancel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventConfigViewController.swift",
+      "line": 37,
+      "symbol": "NewVotingEventConfigViewController.done()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventConfigViewController.swift",
+      "line": 48,
+      "symbol": "NewVotingEventConfigViewController.stepperChanged(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventViewController.swift",
+      "line": 13,
+      "symbol": "NewVotingEventViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventViewController.swift",
+      "line": 15,
+      "symbol": "NewVotingEventViewController.events",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventViewController.swift",
+      "line": 17,
+      "symbol": "NewVotingEventViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventViewController.swift",
+      "line": 25,
+      "symbol": "NewVotingEventViewController.new()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventViewController.swift",
+      "line": 40,
+      "symbol": "NewVotingEventViewController.updateData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventViewController.swift",
+      "line": 52,
+      "symbol": "NewVotingEventViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventViewController.swift",
+      "line": 58,
+      "symbol": "NewVotingEventViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventViewController.swift",
+      "line": 64,
+      "symbol": "NewVotingEventViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventViewController.swift",
+      "line": 82,
+      "symbol": "NewVotingEventViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NewVotingEventViewController.swift",
+      "line": 86,
+      "symbol": "NewVotingEventViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 17,
+      "symbol": "NotificationsController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 18,
+      "symbol": "NotificationsController._shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 19,
+      "symbol": "NotificationsController.shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 26,
+      "symbol": "NotificationsController.coinsSound",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 30,
+      "symbol": "NotificationsController.notificationsDismissed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 38,
+      "symbol": "NotificationsController.memberSignedInListener",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 39,
+      "symbol": "NotificationsController.regionListeners",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 41,
+      "symbol": "NotificationsController.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 55,
+      "symbol": "NotificationsController.deinit",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 60,
+      "symbol": "NotificationsController.region(_:changedBy:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 69,
+      "symbol": "NotificationsController.setup(launchOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 95,
+      "symbol": "NotificationsController.checkedInNotification()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 111,
+      "symbol": "NotificationsController.enterNotif(entered:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 139,
+      "symbol": "NotificationsController.votingNotif(events:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 156,
+      "symbol": "NotificationsController.returnNotif(equipment:returnDate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 178,
+      "symbol": "NotificationsController.signedIn(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 256,
+      "symbol": "NotificationsController.userNotificationCenter(_:didReceive:withCompletionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/NotificationsController.swift",
+      "line": 276,
+      "symbol": "NotificationsController.onOSSubscriptionChanged(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 15,
+      "symbol": "OrderedVotingViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 16,
+      "symbol": "OrderedVotingViewController.leftTableView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 17,
+      "symbol": "OrderedVotingViewController.orderedTableView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 18,
+      "symbol": "OrderedVotingViewController.submitButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 20,
+      "symbol": "OrderedVotingViewController.ordinals",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 21,
+      "symbol": "OrderedVotingViewController.event",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 22,
+      "symbol": "OrderedVotingViewController.selected",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 23,
+      "symbol": "OrderedVotingViewController.unselected",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 25,
+      "symbol": "OrderedVotingViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 40,
+      "symbol": "OrderedVotingViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 46,
+      "symbol": "OrderedVotingViewController.update()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 55,
+      "symbol": "OrderedVotingViewController.submit(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 79,
+      "symbol": "OrderedVotingViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 89,
+      "symbol": "OrderedVotingViewController.pop()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 93,
+      "symbol": "OrderedVotingViewController.scrollViewDidScroll(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 99,
+      "symbol": "OrderedVotingViewController.tableView(_:editingStyleForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 103,
+      "symbol": "OrderedVotingViewController.tableView(_:shouldIndentWhileEditingRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 107,
+      "symbol": "OrderedVotingViewController.tableView(_:moveRowAt:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 161,
+      "symbol": "OrderedVotingViewController.lastProposedDestination",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 162,
+      "symbol": "OrderedVotingViewController.tableView(_:targetIndexPathForMoveFromRowAt:toProposedIndexPath:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 173,
+      "symbol": "OrderedVotingViewController.tableView(_:canMoveRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 177,
+      "symbol": "OrderedVotingViewController.tableView(_:titleForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 181,
+      "symbol": "OrderedVotingViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 206,
+      "symbol": "OrderedVotingViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 214,
+      "symbol": "OrderedVotingViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 219,
+      "symbol": "VotingOrderCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/OrderedVotingViewController.swift",
+      "line": 220,
+      "symbol": "VotingOrderCell.orderLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 13,
+      "symbol": "PeopleInLabViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 15,
+      "symbol": "PeopleInLabViewController.timLocation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 16,
+      "symbol": "PeopleInLabViewController.timLocationLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 17,
+      "symbol": "PeopleInLabViewController.members",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 18,
+      "symbol": "PeopleInLabViewController.indicator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 20,
+      "symbol": "PeopleInLabViewController.sharedObserver",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 21,
+      "symbol": "PeopleInLabViewController.timObserver",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 23,
+      "symbol": "PeopleInLabViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 30,
+      "symbol": "PeopleInLabViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 37,
+      "symbol": "PeopleInLabViewController.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 42,
+      "symbol": "PeopleInLabViewController.reloadData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 85,
+      "symbol": "PeopleInLabViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 93,
+      "symbol": "PeopleInLabViewController.tableView(_:heightForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 97,
+      "symbol": "PeopleInLabViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 101,
+      "symbol": "PeopleInLabViewController.tableView(_:titleForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 113,
+      "symbol": "PeopleInLabViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/PeopleInLabViewController.swift",
+      "line": 135,
+      "symbol": "PeopleInLabViewController.donePressed(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ResultsVotingViewController.swift",
+      "line": 13,
+      "symbol": "ResultsVotingViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ResultsVotingViewController.swift",
+      "line": 14,
+      "symbol": "ResultsVotingViewController.event",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ResultsVotingViewController.swift",
+      "line": 15,
+      "symbol": "ResultsVotingViewController.options",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ResultsVotingViewController.swift",
+      "line": 16,
+      "symbol": "ResultsVotingViewController.awards",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ResultsVotingViewController.swift",
+      "line": 18,
+      "symbol": "ResultsVotingViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ResultsVotingViewController.swift",
+      "line": 44,
+      "symbol": "ResultsVotingViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ResultsVotingViewController.swift",
+      "line": 52,
+      "symbol": "ResultsVotingViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ResultsVotingViewController.swift",
+      "line": 56,
+      "symbol": "ResultsVotingViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ResultsVotingViewController.swift",
+      "line": 60,
+      "symbol": "ResultsVotingViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/SettingsController.swift",
+      "line": 15,
+      "symbol": "SettingsController.defaults",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ToolsAndSettingsViewController.swift",
+      "line": 15,
+      "symbol": "ToolsAndSettingsViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ToolsAndSettingsViewController.swift",
+      "line": 16,
+      "symbol": "ToolsAndSettingsViewController.signOutCell",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ToolsAndSettingsViewController.swift",
+      "line": 17,
+      "symbol": "ToolsAndSettingsViewController.enterSwitch",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ToolsAndSettingsViewController.swift",
+      "line": 18,
+      "symbol": "ToolsAndSettingsViewController.checkInSwitch",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ToolsAndSettingsViewController.swift",
+      "line": 19,
+      "symbol": "ToolsAndSettingsViewController.votingSwitch",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ToolsAndSettingsViewController.swift",
+      "line": 20,
+      "symbol": "ToolsAndSettingsViewController.shareSwitch",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ToolsAndSettingsViewController.swift",
+      "line": 21,
+      "symbol": "ToolsAndSettingsViewController.foodLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ToolsAndSettingsViewController.swift",
+      "line": 23,
+      "symbol": "ToolsAndSettingsViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ToolsAndSettingsViewController.swift",
+      "line": 37,
+      "symbol": "ToolsAndSettingsViewController.switchChanged(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ToolsAndSettingsViewController.swift",
+      "line": 60,
+      "symbol": "ToolsAndSettingsViewController.showAlert(alert:title:subTitle:color:image:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ToolsAndSettingsViewController.swift",
+      "line": 66,
+      "symbol": "ToolsAndSettingsViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ToolsAndSettingsViewController.swift",
+      "line": 75,
+      "symbol": "ToolsAndSettingsViewController.done(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/ToolsAndSettingsViewController.swift",
+      "line": 81,
+      "symbol": "ToolsAndSettingsViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 15,
+      "symbol": "TopLevelVotingViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 16,
+      "symbol": "TopLevelVotingViewController.pastEvents",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 17,
+      "symbol": "TopLevelVotingViewController.currentEvents",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 18,
+      "symbol": "TopLevelVotingViewController.observation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 20,
+      "symbol": "TopLevelVotingViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 34,
+      "symbol": "TopLevelVotingViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 38,
+      "symbol": "TopLevelVotingViewController.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 42,
+      "symbol": "TopLevelVotingViewController.updateData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 88,
+      "symbol": "TopLevelVotingViewController.eventVoteEnteredOrExited(notification:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 93,
+      "symbol": "TopLevelVotingViewController.cancel(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 99,
+      "symbol": "TopLevelVotingViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 125,
+      "symbol": "TopLevelVotingViewController.tableView(_:titleForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 133,
+      "symbol": "TopLevelVotingViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 137,
+      "symbol": "TopLevelVotingViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 145,
+      "symbol": "TopLevelVotingViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 157,
+      "symbol": "TopLevelVotingViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/TopLevelVotingViewController.swift",
+      "line": 161,
+      "symbol": "TopLevelVotingViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/UnorderedVotingViewController.swift",
+      "line": 14,
+      "symbol": "UnorderedVotingViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/UnorderedVotingViewController.swift",
+      "line": 15,
+      "symbol": "UnorderedVotingViewController.event",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/UnorderedVotingViewController.swift",
+      "line": 16,
+      "symbol": "UnorderedVotingViewController.options",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/UnorderedVotingViewController.swift",
+      "line": 17,
+      "symbol": "UnorderedVotingViewController.numSelected",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/UnorderedVotingViewController.swift",
+      "line": 19,
+      "symbol": "UnorderedVotingViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/UnorderedVotingViewController.swift",
+      "line": 37,
+      "symbol": "UnorderedVotingViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/UnorderedVotingViewController.swift",
+      "line": 40,
+      "symbol": "UnorderedVotingViewController.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/UnorderedVotingViewController.swift",
+      "line": 44,
+      "symbol": "UnorderedVotingViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/UnorderedVotingViewController.swift",
+      "line": 50,
+      "symbol": "UnorderedVotingViewController.submit(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/UnorderedVotingViewController.swift",
+      "line": 72,
+      "symbol": "UnorderedVotingViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/UnorderedVotingViewController.swift",
+      "line": 76,
+      "symbol": "UnorderedVotingViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/UnorderedVotingViewController.swift",
+      "line": 87,
+      "symbol": "UnorderedVotingViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 15,
+      "symbol": "VotingEventManagerViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 17,
+      "symbol": "VotingEventManagerViewController.createEventCell",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 18,
+      "symbol": "VotingEventManagerViewController.events",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 19,
+      "symbol": "VotingEventManagerViewController.options",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 21,
+      "symbol": "VotingEventManagerViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 25,
+      "symbol": "VotingEventManagerViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 29,
+      "symbol": "VotingEventManagerViewController.updateData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 47,
+      "symbol": "VotingEventManagerViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 62,
+      "symbol": "VotingEventManagerViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 66,
+      "symbol": "VotingEventManagerViewController.tableView(_:titleForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 77,
+      "symbol": "VotingEventManagerViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 89,
+      "symbol": "VotingEventManagerViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 96,
+      "symbol": "VotingEventManagerViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 104,
+      "symbol": "VotingEventManagerViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 113,
+      "symbol": "VotingEventCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 115,
+      "symbol": "VotingEventCell.eventObj",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventMangerViewController.swift",
+      "line": 116,
+      "symbol": "VotingEventCell.event",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 15,
+      "symbol": "VotingEventOptionsViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 16,
+      "symbol": "VotingEventOptionsViewController.releaseButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 18,
+      "symbol": "VotingEventOptionsViewController.event",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 19,
+      "symbol": "VotingEventOptionsViewController.options",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 20,
+      "symbol": "VotingEventOptionsViewController.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 22,
+      "symbol": "VotingEventOptionsViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 35,
+      "symbol": "VotingEventOptionsViewController.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 44,
+      "symbol": "VotingEventOptionsViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 55,
+      "symbol": "VotingEventOptionsViewController.tableView(_:canEditRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 59,
+      "symbol": "VotingEventOptionsViewController.tableView(_:commit:forRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 72,
+      "symbol": "VotingEventOptionsViewController.release(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 89,
+      "symbol": "VotingEventOptionsViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 116,
+      "symbol": "VotingEventOptionsViewController.addAward(option:textField:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 142,
+      "symbol": "VotingEventOptionsViewController.removeAward(option:award:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 164,
+      "symbol": "VotingEventOptionsViewController.newOption(textField:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 177,
+      "symbol": "VotingEventOptionsViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 245,
+      "symbol": "VotingEventOptionsViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 269,
+      "symbol": "VotingEventOptionsViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 273,
+      "symbol": "VotingEventOptionsViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 278,
+      "symbol": "VotingOptionCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 279,
+      "symbol": "VotingOptionCell.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 280,
+      "symbol": "VotingOptionCell.scoreLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingEventOptionsViewController.swift",
+      "line": 281,
+      "symbol": "VotingOptionCell.awardsLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingHelpers.swift",
+      "line": 14,
+      "symbol": "VotingHelper",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingHelpers.swift",
+      "line": 15,
+      "symbol": "VotingHelper._shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingHelpers.swift",
+      "line": 16,
+      "symbol": "VotingHelper.shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingHelpers.swift",
+      "line": 23,
+      "symbol": "VotingHelper.locationManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingHelpers.swift",
+      "line": 30,
+      "symbol": "VotingHelper.getLocationAuthorizationStatusPromise",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingHelpers.swift",
+      "line": 31,
+      "symbol": "VotingHelper.getLocationAuthorizationStatus()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingHelpers.swift",
+      "line": 40,
+      "symbol": "VotingHelper.locationManager(_:didChangeAuthorization:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingHelpers.swift",
+      "line": 49,
+      "symbol": "VotingHelper.requestWhenInUseAuthorizationPromise",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingHelpers.swift",
+      "line": 50,
+      "symbol": "VotingHelper.requestWhenInUseAuthorization(on:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingHelpers.swift",
+      "line": 67,
+      "symbol": "VotingHelper.AuthorizationErrors",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingHelpers.swift",
+      "line": 68,
+      "symbol": "VotingHelper.AuthorizationErrors.canceled",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/john/Programming/DALI/Lab App/iOS/iOS/VotingHelpers.swift",
+      "line": 69,
+      "symbol": "VotingHelper.AuthorizationErrors.notAuthorized",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
   ],
-  "source_directory": "/Users/john/Programming/DALI/Lab App/App"
+  "source_directory": "/Users/john/Programming/DALI/Lab App/iOS"
 }

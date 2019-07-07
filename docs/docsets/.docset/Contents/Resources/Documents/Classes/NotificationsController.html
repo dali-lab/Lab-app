@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NotificationsController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/NotificationsController" class="dashAnchor"></a>
+    <a title="NotificationsController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (9% documented)</p>
+        <p class="header-right"><a href="https://github.com/dali-lab/Lab-app"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        NotificationsController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BeaconController.html">BeaconController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BeaconController/BeaconError.html">– BeaconError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CalendarController.html">CalendarController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckInController.html">CheckInController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckOutCell.html">CheckOutCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckOutQRReaderLoadingOverlayView.html">CheckOutQRReaderLoadingOverlayView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckOutQRViewController.html">CheckOutQRViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckinViewController.html">CheckinViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ColorPickerCell.html">ColorPickerCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CornerRadiusAndShadowView.html">CornerRadiusAndShadowView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DALIUIError.html">DALIUIError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DALIUIError/Notifications.html">– Notifications</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DatePickerViewController.html">DatePickerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentCell.html">EquipmentCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentDetailTableViewCell.html">EquipmentDetailTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentDetailTableViewController.html">EquipmentDetailTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentFilterIconCell.html">EquipmentFilterIconCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentFilterView.html">EquipmentFilterView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentListViewController.html">EquipmentListViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentListViewController/Section.html">– Section</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentScanAndListViewController.html">EquipmentScanAndListViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentScanAndListViewController/CardPostion.html">– CardPostion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventCell.html">EventCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HasVotedViewController.html">HasVotedViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LightsViewController.html">LightsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LoginViewController.html">LoginViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MainViewController.html">MainViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewEventViewController.html">NewEventViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewVotingEventConfigViewController.html">NewVotingEventConfigViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewVotingEventViewController.html">NewVotingEventViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NotificationsController.html">NotificationsController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OrderedVotingViewController.html">OrderedVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PeopleInLabViewController.html">PeopleInLabViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResultsVotingViewController.html">ResultsVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SettingsController.html">SettingsController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TitleCell.html">TitleCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ToolsAndSettingsViewController.html">ToolsAndSettingsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TopLevelVotingViewController.html">TopLevelVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UnorderedVotingViewController.html">UnorderedVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingEventCell.html">VotingEventCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingEventManagerViewController.html">VotingEventManagerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingEventOptionsViewController.html">VotingEventOptionsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingHelper.html">VotingHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingHelper/AuthorizationErrors.html">– AuthorizationErrors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingOptionCell.html">VotingOptionCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingOrderCell.html">VotingOrderCell</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS11abvWeekDaysSaySSGvp">abvWeekDays</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS14checkInRangeIDSSvp">checkInRangeID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS3envSDySSypGvp">env</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS8signedInSbvp">signedIn</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ActionButtonType.html">ActionButtonType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CellConfiguration.html">CellConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DALIRegion.html">DALIRegion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DALIRegion/State.html">– State</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Future.html">Future</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSCoder.html">NSCoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification.html">Notification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification/Name.html">– Name</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Sequence.html">Sequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIAlertController.html">UIAlertController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:3iOS9userIsTim0B0Sb4DALI10DALIMemberCSg_tF">userIsTim(user:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:3iOS9userIsTim0B0SbSo13GIDGoogleUserC_tF">userIsTim(user:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AlertShower.html">AlertShower</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ErrorAlertShower.html">ErrorAlertShower</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>NotificationsController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NotificationsController</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">OSSubscriptionObserver</span><span class="p">,</span> <span class="kt">UNUserNotificationCenterDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC7_shared33_3304DCA8D94764D0D10829A435756701LLACSgvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/_shared" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC7_shared33_3304DCA8D94764D0D10829A435756701LLACSgvpZ">_shared</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">_shared</span><span class="p">:</span> <span class="kt">NotificationsController</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC6sharedACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/shared" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC6sharedACvpZ">shared</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">shared</span><span class="p">:</span> <span class="kt">NotificationsController</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC10coinsSound33_3304DCA8D94764D0D10829A435756701LLSo014UNNotificationE0CvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/coinsSound" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC10coinsSound33_3304DCA8D94764D0D10829A435756701LLSo014UNNotificationE0CvpZ">coinsSound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">coinsSound</span><span class="p">:</span> <span class="kt">UNNotificationSound</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC23notificationsAuthorizedSbvp"></a>
+                    <a name="//apple_ref/swift/Property/notificationsAuthorized" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC23notificationsAuthorizedSbvp">notificationsAuthorized</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Notifications are authorized</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">notificationsAuthorized</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC22notificationsDismissed33_3304DCA8D94764D0D10829A435756701LLSbvp"></a>
+                    <a name="//apple_ref/swift/Property/notificationsDismissed" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC22notificationsDismissed33_3304DCA8D94764D0D10829A435756701LLSbvp">notificationsDismissed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">notificationsDismissed</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC22memberSignedInListener33_3304DCA8D94764D0D10829A435756701LL10EmitterKit0G0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/memberSignedInListener" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC22memberSignedInListener33_3304DCA8D94764D0D10829A435756701LL10EmitterKit0G0CSgvp">memberSignedInListener</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">memberSignedInListener</span><span class="p">:</span> <span class="kt">Listener</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC15regionListeners33_3304DCA8D94764D0D10829A435756701LLSay10EmitterKit8ListenerCGvp"></a>
+                    <a name="//apple_ref/swift/Property/regionListeners" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC15regionListeners33_3304DCA8D94764D0D10829A435756701LLSay10EmitterKit8ListenerCGvp">regionListeners</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">regionListeners</span><span class="p">:</span> <span class="p">[</span><span class="kt">Listener</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)NotificationsController(im)init"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)NotificationsController(im)init">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">override</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)NotificationsController(im)dealloc"></a>
+                    <a name="//apple_ref/swift/Method/deinit" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)NotificationsController(im)dealloc">deinit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">deinit</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC6region33_3304DCA8D94764D0D10829A435756701LL_9changedBy2toyAA10DALIRegionO_AI5StateO6ChangeOAKtF"></a>
+                    <a name="//apple_ref/swift/Method/region(_:changedBy:to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC6region33_3304DCA8D94764D0D10829A435756701LL_9changedBy2toyAA10DALIRegionO_AI5StateO6ChangeOAKtF">region(_:changedBy:to:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">region</span><span class="p">(</span><span class="n">_</span> <span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Enums/DALIRegion.html">DALIRegion</a></span><span class="p">,</span> <span class="n">changedBy</span> <span class="nv">change</span><span class="p">:</span> <span class="kt"><a href="../Enums/DALIRegion.html">DALIRegion</a></span><span class="o">.</span><span class="kt">State</span><span class="o">.</span><span class="kt">Change</span><span class="p">,</span> <span class="n">to</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Enums/DALIRegion.html">DALIRegion</a></span><span class="o">.</span><span class="kt">State</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC5setup13launchOptionsySDySo019UIApplicationLaunchF3KeyaypGSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/setup(launchOptions:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC5setup13launchOptionsySDySo019UIApplicationLaunchF3KeyaypGSg_tF">setup(launchOptions:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setup</span><span class="p">(</span><span class="nv">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIApplication</span><span class="o">.</span><span class="kt">LaunchOptionsKey</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC21checkedInNotificationyyF"></a>
+                    <a name="//apple_ref/swift/Method/checkedInNotification()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC21checkedInNotificationyyF">checkedInNotification()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">checkedInNotification</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC10enterNotif7enteredySb_tF"></a>
+                    <a name="//apple_ref/swift/Method/enterNotif(entered:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC10enterNotif7enteredySb_tF">enterNotif(entered:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">enterNotif</span><span class="p">(</span><span class="nv">entered</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC11votingNotif6events9FutureKit0G0CyytGSay4DALI9DALIEventCG_tF"></a>
+                    <a name="//apple_ref/swift/Method/votingNotif(events:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC11votingNotif6events9FutureKit0G0CyytGSay4DALI9DALIEventCG_tF">votingNotif(events:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">votingNotif</span><span class="p">(</span><span class="nv">events</span><span class="p">:</span> <span class="p">[</span><span class="kt">DALIEvent</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Future</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC11returnNotif9equipment0D4Datey4DALI13DALIEquipmentC_10Foundation0G0VtF"></a>
+                    <a name="//apple_ref/swift/Method/returnNotif(equipment:returnDate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC11returnNotif9equipment0D4Datey4DALI13DALIEquipmentC_10Foundation0G0VtF">returnNotif(equipment:returnDate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">returnNotif</span><span class="p">(</span><span class="nv">equipment</span><span class="p">:</span> <span class="kt">DALIEquipment</span><span class="p">,</span> <span class="nv">returnDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC8signedIn33_3304DCA8D94764D0D10829A435756701LL4withy4DALI10DALIMemberCSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/signedIn(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC8signedIn33_3304DCA8D94764D0D10829A435756701LL4withy4DALI10DALIMemberCSg_tF">signedIn(with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">signedIn</span><span class="p">(</span><span class="n">with</span> <span class="nv">member</span><span class="p">:</span> <span class="kt">DALIMember</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC06askForB09FutureKit0F0CySbGyF"></a>
+                    <a name="//apple_ref/swift/Method/askForNotifications()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC06askForB09FutureKit0F0CySbGyF">askForNotifications()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Ask for notifications if necessary</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">askForNotifications</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Future</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Future describing the result. True for notifications enabled, false for disabled</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC26setUpNotificationListenersyyF"></a>
+                    <a name="//apple_ref/swift/Method/setUpNotificationListeners()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC26setUpNotificationListenersyyF">setUpNotificationListeners()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setUpNotificationListeners</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UNUserNotificationCenterDelegate"></a>
+                <a name="//apple_ref/swift/Section/UNUserNotificationCenterDelegate" class="dashAnchor"></a>
+                <a href="#/UNUserNotificationCenterDelegate">
+                  <h3 class="section-name">UNUserNotificationCenterDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)NotificationsController(im)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"></a>
+                    <a name="//apple_ref/swift/Method/userNotificationCenter(_:didReceive:withCompletionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)NotificationsController(im)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:">userNotificationCenter(_:didReceive:withCompletionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">userNotificationCenter</span><span class="p">(</span><span class="n">_</span> <span class="nv">center</span><span class="p">:</span> <span class="kt">UNUserNotificationCenter</span><span class="p">,</span>
+                            <span class="n">didReceive</span> <span class="nv">response</span><span class="p">:</span> <span class="kt">UNNotificationResponse</span><span class="p">,</span>
+                            <span class="n">withCompletionHandler</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/OSSubscriptionObserver"></a>
+                <a name="//apple_ref/swift/Section/OSSubscriptionObserver" class="dashAnchor"></a>
+                <a href="#/OSSubscriptionObserver">
+                  <h3 class="section-name">OSSubscriptionObserver</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)NotificationsController(im)onOSSubscriptionChanged:"></a>
+                    <a name="//apple_ref/swift/Method/onOSSubscriptionChanged(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)NotificationsController(im)onOSSubscriptionChanged:">onOSSubscriptionChanged(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">onOSSubscriptionChanged</span><span class="p">(</span><span class="n">_</span> <span class="nv">stateChanges</span><span class="p">:</span> <span class="kt">OSSubscriptionStateChanges</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Helpers"></a>
+                <a name="//apple_ref/swift/Section/Helpers" class="dashAnchor"></a>
+                <a href="#/Helpers">
+                  <h3 class="section-name">Helpers</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS23NotificationsControllerC9visibleVC10startingAtSo06UIViewC0CSgAH_tF"></a>
+                    <a name="//apple_ref/swift/Method/visibleVC(startingAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS23NotificationsControllerC9visibleVC10startingAtSo06UIViewC0CSgAH_tF">visibleVC(startingAt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the current visibile view controller</p>
+
+<p>Credits to @ProgrammierTier <a href="https://stackoverflow.com/a/34179192">https://stackoverflow.com/a/34179192</a></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">visibleVC</span><span class="p">(</span><span class="n">startingAt</span> <span class="nv">rootViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rootViewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The view controller to start from</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The view controller that could be found that is visible</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external">DALI Lab</a>. All rights reserved. (Last updated: 2019-07-07)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

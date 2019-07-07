@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CheckinViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/CheckinViewController" class="dashAnchor"></a>
+    <a title="CheckinViewController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (9% documented)</p>
+        <p class="header-right"><a href="https://github.com/dali-lab/Lab-app"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CheckinViewController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BeaconController.html">BeaconController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BeaconController/BeaconError.html">– BeaconError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CalendarController.html">CalendarController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckInController.html">CheckInController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckOutCell.html">CheckOutCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckOutQRReaderLoadingOverlayView.html">CheckOutQRReaderLoadingOverlayView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckOutQRViewController.html">CheckOutQRViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckinViewController.html">CheckinViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ColorPickerCell.html">ColorPickerCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CornerRadiusAndShadowView.html">CornerRadiusAndShadowView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DALIUIError.html">DALIUIError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DALIUIError/Notifications.html">– Notifications</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DatePickerViewController.html">DatePickerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentCell.html">EquipmentCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentDetailTableViewCell.html">EquipmentDetailTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentDetailTableViewController.html">EquipmentDetailTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentFilterIconCell.html">EquipmentFilterIconCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentFilterView.html">EquipmentFilterView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentListViewController.html">EquipmentListViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentListViewController/Section.html">– Section</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentScanAndListViewController.html">EquipmentScanAndListViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentScanAndListViewController/CardPostion.html">– CardPostion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventCell.html">EventCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HasVotedViewController.html">HasVotedViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LightsViewController.html">LightsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LoginViewController.html">LoginViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MainViewController.html">MainViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewEventViewController.html">NewEventViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewVotingEventConfigViewController.html">NewVotingEventConfigViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewVotingEventViewController.html">NewVotingEventViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NotificationsController.html">NotificationsController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OrderedVotingViewController.html">OrderedVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PeopleInLabViewController.html">PeopleInLabViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResultsVotingViewController.html">ResultsVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SettingsController.html">SettingsController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TitleCell.html">TitleCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ToolsAndSettingsViewController.html">ToolsAndSettingsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TopLevelVotingViewController.html">TopLevelVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UnorderedVotingViewController.html">UnorderedVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingEventCell.html">VotingEventCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingEventManagerViewController.html">VotingEventManagerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingEventOptionsViewController.html">VotingEventOptionsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingHelper.html">VotingHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingHelper/AuthorizationErrors.html">– AuthorizationErrors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingOptionCell.html">VotingOptionCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingOrderCell.html">VotingOrderCell</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS11abvWeekDaysSaySSGvp">abvWeekDays</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS14checkInRangeIDSSvp">checkInRangeID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS3envSDySSypGvp">env</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS8signedInSbvp">signedIn</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ActionButtonType.html">ActionButtonType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CellConfiguration.html">CellConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DALIRegion.html">DALIRegion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DALIRegion/State.html">– State</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Future.html">Future</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSCoder.html">NSCoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification.html">Notification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification/Name.html">– Name</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Sequence.html">Sequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIAlertController.html">UIAlertController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:3iOS9userIsTim0B0Sb4DALI10DALIMemberCSg_tF">userIsTim(user:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:3iOS9userIsTim0B0SbSo13GIDGoogleUserC_tF">userIsTim(user:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AlertShower.html">AlertShower</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ErrorAlertShower.html">ErrorAlertShower</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CheckinViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CheckinViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">CBPeripheralManagerDelegate</span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)CheckinViewController(py)beacon1"></a>
+                    <a name="//apple_ref/swift/Property/beacon1" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)CheckinViewController(py)beacon1">beacon1</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span>
+<span class="k">weak</span> <span class="k">var</span> <span class="nv">beacon1</span><span class="p">:</span> <span class="kt">UIImageView</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)CheckinViewController(py)beacon2"></a>
+                    <a name="//apple_ref/swift/Property/beacon2" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)CheckinViewController(py)beacon2">beacon2</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span>
+<span class="k">weak</span> <span class="k">var</span> <span class="nv">beacon2</span><span class="p">:</span> <span class="kt">UIImageView</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)CheckinViewController(py)titleLabel"></a>
+                    <a name="//apple_ref/swift/Property/titleLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)CheckinViewController(py)titleLabel">titleLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span>
+<span class="k">weak</span> <span class="k">var</span> <span class="nv">titleLabel</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)CheckinViewController(py)tableView"></a>
+                    <a name="//apple_ref/swift/Property/tableView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)CheckinViewController(py)tableView">tableView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span>
+<span class="k">weak</span> <span class="k">var</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)CheckinViewController(py)bottomView"></a>
+                    <a name="//apple_ref/swift/Property/bottomView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)CheckinViewController(py)bottomView">bottomView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span>
+<span class="k">weak</span> <span class="k">var</span> <span class="nv">bottomView</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS21CheckinViewControllerC7membersSay4DALI10DALIMemberCGvp"></a>
+                    <a name="//apple_ref/swift/Property/members" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS21CheckinViewControllerC7membersSay4DALI10DALIMemberCGvp">members</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">members</span><span class="p">:</span> <span class="p">[</span><span class="kt">DALIMember</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS21CheckinViewControllerC6regionSo14CLBeaconRegionCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/region" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS21CheckinViewControllerC6regionSo14CLBeaconRegionCSgvp">region</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">region</span><span class="p">:</span> <span class="kt">CLBeaconRegion</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS21CheckinViewControllerC10peripheralSo19CBPeripheralManagerCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/peripheral" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS21CheckinViewControllerC10peripheralSo19CBPeripheralManagerCSgvp">peripheral</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">peripheral</span><span class="p">:</span> <span class="kt">CBPeripheralManager</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS21CheckinViewControllerC5event4DALI9DALIEventCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/event" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS21CheckinViewControllerC5event4DALI9DALIEventCSgvp">event</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">DALIEvent</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS21CheckinViewControllerC8observer4DALI11ObservationVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/observer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS21CheckinViewControllerC8observer4DALI11ObservationVSgvp">observer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">observer</span><span class="p">:</span> <span class="kt">Observation</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS21CheckinViewControllerC9animatingSbvp"></a>
+                    <a name="//apple_ref/swift/Property/animating" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS21CheckinViewControllerC9animatingSbvp">animating</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">animating</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Lifecycle"></a>
+                <a name="//apple_ref/swift/Section/Lifecycle" class="dashAnchor"></a>
+                <a href="#/Lifecycle">
+                  <h3 class="section-name">Lifecycle</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)CheckinViewController(im)viewDidLoad"></a>
+                    <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)CheckinViewController(im)viewDidLoad">viewDidLoad()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)CheckinViewController(im)viewWillAppear:"></a>
+                    <a name="//apple_ref/swift/Method/viewWillAppear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)CheckinViewController(im)viewWillAppear:">viewWillAppear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)CheckinViewController(im)viewWillDisappear:"></a>
+                    <a name="//apple_ref/swift/Method/viewWillDisappear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)CheckinViewController(im)viewWillDisappear:">viewWillDisappear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UI%20Actions"></a>
+                <a name="//apple_ref/swift/Section/UI Actions" class="dashAnchor"></a>
+                <a href="#/UI%20Actions">
+                  <h3 class="section-name">UI Actions</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)CheckinViewController(im)done"></a>
+                    <a name="//apple_ref/swift/Method/done()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)CheckinViewController(im)done">done()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">func</span> <span class="nf">done</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UITableViewDelegate"></a>
+                <a name="//apple_ref/swift/Section/UITableViewDelegate" class="dashAnchor"></a>
+                <a href="#/UITableViewDelegate">
+                  <h3 class="section-name">UITableViewDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)CheckinViewController(im)numberOfSectionsInTableView:"></a>
+                    <a name="//apple_ref/swift/Method/numberOfSections(in:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)CheckinViewController(im)numberOfSectionsInTableView:">numberOfSections(in:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">numberOfSections</span><span class="p">(</span><span class="k">in</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)CheckinViewController(im)tableView:numberOfRowsInSection:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:numberOfRowsInSection:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)CheckinViewController(im)tableView:numberOfRowsInSection:">tableView(_:numberOfRowsInSection:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">numberOfRowsInSection</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)CheckinViewController(im)tableView:cellForRowAtIndexPath:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:cellForRowAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)CheckinViewController(im)tableView:cellForRowAtIndexPath:">tableView(_:cellForRowAt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">cellForRowAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UITableViewCell</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/CBPeripheralManagerDelegate"></a>
+                <a name="//apple_ref/swift/Section/CBPeripheralManagerDelegate" class="dashAnchor"></a>
+                <a href="#/CBPeripheralManagerDelegate">
+                  <h3 class="section-name">CBPeripheralManagerDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)CheckinViewController(im)peripheralManagerDidUpdateState:"></a>
+                    <a name="//apple_ref/swift/Method/peripheralManagerDidUpdateState(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)CheckinViewController(im)peripheralManagerDidUpdateState:">peripheralManagerDidUpdateState(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">peripheralManagerDidUpdateState</span><span class="p">(</span><span class="n">_</span> <span class="nv">peripheral</span><span class="p">:</span> <span class="kt">CBPeripheralManager</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Helpers"></a>
+                <a name="//apple_ref/swift/Section/Helpers" class="dashAnchor"></a>
+                <a href="#/Helpers">
+                  <h3 class="section-name">Helpers</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS21CheckinViewControllerC18createBeaconRegionySo08CLBeaconG0CSgSi_SitF"></a>
+                    <a name="//apple_ref/swift/Method/createBeaconRegion(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS21CheckinViewControllerC18createBeaconRegionySo08CLBeaconG0CSgSi_SitF">createBeaconRegion(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createBeaconRegion</span><span class="p">(</span><span class="n">_</span> <span class="nv">major</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">minor</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CLBeaconRegion</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS21CheckinViewControllerC15advertiseDevice6regionySo14CLBeaconRegionC_tF"></a>
+                    <a name="//apple_ref/swift/Method/advertiseDevice(region:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS21CheckinViewControllerC15advertiseDevice6regionySo14CLBeaconRegionC_tF">advertiseDevice(region:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">advertiseDevice</span><span class="p">(</span><span class="nv">region</span><span class="p">:</span> <span class="kt">CLBeaconRegion</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS21CheckinViewControllerC14startAnimationyyF"></a>
+                    <a name="//apple_ref/swift/Method/startAnimation()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS21CheckinViewControllerC14startAnimationyyF">startAnimation()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startAnimation</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS21CheckinViewControllerC13stopAnimatingyyF"></a>
+                    <a name="//apple_ref/swift/Method/stopAnimating()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS21CheckinViewControllerC13stopAnimatingyyF">stopAnimating()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopAnimating</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external">DALI Lab</a>. All rights reserved. (Last updated: 2019-07-07)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

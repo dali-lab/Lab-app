@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BeaconController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/BeaconController" class="dashAnchor"></a>
+    <a title="BeaconController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (9% documented)</p>
+        <p class="header-right"><a href="https://github.com/dali-lab/Lab-app"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        BeaconController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BeaconController.html">BeaconController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BeaconController/BeaconError.html">– BeaconError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CalendarController.html">CalendarController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckInController.html">CheckInController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckOutCell.html">CheckOutCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckOutQRReaderLoadingOverlayView.html">CheckOutQRReaderLoadingOverlayView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckOutQRViewController.html">CheckOutQRViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckinViewController.html">CheckinViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ColorPickerCell.html">ColorPickerCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CornerRadiusAndShadowView.html">CornerRadiusAndShadowView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DALIUIError.html">DALIUIError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DALIUIError/Notifications.html">– Notifications</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DatePickerViewController.html">DatePickerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentCell.html">EquipmentCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentDetailTableViewCell.html">EquipmentDetailTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentDetailTableViewController.html">EquipmentDetailTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentFilterIconCell.html">EquipmentFilterIconCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentFilterView.html">EquipmentFilterView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentListViewController.html">EquipmentListViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentListViewController/Section.html">– Section</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentScanAndListViewController.html">EquipmentScanAndListViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentScanAndListViewController/CardPostion.html">– CardPostion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventCell.html">EventCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HasVotedViewController.html">HasVotedViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LightsViewController.html">LightsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LoginViewController.html">LoginViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MainViewController.html">MainViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewEventViewController.html">NewEventViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewVotingEventConfigViewController.html">NewVotingEventConfigViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewVotingEventViewController.html">NewVotingEventViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NotificationsController.html">NotificationsController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OrderedVotingViewController.html">OrderedVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PeopleInLabViewController.html">PeopleInLabViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResultsVotingViewController.html">ResultsVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SettingsController.html">SettingsController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TitleCell.html">TitleCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ToolsAndSettingsViewController.html">ToolsAndSettingsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TopLevelVotingViewController.html">TopLevelVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UnorderedVotingViewController.html">UnorderedVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingEventCell.html">VotingEventCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingEventManagerViewController.html">VotingEventManagerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingEventOptionsViewController.html">VotingEventOptionsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingHelper.html">VotingHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingHelper/AuthorizationErrors.html">– AuthorizationErrors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingOptionCell.html">VotingOptionCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingOrderCell.html">VotingOrderCell</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS11abvWeekDaysSaySSGvp">abvWeekDays</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS14checkInRangeIDSSvp">checkInRangeID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS3envSDySSypGvp">env</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS8signedInSbvp">signedIn</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ActionButtonType.html">ActionButtonType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CellConfiguration.html">CellConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DALIRegion.html">DALIRegion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DALIRegion/State.html">– State</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Future.html">Future</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSCoder.html">NSCoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification.html">Notification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification/Name.html">– Name</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Sequence.html">Sequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIAlertController.html">UIAlertController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:3iOS9userIsTim0B0Sb4DALI10DALIMemberCSg_tF">userIsTim(user:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:3iOS9userIsTim0B0SbSo13GIDGoogleUserC_tF">userIsTim(user:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AlertShower.html">AlertShower</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ErrorAlertShower.html">ErrorAlertShower</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>BeaconController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">BeaconController</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">CLLocationManagerDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>Handles all beacon activity for the application. It tracks at all times, even in the background,
+ the beacon&rsquo;s nearby to get an accurate understanding of position</p>
+
+<p>Functions:
+ -</p>
+
+<p>Properties:</p>
+
+<ul>
+<li>currentLocation: String?
+Generated property</li>
+</ul>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC7_sharedACSgvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/_shared" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC7_sharedACSgvpZ">_shared</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">_shared</span><span class="p">:</span> <span class="kt">BeaconController</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC6sharedACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/shared" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC6sharedACvpZ">shared</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">shared</span><span class="p">:</span> <span class="kt">BeaconController</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC6logger3Log6LoggerCvp"></a>
+                    <a name="//apple_ref/swift/Property/logger" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC6logger3Log6LoggerCvp">logger</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">logger</span><span class="p">:</span> <span class="kt">Logger</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC15locationManagerSo010CLLocationE0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/locationManager" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC15locationManagerSo010CLLocationE0Cvp">locationManager</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">locationManager</span><span class="p">:</span> <span class="kt">CLLocationManager</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC14backgroundTaskSo012UIBackgroundE10Identifieravp"></a>
+                    <a name="//apple_ref/swift/Property/backgroundTask" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC14backgroundTaskSo012UIBackgroundE10Identifieravp">backgroundTask</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">backgroundTask</span><span class="p">:</span> <span class="kt">UIBackgroundTaskIdentifier</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC10numToRangeSivp"></a>
+                    <a name="//apple_ref/swift/Property/numToRange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC10numToRangeSivp">numToRange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">numToRange</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC10rangeEvent10EmitterKit0E0CySaySo8CLBeaconCG7beacons_AA10DALIRegionO6regiontGvp"></a>
+                    <a name="//apple_ref/swift/Property/rangeEvent" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC10rangeEvent10EmitterKit0E0CySaySo8CLBeaconCG7beacons_AA10DALIRegionO6regiontGvp">rangeEvent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">rangeEvent</span><span class="p">:</span> <span class="kt">Event</span><span class="o">&lt;</span><span class="p">(</span><span class="nv">beacons</span><span class="p">:</span> <span class="p">[</span><span class="kt">CLBeacon</span><span class="p">],</span> <span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Enums/DALIRegion.html">DALIRegion</a></span><span class="p">)</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC20locationChangedEvent10EmitterKit0F0CySSSgGvp"></a>
+                    <a name="//apple_ref/swift/Property/locationChangedEvent" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC20locationChangedEvent10EmitterKit0F0CySSSgGvp">locationChangedEvent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">locationChangedEvent</span><span class="p">:</span> <span class="kt">Event</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">?</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC15currentLocationSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/currentLocation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC15currentLocationSSSgvp">currentLocation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">currentLocation</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC7regions33_247C4B2357196030CA78C7FDC464C3F4LLShyAA10DALIRegionOGvp"></a>
+                    <a name="//apple_ref/swift/Property/regions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC7regions33_247C4B2357196030CA78C7FDC464C3F4LLShyAA10DALIRegionOGvp">regions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">regions</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Enums/DALIRegion.html">DALIRegion</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Basic%20data"></a>
+                <a name="//apple_ref/swift/Section/Basic data" class="dashAnchor"></a>
+                <a href="#/Basic%20data">
+                  <h3 class="section-name">Basic data</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)BeaconController(im)init"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)BeaconController(im)init">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">override</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)BeaconController(im)dealloc"></a>
+                    <a name="//apple_ref/swift/Method/deinit" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)BeaconController(im)dealloc">deinit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">deinit</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Statup%20and%20breakdown"></a>
+                <a name="//apple_ref/swift/Section/Statup and breakdown" class="dashAnchor"></a>
+                <a href="#/Statup%20and%20breakdown">
+                  <h3 class="section-name">Statup and breakdown</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC8assembleyyF"></a>
+                    <a name="//apple_ref/swift/Method/assemble()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC8assembleyyF">assemble()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">assemble</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC9dismantle20shouldSubmitLocationySb_tF"></a>
+                    <a name="//apple_ref/swift/Method/dismantle(shouldSubmitLocation:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC9dismantle20shouldSubmitLocationySb_tF">dismantle(shouldSubmitLocation:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">dismantle</span><span class="p">(</span><span class="nv">shouldSubmitLocation</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/API"></a>
+                <a name="//apple_ref/swift/Section/API" class="dashAnchor"></a>
+                <a href="#/API">
+                  <h3 class="section-name">API</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC19startRangingBeaconsyyF"></a>
+                    <a name="//apple_ref/swift/Method/startRangingBeacons()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC19startRangingBeaconsyyF">startRangingBeacons()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startRangingBeacons</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC18stopRangingBeaconsyyF"></a>
+                    <a name="//apple_ref/swift/Method/stopRangingBeacons()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC18stopRangingBeaconsyyF">stopRangingBeacons()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopRangingBeacons</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC14updateLocationyyF"></a>
+                    <a name="//apple_ref/swift/Method/updateLocation()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC14updateLocationyyF">updateLocation()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateLocation</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC14updateLocation4withyyACc_tF"></a>
+                    <a name="//apple_ref/swift/Method/updateLocation(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC14updateLocation4withyyACc_tF">updateLocation(with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateLocation</span><span class="p">(</span><span class="n">with</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">BeaconController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC6insideySbAA10DALIRegionOF"></a>
+                    <a name="//apple_ref/swift/Method/inside(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC6insideySbAA10DALIRegionOF">inside(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">inside</span><span class="p">(</span><span class="n">_</span> <span class="nv">region</span><span class="p">:</span> <span class="kt"><a href="../Enums/DALIRegion.html">DALIRegion</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/CLLocationManagerDelegate"></a>
+                <a name="//apple_ref/swift/Section/CLLocationManagerDelegate" class="dashAnchor"></a>
+                <a href="#/CLLocationManagerDelegate">
+                  <h3 class="section-name">CLLocationManagerDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC16seenDuringUpdateShyAA10DALIRegionOGvp"></a>
+                    <a name="//apple_ref/swift/Property/seenDuringUpdate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC16seenDuringUpdateShyAA10DALIRegionOGvp">seenDuringUpdate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">seenDuringUpdate</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Enums/DALIRegion.html">DALIRegion</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)BeaconController(im)locationManager:didRangeBeacons:inRegion:"></a>
+                    <a name="//apple_ref/swift/Method/locationManager(_:didRangeBeacons:in:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)BeaconController(im)locationManager:didRangeBeacons:inRegion:">locationManager(_:didRangeBeacons:in:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">locationManager</span><span class="p">(</span><span class="n">_</span> <span class="nv">manager</span><span class="p">:</span> <span class="kt">CLLocationManager</span><span class="p">,</span>
+                     <span class="n">didRangeBeacons</span> <span class="nv">beacons</span><span class="p">:</span> <span class="p">[</span><span class="kt">CLBeacon</span><span class="p">],</span>
+                     <span class="k">in</span> <span class="nv">beaconRegion</span><span class="p">:</span> <span class="kt">CLBeaconRegion</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)BeaconController(im)locationManager:didExitRegion:"></a>
+                    <a name="//apple_ref/swift/Method/locationManager(_:didExitRegion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)BeaconController(im)locationManager:didExitRegion:">locationManager(_:didExitRegion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">locationManager</span><span class="p">(</span><span class="n">_</span> <span class="nv">manager</span><span class="p">:</span> <span class="kt">CLLocationManager</span><span class="p">,</span> <span class="n">didExitRegion</span> <span class="nv">region</span><span class="p">:</span> <span class="kt">CLRegion</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)BeaconController(im)locationManager:didEnterRegion:"></a>
+                    <a name="//apple_ref/swift/Method/locationManager(_:didEnterRegion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)BeaconController(im)locationManager:didEnterRegion:">locationManager(_:didEnterRegion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">locationManager</span><span class="p">(</span><span class="n">_</span> <span class="nv">manager</span><span class="p">:</span> <span class="kt">CLLocationManager</span><span class="p">,</span> <span class="n">didEnterRegion</span> <span class="nv">region</span><span class="p">:</span> <span class="kt">CLRegion</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)BeaconController(im)locationManager:didDetermineState:forRegion:"></a>
+                    <a name="//apple_ref/swift/Method/locationManager(_:didDetermineState:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)BeaconController(im)locationManager:didDetermineState:forRegion:">locationManager(_:didDetermineState:for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Classes/BeaconController/locationManager(_:didDetermineState:for:).html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">locationManager</span><span class="p">(</span><span class="n">_</span> <span class="nv">manager</span><span class="p">:</span> <span class="kt">CLLocationManager</span><span class="p">,</span> <span class="n">didDetermineState</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">CLRegionState</span><span class="p">,</span> <span class="k">for</span> <span class="nv">clregion</span><span class="p">:</span> <span class="kt">CLRegion</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Background%20tasks"></a>
+                <a name="//apple_ref/swift/Section/Background tasks" class="dashAnchor"></a>
+                <a href="#/Background%20tasks">
+                  <h3 class="section-name">Background tasks</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC22registerBackgroundTaskyyyyXEF"></a>
+                    <a name="//apple_ref/swift/Method/registerBackgroundTask(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC22registerBackgroundTaskyyyyXEF">registerBackgroundTask(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">registerBackgroundTask</span><span class="p">(</span><span class="n">_</span> <span class="nv">callback</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC17endBackgroundTaskyyF"></a>
+                    <a name="//apple_ref/swift/Method/endBackgroundTask()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC17endBackgroundTaskyyF">endBackgroundTask()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">endBackgroundTask</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Enums"></a>
+                <a name="//apple_ref/swift/Section/Enums" class="dashAnchor"></a>
+                <a href="#/Enums">
+                  <h3 class="section-name">Enums</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS16BeaconControllerC0B5ErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/BeaconError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS16BeaconControllerC0B5ErrorO">BeaconError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Classes/BeaconController/BeaconError.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">BeaconError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external">DALI Lab</a>. All rights reserved. (Last updated: 2019-07-07)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
