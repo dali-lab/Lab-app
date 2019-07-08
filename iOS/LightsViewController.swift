@@ -15,7 +15,8 @@ import ChromaColorPicker
 /**
  View controller showing the interface for seeing and changing the state of the lights
  */
-class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LightsViewColorPickerCellDelegate {
+class LightsViewController: UIViewController, UITableViewDelegate,
+                            UITableViewDataSource, LightsViewColorPickerCellDelegate {
     @IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var groupTitle: UILabel!
 	@IBOutlet weak var viewHeight: NSLayoutConstraint!
@@ -33,9 +34,7 @@ class LightsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 	var overlayLightsMap: UIImageView?
 	var selectedGroup: DALILights.Group?
     var scenes: [String]? {
-        guard let group = selectedGroup else {
-            return nil
-        }
+        guard let group = selectedGroup else { return nil }
         
         var scenes = group.scenes.filter { (scene) -> Bool in
             return scene.lowercased().range(of: "default") == nil
