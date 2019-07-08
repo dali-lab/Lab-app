@@ -71,14 +71,14 @@ class BeaconController: NSObject, CLLocationManagerDelegate {
     
     func assemble() {
         DALIRegion.all.forEach { (region) in
-            self.locationManager.startMonitoring(for: region.beaconRegion)
+            self.locationManager.startMonitoring(for: region.region)
         }
     }
 	
     func dismantle(shouldSubmitLocation: Bool = true) {
         self.stopRangingBeacons()
         DALIRegion.all.forEach { (region) in
-            self.locationManager.stopMonitoring(for: region.beaconRegion)
+            self.locationManager.stopMonitoring(for: region.region)
         }
         
         if shouldSubmitLocation {
@@ -176,7 +176,7 @@ class BeaconController: NSObject, CLLocationManagerDelegate {
         if numToRange == 0 {
             DALIRegion.all.forEach { (region) in
                 let state: CLRegionState = seenDuringUpdate.contains(region) ? .inside : .outside
-                self.locationManager(self.locationManager, didDetermineState: state, for: region.beaconRegion)
+                self.locationManager(self.locationManager, didDetermineState: state, for: region.region)
             }
             seenDuringUpdate.removeAll()
         }

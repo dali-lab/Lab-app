@@ -59,7 +59,7 @@ public enum DALIRegion: String {
     }
     
     /// The CLRegion this region represents
-    public var beaconRegion: CLRegion {
+    public var region: CLRegion {
         return CLBeaconRegion(proximityUUID: uuid, identifier: rawValue)
     }
     

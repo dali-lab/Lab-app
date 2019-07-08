@@ -20,6 +20,8 @@ import EmitterKit
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     /// The shared instance of the AppDelegate
 	static private(set) var shared: AppDelegate!
+    
+    private let trackingModule = TrackingModule()
 	
     var window: UIWindow?
     /// User provided by Google Sign In
@@ -63,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 		GIDSignIn.sharedInstance().signInSilently()
         NotificationsController.shared.setup(launchOptions: launchOptions)
         CheckInController.shared.setup()
+        trackingModule.startTracking()
 		
 		return true
 	}
@@ -99,6 +102,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication: options[.sourceApplication] as? String,
                                                  annotation: options)
+    }
+    
+    func application(_ application: UIApplication,
+                     handleEventsForBackgroundURLSession identifier: String,
+                     completionHandler: @escaping () -> Void) {
+        BackgroundSession.shared.savedCompletionHandler = completionHandler
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -161,6 +170,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     // MARK: - User management
     
     func didSignIn(member: DALIMember, changeUI: Bool = true) {
+        trackingModule.askForPermission()
         memberSignedInEvent.emit(member)
         DALIapi.enableSockets()
         BeaconController.shared.assemble()

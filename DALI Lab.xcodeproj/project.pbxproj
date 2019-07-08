@@ -37,6 +37,7 @@
 		522F31FC1F47DAF800B4BEB4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 522F31FB1F47DAF800B4BEB4 /* libsqlite3.tbd */; };
 		5231E87A22D3A91E0093E306 /* LightsViewColorPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5231E87922D3A91E0093E306 /* LightsViewColorPickerCell.swift */; };
 		5231E87D22D3A9B10093E306 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5231E87C22D3A9B10093E306 /* UIColor+hex.swift */; };
+		5231E87F22D3EC1D0093E306 /* TrackingModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5231E87E22D3EC1D0093E306 /* TrackingModule.swift */; };
 		524D86F51F5796D200479C0A /* TopLevelVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86F41F5796D200479C0A /* TopLevelVotingViewController.swift */; };
 		524D86F71F57A08E00479C0A /* HasVotedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86F61F57A08E00479C0A /* HasVotedViewController.swift */; };
 		524D86F91F57A0D700479C0A /* UnorderedVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86F81F57A0D700479C0A /* UnorderedVotingViewController.swift */; };
@@ -186,6 +187,7 @@
 		522F31FB1F47DAF800B4BEB4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		5231E87922D3A91E0093E306 /* LightsViewColorPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsViewColorPickerCell.swift; sourceTree = "<group>"; };
 		5231E87C22D3A9B10093E306 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		5231E87E22D3EC1D0093E306 /* TrackingModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModule.swift; sourceTree = "<group>"; };
 		524D86F41F5796D200479C0A /* TopLevelVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopLevelVotingViewController.swift; sourceTree = "<group>"; };
 		524D86F61F57A08E00479C0A /* HasVotedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasVotedViewController.swift; sourceTree = "<group>"; };
 		524D86F81F57A0D700479C0A /* UnorderedVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnorderedVotingViewController.swift; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 				520F85702295BBF700A0F491 /* NotificationsController.swift */,
 				522F31B31F47D8DA00B4BEB4 /* BeaconController.swift */,
 				52B143E122989F9C0092481D /* CheckInController.swift */,
+				5231E87E22D3EC1D0093E306 /* TrackingModule.swift */,
 			);
 			name = "Background Controllers";
 			sourceTree = "<group>";
@@ -1186,6 +1189,7 @@
 				522F31C01F47D8DA00B4BEB4 /* EnumsAndStructs.swift in Sources */,
 				5200B9AF2159793A0011DA73 /* CheckOutQRReaderLoadingOverlayView.swift in Sources */,
 				520F85712295BBF700A0F491 /* NotificationsController.swift in Sources */,
+				5231E87F22D3EC1D0093E306 /* TrackingModule.swift in Sources */,
 				522F31C61F47D8DA00B4BEB4 /* ToolsAndSettingsViewController.swift in Sources */,
 				529A632C1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift in Sources */,
 				520F85752295D1C600A0F491 /* SettingsController.swift in Sources */,
