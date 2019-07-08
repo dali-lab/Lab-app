@@ -21,6 +21,9 @@ class EquipmentListViewController: UIViewController, UITableViewDelegate, UITabl
     var splitEquipment: [[DALIEquipment]] {
         return [
             equipment.filter({ (device) -> Bool in
+                return device.isCheckedOut && device.lastCheckedOut?.member == DALIMember.current
+            }),
+            equipment.filter({ (device) -> Bool in
                 return !device.isCheckedOut
             }),
             equipment.filter({ (device) -> Bool in
@@ -154,12 +157,14 @@ class EquipmentListViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     enum Section {
+        case youCheckedOut
         case available
         case checkedOut
         
-        static let all: [Section] = [.available, .checkedOut]
+        static let all: [Section] = [.youCheckedOut, .available, .checkedOut]
         var title: String {
             switch self {
+            case .youCheckedOut: return "You Checked Out"
             case .available: return "Available"
             case .checkedOut: return "Checked Out"
             }
