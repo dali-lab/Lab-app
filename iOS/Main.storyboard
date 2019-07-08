@@ -1664,7 +1664,7 @@ for voting</string>
                                 <rect key="frame" x="0.0" y="64" width="375" height="438"/>
                                 <accessibility key="accessibilityConfiguration" label="none"/>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="rGU-bO-LUk"/>
+                                    <action selector="groupButtonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="rGU-bO-LUk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIq-ob-SOa">
@@ -1685,7 +1685,7 @@ for voting</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="1wE-bk-0ke"/>
+                                    <action selector="groupButtonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="1wE-bk-0ke"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZ6-54-ESr">
@@ -1706,7 +1706,7 @@ for voting</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="9AN-X8-0rL"/>
+                                    <action selector="groupButtonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="9AN-X8-0rL"/>
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XWj-7P-uNd">
@@ -1717,7 +1717,7 @@ for voting</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEu-Oy-jy0">
                                 <rect key="frame" x="45.5" y="111" width="284" height="391"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lights_none_overlay" translatesAutoresizingMaskIntoConstraints="NO" id="BCg-pJ-rb7">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lights selection nil" translatesAutoresizingMaskIntoConstraints="NO" id="BCg-pJ-rb7">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="391"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="BCg-pJ-rb7" secondAttribute="height" multiplier="3979 : 5481" id="G7Z-a8-oKc"/>
@@ -1727,57 +1727,57 @@ for voting</string>
                                         <rect key="frame" x="0.0" y="80" width="128" height="98"/>
                                         <accessibility key="accessibilityConfiguration" label="kitchen"/>
                                         <connections>
-                                            <action selector="buttonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="K6Y-BV-oqI"/>
+                                            <action selector="groupButtonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="K6Y-BV-oqI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vi5-3y-13O">
                                         <rect key="frame" x="0.0" y="207.5" width="159" height="183.5"/>
                                         <accessibility key="accessibilityConfiguration" label="conference"/>
                                         <connections>
-                                            <action selector="buttonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="Pnl-7h-Buw"/>
+                                            <action selector="groupButtonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="Pnl-7h-Buw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JE4-5n-fz8">
                                         <rect key="frame" x="96.5" y="0.0" width="57" height="70.5"/>
                                         <accessibility key="accessibilityConfiguration" label="pod:appa"/>
                                         <connections>
-                                            <action selector="buttonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="kSP-iW-OKJ"/>
+                                            <action selector="groupButtonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="kSP-iW-OKJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TE-fx-vEN">
                                         <rect key="frame" x="153.5" y="0.0" width="59.5" height="70.5"/>
                                         <accessibility key="accessibilityConfiguration" label="pod:momo"/>
                                         <connections>
-                                            <action selector="buttonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="Tg2-WY-vq2"/>
+                                            <action selector="groupButtonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="Tg2-WY-vq2"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5X-3B-Roi">
                                         <rect key="frame" x="213" y="0.0" width="71" height="70.5"/>
                                         <accessibility key="accessibilityConfiguration" label="pod:pabu"/>
                                         <connections>
-                                            <action selector="buttonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="nUm-0J-1jO"/>
+                                            <action selector="groupButtonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="nUm-0J-1jO"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYq-DE-jC2">
                                         <rect key="frame" x="156" y="211.5" width="128" height="179.5"/>
                                         <accessibility key="accessibilityConfiguration" label="tvspace"/>
                                         <connections>
-                                            <action selector="buttonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="kmW-Ym-8RK"/>
+                                            <action selector="groupButtonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="kmW-Ym-8RK"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pod_appa" translatesAutoresizingMaskIntoConstraints="NO" id="g3R-Ps-PYc">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lights overlay pod:appa" translatesAutoresizingMaskIntoConstraints="NO" id="g3R-Ps-PYc">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="391"/>
                                         <accessibility key="accessibilityConfiguration" label="pod:appa"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pod_momo" translatesAutoresizingMaskIntoConstraints="NO" id="ZPE-Bl-knJ">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lights overlay pod:momo" translatesAutoresizingMaskIntoConstraints="NO" id="ZPE-Bl-knJ">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="391"/>
                                         <accessibility key="accessibilityConfiguration" label="pod:momo"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pod_pabu" translatesAutoresizingMaskIntoConstraints="NO" id="97c-fx-nqq">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lights overlay pod:pabu" translatesAutoresizingMaskIntoConstraints="NO" id="97c-fx-nqq">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="391"/>
                                         <accessibility key="accessibilityConfiguration" label="pod:pabu"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitchen" translatesAutoresizingMaskIntoConstraints="NO" id="cxJ-et-SuD">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lights overlay kitchen" translatesAutoresizingMaskIntoConstraints="NO" id="cxJ-et-SuD">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="391"/>
                                         <accessibility key="accessibilityConfiguration" label="kitchen"/>
                                     </imageView>
@@ -1785,18 +1785,18 @@ for voting</string>
                                         <rect key="frame" x="142" y="80.5" width="142" height="129"/>
                                         <accessibility key="accessibilityConfiguration" label="workstations"/>
                                         <connections>
-                                            <action selector="buttonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="j5n-SO-gpr"/>
+                                            <action selector="groupButtonPressed:" destination="7bB-En-Gd0" eventType="touchUpInside" id="j5n-SO-gpr"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workstations" translatesAutoresizingMaskIntoConstraints="NO" id="2H4-8T-sFk">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lights overlay workstations" translatesAutoresizingMaskIntoConstraints="NO" id="2H4-8T-sFk">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="391"/>
                                         <accessibility key="accessibilityConfiguration" label="workstations"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tvspace" translatesAutoresizingMaskIntoConstraints="NO" id="bNS-M4-xQT">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lights overlay tvspace" translatesAutoresizingMaskIntoConstraints="NO" id="bNS-M4-xQT">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="391"/>
                                         <accessibility key="accessibilityConfiguration" label="tvspace"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="conference" translatesAutoresizingMaskIntoConstraints="NO" id="w5B-Qu-97D">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lights overlay conference" translatesAutoresizingMaskIntoConstraints="NO" id="w5B-Qu-97D">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="391"/>
                                         <accessibility key="accessibilityConfiguration" label="conference"/>
                                     </imageView>
@@ -2070,23 +2070,23 @@ for voting</string>
         <image name="DALI_whiteLogo" width="2569" height="970"/>
         <image name="backgroundGradient" width="375" height="667"/>
         <image name="clock" width="337" height="337"/>
-        <image name="conference" width="1987" height="2741"/>
         <image name="devices" width="337" height="337"/>
         <image name="emptyCell" width="724" height="150"/>
-        <image name="kitchen" width="1987" height="2741"/>
         <image name="lightBulb" width="337" height="337"/>
-        <image name="lights_none_overlay" width="3981" height="5481"/>
+        <image name="lights overlay conference" width="1987" height="2741"/>
+        <image name="lights overlay kitchen" width="1987" height="2741"/>
+        <image name="lights overlay pod:appa" width="1987" height="2741"/>
+        <image name="lights overlay pod:momo" width="1987" height="2741"/>
+        <image name="lights overlay pod:pabu" width="1987" height="2741"/>
+        <image name="lights overlay tvspace" width="1987" height="2741"/>
+        <image name="lights overlay workstations" width="1987" height="2741"/>
+        <image name="lights selection nil" width="3981" height="5481"/>
         <image name="lowPolyBackground" width="500" height="800"/>
         <image name="people" width="337" height="176"/>
-        <image name="pod_appa" width="1987" height="2741"/>
-        <image name="pod_momo" width="1987" height="2741"/>
-        <image name="pod_pabu" width="1987" height="2741"/>
         <image name="poly background" width="2540" height="3828"/>
         <image name="tableViewMask" width="309" height="26"/>
-        <image name="tvspace" width="1987" height="2741"/>
         <image name="voteDone" width="330" height="414"/>
         <image name="whiteGear" width="501" height="501"/>
-        <image name="workstations" width="1987" height="2741"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kGF-TQ-Eex"/>
