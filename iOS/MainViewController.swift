@@ -76,7 +76,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.lightButton.isHidden = !signedIn
             self.lightButton.isEnabled = signedIn
             self.foodLabel.isHidden = !signedIn
-            self.foodLabel.text = ""
+            self.foodLabel.text = "No Food Tonight"
             if signedIn {
                 self.received(location: BeaconController.shared.currentLocation)
             } else {
@@ -307,24 +307,23 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     /// Animate from the login or loading screen
     func startAnimation() {
         let mid = self.view.frame.size.height / 2.0
-        let top = mid - self.daliImage.frame.height / 2.0
+        let top = mid - self.daliImage.frame.height
         var transformedTop = top
         if self.loginTransformAnimationDone {
             transformedTop = top - 90
         }
         
-        daliImage.center = CGPoint(x: daliImage.center.x,
-                                   y: daliImage.center.y + (transformedTop - self.daliImage.frame.origin.x / 2 + 18))
-        
         daliImage.transform = CGAffineTransform(scaleX: 3.0/2.0, y: 3.0/2.0)
+        daliImage.transform.ty = transformedTop - 28
         internalView.alpha = 0.0
         
-        UIView.animateKeyframes(withDuration: 2, delay: 0.5, options: [], animations: {
+        let animationOptions = UIView.AnimationOptions.curveEaseOut
+        let keyframeAnimationOptions = UIView.KeyframeAnimationOptions(rawValue: animationOptions.rawValue)
+        
+        UIView.animateKeyframes(withDuration: 2, delay: 0.5, options: keyframeAnimationOptions, animations: {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.75) {
                 // Reset the transform and let the layout take care of the rest
-                self.daliImage.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                self.view.setNeedsLayout()
-                self.view.layoutIfNeeded()
+                self.daliImage.transform = CGAffineTransform.identity
             }
             UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25) {
                 self.internalView.alpha = 1.0
