@@ -290,7 +290,7 @@ class EquipmentDetailTableViewController: UITableViewController {
                 deselectAnimated = false
             } else {
                 switch type {
-                case .returnButton: _ = returnEquipment()
+                case .returnButton: returnButtonPressed()
                 case .checkOutButton: checkOutPressed()
                 case .updateReturnDateButton: changeReturnDatePressed()
                 case .loadMoreButton: loadHistory()
@@ -331,6 +331,25 @@ class EquipmentDetailTableViewController: UITableViewController {
                 self.handleError(error: error, fromFunction: "changeReturnDatePressed")
             }
         }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    /**
+     The return button was pressed. Show an alert to ask for confirmation
+     */
+    func returnButtonPressed() {
+        let alert = UIAlertController(title: "Return \(equipment.name)",
+            message: "Make sure you bring it back to the lab with all it's accessories." +
+                     " Please leave it in the proper spot so the next person can find it.",
+            preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Confirm Return", style: .default) { (_) in
+            self.returnEquipment().onFail { (error) in
+                print(error)
+            }
+        })
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)

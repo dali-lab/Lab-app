@@ -14,36 +14,30 @@ class EquipmentListViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var tableView: UITableView!
     var filterView: EquipmentFilterView!
     var searchBar: UISearchBar!
-    var topLevelController: EquipmentScanAndListViewController? {
+    /// Used by the EquipmentScanAndListViewController to keep this view at some tallness at minumum
+    let minimumTallness: CGFloat = 20
+    
+    /// The view controller containing this and the scanning view
+    lazy var equipmentVC: EquipmentScanAndListViewController? = {
         return self.parent as? EquipmentScanAndListViewController
-    }
+    }()
+    
+    /// The equipment pulled from the server
     var equipment: [DALIEquipment] = []
-    var splitEquipment: [[DALIEquipment]] {
-        return [
-            equipment.filter({ (device) -> Bool in
-                return device.isCheckedOut && device.lastCheckedOut?.member == DALIMember.current
-            }),
-            equipment.filter({ (device) -> Bool in
-                return !device.isCheckedOut
-            }),
-            equipment.filter({ (device) -> Bool in
-                return device.isCheckedOut
-            })
-        ]
+    /// Equipment split into sections and filtered
+    var filteredEquipment = [Section: [DALIEquipment]]()
+    /// Equipment split into sections
+    var sectionedEquipment = [Section: [DALIEquipment]]()
+    var sections: [Section] {
+        return Section.all.filter({ (section) -> Bool in
+            return filteredEquipment[section] != nil && filteredEquipment[section]!.count > 0
+        })
     }
-    var filteredEquipment = [[DALIEquipment]]()
+    
     var selectedIconName: String?
-    var listener: Observation?
+    var equipmentListener: Observation?
     
-    var minimumTallness: CGFloat {
-        return 20
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        listener = DALIEquipment.observeAllEquipment { (_) in
-            self.updateData()
-        }
-    }
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         tableView.isScrollEnabled = false
@@ -62,9 +56,72 @@ class EquipmentListViewController: UIViewController, UITableViewDelegate, UITabl
         self.updateData()
     }
     
-    deinit {
-        listener?.stop()
+    override func viewWillAppear(_ animated: Bool) {
+        equipmentListener = DALIEquipment.observeAllEquipment { (_) in
+            self.updateData()
+        }
     }
+    
+    // MARK: - API
+    
+    /**
+     The EquipmentScanAndListViewController will notify this view which position the view is in
+     
+     - parameter position: The current position of this card view on the view
+     */
+    public func cardDidReach(position: EquipmentScanAndListViewController.CardPostion) {
+        tableView.isScrollEnabled = position == .tall
+    }
+    
+    // MARK: - UISearchBarDelegate
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        equipmentVC?.set(cardPosition: .max)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        updateSearchResults(with: searchText)
+    }
+    
+    // MARK: - UITableViewDelegate & UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].title
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filteredEquipment[sections[section]]!.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let device = filteredEquipment[sections[indexPath.section]]![indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "checkOutCell")
+        
+        if let cell = cell as? EquipmentCell {
+            cell.equipment = device
+        }
+        
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        equipmentVC?.showDetailView(for: filteredEquipment[sections[indexPath.section]]![indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    // MARK: - Helpers
     
     func filter(equipment: DALIEquipment, string: String) -> Bool {
         let isIconSame = selectedIconName == nil || equipment.iconName == selectedIconName
@@ -80,25 +137,13 @@ class EquipmentListViewController: UIViewController, UITableViewDelegate, UITabl
         return (inName || inDescription || inIcon) && isIconSame
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        topLevelController?.set(cardPosition: .max)
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        updateSearchResults(with: searchText)
-    }
-    
     func updateSearchResults(with text: String?) {
         filteredEquipment.removeAll(keepingCapacity: false)
-        filteredEquipment = splitEquipment.map { (equipment) in
-            return equipment.filter { (equipment) -> Bool in
+        filteredEquipment = sectionedEquipment.mapValues({ (list) in
+            return list.filter { (equipment) -> Bool in
                 return filter(equipment: equipment, string: text ?? "")
             }
-        }
+        })
         
         self.tableView.reloadData()
     }
@@ -115,50 +160,31 @@ class EquipmentListViewController: UIViewController, UITableViewDelegate, UITabl
                 return equipment.iconName
             }.unique().sorted()
         }.mainThreadFuture.onSuccess { (iconNames) in
+            self.sectionedEquipment[.youCheckedOut] = self.equipment.filter({ (device) -> Bool in
+                return device.isCheckedOut && device.lastCheckedOut?.member == DALIMember.current
+            })
+            self.sectionedEquipment[.available] = self.equipment.filter({ (device) -> Bool in
+                return !device.isCheckedOut
+            })
+            self.sectionedEquipment[.checkedOut] = self.equipment.filter({ (device) -> Bool in
+                return device.isCheckedOut && device.lastCheckedOut?.member != DALIMember.current
+            })
             self.filterView.update(with: iconNames)
             self.updateSearchResults(with: self.searchBar.text)
         }
     }
     
-    func cardDidReach(position: EquipmentScanAndListViewController.CardPostion) {
-        tableView.isScrollEnabled = position == .tall
-    }
+    // MARK: - Section
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Section.all[section].title
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return Section.all.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredEquipment[section].count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let device = filteredEquipment[indexPath.section][indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "checkOutCell")
-        
-        if let cell = cell as? EquipmentCell {
-            cell.equipment = device
-        }
-        
-        return cell!
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        topLevelController?.showDetailView(for: filteredEquipment[indexPath.section][indexPath.row])
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
-    }
-    
+    /**
+     An enumeration describing the different sections shown in this table view
+     */
     enum Section {
+        /// The equipment you checked out
         case youCheckedOut
+        /// Equipment available for check out
         case available
+        /// Things checked out by other people
         case checkedOut
         
         static let all: [Section] = [.youCheckedOut, .available, .checkedOut]

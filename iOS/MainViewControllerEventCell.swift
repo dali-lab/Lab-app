@@ -25,7 +25,8 @@ class MainViewControllerEventCell: UITableViewCell {
                 let endComponents = Calendar.current.dateComponents([.weekday, .hour, .minute], from: event.end)
                 
                 let weekdayStart = abvWeekDays[startComponents.weekday! - 1]
-                let weekdayEnd = startComponents.weekday! != endComponents.weekday! ? abvWeekDays[endComponents.weekday! - 1] : nil
+                let weekdayEnd = startComponents.weekday! != endComponents.weekday! ?
+                    abvWeekDays[endComponents.weekday! - 1] : nil
                 
                 var startHour = startComponents.hour! > 12 ? startComponents.hour! - 12 : startComponents.hour!
                 startHour = startHour != 0 ? startHour : 12
@@ -44,7 +45,9 @@ class MainViewControllerEventCell: UITableViewCell {
                 "\(startMinute)\(daytimeDifferent ? " \(startDaytime ? "AM" : "PM")" : "")"
                 let endString = "\(endHour):\(endMinute < 10 ? "0" : "")\(endMinute) \(endDaytime ? "AM" : "PM")"
                 
-                self.timeLabel.text = "\(weekdayStart) \(startString) - \(weekdayEnd == nil ? "" : weekdayEnd! + " ")\(endString)"
+                self.timeLabel.text = "\(weekdayStart) " +
+                                      "\(startString) - " +
+                                      "\(weekdayEnd == nil ? "" : weekdayEnd! + " ")\(endString)"
             } else {
                 self.titleLabel.text = ""
             }
