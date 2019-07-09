@@ -31,11 +31,6 @@ class TrackingModule: NSObject, CLLocationManagerDelegate {
     }
     
     func post(beaconRegion: CLRegion, path: String) {
-        guard UIApplication.shared.applicationState == .background else {
-            print("TrackingModule: canceling: not background")
-            return
-        }
-        
         guard let beaconRegion = beaconRegion as? CLBeaconRegion else {
             print("TrackingModule: canceling: bad region")
             return

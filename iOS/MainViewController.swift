@@ -317,22 +317,21 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         daliImage.transform.ty = transformedTop - 28
         internalView.alpha = 0.0
         
-        let animationOptions = UIView.AnimationOptions.curveEaseOut
-        let keyframeAnimationOptions = UIView.KeyframeAnimationOptions(rawValue: animationOptions.rawValue)
+//        let animationOptions = UIView.AnimationOptions.curveEaseOut
+//        let keyframeAnimationOptions = UIView.KeyframeAnimationOptions(rawValue: animationOptions.rawValue)
+        UIView.setAnimationCurve(UIView.AnimationCurve.easeInOut)
         
-        UIView.animateKeyframes(withDuration: 2, delay: 0.5, options: keyframeAnimationOptions, animations: {
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.75) {
-                // Reset the transform and let the layout take care of the rest
-                self.daliImage.transform = CGAffineTransform.identity
-            }
-            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25) {
-                self.internalView.alpha = 1.0
-            }
+        UIView.animate(withDuration: 2, delay: 0.5, options: .curveEaseInOut, animations: {
+            self.daliImage.transform = CGAffineTransform.identity
         }) { (_) in
-            if let animationDone = self.animationDone {
-                animationDone()
+            UIView.animate(withDuration: 0.3, animations: {
+                self.internalView.alpha = 1.0
+            }) { (_) in
+                if let animationDone = self.animationDone {
+                    animationDone()
+                }
+                self.viewShown = true
             }
-            self.viewShown = true
         }
     }
 }

@@ -91,15 +91,15 @@ class BeaconController: NSObject, CLLocationManagerDelegate {
                 return Future<Any>(cancelled: ())
             }
             
-            if UIApplication.shared.applicationState == .background {
-                registerBackgroundTask {
-                    submitLocation().onSuccess { (_) in
-                        self.endBackgroundTask()
-                    }.onFail { (error) in
-                        self.logger.error("Failed to submit dismantle location report to server in background", error)
-                    }
-                }
-            } else {
+//            if UIApplication.shared.applicationState == .background {
+//                registerBackgroundTask {
+//                    submitLocation().onSuccess { (_) in
+//                        self.endBackgroundTask()
+//                    }.onFail { (error) in
+//                        self.logger.error("Failed to submit dismantle location report to server in background", error)
+//                    }
+//                }
+//            } else {
                 // Submit to the server that we are leaving all places
                 submitLocation().onFail { (error) in
                     self.logger.error("Failed to submit dismantle location report to server", error)
@@ -110,7 +110,7 @@ class BeaconController: NSObject, CLLocationManagerDelegate {
                     NotificationCenter.default.post(name: region.notificationName, object: nil, userInfo: package)
                     region.stateEvent.emit((change: .none, now: .outside))
                 }
-            }
+//            }
         }
 	}
     
@@ -226,40 +226,40 @@ class BeaconController: NSObject, CLLocationManagerDelegate {
             }
         }
         
-        if UIApplication.shared.applicationState == .background {
-            registerBackgroundTask {
-                go()
-            }
-        } else {
+//        if UIApplication.shared.applicationState == .background {
+//            registerBackgroundTask {
+//                go()
+//            }
+//        } else {
             go()
             
             // TODO: Fix voting event
             NotificationCenter.default.post(name: NSNotification.Name.Custom.LocationUpdated, object: nil)
             locationChangedEvent.emit(currentLocation)
-        }
+//        }
     }
     
     // MARK: - Background tasks
     
-    func registerBackgroundTask(_ callback: () -> Void) {
-        print("Registering for background...")
-        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
-            print("Force killing...")
-            self?.endBackgroundTask()
-        }
-        assert(backgroundTask != UIBackgroundTaskIdentifier.invalid)
-        print("Background task begun...")
-        callback()
-    }
-    
-    func endBackgroundTask() {
-        if backgroundTask == UIBackgroundTaskIdentifier.invalid {
-            return
-        }
-        UIApplication.shared.endBackgroundTask(backgroundTask)
-        backgroundTask = UIBackgroundTaskIdentifier.invalid
-        print("Background task ended.")
-    }
+//    func registerBackgroundTask(_ callback: () -> Void) {
+//        print("Registering for background...")
+//        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+//            print("Force killing...")
+//            self?.endBackgroundTask()
+//        }
+//        assert(backgroundTask != UIBackgroundTaskIdentifier.invalid)
+//        print("Background task begun...")
+//        callback()
+//    }
+//
+//    func endBackgroundTask() {
+//        if backgroundTask == UIBackgroundTaskIdentifier.invalid {
+//            return
+//        }
+//        UIApplication.shared.endBackgroundTask(backgroundTask)
+//        backgroundTask = UIBackgroundTaskIdentifier.invalid
+//        print("Background task ended.")
+//    }
     
     // MARK: - Enums
 	

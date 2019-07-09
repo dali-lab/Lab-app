@@ -60,6 +60,7 @@ class LightsViewController: UIViewController, UITableViewDelegate,
 		viewHeight.constant = min
 		self.onSwitch.isHidden = true
 		tableView.separatorStyle = .none
+        self.tableView.isScrollEnabled = false
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -133,8 +134,10 @@ class LightsViewController: UIViewController, UITableViewDelegate,
 				} else {
 					viewHeight.constant = max
 				}
+                self.tableView.isScrollEnabled = true
 			} else {
 				viewHeight.constant = min
+                self.tableView.isScrollEnabled = false
 			}
 			
 			sender.setTranslation(CGPoint(x: 0, y: 0), in: self.view)
@@ -151,14 +154,18 @@ class LightsViewController: UIViewController, UITableViewDelegate,
 				if abs(lastTranslation.y) > 2 {
 					// We had some momentum...
 					// If it was negative then it was upwards
-                    animate(toTop: lastTranslation.y < 0, translation: lastTranslation.y, min: min, max: max)
+                    let atTop = lastTranslation.y < 0
+                    animate(toTop: atTop, translation: lastTranslation.y, min: min, max: max)
+                    self.tableView.isScrollEnabled = atTop
 				} else {
 					// No momentum, so we will use whichever is closest
 					// If the space between the bottom and the center is greater than that of the top, then it is closer to the top
-					animate(toTop: abs(min - viewHeight.constant) > abs(max - viewHeight.constant),
+                    let atTop = abs(min - viewHeight.constant) > abs(max - viewHeight.constant)
+					animate(toTop: atTop,
                             translation: nil,
                             min: min,
                             max: max)
+                    self.tableView.isScrollEnabled = atTop
 				}
 			}
 		}
