@@ -33,8 +33,7 @@ class LightsViewColorPickerCell: UITableViewCell {
         colorPicker.frame.origin = CGPoint(x: colorPicker.frame.origin.x, y: 0)
         
         colorPicker.delegate = delegate
-        colorPicker.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        colorPicker.backgroundColor = UIColor.secondarySystemBackground
     }
     
     @objc func colorChanged(_ sender: AnyObject?) {

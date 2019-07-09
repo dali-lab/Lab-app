@@ -28,7 +28,9 @@ class LightsViewController: UIViewController, UITableViewDelegate,
     @IBOutlet weak var allButton: UIButton!
     @IBOutlet weak var podsButton: UIButton!
 	@IBOutlet var overlays: [UIImageView]!
-	
+    @IBOutlet weak var tableViewMask: UIImageView!
+    @IBOutlet weak var cardBackgroundView: UIView!
+    
     var lightGroups: [DALILights.Group] = []
 	var lightsObservation: Observation?
 	var overlayLightsMap: UIImageView?
@@ -61,6 +63,8 @@ class LightsViewController: UIViewController, UITableViewDelegate,
 		self.onSwitch.isHidden = true
 		tableView.separatorStyle = .none
         self.tableView.isScrollEnabled = false
+        tableViewMask.image = tableViewMask.image?.withRenderingMode(.alwaysTemplate)
+        tableViewMask.tintColor = cardBackgroundView.backgroundColor
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -208,7 +212,6 @@ class LightsViewController: UIViewController, UITableViewDelegate,
         case .scenes:
             let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
             cell.textLabel?.text = scenes![indexPath.row].capitalized
-            cell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             
             if scenes![indexPath.row].lowercased() == selectedGroup?.scene?.lowercased() {
                 tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
