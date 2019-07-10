@@ -13,7 +13,8 @@ import CoreBluetooth
 import SCLAlertView
 import DALI
 
-class CheckinViewController: UIViewController, CBPeripheralManagerDelegate, UITableViewDelegate, UITableViewDataSource {
+class CheckinViewController: UIViewController, CBPeripheralManagerDelegate,
+                             UITableViewDelegate, UITableViewDataSource {
 	@IBOutlet weak var beacon1: UIImageView!
 	@IBOutlet weak var beacon2: UIImageView!
 	@IBOutlet weak var titleLabel: UILabel!

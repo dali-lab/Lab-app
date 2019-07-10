@@ -356,6 +356,7 @@
 		526778F022D2418400DBAF97 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				522F31E41F47DA2300B4BEB4 /* iOS.entitlements */,
 				52E9B742202BE6DC00BFD011 /* GoogleService-Info.plist */,
 				5225AE071F606DB400718D12 /* PrivateInformation.plist */,
 				522F31CA1F47D8F100B4BEB4 /* ProximityKit.plist */,
@@ -450,20 +451,19 @@
 		52B138B71F47D4590021D7AE /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				522F31E41F47DA2300B4BEB4 /* iOS.entitlements */,
 				522F31B21F47D8DA00B4BEB4 /* AppDelegate.swift */,
 				526778F422D252E200DBAF97 /* Main */,
 				522F31B71F47D8DA00B4BEB4 /* LoginViewController.swift */,
 				522F31B91F47D8DA00B4BEB4 /* PeopleInLabViewController.swift */,
 				5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */,
 				5231E87B22D3A9800093E306 /* Lights */,
-				52B143E32298A3410092481D /* Background Controllers */,
 				524D86F31F57965100479C0A /* Voting */,
 				529A63281F4E983900BFBFE9 /* Tools and settings */,
 				52F9EE8B21C99E1300341542 /* Equipment Checkout */,
 				522F31CD1F47D8FA00B4BEB4 /* Main.storyboard */,
 				52B138BF1F47D4590021D7AE /* Assets.xcassets */,
 				522F31CC1F47D8FA00B4BEB4 /* LaunchScreen.storyboard */,
+				52B143E32298A3410092481D /* Background Controllers */,
 				526778F022D2418400DBAF97 /* Supporting Files */,
 				526778F122D241A200DBAF97 /* Extensions */,
 			);
