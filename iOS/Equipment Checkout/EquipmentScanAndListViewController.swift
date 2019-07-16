@@ -158,6 +158,8 @@ class EquipmentScanAndListViewController: UIViewController, UIGestureRecognizerD
             qrViewController = dest
         } else if let dest = segue.destination as? EquipmentDetailTableViewController {
             dest.equipment = sender as? DALIEquipment
+        } else if let dest = segue.destination as? EquipmentCreateViewController {
+            dest.scanAndListViewController = self
         }
     }
     

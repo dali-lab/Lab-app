@@ -65,6 +65,9 @@
 		52B138FD1F47D4660021D7AE /* tvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B138FC1F47D4660021D7AE /* tvOSTests.swift */; };
 		52B139081F47D4660021D7AE /* tvOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B139071F47D4660021D7AE /* tvOSUITests.swift */; };
 		52B143E222989F9C0092481D /* CheckInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B143E122989F9C0092481D /* CheckInController.swift */; };
+		52C320B022DD3553003D7C5C /* EquipmentCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C320AF22DD3553003D7C5C /* EquipmentCreateViewController.swift */; };
+		52C320B222DD3A70003D7C5C /* EquipmentCreateIconPickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C320B122DD3A70003D7C5C /* EquipmentCreateIconPickerRow.swift */; };
+		52C320B422DD3B8D003D7C5C /* EquipmentCreateIconPickerRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C320B322DD3B8D003D7C5C /* EquipmentCreateIconPickerRow.xib */; };
 		52CFA210227B67D900C6D7C9 /* EquipmentFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52CFA20F227B67D900C6D7C9 /* EquipmentFilterView.xib */; };
 		52CFA212227B68F300C6D7C9 /* EquipmentFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA211227B68F300C6D7C9 /* EquipmentFilterView.swift */; };
 		52CFA214227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA213227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift */; };
@@ -226,6 +229,9 @@
 		52B139071F47D4660021D7AE /* tvOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSUITests.swift; sourceTree = "<group>"; };
 		52B139091F47D4660021D7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52B143E122989F9C0092481D /* CheckInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInController.swift; sourceTree = "<group>"; };
+		52C320AF22DD3553003D7C5C /* EquipmentCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentCreateViewController.swift; sourceTree = "<group>"; };
+		52C320B122DD3A70003D7C5C /* EquipmentCreateIconPickerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentCreateIconPickerRow.swift; sourceTree = "<group>"; };
+		52C320B322DD3B8D003D7C5C /* EquipmentCreateIconPickerRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentCreateIconPickerRow.xib; sourceTree = "<group>"; };
 		52CFA20F227B67D900C6D7C9 /* EquipmentFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentFilterView.xib; sourceTree = "<group>"; };
 		52CFA211227B68F300C6D7C9 /* EquipmentFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentFilterView.swift; sourceTree = "<group>"; };
 		52CFA213227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentFilterIconCell.swift; sourceTree = "<group>"; };
@@ -547,6 +553,9 @@
 				52F9EE8921C99E0B00341542 /* EquipmentCheckout.storyboard */,
 				526A7CED21C9AD9B00F25E99 /* EquipmentScanAndListViewController.swift */,
 				52ED6E0321CAF06400B201A1 /* EquipmentListViewController.swift */,
+				52C320AF22DD3553003D7C5C /* EquipmentCreateViewController.swift */,
+				52C320B122DD3A70003D7C5C /* EquipmentCreateIconPickerRow.swift */,
+				52C320B322DD3B8D003D7C5C /* EquipmentCreateIconPickerRow.xib */,
 				52ED6E0521CB1F3600B201A1 /* EquipmentCell.swift */,
 				52ED6E0721CB283900B201A1 /* EquipmentDetailTableViewController.swift */,
 				52CFA20F227B67D900C6D7C9 /* EquipmentFilterView.xib */,
@@ -858,6 +867,7 @@
 				522F31CF1F47D8FA00B4BEB4 /* Main.storyboard in Resources */,
 				5225AE081F606DB400718D12 /* PrivateInformation.plist in Resources */,
 				526FDA7420323A09002A1BA1 /* LightsViewColorPickerCell.xib in Resources */,
+				52C320B422DD3B8D003D7C5C /* EquipmentCreateIconPickerRow.xib in Resources */,
 				522F31CE1F47D8FA00B4BEB4 /* LaunchScreen.storyboard in Resources */,
 				52E9B743202BE6DC00BFD011 /* GoogleService-Info.plist in Resources */,
 				52880FA4225582B7009D0F8E /* .swiftlint.yml in Resources */,
@@ -1163,6 +1173,7 @@
 				52ED6E0421CAF06400B201A1 /* EquipmentListViewController.swift in Sources */,
 				526F3627215C5E60002F5CD2 /* QRCodeReaderView+DALIAdditions.m in Sources */,
 				526778F622D2530F00DBAF97 /* MainViewControllerEventCell.swift in Sources */,
+				52C320B222DD3A70003D7C5C /* EquipmentCreateIconPickerRow.swift in Sources */,
 				5210FED9228CA03700099553 /* DALIRegion.swift in Sources */,
 				52CFA214227B6AB600C6D7C9 /* EquipmentFilterIconCell.swift in Sources */,
 				524D86F91F57A0D700479C0A /* UnorderedVotingViewController.swift in Sources */,
@@ -1187,6 +1198,7 @@
 				5251D9E31F4BD7C80020D958 /* CheckinViewController.swift in Sources */,
 				520F85732295C25D00A0F491 /* DALIUIError.swift in Sources */,
 				522F31C01F47D8DA00B4BEB4 /* EnumsAndStructs.swift in Sources */,
+				52C320B022DD3553003D7C5C /* EquipmentCreateViewController.swift in Sources */,
 				5200B9AF2159793A0011DA73 /* CheckOutQRReaderLoadingOverlayView.swift in Sources */,
 				520F85712295BBF700A0F491 /* NotificationsController.swift in Sources */,
 				5231E87F22D3EC1D0093E306 /* TrackingModule.swift in Sources */,

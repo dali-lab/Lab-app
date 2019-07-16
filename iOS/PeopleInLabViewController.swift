@@ -105,7 +105,7 @@ class PeopleInLabViewController: UITableViewController {
     // MARK: - Helpers
     
     func reloadData() {
-        timObserver = DALILocation.Tim.observe { (tim, error) in
+        timObserver = DALILocation.Tim.observe { (_, error) in
             if let error = error {
                 print("Error: \(error)")
                 return
@@ -132,6 +132,5 @@ class PeopleInLabViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }
-        
     }
 }
