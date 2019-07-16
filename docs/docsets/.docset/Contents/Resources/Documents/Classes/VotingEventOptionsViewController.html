@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VotingEventOptionsViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/VotingEventOptionsViewController" class="dashAnchor"></a>
+    <a title="VotingEventOptionsViewController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (9% documented)</p>
+        <p class="header-right"><a href="https://github.com/dali-lab/Lab-app"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        VotingEventOptionsViewController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BeaconController.html">BeaconController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BeaconController/BeaconError.html">– BeaconError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CalendarController.html">CalendarController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckInController.html">CheckInController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckOutCell.html">CheckOutCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckOutQRReaderLoadingOverlayView.html">CheckOutQRReaderLoadingOverlayView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckOutQRViewController.html">CheckOutQRViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CheckinViewController.html">CheckinViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ColorPickerCell.html">ColorPickerCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CornerRadiusAndShadowView.html">CornerRadiusAndShadowView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DALIUIError.html">DALIUIError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DALIUIError/Notifications.html">– Notifications</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DatePickerViewController.html">DatePickerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentCell.html">EquipmentCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentDetailTableViewCell.html">EquipmentDetailTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentDetailTableViewController.html">EquipmentDetailTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentFilterIconCell.html">EquipmentFilterIconCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentFilterView.html">EquipmentFilterView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentListViewController.html">EquipmentListViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentListViewController/Section.html">– Section</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentScanAndListViewController.html">EquipmentScanAndListViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EquipmentScanAndListViewController/CardPostion.html">– CardPostion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventCell.html">EventCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HasVotedViewController.html">HasVotedViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LightsViewController.html">LightsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LoginViewController.html">LoginViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MainViewController.html">MainViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewEventViewController.html">NewEventViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewVotingEventConfigViewController.html">NewVotingEventConfigViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewVotingEventViewController.html">NewVotingEventViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NotificationsController.html">NotificationsController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OrderedVotingViewController.html">OrderedVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PeopleInLabViewController.html">PeopleInLabViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResultsVotingViewController.html">ResultsVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SettingsController.html">SettingsController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TitleCell.html">TitleCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ToolsAndSettingsViewController.html">ToolsAndSettingsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TopLevelVotingViewController.html">TopLevelVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UnorderedVotingViewController.html">UnorderedVotingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingEventCell.html">VotingEventCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingEventManagerViewController.html">VotingEventManagerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingEventOptionsViewController.html">VotingEventOptionsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingHelper.html">VotingHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingHelper/AuthorizationErrors.html">– AuthorizationErrors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingOptionCell.html">VotingOptionCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VotingOrderCell.html">VotingOrderCell</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS11abvWeekDaysSaySSGvp">abvWeekDays</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS14checkInRangeIDSSvp">checkInRangeID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS3envSDySSypGvp">env</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:3iOS8signedInSbvp">signedIn</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ActionButtonType.html">ActionButtonType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CellConfiguration.html">CellConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DALIRegion.html">DALIRegion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DALIRegion/State.html">– State</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Future.html">Future</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSCoder.html">NSCoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification.html">Notification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification/Name.html">– Name</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Sequence.html">Sequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIAlertController.html">UIAlertController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:3iOS9userIsTim0B0Sb4DALI10DALIMemberCSg_tF">userIsTim(user:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:3iOS9userIsTim0B0SbSo13GIDGoogleUserC_tF">userIsTim(user:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AlertShower.html">AlertShower</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ErrorAlertShower.html">ErrorAlertShower</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>VotingEventOptionsViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">VotingEventOptionsViewController</span> <span class="p">:</span> <span class="kt">UITableViewController</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)VotingEventOptionsViewController(py)releaseButton"></a>
+                    <a name="//apple_ref/swift/Property/releaseButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)VotingEventOptionsViewController(py)releaseButton">releaseButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span>
+<span class="k">weak</span> <span class="k">var</span> <span class="nv">releaseButton</span><span class="p">:</span> <span class="kt">UIBarButtonItem</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS32VotingEventOptionsViewControllerC5event4DALI9DALIEventC0bC0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/event" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS32VotingEventOptionsViewControllerC5event4DALI9DALIEventC0bC0CSgvp">event</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">DALIEvent</span><span class="o">.</span><span class="kt">VotingEvent</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS32VotingEventOptionsViewControllerC7optionsSay4DALI9DALIEventC0bC0C6OptionVGvp"></a>
+                    <a name="//apple_ref/swift/Property/options" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS32VotingEventOptionsViewControllerC7optionsSay4DALI9DALIEventC0bC0C6OptionVGvp">options</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">options</span><span class="p">:</span> <span class="p">[</span><span class="kt">DALIEvent</span><span class="o">.</span><span class="kt">VotingEvent</span><span class="o">.</span><span class="kt">Option</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS32VotingEventOptionsViewControllerC8delegateAA0bc7ManagereF0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS32VotingEventOptionsViewControllerC8delegateAA0bc7ManagereF0CSgvp">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Classes/VotingEventManagerViewController.html">VotingEventManagerViewController</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)viewDidLoad"></a>
+                    <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)viewDidLoad">viewDidLoad()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)viewWillDisappear:"></a>
+                    <a name="//apple_ref/swift/Method/viewWillDisappear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)viewWillDisappear:">viewWillDisappear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)viewWillAppear:"></a>
+                    <a name="//apple_ref/swift/Method/viewWillAppear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)viewWillAppear:">viewWillAppear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)tableView:canEditRowAtIndexPath:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:canEditRowAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)tableView:canEditRowAtIndexPath:">tableView(_:canEditRowAt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">canEditRowAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)tableView:commitEditingStyle:forRowAtIndexPath:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:commit:forRowAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)tableView:commitEditingStyle:forRowAtIndexPath:">tableView(_:commit:forRowAt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span>
+                           <span class="n">commit</span> <span class="nv">editingStyle</span><span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">.</span><span class="kt">EditingStyle</span><span class="p">,</span>
+                           <span class="n">forRowAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)release:"></a>
+                    <a name="//apple_ref/swift/Method/release(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)release:">release(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBAction</span>
+<span class="kd">func</span> <span class="nf">release</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIBarButtonItem</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)tableView:cellForRowAtIndexPath:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:cellForRowAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)tableView:cellForRowAtIndexPath:">tableView(_:cellForRowAt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">cellForRowAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UITableViewCell</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS32VotingEventOptionsViewControllerC8addAward6option9textFieldySi_So06UITextK0CtF"></a>
+                    <a name="//apple_ref/swift/Method/addAward(option:textField:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS32VotingEventOptionsViewControllerC8addAward6option9textFieldySi_So06UITextK0CtF">addAward(option:textField:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addAward</span><span class="p">(</span><span class="n">option</span> <span class="nv">optIndex</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">textField</span><span class="p">:</span> <span class="kt">UITextField</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS32VotingEventOptionsViewControllerC11removeAward6option5awardySi_SStF"></a>
+                    <a name="//apple_ref/swift/Method/removeAward(option:award:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS32VotingEventOptionsViewControllerC11removeAward6option5awardySi_SStF">removeAward(option:award:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeAward</span><span class="p">(</span><span class="n">option</span> <span class="nv">optIndex</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">award</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3iOS32VotingEventOptionsViewControllerC9newOption9textFieldySo06UITextJ0C_tF"></a>
+                    <a name="//apple_ref/swift/Method/newOption(textField:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3iOS32VotingEventOptionsViewControllerC9newOption9textFieldySo06UITextJ0C_tF">newOption(textField:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">newOption</span><span class="p">(</span><span class="nv">textField</span><span class="p">:</span> <span class="kt">UITextField</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)tableView:didSelectRowAtIndexPath:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:didSelectRowAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)tableView:didSelectRowAtIndexPath:">tableView(_:didSelectRowAt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">didSelectRowAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)tableView:heightForRowAtIndexPath:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:heightForRowAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)tableView:heightForRowAtIndexPath:">tableView(_:heightForRowAt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">heightForRowAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)tableView:numberOfRowsInSection:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:numberOfRowsInSection:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)tableView:numberOfRowsInSection:">tableView(_:numberOfRowsInSection:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">numberOfRowsInSection</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)numberOfSectionsInTableView:"></a>
+                    <a name="//apple_ref/swift/Method/numberOfSections(in:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@iOS@objc(cs)VotingEventOptionsViewController(im)numberOfSectionsInTableView:">numberOfSections(in:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">numberOfSections</span><span class="p">(</span><span class="k">in</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external">DALI Lab</a>. All rights reserved. (Last updated: 2019-07-07)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

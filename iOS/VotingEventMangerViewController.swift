@@ -40,7 +40,7 @@ class VotingEventManagerViewController: UITableViewController {
         }.mainThreadFuture.onSuccess { (_) in
             self.tableView.reloadData()
         }.onFail { _ in
-            // TODO: Do something about this error
+            // FIXME: Do something about this error
         }
 	}
 	

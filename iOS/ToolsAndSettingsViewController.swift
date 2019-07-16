@@ -24,9 +24,9 @@ class ToolsAndSettingsViewController: UITableViewController, AlertShower, QRCode
 		let user = GIDSignIn.sharedInstance().currentUser
 		signOutCell.textLabel?.text = user == nil ? "Sign In" : "Sign out"
 		
-		enterSwitch.isOn = SettingsController.getEnterExitNotif()
-		checkInSwitch.isOn = SettingsController.getCheckInNotif()
-		votingSwitch.isOn = SettingsController.getVotingNotif()
+		enterSwitch.isOn = SettingsController.enterExitNotificationsEnabled
+		checkInSwitch.isOn = SettingsController.checkInNotificationsEnabled
+		votingSwitch.isOn = SettingsController.votingNotificationsEnabled
 		shareSwitch.isOn = DALILocation.sharing
 		
         _ = DALIFood.getFood().mainThreadFuture.onSuccess { (food) in
@@ -40,16 +40,27 @@ class ToolsAndSettingsViewController: UITableViewController, AlertShower, QRCode
 			if sender.isOn {
 				UserDefaults.standard.set(false, forKey: "noNotificationsSelected")
 			}
-			AppDelegate.shared.setUpNotificationListeners()
+			NotificationsController.shared.setUpNotificationListeners()
 			
-			SettingsController.set(sender.isOn, forKey: sender.accessibilityLabel!)
+            switch sender {
+            case checkInSwitch:
+                SettingsController.checkInNotificationsEnabled = sender.isOn
+            case votingSwitch:
+                SettingsController.votingNotificationsEnabled = sender.isOn
+            case enterSwitch:
+                SettingsController.enterExitNotificationsEnabled = sender.isOn
+            default:
+                break
+            }
 		} else {
 			DALILocation.sharing = sender.isOn
 		}
 	}
 	
 	func showAlert(alert: SCLAlertView, title: String, subTitle: String, color: UIColor, image: UIImage) {
-		_ = alert.showCustom(title, subTitle: subTitle, color: color, icon: image)
+        DispatchQueue.main.async {
+            _ = alert.showCustom(title, subTitle: subTitle, color: color, icon: image)
+        }
 	}
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {
@@ -97,25 +108,5 @@ class ToolsAndSettingsViewController: UITableViewController, AlertShower, QRCode
 			
 			tableView.deselectRow(at: indexPath, animated: true)
 		}
-	}
-}
-
-class SettingsController {
-	private static let defaults = UserDefaults(suiteName: "Settings")!
-	
-	static func set(_ bool: Bool, forKey key: String) {
-		defaults.set(bool, forKey: key)
-	}
-	
-	static func getEnterExitNotif() -> Bool {
-		return defaults.value(forKey: "enterExitNotification") != nil ? defaults.bool(forKey: "enterExitNotification") : false
-	}
-	
-	static func getCheckInNotif() -> Bool {
-		return defaults.value(forKey: "checkInNotification") != nil ? defaults.bool(forKey: "checkInNotification") : true
-	}
-	
-	static func getVotingNotif() -> Bool {
-		return defaults.value(forKey: "votingNotification") != nil ? defaults.bool(forKey: "votingNotification") : true
 	}
 }

@@ -29,17 +29,17 @@ class SlideShowViewController: UIViewController, ViewProtocol {
 	var nextImageIndex = 0
 	
 	override func viewDidLoad() {
-		DALIPhoto.get { (photos, _) in
-			self.photos = photos
-			self.showRandomAll()
-			
-			self.timer = Timer(timeInterval: 20,
+        DALIPhoto.get().onSuccess { (photos) in
+            self.photos = photos
+            self.showRandomAll()
+            
+            self.timer = Timer(timeInterval: 20,
                                target: self,
                                selector: #selector(self.showRandom),
                                userInfo: nil,
                                repeats: true)
-			RunLoop.main.add(self.timer, forMode: RunLoopMode.commonModes)
-		}
+            RunLoop.main.add(self.timer, forMode: RunLoopMode.commonModes)
+        }
 		
 		observation = DALILocation.observeMemberEnter { (member) in
 			self.showOverlay(member: member.name)

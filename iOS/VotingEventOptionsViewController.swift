@@ -74,7 +74,7 @@ class VotingEventOptionsViewController: UITableViewController {
 		for option in options { awards += option.awards?.count ?? 0 }
 		
 		if awards == 0 {
-			SCLAlertView().showError("Need One", subTitle: "Need at least one award to release the awards")
+			SCLAlertView().showError("Need One ☝️", subTitle: "Need at least one award to release the awards")
 			return
 		}
 		

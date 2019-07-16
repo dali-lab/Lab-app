@@ -11,17 +11,15 @@ import UIKit
 import DALI
 
 class PeopleInLabViewController: UITableViewController {
-	
-	var timLocation = "Loading..."
-	var timLocationLabel: UILabel?
+    let indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
 	var members: [DALIMember]?
-	var indicator = UIActivityIndicatorView()
 	
 	var sharedObserver: Observation?
 	var timObserver: Observation?
+    
+    // MARK: - Lifecycle
 	
 	override func viewDidLoad() {
-		indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
 		indicator.style = UIActivityIndicatorView.Style.gray
 		indicator.center = self.view.center
 		self.view.addSubview(indicator)
@@ -38,49 +36,16 @@ class PeopleInLabViewController: UITableViewController {
 		sharedObserver?.stop()
 		timObserver?.stop()
 	}
-	
-	func reloadData() {
-		timObserver = DALILocation.Tim.observe { (tim, error) in
-			if let error = error {
-				print("Error: \(error)")
-				return
-			}
-			
-			guard let tim = tim else {
-				return
-			}
-			DispatchQueue.main.async {
-				if tim.inDALI {
-					self.timLocation = "In DALI"
-				} else if tim.inOffice {
-					self.timLocation = "In his office"
-				} else {
-					self.timLocation = "Location unknown"
-				}
-				
-				self.tableView.reloadData()
-			}
-		}
-		
-		sharedObserver = DALILocation.Shared.observe { (members, error) in
-			if let error = error {
-				print("Error: \(error)")
-				return
-			}
-			
-			guard let members = members else {
-				return
-			}
-			
-			self.members = members
-			DispatchQueue.main.async {
-				self.indicator.stopAnimating()
-				self.indicator.hidesWhenStopped = true
-				self.tableView.reloadData()
-			}
-		}
-		
-	}
+    
+    // MARK: - Actions
+    
+    @IBAction func donePressed(_ sender: Any) {
+        self.navigationController?.dismiss(animated: true) {
+            
+        }
+    }
+    
+    // MARK: - UITableViewDelegate
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if section == 0 {
@@ -117,8 +82,13 @@ class PeopleInLabViewController: UITableViewController {
 			cell = tableView.dequeueReusableCell(withIdentifier: "timCell", for: indexPath)
 			
 			cell?.textLabel?.text = "Tim Tregubov"
-			cell?.detailTextLabel?.text = self.timLocation
-			self.timLocationLabel = cell?.detailTextLabel
+            var text = "Location unknown"
+            if DALILocation.Tim.current?.inDALI ?? false {
+                text = "In DALI"
+            } else if DALILocation.Tim.current?.inOffice ?? false {
+                text = "In Office"
+            }
+			cell?.detailTextLabel?.text = text
 			
 		case 1:
 			cell = tableView.dequeueReusableCell(withIdentifier: "memberCell", for: indexPath)
@@ -131,10 +101,37 @@ class PeopleInLabViewController: UITableViewController {
 		
 		return cell!
 	}
-	
-	@IBAction func donePressed(_ sender: Any) {
-		self.navigationController?.dismiss(animated: true) {
-			
-		}
-	}
+    
+    // MARK: - Helpers
+    
+    func reloadData() {
+        timObserver = DALILocation.Tim.observe { (tim, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
+        sharedObserver = DALILocation.Shared.observe { (members, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            
+            guard let members = members else {
+                return
+            }
+            
+            self.members = members
+            DispatchQueue.main.async {
+                self.indicator.stopAnimating()
+                self.indicator.hidesWhenStopped = true
+                self.tableView.reloadData()
+            }
+        }
+        
+    }
 }

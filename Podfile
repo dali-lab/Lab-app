@@ -7,7 +7,6 @@ target 'iOS' do
   inhibit_all_warnings!
   
   pod 'Google/SignIn'
-  pod 'ProximityKit', '~> 1.2'
   pod 'SCLAlertView'
   pod 'Eureka'
   pod 'Crashlytics'
@@ -18,6 +17,8 @@ target 'iOS' do
   pod 'OneSignal', '>= 2.5.2', '< 3.0'
   pod 'FutureKit'
   pod 'Alamofire'
+  pod 'Log'
+  pod 'SwiftLint'
   pod 'RLBAlertsPickers', :git => 'https://github.com/loicgriffie/Alerts-Pickers.git', :branch => 'master'
 
   # Pods for DALI Lab

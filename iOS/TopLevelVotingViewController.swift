@@ -86,7 +86,7 @@ class TopLevelVotingViewController: UITableViewController {
     }
     
     @objc func eventVoteEnteredOrExited(notification: NSNotification) {
-        let entering = notification.userInfo?["entering"] as? Bool ?? false
+//        let entering = notification.userInfo?["entering"] as? Bool ?? false
         // Do work ...
     }
 	

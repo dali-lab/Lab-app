@@ -1,0 +1,1 @@
+jazzy --min-acl private --xcodebuild-arguments -workspace,DALI\ Lab.xcworkspace,-scheme,iOS,CODE_SIGNING_ALLOWED=NO --author DALI\ Lab --github_url https://github.com/dali-lab/Lab-app

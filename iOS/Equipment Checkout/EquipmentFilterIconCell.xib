@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="WJr-I3-Ryp" customClass="EquipmentFilterIconCell" customModule="iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="154" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="154" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ta-cl-9p2">
+                        <rect key="frame" x="0.0" y="0.0" width="154" height="150"/>
+                        <color key="backgroundColor" red="0.36862745099999999" green="0.81960784310000001" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ipad" translatesAutoresizingMaskIntoConstraints="NO" id="8m0-Ua-sjr">
+                        <rect key="frame" x="6" y="6" width="142" height="138"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="1ta-cl-9p2" secondAttribute="bottom" id="45Y-K0-MS9"/>
+                <constraint firstItem="8m0-Ua-sjr" firstAttribute="leading" secondItem="WJr-I3-Ryp" secondAttribute="leading" constant="6" id="JlB-kw-eA5"/>
+                <constraint firstAttribute="bottom" secondItem="8m0-Ua-sjr" secondAttribute="bottom" constant="6" id="Zwm-gG-OBP"/>
+                <constraint firstItem="1ta-cl-9p2" firstAttribute="top" secondItem="WJr-I3-Ryp" secondAttribute="top" id="hW8-sB-Ka7"/>
+                <constraint firstAttribute="trailing" secondItem="1ta-cl-9p2" secondAttribute="trailing" id="hkr-Pm-dt4"/>
+                <constraint firstItem="8m0-Ua-sjr" firstAttribute="top" secondItem="WJr-I3-Ryp" secondAttribute="top" constant="6" id="nzh-wP-a9C"/>
+                <constraint firstItem="1ta-cl-9p2" firstAttribute="leading" secondItem="WJr-I3-Ryp" secondAttribute="leading" id="tio-nP-k8u"/>
+                <constraint firstAttribute="trailing" secondItem="8m0-Ua-sjr" secondAttribute="trailing" constant="6" id="wKJ-Fn-jMT"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="gZj-sM-1z1"/>
+            <size key="customSize" width="154" height="150"/>
+            <connections>
+                <outlet property="image" destination="8m0-Ua-sjr" id="WPh-SC-5KO"/>
+                <outlet property="selectionView" destination="1ta-cl-9p2" id="rwD-Zi-Mvr"/>
+            </connections>
+            <point key="canvasLocation" x="-53.623188405797109" y="-18.75"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ipad" width="345" height="490"/>
+    </resources>
+</document>

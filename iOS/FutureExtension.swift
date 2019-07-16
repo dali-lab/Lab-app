@@ -10,6 +10,7 @@ import Foundation
 import FutureKit
 
 extension Future {
+    /// Creates a new future which will be completed on the main thread only
     public var mainThreadFuture: Future<T> {
         let promise = Promise<T>()
         self.onSuccess { (value) in

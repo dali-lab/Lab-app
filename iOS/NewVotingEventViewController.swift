@@ -45,7 +45,7 @@ class NewVotingEventViewController: UITableViewController {
             })
             self.tableView.reloadData()
         }.onFail { _ in
-            // TODO: handle error
+            // FIXME: handle error
         }
 	}
 	
