@@ -100,7 +100,7 @@ extension BackgroundSession: URLSessionDelegate {
     }
     
     func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
-        print(error)
+        print(error?.localizedDescription ?? "No error")
     }
 }
 

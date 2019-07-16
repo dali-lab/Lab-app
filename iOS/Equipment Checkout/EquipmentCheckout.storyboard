@@ -113,9 +113,14 @@
                         <viewLayoutGuide key="safeArea" id="pxu-sZ-9x7"/>
                     </view>
                     <navigationItem key="navigationItem" id="atO-zI-utU">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Tu8-r3-pGd">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="Tu8-r3-pGd">
                             <connections>
                                 <action selector="doneButtonPressed:" destination="QfY-Bm-hyi" id="D1m-W3-dsS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0Ms-sc-5AB">
+                            <connections>
+                                <segue destination="DYv-TB-2Z4" kind="show" id="hgo-Bg-DY0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -188,6 +193,21 @@
             </objects>
             <point key="canvasLocation" x="1412" y="651.35467980295573"/>
         </scene>
+        <!--Equipment Create View Controller-->
+        <scene sceneID="NN2-b2-t36">
+            <objects>
+                <viewController id="DYv-TB-2Z4" customClass="EquipmentCreateViewController" customModule="iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iJw-2M-7E8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fwX-oq-WGa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hUs-gd-abD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2241" y="-673"/>
+        </scene>
         <!--Equipment List View Controller-->
         <scene sceneID="3eO-9a-L1l">
             <objects>
@@ -200,7 +220,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="716.33333333333337"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="checkOutCell" id="f6A-ec-NxS" customClass="EquipmentCell" customModule="iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="checkOutCell" id="f6A-ec-NxS" customClass="EquipmentCell" customModule="iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f6A-ec-NxS" id="5Om-AH-08b">
@@ -216,22 +236,22 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="wae-TQ-jfk">
-                                                    <rect key="frame" x="56" y="15" width="499" height="65"/>
+                                                    <rect key="frame" x="56" y="15" width="274" height="65"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Maticulous Manatee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uP4-Ra-wE9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="499" height="20.333333333333332"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="274" height="20.333333333333332"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Expected return: Wednesday, Jan. 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1K2-vV-n2C">
-                                                            <rect key="frame" x="0.0" y="24.333333333333336" width="499" height="22.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="24.333333333333336" width="274" height="22.333333333333336"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Checked out: John Kotz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="177-Sk-PPU">
-                                                            <rect key="frame" x="0.0" y="50.666666666666671" width="499" height="14.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="50.666666666666671" width="274" height="14.333333333333329"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -305,7 +325,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="W59-lE-l1t">
-                                            <rect key="frame" x="8" y="16.000000000000007" width="359" height="115.66666666666669"/>
+                                            <rect key="frame" x="8" y="16" width="359" height="115.66666666666669"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ipad pro" translatesAutoresizingMaskIntoConstraints="NO" id="3PK-yk-7Xs">
                                                     <rect key="frame" x="0.0" y="0.0" width="359" height="62.333333333333336"/>
