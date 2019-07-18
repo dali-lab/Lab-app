@@ -143,6 +143,20 @@ class EquipmentCreateViewController: FormViewController {
                 })
             }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        guard DALIMember.current?.isAdmin ?? false else {
+            let alert = UIAlertController(title: "Admins Only",
+                                          message: "Creating new equipment can only be done by an admin." +
+                                                   " Contact core or staff to register a new device",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel) { (_) in
+                self.navigationController?.popViewController(animated: true)
+            })
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+    }
 }
 
 extension UINavigationController {
