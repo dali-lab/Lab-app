@@ -193,7 +193,7 @@ class LightsViewController: UIViewController, UITableViewDelegate,
     func tableView(_ tableView: UITableView, numberOfRowsInSection sectionNum: Int) -> Int {
         switch sectionFor(sectionNum) {
         case .scenes:
-            return selectedGroup != nil ? selectedGroup!.scenes.count : 0
+            return selectedGroup?.scenes.count ?? 0
         case .color:
             return selectedGroup != nil ? 1 : 0
         }
