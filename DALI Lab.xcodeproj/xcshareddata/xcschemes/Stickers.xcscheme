@@ -43,13 +43,23 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "526A5F9D22ECB2D5001A96FA"
+               BuildableName = "DALITests.xctest"
+               BlueprintName = "DALITests"
+               ReferencedContainer = "container:DALI Lab.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52E2F4331F853FEE00CED245"
-            BuildableName = "Stickers.appex"
-            BlueprintName = "Stickers"
+            BlueprintIdentifier = "52B138B51F47D4590021D7AE"
+            BuildableName = "iOS.app"
+            BlueprintName = "iOS"
             ReferencedContainer = "container:DALI Lab.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -44,10 +44,29 @@
 		524D86FB1F57A0E100479C0A /* OrderedVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86FA1F57A0E100479C0A /* OrderedVotingViewController.swift */; };
 		524D86FD1F57A3F400479C0A /* ResultsVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D86FC1F57A3F400479C0A /* ResultsVotingViewController.swift */; };
 		5251D9E31F4BD7C80020D958 /* CheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */; };
+		525CFB8B22ECBC76002AA2BE /* CheckOutRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CFB8A22ECBC76002AA2BE /* CheckOutRecord.swift */; };
 		5260330C21CF15690089D5E6 /* FutureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5260330B21CF15690089D5E6 /* FutureExtension.swift */; };
 		526778F322D250F900DBAF97 /* MainViewControllerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526778F222D250F900DBAF97 /* MainViewControllerHeaderView.swift */; };
 		526778F622D2530F00DBAF97 /* MainViewControllerEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526778F522D2530F00DBAF97 /* MainViewControllerEventCell.swift */; };
 		526778F822D255A600DBAF97 /* SCLAlertView+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526778F722D255A600DBAF97 /* SCLAlertView+Appearance.swift */; };
+		526A5F9F22ECB2D5001A96FA /* DALI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526A5F9622ECB2D5001A96FA /* DALI.framework */; };
+		526A5FA622ECB2D5001A96FA /* DALITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A5FA522ECB2D5001A96FA /* DALITests.swift */; };
+		526A5FA822ECB2D5001A96FA /* DALI.h in Headers */ = {isa = PBXBuildFile; fileRef = 526A5F9822ECB2D5001A96FA /* DALI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		526A5FAB22ECB2D5001A96FA /* DALI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526A5F9622ECB2D5001A96FA /* DALI.framework */; };
+		526A5FAC22ECB2D5001A96FA /* DALI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 526A5F9622ECB2D5001A96FA /* DALI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		526A5FC122ECB2FB001A96FA /* DALIMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A5FB422ECB2FA001A96FA /* DALIMember.swift */; };
+		526A5FC222ECB2FB001A96FA /* ServerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A5FB522ECB2FA001A96FA /* ServerCommunicator.swift */; };
+		526A5FC322ECB2FB001A96FA /* DALIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A5FB622ECB2FA001A96FA /* DALIConfig.swift */; };
+		526A5FC422ECB2FB001A96FA /* DALILights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A5FB722ECB2FA001A96FA /* DALILights.swift */; };
+		526A5FC522ECB2FB001A96FA /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A5FB822ECB2FA001A96FA /* Enumerations.swift */; };
+		526A5FC622ECB2FB001A96FA /* DALIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A5FB922ECB2FA001A96FA /* DALIErrors.swift */; };
+		526A5FC722ECB2FB001A96FA /* DALIEquipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A5FBA22ECB2FA001A96FA /* DALIEquipment.swift */; };
+		526A5FC822ECB2FB001A96FA /* DALILocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A5FBB22ECB2FA001A96FA /* DALILocation.swift */; };
+		526A5FC922ECB2FB001A96FA /* DALIFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A5FBC22ECB2FA001A96FA /* DALIFood.swift */; };
+		526A5FCA22ECB2FB001A96FA /* DALIPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A5FBD22ECB2FA001A96FA /* DALIPhoto.swift */; };
+		526A5FCB22ECB2FB001A96FA /* DALIEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A5FBE22ECB2FA001A96FA /* DALIEvent.swift */; };
+		526A5FCC22ECB2FB001A96FA /* DALIapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A5FBF22ECB2FB001A96FA /* DALIapi.swift */; };
+		526A5FCD22ECB2FB001A96FA /* DALIProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A5FC022ECB2FB001A96FA /* DALIProject.swift */; };
 		526A7CEE21C9AD9B00F25E99 /* EquipmentScanAndListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A7CED21C9AD9B00F25E99 /* EquipmentScanAndListViewController.swift */; };
 		526F3627215C5E60002F5CD2 /* QRCodeReaderView+DALIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5203FF1F2150422C00A406E3 /* QRCodeReaderView+DALIAdditions.m */; };
 		526F362B215C5F23002F5CD2 /* DatePickerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F362A215C5F23002F5CD2 /* DatePickerAlert.swift */; };
@@ -84,12 +103,34 @@
 		52FA82E61F7350E900CEC807 /* SlideShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA82E51F7350E900CEC807 /* SlideShowViewController.swift */; };
 		60B9E4DD07D51BAB7BAB009E /* Pods_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFBC5F89C445633AFBD4EAD /* Pods_tvOSTests.framework */; };
 		6E56A1523425CD44DBF04B5B /* Pods_tvOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E06F4B7AF9FBEC4DC8DCC919 /* Pods_tvOSUITests.framework */; };
+		86812BECB82AF577E06654FC /* Pods_DALI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C76D06BC42BC80489FBF7509 /* Pods_DALI.framework */; };
 		A729DF33C2BA9A4D7EBB98BD /* Pods_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7045FE4735BC436C030988C8 /* Pods_iOSTests.framework */; };
 		AF3514C21CD5A4E26B64FDBF /* Pods_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 062FA5BDE3125B48ADB5510D /* Pods_iOS.framework */; };
 		C631B1D59E8D1E5232DFB5FD /* Pods_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18558C014FD8296488A99C79 /* Pods_tvOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		526A5FA022ECB2D5001A96FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52B138471F47D39B0021D7AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 526A5F9522ECB2D5001A96FA;
+			remoteInfo = DALI;
+		};
+		526A5FA222ECB2D5001A96FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52B138471F47D39B0021D7AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B138B51F47D4590021D7AE;
+			remoteInfo = iOS;
+		};
+		526A5FA922ECB2D5001A96FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52B138471F47D39B0021D7AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 526A5F9522ECB2D5001A96FA;
+			remoteInfo = DALI;
+		};
 		52B138CA1F47D4590021D7AE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 52B138471F47D39B0021D7AE /* Project object */;
@@ -128,6 +169,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		526A5FB222ECB2D5001A96FA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				526A5FAC22ECB2D5001A96FA /* DALI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52B139201F47D47C0021D7AE /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -156,6 +208,7 @@
 		38F9423ACD748D9DBDD7C198 /* Pods-tvOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tvOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tvOSUITests/Pods-tvOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		40CC816FA24F8E106E9DDD55 /* Pods-iOS-OneSignalNotification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-OneSignalNotification.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-OneSignalNotification/Pods-iOS-OneSignalNotification.debug.xcconfig"; sourceTree = "<group>"; };
 		439D3A8726F67BB493B1A183 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DC9C267DB494773FCC8E769 /* Pods-DALI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DALI.release.xcconfig"; path = "Pods/Target Support Files/Pods-DALI/Pods-DALI.release.xcconfig"; sourceTree = "<group>"; };
 		5200B9AE2159793A0011DA73 /* CheckOutQRReaderLoadingOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutQRReaderLoadingOverlayView.swift; sourceTree = "<group>"; };
 		5203FF1D21503A9B00A406E3 /* CheckOutQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutQRViewController.swift; sourceTree = "<group>"; };
 		5203FF1F2150422C00A406E3 /* QRCodeReaderView+DALIAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "QRCodeReaderView+DALIAdditions.m"; sourceTree = "<group>"; };
@@ -197,10 +250,30 @@
 		524D86FA1F57A0E100479C0A /* OrderedVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedVotingViewController.swift; sourceTree = "<group>"; };
 		524D86FC1F57A3F400479C0A /* ResultsVotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsVotingViewController.swift; sourceTree = "<group>"; };
 		5251D9E21F4BD7C80020D958 /* CheckinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinViewController.swift; sourceTree = "<group>"; };
+		525CFB8A22ECBC76002AA2BE /* CheckOutRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutRecord.swift; sourceTree = "<group>"; };
 		5260330B21CF15690089D5E6 /* FutureExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureExtension.swift; sourceTree = "<group>"; };
 		526778F222D250F900DBAF97 /* MainViewControllerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerHeaderView.swift; sourceTree = "<group>"; };
 		526778F522D2530F00DBAF97 /* MainViewControllerEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerEventCell.swift; sourceTree = "<group>"; };
 		526778F722D255A600DBAF97 /* SCLAlertView+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCLAlertView+Appearance.swift"; sourceTree = "<group>"; };
+		526A5F9622ECB2D5001A96FA /* DALI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DALI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		526A5F9822ECB2D5001A96FA /* DALI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DALI.h; sourceTree = "<group>"; };
+		526A5F9922ECB2D5001A96FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		526A5F9E22ECB2D5001A96FA /* DALITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DALITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		526A5FA522ECB2D5001A96FA /* DALITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DALITests.swift; sourceTree = "<group>"; };
+		526A5FA722ECB2D5001A96FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		526A5FB422ECB2FA001A96FA /* DALIMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DALIMember.swift; sourceTree = "<group>"; };
+		526A5FB522ECB2FA001A96FA /* ServerCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCommunicator.swift; sourceTree = "<group>"; };
+		526A5FB622ECB2FA001A96FA /* DALIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DALIConfig.swift; sourceTree = "<group>"; };
+		526A5FB722ECB2FA001A96FA /* DALILights.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DALILights.swift; sourceTree = "<group>"; };
+		526A5FB822ECB2FA001A96FA /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
+		526A5FB922ECB2FA001A96FA /* DALIErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DALIErrors.swift; sourceTree = "<group>"; };
+		526A5FBA22ECB2FA001A96FA /* DALIEquipment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DALIEquipment.swift; sourceTree = "<group>"; };
+		526A5FBB22ECB2FA001A96FA /* DALILocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DALILocation.swift; sourceTree = "<group>"; };
+		526A5FBC22ECB2FA001A96FA /* DALIFood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DALIFood.swift; sourceTree = "<group>"; };
+		526A5FBD22ECB2FA001A96FA /* DALIPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DALIPhoto.swift; sourceTree = "<group>"; };
+		526A5FBE22ECB2FA001A96FA /* DALIEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DALIEvent.swift; sourceTree = "<group>"; };
+		526A5FBF22ECB2FB001A96FA /* DALIapi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DALIapi.swift; sourceTree = "<group>"; };
+		526A5FC022ECB2FB001A96FA /* DALIProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DALIProject.swift; sourceTree = "<group>"; };
 		526A7CED21C9AD9B00F25E99 /* EquipmentScanAndListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentScanAndListViewController.swift; sourceTree = "<group>"; };
 		526F362A215C5F23002F5CD2 /* DatePickerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerAlert.swift; sourceTree = "<group>"; };
 		526FDA7320323A09002A1BA1 /* LightsViewColorPickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LightsViewColorPickerCell.xib; sourceTree = "<group>"; };
@@ -210,6 +283,7 @@
 		529A63261F4E90DF00BFBFE9 /* NewVotingEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVotingEventViewController.swift; sourceTree = "<group>"; };
 		529A63291F4E98FA00BFBFE9 /* NewVotingEventConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVotingEventConfigViewController.swift; sourceTree = "<group>"; };
 		529A632B1F4EBC3400BFBFE9 /* VotingEventOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingEventOptionsViewController.swift; sourceTree = "<group>"; };
+		52A33CBA22ECB42F0023E661 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B138B61F47D4590021D7AE /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B138BF1F47D4590021D7AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52B138C41F47D4590021D7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -259,10 +333,12 @@
 		A0DE7839B2B540836211C153 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		ADDDEEAEEB8AA0C96CB83316 /* Pods-iOS-OneSignalNotification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-OneSignalNotification.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-OneSignalNotification/Pods-iOS-OneSignalNotification.release.xcconfig"; sourceTree = "<group>"; };
 		B0EAE7ACC6ACF8EC525C0FA3 /* Pods-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSTests/Pods-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		B14D6D286A77E6629B92C32C /* Pods-DALI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DALI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DALI/Pods-DALI.debug.xcconfig"; sourceTree = "<group>"; };
 		B1C60E501F17CBB15316462B /* Pods_DALI_LabUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DALI_LabUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7F67E5E32109F90D3E6195C /* Pods-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tvOS/Pods-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		BA9F8302BFC20DEF4586CCA0 /* Pods-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-tvOS/Pods-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		C00FE410BA8D344671095445 /* Pods_iOS_OneSignalNotification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_OneSignalNotification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C76D06BC42BC80489FBF7509 /* Pods_DALI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DALI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FC597F114057EA4EE9A174 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		CB9FDAF188DC4EA7D736FA36 /* Pods_OneSignalNotification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00C5112CC26BAB183C8C065 /* Pods_DALI_Lab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DALI_Lab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,10 +351,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		526A5F9322ECB2D5001A96FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86812BECB82AF577E06654FC /* Pods_DALI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		526A5F9B22ECB2D5001A96FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				526A5F9F22ECB2D5001A96FA /* DALI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52B138B31F47D4590021D7AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				526A5FAB22ECB2D5001A96FA /* DALI.framework in Frameworks */,
 				522F31FC1F47DAF800B4BEB4 /* libsqlite3.tbd in Frameworks */,
 				522F31F81F47DAC800B4BEB4 /* CoreBluetooth.framework in Frameworks */,
 				AF3514C21CD5A4E26B64FDBF /* Pods_iOS.framework in Frameworks */,
@@ -398,6 +491,38 @@
 			name = Main;
 			sourceTree = "<group>";
 		};
+		526A5F9722ECB2D5001A96FA /* DALI */ = {
+			isa = PBXGroup;
+			children = (
+				526A5F9822ECB2D5001A96FA /* DALI.h */,
+				525CFB8A22ECBC76002AA2BE /* CheckOutRecord.swift */,
+				526A5FBF22ECB2FB001A96FA /* DALIapi.swift */,
+				526A5FB622ECB2FA001A96FA /* DALIConfig.swift */,
+				526A5FBA22ECB2FA001A96FA /* DALIEquipment.swift */,
+				526A5FB922ECB2FA001A96FA /* DALIErrors.swift */,
+				526A5FBE22ECB2FA001A96FA /* DALIEvent.swift */,
+				526A5FBC22ECB2FA001A96FA /* DALIFood.swift */,
+				526A5FB722ECB2FA001A96FA /* DALILights.swift */,
+				526A5FBB22ECB2FA001A96FA /* DALILocation.swift */,
+				526A5FB422ECB2FA001A96FA /* DALIMember.swift */,
+				526A5FBD22ECB2FA001A96FA /* DALIPhoto.swift */,
+				526A5FC022ECB2FB001A96FA /* DALIProject.swift */,
+				526A5FB822ECB2FA001A96FA /* Enumerations.swift */,
+				526A5FB522ECB2FA001A96FA /* ServerCommunicator.swift */,
+				526A5F9922ECB2D5001A96FA /* Info.plist */,
+			);
+			path = DALI;
+			sourceTree = "<group>";
+		};
+		526A5FA422ECB2D5001A96FA /* DALITests */ = {
+			isa = PBXGroup;
+			children = (
+				526A5FA522ECB2D5001A96FA /* DALITests.swift */,
+				526A5FA722ECB2D5001A96FA /* Info.plist */,
+			);
+			path = DALITests;
+			sourceTree = "<group>";
+		};
 		526A7CEF21C9AE1F00F25E99 /* QR */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +559,8 @@
 				52B138FB1F47D4660021D7AE /* tvOSTests */,
 				52B139061F47D4660021D7AE /* tvOSUITests */,
 				52E2F4351F853FEE00CED245 /* Stickers */,
+				526A5F9722ECB2D5001A96FA /* DALI */,
+				526A5FA422ECB2D5001A96FA /* DALITests */,
 				52B138501F47D39B0021D7AE /* Products */,
 				D9D686CBB542D45138040180 /* Pods */,
 				81A83CAE5D4CC45443AA4AAE /* Frameworks */,
@@ -450,6 +577,8 @@
 				52B138F81F47D4660021D7AE /* tvOSTests.xctest */,
 				52B139031F47D4660021D7AE /* tvOSUITests.xctest */,
 				52E2F4341F853FEE00CED245 /* Stickers.appex */,
+				526A5F9622ECB2D5001A96FA /* DALI.framework */,
+				526A5F9E22ECB2D5001A96FA /* DALITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -570,6 +699,7 @@
 		81A83CAE5D4CC45443AA4AAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52A33CBA22ECB42F0023E661 /* SwiftyJSON.framework */,
 				522F31FB1F47DAF800B4BEB4 /* libsqlite3.tbd */,
 				522F31F91F47DAE100B4BEB4 /* CoreLocation.framework */,
 				522F31F71F47DAC800B4BEB4 /* CoreBluetooth.framework */,
@@ -586,6 +716,7 @@
 				C00FE410BA8D344671095445 /* Pods_iOS_OneSignalNotification.framework */,
 				CB9FDAF188DC4EA7D736FA36 /* Pods_OneSignalNotification.framework */,
 				439D3A8726F67BB493B1A183 /* Pods_OneSignalNotificationServiceExtension.framework */,
+				C76D06BC42BC80489FBF7509 /* Pods_DALI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -619,13 +750,64 @@
 				386617CA772BB0E3522B106B /* Pods-OneSignalNotification.release.xcconfig */,
 				A0DE7839B2B540836211C153 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
 				C9FC597F114057EA4EE9A174 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
+				B14D6D286A77E6629B92C32C /* Pods-DALI.debug.xcconfig */,
+				4DC9C267DB494773FCC8E769 /* Pods-DALI.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		526A5F9122ECB2D5001A96FA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				526A5FA822ECB2D5001A96FA /* DALI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		526A5F9522ECB2D5001A96FA /* DALI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 526A5FB122ECB2D5001A96FA /* Build configuration list for PBXNativeTarget "DALI" */;
+			buildPhases = (
+				52CFDDBD825E6302E5DE8002 /* [CP] Check Pods Manifest.lock */,
+				526A5F9122ECB2D5001A96FA /* Headers */,
+				526A5F9222ECB2D5001A96FA /* Sources */,
+				526A5F9322ECB2D5001A96FA /* Frameworks */,
+				526A5F9422ECB2D5001A96FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DALI;
+			productName = DALI;
+			productReference = 526A5F9622ECB2D5001A96FA /* DALI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		526A5F9D22ECB2D5001A96FA /* DALITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 526A5FB322ECB2D5001A96FA /* Build configuration list for PBXNativeTarget "DALITests" */;
+			buildPhases = (
+				526A5F9A22ECB2D5001A96FA /* Sources */,
+				526A5F9B22ECB2D5001A96FA /* Frameworks */,
+				526A5F9C22ECB2D5001A96FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				526A5FA122ECB2D5001A96FA /* PBXTargetDependency */,
+				526A5FA322ECB2D5001A96FA /* PBXTargetDependency */,
+			);
+			name = DALITests;
+			productName = DALITests;
+			productReference = 526A5F9E22ECB2D5001A96FA /* DALITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		52B138B51F47D4590021D7AE /* iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52B138DB1F47D4590021D7AE /* Build configuration list for PBXNativeTarget "iOS" */;
@@ -639,11 +821,13 @@
 				52B139201F47D47C0021D7AE /* Embed App Extensions */,
 				522F31E51F47DA4900B4BEB4 /* ShellScript */,
 				52880FA22255805B009D0F8E /* ShellScript */,
+				526A5FB222ECB2D5001A96FA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				52E2F43A1F853FEE00CED245 /* PBXTargetDependency */,
+				526A5FAA22ECB2D5001A96FA /* PBXTargetDependency */,
 			);
 			name = iOS;
 			productName = iOS;
@@ -767,10 +951,22 @@
 		52B138471F47D39B0021D7AE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = BrunchLabs;
 				TargetAttributes = {
+					526A5F9522ECB2D5001A96FA = {
+						CreatedOnToolsVersion = 10.3;
+						DevelopmentTeam = JQ28K6Y7JE;
+						LastSwiftMigration = 1030;
+						ProvisioningStyle = Automatic;
+					};
+					526A5F9D22ECB2D5001A96FA = {
+						CreatedOnToolsVersion = 10.3;
+						DevelopmentTeam = JQ28K6Y7JE;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 52B138B51F47D4590021D7AE;
+					};
 					52B138B51F47D4590021D7AE = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = JQ28K6Y7JE;
@@ -849,11 +1045,27 @@
 				52B138E71F47D4650021D7AE /* tvOS */,
 				52B138F71F47D4660021D7AE /* tvOSTests */,
 				52B139021F47D4660021D7AE /* tvOSUITests */,
+				526A5F9522ECB2D5001A96FA /* DALI */,
+				526A5F9D22ECB2D5001A96FA /* DALITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		526A5F9422ECB2D5001A96FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		526A5F9C22ECB2D5001A96FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52B138B41F47D4590021D7AE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -970,6 +1182,28 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		52CFDDBD825E6302E5DE8002 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DALI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5FDA45A694C0B5C7F51C5D3C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1013,16 +1247,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-tvOS/Pods-tvOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DALI-tvOS/DALI.framework",
-				"${BUILT_PRODUCTS_DIR}/EmitterKit-tvOS/EmitterKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FutureKit-tvOS/FutureKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift-tvOS/SocketIO.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream-tvOS/Starscream.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-tvOS/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/EmitterKit-tvOS10.2/EmitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FutureKit-tvOS10.2/FutureKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift-tvOS10.2/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream-tvOS10.2/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-tvOS10.2/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DALI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FutureKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
@@ -1079,25 +1311,23 @@
 				"${PODS_ROOT}/Target Support Files/Pods-iOS/Pods-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ChromaColorPicker/ChromaColorPicker.framework",
-				"${BUILT_PRODUCTS_DIR}/DALI-iOS/DALI.framework",
-				"${BUILT_PRODUCTS_DIR}/EmitterKit-iOS/EmitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/EmitterKit-iOS12.0/EmitterKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
-				"${BUILT_PRODUCTS_DIR}/FutureKit-iOS/FutureKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FutureKit-iOS12.0/FutureKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Log/Log.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReaderViewController/QRCodeReaderViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/RLBAlertsPickers/RLBAlertsPickers.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
-				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift-iOS/SocketIO.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream-iOS/Starscream.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-iOS/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift-iOS12.0/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream-iOS12.0/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-iOS12.0/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChromaColorPicker.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DALI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FutureKit.framework",
@@ -1155,6 +1385,35 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		526A5F9222ECB2D5001A96FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				526A5FCC22ECB2FB001A96FA /* DALIapi.swift in Sources */,
+				526A5FC922ECB2FB001A96FA /* DALIFood.swift in Sources */,
+				525CFB8B22ECBC76002AA2BE /* CheckOutRecord.swift in Sources */,
+				526A5FC822ECB2FB001A96FA /* DALILocation.swift in Sources */,
+				526A5FCD22ECB2FB001A96FA /* DALIProject.swift in Sources */,
+				526A5FC722ECB2FB001A96FA /* DALIEquipment.swift in Sources */,
+				526A5FC422ECB2FB001A96FA /* DALILights.swift in Sources */,
+				526A5FC122ECB2FB001A96FA /* DALIMember.swift in Sources */,
+				526A5FC322ECB2FB001A96FA /* DALIConfig.swift in Sources */,
+				526A5FCB22ECB2FB001A96FA /* DALIEvent.swift in Sources */,
+				526A5FC522ECB2FB001A96FA /* Enumerations.swift in Sources */,
+				526A5FC622ECB2FB001A96FA /* DALIErrors.swift in Sources */,
+				526A5FCA22ECB2FB001A96FA /* DALIPhoto.swift in Sources */,
+				526A5FC222ECB2FB001A96FA /* ServerCommunicator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		526A5F9A22ECB2D5001A96FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				526A5FA622ECB2D5001A96FA /* DALITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52B138B21F47D4590021D7AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1255,6 +1514,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		526A5FA122ECB2D5001A96FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 526A5F9522ECB2D5001A96FA /* DALI */;
+			targetProxy = 526A5FA022ECB2D5001A96FA /* PBXContainerItemProxy */;
+		};
+		526A5FA322ECB2D5001A96FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52B138B51F47D4590021D7AE /* iOS */;
+			targetProxy = 526A5FA222ECB2D5001A96FA /* PBXContainerItemProxy */;
+		};
+		526A5FAA22ECB2D5001A96FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 526A5F9522ECB2D5001A96FA /* DALI */;
+			targetProxy = 526A5FA922ECB2D5001A96FA /* PBXContainerItemProxy */;
+		};
 		52B138CB1F47D4590021D7AE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 52B138B51F47D4590021D7AE /* iOS */;
@@ -1283,6 +1557,121 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		526A5FAD22ECB2D5001A96FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B14D6D286A77E6629B92C32C /* Pods-DALI.debug.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JQ28K6Y7JE;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = DALI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.dali.dartmouth.DALI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		526A5FAE22ECB2D5001A96FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DC9C267DB494773FCC8E769 /* Pods-DALI.release.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JQ28K6Y7JE;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = DALI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.dali.dartmouth.DALI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		526A5FAF22ECB2D5001A96FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JQ28K6Y7JE;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = DALITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.dali.dartmouth.DALITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS.app/iOS";
+			};
+			name = Debug;
+		};
+		526A5FB022ECB2D5001A96FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JQ28K6Y7JE;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = DALITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.dali.dartmouth.DALITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS.app/iOS";
+			};
+			name = Release;
+		};
 		52B138751F47D39C0021D7AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1398,6 +1787,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2D680826E06D0CB05826D88E /* Pods-iOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
@@ -1423,6 +1813,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 30E4FF739BA2E6ADB3C63F39 /* Pods-iOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
@@ -1675,6 +2066,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		526A5FB122ECB2D5001A96FA /* Build configuration list for PBXNativeTarget "DALI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				526A5FAD22ECB2D5001A96FA /* Debug */,
+				526A5FAE22ECB2D5001A96FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		526A5FB322ECB2D5001A96FA /* Build configuration list for PBXNativeTarget "DALITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				526A5FAF22ECB2D5001A96FA /* Debug */,
+				526A5FB022ECB2D5001A96FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		52B1384A1F47D39B0021D7AE /* Build configuration list for PBXProject "DALI Lab" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
