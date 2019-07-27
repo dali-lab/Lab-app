@@ -62,6 +62,16 @@
                ReferencedContainer = "container:DALI Lab.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "526A5F9D22ECB2D5001A96FA"
+               BuildableName = "DALITests.xctest"
+               BlueprintName = "DALITests"
+               ReferencedContainer = "container:DALI Lab.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -1,16 +1,24 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
+def DALIframework_pods
+  pod 'SwiftyJSON'
+  pod 'Socket.IO-Client-Swift'
+  pod 'FutureKit'
+end
+
 target 'iOS' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   inhibit_all_warnings!
   
+  pod 'SwiftyJSON'
+  pod 'Socket.IO-Client-Swift'
+  pod 'FutureKit'
   pod 'Google/SignIn'
   pod 'SCLAlertView'
   pod 'Eureka'
   pod 'Crashlytics'
-  pod 'DALI', :git => 'https://github.com/dali-lab/DALI-Framework' 
   pod 'Socket.IO-Client-Swift'
   pod 'ChromaColorPicker'
   pod 'QRCodeReaderViewController'
@@ -35,10 +43,21 @@ target 'iOS' do
   end
 end
 
+target 'DALI' do
+  use_frameworks!
+  pod 'EmitterKit'
+  pod 'SwiftyJSON'
+  pod 'Socket.IO-Client-Swift'
+  pod 'FutureKit'
+end
+
 target 'tvOS' do
 	# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 	use_frameworks!
-  	pod 'DALI', :git => 'https://github.com/dali-lab/DALI-Framework' 
+  pod 'SwiftyJSON'
+  pod 'Socket.IO-Client-Swift'
+  pod 'FutureKit'
+  pod 'EmitterKit'
 	
 	# Pods for DALI Lab
 	
